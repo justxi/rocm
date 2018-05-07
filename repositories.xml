@@ -1,0 +1,12 @@
+<repositories encoding="unicode" version="1.1">
+  <repo priority="50" quality="experimental">
+    <name>rocm</name>
+    <description>Ebuilds to install ROCM on Gentoo</description>
+    <homepage>https://bugs.gentoo.org/650804</homepage>
+    <owner>
+      <email>gentoo@holzke.net</email>
+      <name>justXi</name>
+    </owner>
+    <source type="git">https://github.com/justxi/rocm.git</source>
+  </repo>
+</repositories>
