@@ -4,7 +4,7 @@
 EAPI=6
 inherit cmake-utils
 
-DESCRIPTION="ROCKR-runtime"
+DESCRIPTION="ROCKT-Thunk-Interface"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/tree/roc-1.7.x"
 SRC_URI="https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/archive/roc-${PV}.tar.gz -> ${P}.tar.gz"
 
