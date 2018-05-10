@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="media-libs/ROCR-Runtime
+RDEPEND="=media-libs/ROCR-Runtime-1.7*
          sys-libs/libunwind"
 
 CMAKE_BUILD_TYPE="Release"
