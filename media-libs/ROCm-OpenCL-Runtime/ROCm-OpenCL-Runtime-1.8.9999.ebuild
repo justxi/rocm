@@ -22,13 +22,14 @@ RDEPEND="media-libs/ROCR-Runtime"
 CMAKE_BUILD_TYPE="RelWithDebInfo"
 
 src_unpack() {
-	git-r3_fetch ${EGIT_REPO_URI}
-	git-r3_fetch "https://github.com/RadeonOpenCompute/ROCm-Device-Libs"
-	git-r3_fetch "https://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver"
-	git-r3_fetch "https://github.com/RadeonOpenCompute/llvm"
-	git-r3_fetch "https://github.com/RadeonOpenCompute/clang"
-	git-r3_fetch "https://github.com/RadeonOpenCompute/lld"
-	git-r3_fetch "https://github.com/KhronosGroup/OpenCL-ICD-Loader"
+	git-r3_fetch ${EGIT_REPO_URI} 
+	git-r3_fetch "https://github.com/RadeonOpenCompute/ROCm-Device-Libs" 
+	git-r3_fetch "https://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver" 
+	git-r3_fetch "https://github.com/RadeonOpenCompute/llvm" 
+	git-r3_fetch "https://github.com/RadeonOpenCompute/clang" 
+	git-r3_fetch "https://github.com/RadeonOpenCompute/lld" 
+	EGIT_BRANCH="master"
+	git-r3_fetch "https://github.com/KhronosGroup/OpenCL-ICD-Loader" 
 
 	git-r3_checkout ${EGIT_REPO_URI}
 	git-r3_checkout https://github.com/RadeonOpenCompute/ROCm-Device-Libs "${S}"/library/amdgcn
