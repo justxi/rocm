@@ -7,7 +7,7 @@ inherit cmake-utils git-r3
 DESCRIPTION="ROCKT-Thunk-Interface"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/"
 EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/"
-EGIT_BRANCH="roc-1.8.x"
+EGIT_BRANCH="fxkamd/drm-next-wip"
 
 LICENSE=""
 SLOT="0"
