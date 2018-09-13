@@ -7,7 +7,7 @@ inherit git-r3
 DESCRIPTION="ROCm System Management Interface"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROC-smi"
 EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROC-smi"
-EGIT_BRANCH="master"
+EGIT_BRANCH="roc-1.9.x"
 
 LICENSE=""
 SLOT="0"

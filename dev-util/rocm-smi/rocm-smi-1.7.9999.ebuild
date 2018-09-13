@@ -7,7 +7,7 @@ inherit git-r3
 DESCRIPTION="ROCm System Management Interface"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROC-smi"
 EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROC-smi"
-EGIT_BRANCH="master"
+EGIT_BRANCH="roc-1.7.x"
 
 LICENSE=""
 SLOT="0"
@@ -23,6 +23,5 @@ src_compile() {
 
 src_install() {
 	exeinto /opt/rocm/bin
-	doexe ${S}/rocm_smi.py
-	dosym ./rocm_smi.py /opt/rocm/bin/rocm-smi
+	doexe ${S}/rocm-smi
 }
