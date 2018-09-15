@@ -14,7 +14,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="sys-process/numactl"
+DEPEND="sys-process/numactl
+	>=sys-kernel/gentoo-sources-4.17"
 RDEPEND="${DEPEND}"
 
 #S="${WORKDIR}/${PN}-roc-${PV}/"
