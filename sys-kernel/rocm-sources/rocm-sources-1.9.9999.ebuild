@@ -4,7 +4,7 @@
 EAPI=6
 inherit git-r3
 
-DESCRIPTION="ROCm-OpenCL-Runtime"
+DESCRIPTION="ROCm kernel sources"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver"
 EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver"
 EGIT_BRANCH="roc-1.9.x"
