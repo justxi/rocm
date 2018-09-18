@@ -1,0 +1,10 @@
+--- a/library/src/CMakeLists.txt	2018-09-16 18:42:38.564061795 +0200
++++ b/library/src/CMakeLists.txt	2018-09-16 18:42:32.848061884 +0200
+@@ -76,6 +76,7 @@
+ 
+   set( Tensile_INC
+     ${CMAKE_CURRENT_SOURCE_DIR}/blas3/Tensile
++    ${CMAKE_BINARY_DIR}/Tensile
+   )
+ endif( )
+ 
