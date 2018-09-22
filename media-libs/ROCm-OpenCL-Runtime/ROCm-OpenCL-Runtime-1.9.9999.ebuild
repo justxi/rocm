@@ -15,7 +15,7 @@ DEPEND="dev-lang/ocaml
 	dev-ml/findlib
 	app-admin/chrpath
 	dev-util/repo"
-RDEPEND="media-libs/ROCR-Runtime"
+RDEPEND=">=media-libs/ROCR-Runtime-1.9"
 
 BUILD_DIR="${WORKDIR}/build"
 
