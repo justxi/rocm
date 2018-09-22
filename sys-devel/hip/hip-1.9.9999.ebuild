@@ -39,6 +39,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Possibly, set HCC_HOME=/usr/lib/hcc/1.9/"
+	elog "Possibly, set HIP_HOME=/usr/lib/hip/1.9/"
+	elog "For more environment variables look at /usr/lib/hip/1.9/bin/hipcc"
 }
 
