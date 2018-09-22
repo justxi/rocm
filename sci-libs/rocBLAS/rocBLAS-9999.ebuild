@@ -13,7 +13,8 @@ EGIT_BRANCH="develop"
 LICENSE=""
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="+gfx803 gfx900 gfx906"
+REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 RDEPEND="=dev-lang/python-2.7*
 	dev-python/pyyaml"
@@ -30,7 +31,18 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/Tensile-setCurrentISA.patch"
+	# if the ISA is not set previous to the autodetection, /opt/rocm/bin/rocm_agent_enumerator is executed,
+	# this leads to a sandbox violation
+	if use gfx803; then
+		eapply "${FILESDIR}/Tensile-setCurrentISA_gfx803.patch"
+	fi
+	if use gfx900; then
+		eapply "${FILESDIR}/Tensile-setCurrentISA_gfx900.patch"
+	fi
+	if use gfx906; then
+		eapply "${FILESDIR}/Tensile-setCurrentISA_gfx906.patch"
+	fi
+
         eapply "${FILESDIR}/development-usePython27.patch"
         eapply "${FILESDIR}/development-addTensileIncludePath.patch"
         eapply_user

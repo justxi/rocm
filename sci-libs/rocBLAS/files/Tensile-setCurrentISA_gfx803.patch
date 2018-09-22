@@ -1,0 +1,12 @@
+--- a/Tensile/Tensile/TensileCreateLibrary.py	2018-09-18 17:16:06.689414776 +0200
++++ b/Tensile/Tensile/TensileCreateLibrary.py	2018-09-18 17:14:11.422423850 +0200
+@@ -1010,6 +1010,9 @@
+   arguments["ShortNames"] = args.ShortNames
+   arguments["LibraryPrintDebug"] = args.LibraryPrintDebug
+   arguments["CodeFromFiles"] = False
++
++  globalParameters["CurrentISA"]=(8,0,3)
++
+   assignGlobalParameters(arguments)
+ 
+   if not os.path.exists(logicPath):
