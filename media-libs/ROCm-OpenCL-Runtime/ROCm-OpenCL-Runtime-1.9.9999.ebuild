@@ -3,6 +3,8 @@
 
 EAPI=6
 
+inherit check-reqs
+
 DESCRIPTION="ROCm-OpenCL-Runtime"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime"
 
@@ -18,6 +20,8 @@ DEPEND="dev-lang/ocaml
 RDEPEND=">=media-libs/ROCR-Runtime-1.9"
 
 BUILD_DIR="${WORKDIR}/build"
+
+CHECKREQS_DISK_BUILD="32G"
 
 src_unpack() {
 	mkdir ${S}
