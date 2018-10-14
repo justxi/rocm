@@ -24,6 +24,6 @@ src_unpack(){
 
 src_install() {
 	dolib.so "${S}/opt/rocm/hsa-amd-aqlprofile/lib/libhsa-amd-aqlprofile64.so.1.0.0"
-	dosym "libhsa-amd-aqlprofile64.so.1.0.0" "/usr/$(get_libdir)/libhsa-amd-aqlprofile.so"
-	dosym "libhsa-amd-aqlprofile64.so.1.0.0" "/usr/$(get_libdir)/libhsa-amd-aqlprofile.so.1"
+	dosym "libhsa-amd-aqlprofile64.so.1.0.0" "/usr/$(get_libdir)/libhsa-amd-aqlprofile64.so"
+	dosym "libhsa-amd-aqlprofile64.so.1.0.0" "/usr/$(get_libdir)/libhsa-amd-aqlprofile64.so.1"
 }
