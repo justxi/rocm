@@ -3,12 +3,12 @@
 
 EAPI=6
 
-inherit git-r3
+#inherit git-r3
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
-EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS.git"
-EGIT_BRANCH="develop"
+SRC_URI="https://codeload.github.com/ROCmSoftwarePlatform/rocBLAS/tar.gz/v${PV} -> ${P}.tar.gz
+         https://codeload.github.com/ROCmSoftwarePlatform/Tensile/tar.gz/v4.6.0 -> Tensile-4.6.0.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -21,17 +21,10 @@ RDEPEND="=dev-lang/python-2.7*
 DEPEND="dev-util/cmake"
 	${RDPEND}
 
-src_unpack() {
-
-	git-r3_fetch ${EGIT_REPO_URI}
-	git-r3_fetch "https://github.com/ROCmSoftwarePlatform/Tensile.git"
-
-        git-r3_checkout ${EGIT_REPO_URI}
-        git-r3_checkout https://github.com/ROCmSoftwarePlatform/Tensile.git "${WORKDIR}"/Tensile
-}
-
 src_prepare() {
-	cd ${WORKDIR}/Tensile
+
+	cd "${WORKDIR}/Tensile-4.6.0"
+
 	# if the ISA is not set previous to the autodetection, /opt/rocm/bin/rocm_agent_enumerator is executed,
 	# this leads to a sandbox violation
 	if use gfx803; then
@@ -47,6 +40,7 @@ src_prepare() {
 	cd ${S}
         eapply "${FILESDIR}/master-usePython27.patch"
         eapply "${FILESDIR}/master-addTensileIncludePath.patch"
+        eapply "${FILESDIR}/master-CMake_report_library.patch"
         eapply_user
 }
 
@@ -65,7 +59,7 @@ src_configure() {
 		buildtype="-DCMAKE_BUILD_TYPE=Release"
 	fi
 
-	cmake -DTensile_TEST_LOCAL_PATH=${WORKDIR}/Tensile -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" ${buildtype}  ${S}
+	cmake -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-4.6.0" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" ${buildtype}  ${S}
 }
 
 src_compile() {
@@ -75,7 +69,7 @@ src_compile() {
 
 src_install() {
 
-	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.0.15.1.3"
+	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.0.14.2.5"
 
         cd "${WORKDIR}/build/release"
 	emake DESTDIR="${D}" install
