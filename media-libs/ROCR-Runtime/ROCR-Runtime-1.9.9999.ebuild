@@ -21,9 +21,9 @@ S="${WORKDIR}/${P}/src"
 
 src_install() {
 
-        dolib.so "${BUILD_DIR}/libhsa-runtime64.so.1.9.0"
-        dosym "libhsa-runtime64.so.1.9.0" "/usr/$(get_libdir)/libhsa-runtime64.so"
-        dosym "libhsa-runtime64.so.1.9.0" "/usr/$(get_libdir)/libhsa-runtime64.so.1"
+        dolib.so "${BUILD_DIR}/libhsa-runtime64.so.1.9.1"
+        dosym "libhsa-runtime64.so.1.9.1" "/usr/$(get_libdir)/libhsa-runtime64.so"
+        dosym "libhsa-runtime64.so.1.9.1" "/usr/$(get_libdir)/libhsa-runtime64.so.1"
 
         insinto "/usr/include/hsa"
         doins "${S}/inc/amd_hsa_common.h"
