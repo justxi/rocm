@@ -15,7 +15,10 @@ IUSE=""
 
 DEPEND="dev-lang/ocaml
 	dev-ml/findlib
-	app-admin/chrpath"
+	app-admin/chrpath
+        dev-util/repo
+        dev-cpp/gtest"
+
 RDEPEND="media-libs/ROCR-Runtime"
 
 CMAKE_BUILD_TYPE="RelWithDebInfo"

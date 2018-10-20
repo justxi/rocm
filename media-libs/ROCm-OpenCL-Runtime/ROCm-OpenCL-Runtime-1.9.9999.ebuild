@@ -16,7 +16,9 @@ IUSE=""
 DEPEND="dev-lang/ocaml
 	dev-ml/findlib
 	app-admin/chrpath
-	dev-util/repo"
+	dev-util/repo
+	dev-cpp/gtest"
+
 RDEPEND=">=media-libs/ROCR-Runtime-1.9"
 
 BUILD_DIR="${WORKDIR}/build"
