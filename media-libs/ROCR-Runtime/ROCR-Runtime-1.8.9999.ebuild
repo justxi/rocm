@@ -5,7 +5,7 @@ EAPI=6
 inherit cmake-utils git-r3
 
 DESCRIPTION="ROCKR-runtime"
-HOMEPAGE="https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-1.7.x"
+HOMEPAGE="https://github.com/RadeonOpenCompute/ROCR-Runtime/tree/roc-1.8.x"
 EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROCR-Runtime/"
 EGIT_BRANCH="roc-1.8.x"
 
