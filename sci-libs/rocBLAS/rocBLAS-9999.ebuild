@@ -89,7 +89,27 @@ src_install() {
 	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.${rocBLAS_V}"
 
         cd "${WORKDIR}/build/release"
+
+	# install to /usr/lib/rocblas
 	emake DESTDIR="${D}" install
+
+	# create symlinks to headers and libraries
+	dosym "../lib/rocblas/include/rocblas.h" "/usr/include/rocblas.h"
+	dosym "../lib/rocblas/include/rocblas-auxiliary.h" "/usr/include/rocblas-auxiliary.h"
+	dosym "../lib/rocblas/include/rocblas-export.h" "/usr/include/rocblas-export.h"
+	dosym "../lib/rocblas/include/rocblas-types.h" "/usr/include/rocblas-types.h"
+	dosym "../lib/rocblas/include/rocblas-version.h" "/usr/include/rocblas-version.h"
+
+	dosym "./rocblas/lib/librocblas.so.${rocBLAS_V}" "/usr/lib/librocblas.so.${rocBLAS_V}"
+	dosym "./rocblas/lib/librocblas.so.${rocBLAS_V}" "/usr/lib/librocblas.so.0"
+	dosym "./rocblas/lib/librocblas.so.${rocBLAS_V}" "/usr/lib/librocblas.so"
+
+	# create cmake symlink
+	dosym "../rocblas/lib/cmake/rocblas" "/usr/lib/cmake/rocblas"
+
+	# delete symlinks in "wrong" directories
+	rm -r ${D}/usr/lib/include
+	rm -r ${D}/usr/lib/lib
 }
 
 
