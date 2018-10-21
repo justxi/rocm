@@ -1,0 +1,11 @@
+--- a/library/src/CMakeLists.txt	2018-10-06 18:49:06.742608857 +0200
++++ b/library/src/CMakeLists.txt	2018-10-06 18:49:41.270608321 +0200
+@@ -197,7 +197,7 @@
+ #         PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ WORLD_EXECUTE WORLD_READ
+ 
+ rocm_export_targets(
+-  TARGETS rocblas-targets
++  TARGETS roc::rocblas
+   PREFIX rocblas
+   DEPENDS PACKAGE hip
+   NAMESPACE roc::

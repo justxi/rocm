@@ -8,7 +8,7 @@ EAPI=6
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
 SRC_URI="https://codeload.github.com/ROCmSoftwarePlatform/rocBLAS/tar.gz/v${PV} -> ${P}.tar.gz
-         https://codeload.github.com/ROCmSoftwarePlatform/Tensile/tar.gz/v4.6.0 -> Tensile-4.6.0.tar.gz"
+         https://codeload.github.com/ROCmSoftwarePlatform/Tensile/tar.gz/v4.5.0 -> Tensile-4.5.0.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -17,13 +17,14 @@ IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 RDEPEND="=dev-lang/python-2.7*
-	dev-python/pyyaml"
+	dev-python/pyyaml
+	=sys-devel/hip-1.9*"
 DEPEND="dev-util/cmake"
 	${RDPEND}
 
 src_prepare() {
 
-	cd "${WORKDIR}/Tensile-4.6.0"
+	cd "${WORKDIR}/Tensile-4.5.0"
 
 	# if the ISA is not set previous to the autodetection, /opt/rocm/bin/rocm_agent_enumerator is executed,
 	# this leads to a sandbox violation
@@ -59,7 +60,7 @@ src_configure() {
 		buildtype="-DCMAKE_BUILD_TYPE=Release"
 	fi
 
-	cmake -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-4.6.0" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" ${buildtype}  ${S}
+	cmake -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-4.5.0" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" ${buildtype}  ${S}
 }
 
 src_compile() {

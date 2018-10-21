@@ -17,7 +17,8 @@ IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 RDEPEND="=dev-lang/python-2.7*
-	dev-python/pyyaml"
+	dev-python/pyyaml
+	=sys-devel/hip-1.9*"
 DEPEND="dev-util/cmake"
 	${RDPEND}
 
