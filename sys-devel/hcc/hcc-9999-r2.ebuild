@@ -11,9 +11,10 @@ SLOT="9999"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=""
-#RDEPEND="=media-libs/ROCR-Runtime-1.8*
-#         sys-libs/libunwind"
+RDEPEND="=media-libs/ROCR-Runtime-1.9*"
+DEPEND="${RDEPEND}
+        dev-util/cmake
+        dev-vcs/git"
 
 src_unpack() {
 

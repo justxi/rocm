@@ -16,9 +16,10 @@ SLOT="1.9"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=""
 RDEPEND="=media-libs/ROCR-Runtime-1.9*"
-#         sys-libs/libunwind"
+DEPEND="${RDEPEND}
+	dev-util/cmake
+	dev-vcs/git"
 
 #CMAKE_BUILD_TYPE="Release"
 
