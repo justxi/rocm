@@ -19,19 +19,30 @@ REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 RDEPEND="=dev-lang/python-2.7*
 	dev-python/pyyaml
 	=sys-devel/hip-1.9*"
-DEPEND="dev-util/cmake"
-	${RDPEND}
+DEPEND="${RDPEND}
+	dev-util/cmake"
+
+# stripped library is not working
+RESTRICT="strip"
 
 src_unpack() {
-
 	git-r3_fetch ${EGIT_REPO_URI}
 	git-r3_fetch "https://github.com/ROCmSoftwarePlatform/Tensile.git"
 
         git-r3_checkout ${EGIT_REPO_URI}
         git-r3_checkout https://github.com/ROCmSoftwarePlatform/Tensile.git "${WORKDIR}"/Tensile
+
+        ROCM_SETUP_VERSION=`grep rocm_setup_version ${S}/CMakeLists.txt`
+        rocBLAS_V=`echo ${ROCM_SETUP_VERSION} | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
+        einfo "Current version is: ${rocBLAS_V}"
 }
 
 src_prepare() {
+        # Use only the flags from rocBLAS - this should be fixed
+        CFLAGS=""
+        CXXFLAGS=""
+        LDFLAGS=""
+
 	cd ${WORKDIR}/Tensile
 	# if the ISA is not set previous to the autodetection, /opt/rocm/bin/rocm_agent_enumerator is executed,
 	# this leads to a sandbox violation
@@ -75,8 +86,7 @@ src_compile() {
 }
 
 src_install() {
-
-	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.0.15.1.3"
+	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.${rocBLAS_V}"
 
         cd "${WORKDIR}/build/release"
 	emake DESTDIR="${D}" install

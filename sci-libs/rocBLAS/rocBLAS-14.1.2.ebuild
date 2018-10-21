@@ -3,8 +3,6 @@
 
 EAPI=6
 
-#inherit git-r3
-
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
 SRC_URI="https://codeload.github.com/ROCmSoftwarePlatform/rocBLAS/tar.gz/v${PV} -> ${P}.tar.gz
@@ -18,11 +16,18 @@ REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 RDEPEND="=dev-lang/python-2.7*
 	dev-python/pyyaml
-	=sys-devel/hip-1.9*"
-DEPEND="dev-util/cmake"
-	${RDPEND}
+	=sys-devel/hip-1.8*"
+DEPEND="${RDPEND}
+	dev-util/cmake"
+
+# stripped library is not working
+RESTRICT="strip"
 
 src_prepare() {
+        # Use only the flags from rocBLAS - this should be fixed
+        CFLAGS=""
+        CXXFLAGS=""
+        LDFLAGS=""
 
 	cd "${WORKDIR}/Tensile-4.5.0"
 
@@ -69,7 +74,6 @@ src_compile() {
 }
 
 src_install() {
-
 	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.0.14.1.2"
 
         cd "${WORKDIR}/build/release"

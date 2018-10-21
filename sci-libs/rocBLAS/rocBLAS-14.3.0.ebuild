@@ -3,10 +3,12 @@
 
 EAPI=6
 
+TENSILE_V="4.6.0"
+
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
 SRC_URI="https://codeload.github.com/ROCmSoftwarePlatform/rocBLAS/tar.gz/v${PV} -> ${P}.tar.gz
-         https://codeload.github.com/ROCmSoftwarePlatform/Tensile/tar.gz/v4.6.0 -> Tensile-4.6.0.tar.gz"
+         https://codeload.github.com/ROCmSoftwarePlatform/Tensile/tar.gz/v${TENSILE_V} -> Tensile-${TENSILE_V}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -29,7 +31,7 @@ src_prepare() {
         CXXFLAGS=""
         LDFLAGS=""
 
-	cd "${WORKDIR}/Tensile-4.6.0"
+	cd "${WORKDIR}/Tensile-${TENSILE_V}"
 
 	# if the ISA is not set previous to the autodetection, /opt/rocm/bin/rocm_agent_enumerator is executed,
 	# this leads to a sandbox violation
@@ -65,7 +67,7 @@ src_configure() {
 		buildtype="-DCMAKE_BUILD_TYPE=Release"
 	fi
 
-	cmake -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-4.6.0" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" ${buildtype}  ${S}
+	cmake -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-${TENSILE_V}" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" ${buildtype}  ${S}
 }
 
 src_compile() {
@@ -74,7 +76,7 @@ src_compile() {
 }
 
 src_install() {
-	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.0.14.2.5"
+	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.0.${PV}"
 
         cd "${WORKDIR}/build/release"
 	emake DESTDIR="${D}" install

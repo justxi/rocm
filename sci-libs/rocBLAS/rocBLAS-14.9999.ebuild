@@ -3,10 +3,12 @@
 
 EAPI=6
 
+inherit git-r3
+
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
-SRC_URI="https://codeload.github.com/ROCmSoftwarePlatform/rocBLAS/tar.gz/v${PV} -> ${P}.tar.gz
-         https://codeload.github.com/ROCmSoftwarePlatform/Tensile/tar.gz/v4.6.0 -> Tensile-4.6.0.tar.gz"
+EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS.git"
+EGIT_BRANCH="master"
 
 LICENSE=""
 SLOT="0"
@@ -23,14 +25,25 @@ DEPEND="${RDPEND}
 # stripped library is not working
 RESTRICT="strip"
 
+src_unpack() {
+	git-r3_fetch ${EGIT_REPO_URI}
+	git-r3_fetch "https://github.com/ROCmSoftwarePlatform/Tensile.git"
+
+        git-r3_checkout ${EGIT_REPO_URI}
+        git-r3_checkout https://github.com/ROCmSoftwarePlatform/Tensile.git "${WORKDIR}"/Tensile
+
+	ROCM_SETUP_VERSION=`grep rocm_setup_version ${S}/CMakeLists.txt`
+	rocBLAS_V=`echo ${ROCM_SETUP_VERSION} | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\.[0-9]*\).*$/\1/'`
+	einfo "Current version is: ${rocBLAS_V}"
+}
+
 src_prepare() {
-        # Use only the flags from rocBLAS - this should be fixed
-        CFLAGS=""
-        CXXFLAGS=""
-        LDFLAGS=""
+	# Use only the flags from rocBLAS - this should be fixed
+	CFLAGS=""
+	CXXFLAGS=""
+	LDFLAGS=""
 
-	cd "${WORKDIR}/Tensile-4.6.0"
-
+	cd ${WORKDIR}/Tensile
 	# if the ISA is not set previous to the autodetection, /opt/rocm/bin/rocm_agent_enumerator is executed,
 	# this leads to a sandbox violation
 	if use gfx803; then
@@ -46,7 +59,6 @@ src_prepare() {
 	cd ${S}
         eapply "${FILESDIR}/master-usePython27.patch"
         eapply "${FILESDIR}/master-addTensileIncludePath.patch"
-        eapply "${FILESDIR}/master-CMake_report_library.patch"
         eapply_user
 }
 
@@ -65,7 +77,7 @@ src_configure() {
 		buildtype="-DCMAKE_BUILD_TYPE=Release"
 	fi
 
-	cmake -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-4.6.0" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" ${buildtype}  ${S}
+	cmake -DTensile_TEST_LOCAL_PATH=${WORKDIR}/Tensile -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" ${buildtype}  ${S}
 }
 
 src_compile() {
@@ -74,7 +86,7 @@ src_compile() {
 }
 
 src_install() {
-	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.0.14.2.5"
+	chrpath --delete "${WORKDIR}/build/release/library/src/librocblas.so.${rocBLAS_V}"
 
         cd "${WORKDIR}/build/release"
 	emake DESTDIR="${D}" install
