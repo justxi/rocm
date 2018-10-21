@@ -14,7 +14,7 @@ SLOT="1.9"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=">=sys-devel/hcc-1.9"
+DEPEND="=sys-devel/hcc-1.9*"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
