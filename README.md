@@ -1,2 +1,4 @@
 
-Ebuilds to install ROCM on Gentoo
+Ebuilds to install ROCm on Gentoo Linux
+
+-> https://github.com/RadeonOpenCompute/ROCm
