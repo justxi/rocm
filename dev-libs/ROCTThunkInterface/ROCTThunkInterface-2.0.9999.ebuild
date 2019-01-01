@@ -30,7 +30,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "ROCk library requires the correct ROCk driver set installed."
+	elog "ROCT library requires the correct ROCk driver set installed."
 	elog "Compatibility and installation details are available in the ROCk github:"
 	elog "-> https://github.com/RadeonOpenCompute/ROCK-Radeon-Open-Compute-Kernel-Driver"
 	elog ""

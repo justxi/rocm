@@ -21,13 +21,16 @@ S="${WORKDIR}/ROCT-Thunk-Interface-roc-${PV}"
 
 MY_PVM=$(ver_cut 1)
 
+src_prepare() {
+	cd ${WORKDIR}
+	eapply "${FILESDIR}/changeVersion2.patch"
+	eapply_user
+}
+
 src_install() {
-	dolib.so "${BUILD_DIR}/libhsakmt.so.1.0.0"
-	dosym "libhsakmt.so.1.0.0" "/usr/$(get_libdir)/libhsakmt.so"
-	dosym "libhsakmt.so.1.0.0" "/usr/$(get_libdir)/libhsakmt.so.1"
-#	dolib.so "${BUILD_DIR}/libhsakmt.so.${PV}"
-#	dosym "libhsakmt.so.${PV}" "/usr/$(get_libdir)/libhsakmt.so"
-#	dosym "libhsakmt.so.${PV}" "/usr/$(get_libdir)/libhsakmt.so.${MY_PVM}"
+	dolib.so "${BUILD_DIR}/libhsakmt.so.${PV}"
+	dosym "libhsakmt.so.${PV}" "/usr/$(get_libdir)/libhsakmt.so"
+	dosym "libhsakmt.so.${PV}" "/usr/$(get_libdir)/libhsakmt.so.${MY_PVM}"
 
 	insinto "/usr/include/libhsakmt"
 	doins "include/hsakmt.h"
@@ -35,7 +38,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "ROCk library requires the correct ROCk driver set installed."
+	elog "ROCT library requires the correct ROCk driver set installed."
 	elog "Compatibility and installation details are available in the ROCk github:"
 	elog "-> https://github.com/RadeonOpenCompute/ROCK-Radeon-Open-Compute-Kernel-Driver"
 	elog ""
