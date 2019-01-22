@@ -1,14 +1,16 @@
-# Copyright
+	# Copyright
 #
 
-EAPI=7
+EAPI=6
+
+inherit cmake-utils eapi7-ver
 
 DESCRIPTION="ROCm-Device-Libs"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm-Device-Libs"
 SRC_URI="https://github.com/RadeonOpenCompute/ROCm-Device-Libs/archive/roc-2.0.0.tar.gz -> rocm-device-libs-2.0.0.tar.gz"
 
-LICENSE=""
-SLOT="0"
+LICENSE="MIT"
+SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
 IUSE=""
 
@@ -16,22 +18,18 @@ DEPEND=""
 RDEPEND="dev-libs/rocr-runtime
 	 sys-devel/llvm-roc"
 
-S="${WORKDIR}/ROCm-Device-Libs-roc-2.0.0"
+CMAKE_BUILD_TYPE="Release"
+
+S="${WORKDIR}/ROCm-Device-Libs-roc-${PV}"
 
 src_configure() {
-        mkdir "${WORKDIR}/build"
-        cd "${WORKDIR}/build"
-	export LLVM_BUILD=/opt/rocm/llvm/
-	CC=$LLVM_BUILD/bin/clang cmake -DLLVM_DIR=$LLVM_BUILD -DCMAKE_INSTALL_PREFIX=/opt/rocm/ ${S}
-}
+	export LLVM_BUILD=/usr/lib/llvm/roc-${PV}
+	export CC=$LLVM_BUILD/bin/clang
 
-src_compile() {
-        cd "${WORKDIR}/build"
-        make VERBOSE=1 ${MAKEOPTS}
-}
+	local mycmakeargs=(
+		-DLLVM_DIR=$LLVM_BUILD
+		-DCMAKE_INSTALL_PREFIX=/usr/
+	)
 
-src_install() {
-        cd "${WORKDIR}/build"
-        emake DESTDIR="${D}" install
+	cmake-utils_src_configure
 }
-
