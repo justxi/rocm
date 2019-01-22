@@ -26,7 +26,7 @@ src_unpack() {
 src_configure() {
         mkdir "${WORKDIR}/build"
         cd "${WORKDIR}/build"
-        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/rocm/llvm -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" ${S}
+        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/lib/llvm/roc-2.0.0 -DLLVM_TARGETS_TO_BUILD="AMDGPU;X86" ${S}
 }
 
 src_compile() {
