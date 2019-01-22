@@ -1,13 +1,16 @@
 # Copyright
 #
 
-EAPI=7
+EAPI=6
+
+inherit cmake-utils eapi7-ver
 
 DESCRIPTION="ROCm-OpenCL-Driver"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver"
 SRC_URI="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/archive/roc-2.0.0.tar.gz -> rocm-opencl-driver-2.0.0.tar.gz"
 
-LICENSE=""
+LICENSE="MIT"
+#SLOT="0/$(ver_cut 1-2)"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
@@ -16,23 +19,21 @@ DEPEND=""
 RDEPEND="dev-libs/rocr-runtime
 	 sys-devel/llvm-roc"
 
-S="${WORKDIR}/ROCm-OpenCL-Driver-roc-2.0.0"
+PATCHES=(
+        "${FILESDIR}/${P}-add-link-libraries.patch"
+)
+
+CMAKE_BUILD_TYPE="Release"
+
+S="${WORKDIR}/ROCm-OpenCL-Driver-roc-${PV}"
 
 src_configure() {
-        mkdir "${WORKDIR}/build"
-        cd "${WORKDIR}/build"
-	export LLVM_DIR=/opt/rocm/llvm/
-	cmake -DLLVM_DIR=$LLVM_DIR -DCMAKE_INSTALL_PREFIX=/opt/rocm/ ${S}
-}
+	export LLVM_DIR=/usr/lib/llvm/roc-${PV}
 
-src_compile() {
-        cd "${WORKDIR}/build"
-#        make VERBOSE=1 ${MAKEOPTS} || die "compile failed!"
-        make VERBOSE=1 || die "compile failed!"
-}
+	local mycmakeargs=(
+		-DLLVM_DIR=$LLVM_DIR
+		-DCMAKE_INSTALL_PREFIX=/usr/
+	)
 
-src_install() {
-        cd "${WORKDIR}/build"
-        emake DESTDIR="${D}" install || die "install failed!"
+	cmake-utils_src_configure
 }
-
