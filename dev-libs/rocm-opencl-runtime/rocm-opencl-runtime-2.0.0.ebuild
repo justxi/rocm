@@ -23,7 +23,7 @@ RDEPEND="sys-devel/llvm-roc
 	 dev-libs/rocr-runtime"
 
 #PATCHES=(
-#	"${FILESDIR}/${P}-remove-llvm-directory.patch"
+#	"${FILESDIR}/rocm-opencl-driver-2.0.0-add-link-libraries.patch"
 #)
 
 S="${WORKDIR}/ROCm-OpenCL-Runtime-roc-${PV}"
@@ -41,9 +41,14 @@ src_unpack() {
 }
 
 src_prepare() {
+	patch -d ../ROCm-OpenCL-Driver-roc-2.0.0/ -p1 < ${FILESDIR}/rocm-opencl-driver-2.0.0-add-link-libraries.patch || die
+
+	patch -p1 < ${FILESDIR}/rocm-opencl-runtime-2.0.0-add-path.patch || die
+
 	sed -e "s:add_subdirectory(compiler/llvm):#add_subdirectory(compiler/llvm):" -i CMakeLists.txt || die
 	sed -e "s:${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/include:/usr/lib/llvm/roc-${PV}/include/:" -i CMakeLists.txt || die
 	sed -e "s:${CMAKE_SOURCE_DIR}/compiler/llvm/lib/Target/AMDGPU:/usr/lib/llvm/roc-${PV}/include/llvm/Target:" -i CMakeLists.txt || die
+
 	cmake-utils_src_prepare
 }
 
