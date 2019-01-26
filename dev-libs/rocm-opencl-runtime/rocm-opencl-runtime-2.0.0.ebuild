@@ -41,13 +41,21 @@ src_unpack() {
 }
 
 src_prepare() {
+	# fails to build without that ...
 	patch -d ../ROCm-OpenCL-Driver-roc-2.0.0/ -p1 < ${FILESDIR}/rocm-opencl-driver-2.0.0-add-link-libraries.patch || die
 
+	# add path to /usr/lib/llvm/roc-2.0.0/include ...
 	patch -p1 < ${FILESDIR}/rocm-opencl-runtime-2.0.0-add-path.patch || die
 
+	# remove the compiler subdirectory, we want to detect it from the system ...
 	sed -e "s:add_subdirectory(compiler/llvm):#add_subdirectory(compiler/llvm):" -i CMakeLists.txt || die
-	sed -e "s:${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/include:/usr/lib/llvm/roc-${PV}/include/:" -i CMakeLists.txt || die
-	sed -e "s:${CMAKE_SOURCE_DIR}/compiler/llvm/lib/Target/AMDGPU:/usr/lib/llvm/roc-${PV}/include/llvm/Target:" -i CMakeLists.txt || die
+
+	# change include directories to llvm/clang ...
+	sed -e "s:\${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/include:/usr/lib/llvm/roc-${PV}/include/:" -i CMakeLists.txt || die
+	sed -e "s:\${CMAKE_SOURCE_DIR}/compiler/llvm/lib/Target/AMDGPU:/usr/lib/llvm/roc-${PV}/include/llvm/Target:" -i CMakeLists.txt || die
+
+#	sed -e "s:< \${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:< /usr/lib/llvm/roc-${PV}/lib/clang/8.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
+	sed -e "s:\${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:/usr/lib/llvm/roc-${PV}/lib/clang/8.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
 
 	cmake-utils_src_prepare
 }
