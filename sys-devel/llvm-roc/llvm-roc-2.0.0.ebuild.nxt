@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="virtual/cblas-1.0
+RDEPEND="virtual/cblas
 	 dev-libs/rocr-runtime"
 
 CMAKE_BUILD_TYPE="Release"
