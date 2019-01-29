@@ -15,7 +15,8 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-libs/rocr-runtime"
+RDEPEND="virtual/cblas-1.0
+	 dev-libs/rocr-runtime"
 
 src_unpack() {
 	unpack ${A}
