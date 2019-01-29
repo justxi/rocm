@@ -54,8 +54,8 @@ src_prepare() {
 	sed -e "s:\${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/include:/usr/lib/llvm/roc-${PV}/include/:" -i CMakeLists.txt || die
 	sed -e "s:\${CMAKE_SOURCE_DIR}/compiler/llvm/lib/Target/AMDGPU:/usr/lib/llvm/roc-${PV}/include/llvm/Target:" -i CMakeLists.txt || die
 
-#	sed -e "s:< \${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:< /usr/lib/llvm/roc-${PV}/lib/clang/8.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
-	sed -e "s:\${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:/usr/lib/llvm/roc-${PV}/lib/clang/8.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
+	sed -e "s:< \${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:< /usr/lib/llvm/roc-${PV}/lib/clang/8.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
+	sed -e "s:DEPENDS clang \${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:DEPENDS /usr/lib/llvm/roc-${PV}/lib/clang/8.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
 
 	cmake-utils_src_prepare
 }
