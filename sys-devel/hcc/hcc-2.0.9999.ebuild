@@ -8,7 +8,7 @@ HOMEPAGE="https://github.com/RadeonOpenCompute/hcc"
 
 LICENSE=""
 SLOT="2.0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="=media-libs/ROCR-Runtime-1.9*

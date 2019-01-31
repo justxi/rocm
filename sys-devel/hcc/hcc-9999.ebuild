@@ -12,7 +12,7 @@ EGIT_BRANCH="clang_tot_upgrade"
 
 LICENSE=""
 SLOT="9999"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=""

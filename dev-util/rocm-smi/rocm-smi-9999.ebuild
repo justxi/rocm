@@ -11,7 +11,7 @@ EGIT_BRANCH="master"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=""
