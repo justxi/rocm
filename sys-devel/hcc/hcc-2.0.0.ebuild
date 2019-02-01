@@ -20,10 +20,6 @@ DEPEND="${RDEPEND}
 	dev-util/cmake
 	dev-vcs/git"
 
-src_unpack() {
-	git clone --recursive -b roc-2.0.x https://github.com/RadeonOpenCompute/hcc.git ${S}
-}
-
 src_configure() {
 	mkdir "${WORKDIR}/build"
 	cd "${WORKDIR}/build"
