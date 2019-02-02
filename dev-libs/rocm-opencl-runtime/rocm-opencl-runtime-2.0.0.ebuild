@@ -72,3 +72,11 @@ src_configure() {
 	)
 	cmake-utils_src_configure
 }
+
+src_compile() {
+	cd "${BUILD_DIR}/runtime/device/rocm"
+	make -j1 || die
+
+	cd ${BUILD_DIR}
+	make -j1 || die
+}
