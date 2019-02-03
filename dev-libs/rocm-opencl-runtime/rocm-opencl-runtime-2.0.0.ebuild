@@ -20,8 +20,7 @@ IUSE=""
 DEPEND=""
 RDEPEND="sys-devel/llvm-roc
 	 dev-libs/rocr-runtime
-	 !dev-libs/rocm-device-libs
-	 !dev-util/clinfo"
+	 !dev-libs/rocm-device-libs"
 
 # should later depend on:
 #	 dev-libs/rocm-device-libs
@@ -29,6 +28,8 @@ RDEPEND="sys-devel/llvm-roc
 #PATCHES=(
 #	"${FILESDIR}/rocm-opencl-driver-2.0.0-add-link-libraries.patch"
 #)
+
+RESTRICT="strip"
 
 S="${WORKDIR}/ROCm-OpenCL-Runtime-roc-${PV}"
 
@@ -85,6 +86,38 @@ src_compile() {
 	make -j1 || die
 }
 
-#src_install() {
-# Do not install the program "clinfo", due to the fact it is already installable thru "dev-util/clinfo"
-#}
+src_install() {
+
+	cd ${BUILD_DIR}
+	emake DESTDIR="${D}" install
+	rm ${D}/usr/lib/libOpenCL.so.1.2
+
+        ROC_DIR=/usr/"$(get_libdir)"/OpenCL/vendors/roc/
+        dodir "${ROC_DIR}"
+
+        dolib.so "${BUILD_DIR}/lib/libOpenCL.so.1.2"
+        chrpath --delete "${BUILD_DIR}/lib/libOpenCLDriverStub.so"
+        dolib.so "${BUILD_DIR}/lib/libOpenCLDriverStub.so"
+        mv ${D}/usr/"$(get_libdir)"/libOpenCL* ${D}"${ROC_DIR}"
+
+        dolib.so "${BUILD_DIR}/lib/libIcdLog.so"
+        mv ${D}/usr/"$(get_libdir)"/libIcdLog* ${D}"${ROC_DIR}"
+
+        into "${ROC_DIR}"
+        dosym "libOpenCL.so.1.2" "${ROC_DIR}/libOpenCL.so"
+        dosym "libOpenCL.so.1.2" "${ROC_DIR}/libOpenCL.so.1"
+
+	mv ${D}/usr/lib/x86_64/libamdocl64.so  ${D}/usr/lib/
+	chrpath --delete "${D}/usr/lib/libamdocl64.so"
+
+	insinto /etc/OpenCL/vendors
+        doins ${S}/api/opencl/config/amdocl64.icd
+
+	# Do not install the program "clinfo", due to the fact it is already installable thru "dev-util/clinfo"
+	rm ${D}/usr/bin/clinfo
+}
+
+pkg_postinst() {
+        elog "If more than one OpenCL library is installed, set environment variable OCL_ICD_VENDORS:"
+        elog "> export OCL_ICD_VENDORS=amdocl64.icd"
+}
