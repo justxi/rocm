@@ -19,8 +19,12 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="sys-devel/llvm-roc
-	 dev-libs/rocm-device-libs
-	 dev-libs/rocr-runtime"
+	 dev-libs/rocr-runtime
+	 !dev-libs/rocm-device-libs
+	 !dev-util/clinfo"
+
+# should later depend on:
+#	 dev-libs/rocm-device-libs
 
 #PATCHES=(
 #	"${FILESDIR}/rocm-opencl-driver-2.0.0-add-link-libraries.patch"
@@ -45,7 +49,7 @@ src_prepare() {
 	patch -d ../ROCm-OpenCL-Driver-roc-2.0.0/ -p1 < ${FILESDIR}/rocm-opencl-driver-2.0.0-add-link-libraries.patch || die
 
 	# add path to /usr/lib/llvm/roc-2.0.0/include ...
-	patch -p1 < ${FILESDIR}/rocm-opencl-runtime-2.0.0-add-path.patch || die
+	patch -p1 < ${FILESDIR}/rocm-opencl-runtime-2.0.0-add-paths.patch || die
 
 	# remove the compiler subdirectory, we want to detect it from the system ...
 	sed -e "s:add_subdirectory(compiler/llvm):#add_subdirectory(compiler/llvm):" -i CMakeLists.txt || die
@@ -80,3 +84,7 @@ src_compile() {
 	cd ${BUILD_DIR}
 	make -j1 || die
 }
+
+#src_install() {
+# Do not install the program "clinfo", due to the fact it is already installable thru "dev-util/clinfo"
+#}
