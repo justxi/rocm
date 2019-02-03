@@ -2,12 +2,11 @@
 # 
 
 EAPI=6
-inherit cmake-utils git-r3
+inherit cmake-utils epatch
 
 DESCRIPTION="ROCm Application for Reporting System Info"
 HOMEPAGE="https://github.com/RadeonOpenCompute/rocminfo"
-EGIT_REPO_URI="https://github.com/RadeonOpenCompute/rocminfo"
-EGIT_COMMIT="1.0.0"
+SRC_URI="https://github.com/RadeonOpenCompute/rocminfo/archive/${PV}.tar.gz -> rocminfo-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -15,7 +14,12 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-libs/rocr-runtime"
+RDEPEND="dev-libs/rocr-runtime
+	dev-lang/python:2.7"
+
+PATCHES=(
+	"${FILESDIR}/rocminfo-python2.patch"
+)
 
 src_configure() {
         local mycmakeargs=(
