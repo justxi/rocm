@@ -2,20 +2,25 @@
 # 
 
 EAPI=6
-inherit cmake-utils git-r3
+inherit cmake-utils
 
 DESCRIPTION="C++ Heterogeneous-Compute Interface for Portability"
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/HIP"
-EGIT_REPO_URI="https://github.com/ROCm-Developer-Tools/HIP.git"
-EGIT_COMMIT="roc-2.0.0"
+SRC_URI="https://github.com/ROCm-Developer-Tools/HIP/archive/roc-${PV}.tar.gz -> rocm-hip-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="2.0"
 KEYWORDS="~amd64"
 IUSE=""
+CMAKE_BUILD_TYPE=Release
 
-DEPEND="=sys-devel/hcc-2.0*"
+DEPEND="=sys-devel/hcc-${PV}*"
 RDEPEND="${DEPEND}"
+
+src_unpack() {
+	unpack ${A}
+	mv HIP-roc-${PV} hip-${PV}
+}
 
 src_prepare() {
 	eapply "${FILESDIR}/${PV}-DisableTest.patch"
@@ -23,22 +28,22 @@ src_prepare() {
 }
 
 src_configure() {
-        mkdir "${WORKDIR}/build"
-        cd "${WORKDIR}/build"
-	cmake -DHCC_HOME=/usr/lib/hcc/2.0/ -DHSA_PATH=/usr/lib -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip/${SLOT}" ${S}
-}
+	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip/${SLOT}" ${S}
+		-DHIP_PLATFORM=hcc
+		-DBUILD_HIPIFY_CLANG=ON
+		-DHIP_COMPILER=hcc
+		-DHCC_HOME=/usr/lib/hcc/${SLOT}/
+		-DHSA_PATH=/usr/lib
+	)
 
-src_compile() {
-        cd "${WORKDIR}/build"
-        make VERBOSE=1 ${MAKEOPTS}
+        cmake-utils_src_configure
 }
 
 src_install() {
-        cd "${WORKDIR}/build"
-        emake DESTDIR="${D}" install
-}
+        echo "HIP_PLATFORM=hcc" > 99hip || die
+        echo "PATH=/usr/lib/hip/${SLOT}/bin" >> 99hip || die
+        doenvd 99hip
 
-pkg_postinst() {
-	elog "Possibly, set HIP_HOME=/usr/lib/hip/2.0/"
-	elog "For more environment variables look at /usr/lib/hip/2.0/bin/hipcc"
+        cmake-utils_src_install
 }
