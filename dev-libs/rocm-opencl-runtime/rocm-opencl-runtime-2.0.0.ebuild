@@ -107,7 +107,13 @@ src_install() {
         dosym "libOpenCL.so.1.2" "${ROC_DIR}/libOpenCL.so"
         dosym "libOpenCL.so.1.2" "${ROC_DIR}/libOpenCL.so.1"
 
+	# move headers to vendor directory
+	mkdir "${D}${ROC_DIR}/include/"
+	mv "${D}/usr/include/opencl2.2/CL" "${D}${ROC_DIR}/include/"
+	rm -r "${D}/usr/include/opencl2.2"
+
 	mv ${D}/usr/lib/x86_64/libamdocl64.so  ${D}/usr/lib/
+	rm -r ${D}/usr/lib/x86_64
 	chrpath --delete "${D}/usr/lib/libamdocl64.so"
 
 	insinto /etc/OpenCL/vendors
