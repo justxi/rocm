@@ -17,7 +17,7 @@ SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=""
+DEPEND="dev-cpp/gtest"
 RDEPEND="sys-devel/llvm-roc
 	 dev-libs/rocr-runtime
 	 !dev-libs/rocm-device-libs"
