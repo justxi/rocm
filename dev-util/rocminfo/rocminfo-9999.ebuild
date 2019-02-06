@@ -10,7 +10,7 @@ EGIT_REPO_URI="https://github.com/RadeonOpenCompute/rocminfo"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
