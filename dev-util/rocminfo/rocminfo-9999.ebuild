@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE=""
 
 DEPEND=""
-RDEPEND="media-libs/ROCR-Runtime"
+RDEPEND="dev-libs/rocr-runtime"
 
 src_unpack() {
 	git-r3_fetch ${EGIT_REPO_URI}
