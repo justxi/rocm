@@ -17,7 +17,8 @@ SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND="dev-cpp/gtest"
+DEPEND="dev-cpp/gtest
+        app-admin/chrpath"
 RDEPEND="sys-devel/llvm-roc
 	 dev-libs/rocr-runtime
 	 !dev-libs/rocm-device-libs"
@@ -112,9 +113,9 @@ src_install() {
 	mv "${D}/usr/include/opencl2.2/CL" "${D}${ROC_DIR}/include/"
 	rm -r "${D}/usr/include/opencl2.2"
 
-	mv ${D}/usr/lib/x86_64/libamdocl64.so  ${D}/usr/lib/
+	mv ${D}/usr/lib/x86_64/libamdocl64.so  ${D}/usr/lib64/
 	rm -r ${D}/usr/lib/x86_64
-	chrpath --delete "${D}/usr/lib/libamdocl64.so"
+	chrpath --delete "${D}/usr/lib64/libamdocl64.so"
 
 	insinto /etc/OpenCL/vendors
         doins ${S}/api/opencl/config/amdocl64.icd
