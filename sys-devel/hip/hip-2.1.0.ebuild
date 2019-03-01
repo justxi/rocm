@@ -23,7 +23,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/${PV}-DisableTest.patch"
+	eapply "${FILESDIR}/2.0.0-DisableTest.patch"
 	eapply_user
 }
 
