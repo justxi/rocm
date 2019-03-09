@@ -1,0 +1,31 @@
+--- a/src/driver/CMakeLists.txt	2018-10-20 00:18:59.000000000 +0200
++++ b/src/driver/CMakeLists.txt	2019-01-22 22:04:09.824636132 +0100
+@@ -81,9 +81,28 @@
+   clangLex
+   clangBasic
+   clangCodeGen
++  clangAST
++  clangASTMatchers
++  clangSerialization
++  clangDynamicASTMatchers
++  clangParse
++  clangSema
++  clangLex
++  clangAnalysis
++  clangRewrite
++  clangRewriteFrontend
++  clangEdit
++  clangFrontend
+   lldELF
+   lldCore
++  lldCommon
+   LLVMDebugInfoDWARF
++  LLVMLTO
++  LLVMCoverage
++  LLVMX86AsmPrinter
++  LLVMX86AsmParser
++  LLVMX86CodeGen
++  LLVMCoroutines
+ )
+ target_link_libraries(opencl_driver ${llvm_libs})
+ target_include_directories(opencl_driver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
