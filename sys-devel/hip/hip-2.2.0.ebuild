@@ -9,7 +9,7 @@ HOMEPAGE="https://github.com/ROCm-Developer-Tools/HIP"
 SRC_URI="https://github.com/ROCm-Developer-Tools/HIP/archive/roc-${PV}.tar.gz -> rocm-hip-${PV}.tar.gz"
 
 LICENSE=""
-SLOT="2.1"
+SLOT="2.2"
 KEYWORDS="~amd64"
 IUSE=""
 CMAKE_BUILD_TYPE=Release
