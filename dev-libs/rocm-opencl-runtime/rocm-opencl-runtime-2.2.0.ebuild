@@ -49,6 +49,8 @@ src_unpack() {
 src_prepare() {
 	# fails to build without that ...
 	patch -d ../ROCm-OpenCL-Driver-roc-${PV}/ -p1 < ${FILESDIR}/rocm-opencl-driver-${PV}-add-link-libraries.patch || die
+	 # remove unittest, because it loads additional software (googletest)
+        sed -e "s:add_subdirectory(src/unittest):#add_subdirectory(src/unittest):" -i ${S}/compiler/driver/CMakeLists.txt || die
 
 	# add path to /usr/lib/llvm/roc-${PV}/include ...
 	patch -p1 < ${FILESDIR}/rocm-opencl-runtime-${PV}-add-paths.patch || die
@@ -61,19 +63,17 @@ src_prepare() {
 	sed -e "s:\${CMAKE_SOURCE_DIR}/compiler/llvm/lib/Target/AMDGPU:/usr/lib/llvm/roc-${PV}/include/llvm/Target:" -i CMakeLists.txt || die
 
 	# change path to "opencl-c.h"
-	sed -e "s:< \${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:< /usr/lib/llvm/roc-${PV}/lib/clang/8.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
+	sed -e "s:< \${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:< /usr/lib/llvm/roc-${PV}/lib/clang/9.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
 	# remove dependency to cland directory inside build tree and change path to "opencl-c.h"
-	sed -e "s:DEPENDS clang \${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:DEPENDS /usr/lib/llvm/roc-${PV}/lib/clang/8.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
+	sed -e "s:DEPENDS clang \${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h:DEPENDS /usr/lib/llvm/roc-${PV}/lib/clang/9.0.0/include/opencl-c.h:" -i runtime/device/rocm/CMakeLists.txt || die
 
 	cmake-utils_src_prepare
 }
 
 src_configure() {
-        export LLVM_DIR=/usr/lib/llvm/roc-${PV}
-
 	local mycmakeargs=(
-#                -DLLVM_DIR=$LLVM_DIR
                 -DLLVM_DIR=/usr/lib/llvm/roc-${PV}/lib/cmake/llvm/
+                -DClang_DIR=/usr/lib/llvm/roc-${PV}/lib/cmake/clang/
 		-DCMAKE_INSTALL_PREFIX=/usr/
 	)
 	cmake-utils_src_configure
