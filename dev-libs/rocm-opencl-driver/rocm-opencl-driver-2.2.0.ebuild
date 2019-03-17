@@ -19,13 +19,23 @@ DEPEND=""
 RDEPEND="dev-libs/rocr-runtime
 	 sys-devel/llvm-roc"
 
-PATCHES=(
-        "${FILESDIR}/${P}-add-link-libraries.patch"
-)
+#PATCHES=(
+#        "${FILESDIR}/${P}-add-link-libraries.patch"
+#)
 
 CMAKE_BUILD_TYPE="Release"
 
 S="${WORKDIR}/ROCm-OpenCL-Driver-roc-${PV}"
+
+
+src_prepare() {
+	# remove unittest, because it downloads additional file from github.com
+	sed -e "s:add_subdirectory(src/unittest):#add_subdirectory(src/unittest):" -i CMakeLists.txt || die
+
+	eapply "${FILESDIR}/${P}-add-link-libraries.patch"
+
+	eapply_user
+}
 
 src_configure() {
 	export LLVM_DIR=/usr/lib/llvm/roc-${PV}
