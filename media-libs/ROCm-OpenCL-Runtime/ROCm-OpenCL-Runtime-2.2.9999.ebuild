@@ -32,6 +32,12 @@ src_unpack() {
 	repo sync
 }
 
+src_prepare() {
+	# remove unittest, because it loads additional software (googletest)
+        sed -e "s:add_subdirectory(src/unittest):#add_subdirectory(src/unittest):" -i ${S}/opencl/compiler/driver/CMakeLists.txt || die
+	eapply_user
+}
+
 src_configure() {
 	mkdir ${BUILD_DIR}
 	cd ${BUILD_DIR}
