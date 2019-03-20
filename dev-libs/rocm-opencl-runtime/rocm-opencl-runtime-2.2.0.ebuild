@@ -19,7 +19,7 @@ IUSE=""
 
 DEPEND="dev-cpp/gtest
         app-admin/chrpath"
-RDEPEND="sys-devel/llvm-roc
+RDEPEND="=sys-devel/llvm-roc-${PV}
 	 dev-libs/rocr-runtime
 	 !dev-libs/rocm-device-libs"
 
