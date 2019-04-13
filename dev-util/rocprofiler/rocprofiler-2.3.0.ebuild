@@ -3,12 +3,9 @@
 
 EAPI=6
 
-inherit git-r3
-
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocprofiler.git"
-EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocprofiler.git"
-EGIT_BRANCH="roc-1.9.x"
+SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/roc-${PV}.tar.gz -> rocm-profiler-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -16,9 +13,14 @@ KEYWORDS="~amd64"
 IUSE="debug"
 
 RDEPEND="media-libs/hsa-amd-aqlprofile
-         media-libs/ROCR-Runtime"
-DEPEND="${RDPEND}
-	dev-util/cmake"
+         dev-libs/rocr-runtime"
+DEPEND="dev-util/cmake"
+	${RDPEND}
+
+src_unpack() {
+	unpack ${A}
+	mv rocprofiler-roc-${PV} rocprofiler-${PV}
+}
 
 src_configure() {
         mkdir -p "${WORKDIR}/build/"

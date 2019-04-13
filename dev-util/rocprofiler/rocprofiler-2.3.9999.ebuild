@@ -16,7 +16,7 @@ KEYWORDS="~amd64"
 IUSE="debug"
 
 RDEPEND="media-libs/hsa-amd-aqlprofile
-         media-libs/ROCR-Runtime"
+         dev-libs/rocr-runtime"
 DEPEND="${RDPEND}
 	dev-util/cmake"
 
