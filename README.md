@@ -10,3 +10,9 @@ Now in official Gentoo portage:
 
 Work in progress:
  - dev-libs/rocm-opencl-runtime
+
+Tested in this repository:
+
+|Ebuild|Version|
+|---|---|
+| | |
