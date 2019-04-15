@@ -25,4 +25,5 @@ Tested in this repository (2019-04-15):
 |dev-util/rocm-smi| 2.3.9999 | |
 |sys-devel/hcc| 2.3 | fails when debug use flag is set |
 |sys-devel/hip| 2.3 | Currently depends on HCC |
+
 All other ebuilds can be out of date!
