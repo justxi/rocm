@@ -18,9 +18,10 @@ Tested in this repository (2019-04-15):
 |sys-kernel/rocm-sources| 2.3 | based on linux kernel 5.0.0-rc1 | 
 |dev-libs/roct-thunk-interface| 2.3 |  | :heavy_check_mark: V2.0.0 |
 |dev-libs/rocr-runtime| 2.3 | | :heavy_check_mark: V2.0.0 |
-|media-libs/ROCm-OpenCL-Runtime| 2.3 | | WIP |
+|media-libs/ROCm-OpenCL-Runtime| 2.3 |  | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
+|dev-util/rocprofiler| 2.3.9999 | ||
 |dev-util/rocminfo| 9999 | | |
 |dev-util/rocm-smi| 2.3.9999 | | |
 |sys-devel/hcc| 2.3 | fails when debug use flag is set | |
