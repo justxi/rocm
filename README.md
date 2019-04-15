@@ -13,6 +13,12 @@ Work in progress:
 
 Tested in this repository:
 
-|Ebuild|Version|
-|---|---|
-| | |
+|Ebuild|Version|State|
+|---|---|--->
+|dev-libs/roct-thunk-interface| 2.3 | |
+|dev-libs/rocr-runtime| 2.3 | |
+|media-libs/ROCm-OpenCL-Runtime| 2.3 | |
+|dev-util/rocminfo| 9999 | |
+|dev-util/rocm-smi| 2.3.9999 | |
+|sys-devel/hcc| 2.3 | |
+|sys-devel/hip| 2.3 | |
