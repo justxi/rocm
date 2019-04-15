@@ -25,6 +25,6 @@ Tested in this repository (2019-04-15):
 |dev-util/rocm-smi| 2.3.9999 | | |
 |dev-util/rocminfo| 9999 | | |
 |sys-devel/hcc| 2.3 | fails when debug use flag is set | |
-|sys-devel/hip| 2.3 | currently works only with python 2 as default,<br>currently depends on HCC | |
+|sys-devel/hip| 2.3 | currently depends on HCC | |
 
 All other ebuilds can be out of date!
