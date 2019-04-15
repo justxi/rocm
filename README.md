@@ -24,3 +24,9 @@ Ebuilds tested in this repository (2019-04-15):
 System used: Radeon RX 560 (POLARIS11), Ryzen7 1800x.
 
 All other ebuilds can be out of date!
+
+Systems known to work:
+
+| CPU | PCIe |  GPU | State |
+|---|---|---|
+| Ryzen7 1800x | PCIe 3.0 | Radeon RX 560 (POLARIS11) | |
