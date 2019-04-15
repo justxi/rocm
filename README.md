@@ -11,16 +11,17 @@ Now in official Gentoo portage:
 Work in progress:
  - dev-libs/rocm-opencl-runtime
 
-Tested in this repository:
+Tested in this repository (2019-04-15):
 
 |Ebuild|Version|State|
 |---|---|---|
-|dev-libs/roct-thunk-interface| 2.3 | |
+|sys-kernel/rocm-sources| 2.3 | Kernel 5.0.0-rc1 |
+|dev-libs/roct-thunk-interface| 2.3 |  |
 |dev-libs/rocr-runtime| 2.3 | |
 |media-libs/ROCm-OpenCL-Runtime| 2.3 | |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | |
 |media-libs/hsa-ext-rocr| 1.1.9 | |
 |dev-util/rocminfo| 9999 | |
 |dev-util/rocm-smi| 2.3.9999 | |
-|sys-devel/hcc| 2.3 | |
+|sys-devel/hcc| 2.3 | fails when debug use flag is set |
 |sys-devel/hip| 2.3 | |
