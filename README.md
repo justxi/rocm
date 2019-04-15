@@ -18,7 +18,7 @@ Ebuilds tested in this repository (2019-04-15):
 |sys-kernel/rocm-sources| 2.3 | based on linux kernel 5.0.0-rc1 | 
 |dev-libs/roct-thunk-interface| 2.3 |  | :heavy_check_mark: V2.0.0 |
 |dev-libs/rocr-runtime| 2.3 | | :heavy_check_mark: V2.0.0 |
-|media-libs/ROCm-OpenCL-Runtime| 2.3 | clinfo reports suitable information.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
+|media-libs/ROCm-OpenCL-Runtime| 2.3 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
 |dev-util/rocprofiler| 2.3.9999 | Installs, program not tested yet. ||
