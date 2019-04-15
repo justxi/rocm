@@ -14,7 +14,7 @@ All other ebuilds can be out of date!
 |dev-libs/roct-thunk-interface| 2.3 |  | :heavy_check_mark: V2.0.0 |
 |dev-libs/rocr-runtime| 2.3 | | :heavy_check_mark: V2.0.0 |
 |media-libs/ROCm-OpenCL-Runtime| 2.3 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works.<br>Disadvantage: Downloads sources everytime. | - |
-|dev-libs/rocm-opencl-runtime| 2.3 | | WIP |
+|dev-libs/rocm-opencl-runtime| 2.3 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works.<br>Advantage: Uses Gentoo git to checkout sources. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
 |dev-util/rocprofiler| 2.3.9999 | Installs, program not tested yet. ||
