@@ -18,6 +18,8 @@ Tested in this repository:
 |dev-libs/roct-thunk-interface| 2.3 | |
 |dev-libs/rocr-runtime| 2.3 | |
 |media-libs/ROCm-OpenCL-Runtime| 2.3 | |
+|media-libs/hsa-amd-aqlprofile| 1.0.0 | |
+|media-libs/hsa-ext-rocr| 1.1.9 | |
 |dev-util/rocminfo| 9999 | |
 |dev-util/rocm-smi| 2.3.9999 | |
 |sys-devel/hcc| 2.3 | |
