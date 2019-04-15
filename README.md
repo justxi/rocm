@@ -16,8 +16,8 @@ Tested in this repository (2019-04-15):
 |Ebuild|Version|State|in Gentoo portage|
 |---|---|---|---|
 |sys-kernel/rocm-sources| 2.3 | based on linux kernel 5.0.0-rc1 | 
-|dev-libs/roct-thunk-interface| 2.3 |  | :white_check_mark: 2.0 |
-|dev-libs/rocr-runtime| 2.3 | | :white_check_mark: 2.0 |
+|dev-libs/roct-thunk-interface| 2.3 |  | :green_check_mark: V2.0.0 |
+|dev-libs/rocr-runtime| 2.3 | | :green_check_mark: V2.0.0 |
 |media-libs/ROCm-OpenCL-Runtime| 2.3 | | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
