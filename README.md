@@ -21,12 +21,10 @@ Ebuilds tested in this repository (2019-04-15):
 |sys-devel/hcc| 2.3 | fails when debug use flag is set | |
 |sys-devel/hip| 2.3 | currently depends on HCC | |
 
-System used: Radeon RX 560 (POLARIS11), Ryzen7 1800x.
-
 All other ebuilds can be out of date!
 
 Systems known to work:
 
-| CPU | PCIe |  GPU | State |
-|---|---|---|
-| Ryzen7 1800x | PCIe 3.0 | Radeon RX 560 (POLARIS11) | |
+| No | CPU | PCIe |  GPU | additional information |
+|---|---|---|---|---|
+| 1 | Ryzen7 1800x | PCIe 3.0 | Radeon RX 560 (POLARIS11) | |
