@@ -14,7 +14,7 @@ Work in progress:
 Tested in this repository:
 
 |Ebuild|Version|State|
-|---|---|--->
+|---|---|---|
 |dev-libs/roct-thunk-interface| 2.3 | |
 |dev-libs/rocr-runtime| 2.3 | |
 |media-libs/ROCm-OpenCL-Runtime| 2.3 | |
