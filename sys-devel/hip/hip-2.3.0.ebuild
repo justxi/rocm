@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ROCm-Developer-Tools/HIP/archive/roc-${PV}.tar.gz ->
 LICENSE=""
 SLOT="2.3"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="debug"
 CMAKE_BUILD_TYPE=Release
 
 DEPEND="=sys-devel/hcc-${PV}*"
@@ -24,10 +24,19 @@ src_unpack() {
 
 src_prepare() {
 	eapply "${FILESDIR}/${PV}-DisableTest.patch"
+
+	sed -e "s:#!/usr/bin/python:#!/usr/bin/python2:" -i hip_prof_gen.py || die
+
 	eapply_user
 }
 
 src_configure() {
+
+        if ! use debug; then
+                append-cflags "-DNDEBUG"
+                append-cxxflags "-DNDEBUG"
+        fi
+
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip/${SLOT}" ${S}
 		-DHIP_PLATFORM=hcc
