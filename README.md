@@ -6,6 +6,7 @@ Ebuilds to install ROCm on Gentoo Linux
 **Please report all problems here first, if you tried one or more ebuilds.**
 
 The following table shows all ebuilds tested in this repository (2019-04-15):
+All other ebuilds can be out of date!
 
 |Ebuild|Version|State|in Gentoo portage|
 |---|---|---|---|
@@ -22,7 +23,6 @@ The following table shows all ebuilds tested in this repository (2019-04-15):
 |sys-devel/hcc| 2.3 | fails when debug use flag is set | |
 |sys-devel/hip| 2.3 | currently depends on HCC | |
 
-All other ebuilds can be out of date!
 
 Systems known to work:
 
