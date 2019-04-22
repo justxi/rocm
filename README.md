@@ -8,7 +8,7 @@ Ebuilds to install ROCm on Gentoo Linux
 The following table shows all ebuilds tested (2019-04-15) in this repository.<br>
 All other ebuilds can be out of date!
 
-|Ebuild|Version|State|in Gentoo portage|
+|Ebuild|Current Version|State|in Gentoo portage|
 |---|---|---|---|
 |sys-kernel/rocm-sources| 2.3 | based on linux kernel 5.0.0-rc1 | - |
 |dev-libs/roct-thunk-interface| 2.3 |  | :heavy_check_mark: V2.0.0 |
