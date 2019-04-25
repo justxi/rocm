@@ -4,8 +4,8 @@
  include_directories(${CMAKE_SOURCE_DIR}/usr/lib/llvm/roc-2.0.0/include/llvm/Target)
  include_directories(${CMAKE_BINARY_DIR}/usr/lib/llvm/roc-2.0.0/include/llvm/Target)
 
-+link_directories(/usr/lib/llvm/roc-2.1.0/lib)
-+include_directories(/usr/lib/llvm/roc-2.1.0/include/)
++link_directories(/usr/lib/llvm/roc-2.2.0/lib)
++include_directories(/usr/lib/llvm/roc-2.2.0/include/)
 +
  add_subdirectory(compiler/driver)
  
