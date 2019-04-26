@@ -18,7 +18,8 @@ DEPEND="dev-lang/ocaml
 	app-admin/chrpath
         dev-cpp/gtest"
 
-RDEPEND="dev-libs/rocr-runtime"
+RDEPEND="virtual/blas
+         >=dev-libs/rocr-runtime-${PV}"
 
 CMAKE_BUILD_TYPE="RelWithDebInfo"
 
