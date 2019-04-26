@@ -3,9 +3,12 @@
 
 EAPI=6
 
+inherit git-r3
+
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocprofiler.git"
-SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/roc-${PV}.tar.gz -> rocm-profiler-${PV}.tar.gz"
+EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocprofiler.git"
+EGIT_BRANCH="roc-2.3.x"
 
 LICENSE=""
 SLOT="0"
@@ -14,17 +17,12 @@ IUSE="debug"
 
 RDEPEND="media-libs/hsa-amd-aqlprofile
          dev-libs/rocr-runtime"
-DEPEND="dev-util/cmake"
-	${RDPEND}
+DEPEND="${RDPEND}
+	dev-util/cmake"
 
 PATCHES=(
-        "${FILESDIR}/remove-test.patch"
+        "${FILESDIR}/rocminfo-python2.patch"
 )
-
-src_unpack() {
-	unpack ${A}
-	mv rocprofiler-roc-${PV} rocprofiler-${PV}
-}
 
 src_configure() {
         mkdir -p "${WORKDIR}/build/"
