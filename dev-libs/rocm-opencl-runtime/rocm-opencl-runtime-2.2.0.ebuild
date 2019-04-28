@@ -51,6 +51,9 @@ src_prepare() {
 	patch -d ../ROCm-OpenCL-Driver-roc-${PV}/ -p1 < ${FILESDIR}/rocm-opencl-driver-${PV}-add-link-libraries.patch || die
 	 # remove unittest, because it loads additional software (googletest)
         sed -e "s:add_subdirectory(src/unittest):#add_subdirectory(src/unittest):" -i ${S}/compiler/driver/CMakeLists.txt || die
+	# try to change library path
+	sed -e "s:target_link_libraries(opencl_driver \${llvm_libs}):target_link_libraries(opencl_driver /usr/lib/llvm/roc-${PV}/lib):" -i ${S}/compiler/driver/src/driver/CMakeLists.txt || die
+
 
 	# add path to /usr/lib/llvm/roc-${PV}/include ...
 	patch -p1 < ${FILESDIR}/rocm-opencl-runtime-${PV}-add-paths.patch || die
