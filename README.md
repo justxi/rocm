@@ -13,6 +13,7 @@ All other ebuilds can be out of date!
 |Ebuild|Current Version|State|in Gentoo portage|
 |---|---|---|---|
 |sys-kernel/rocm-sources| 2.3 | based on linux kernel 5.0.0-rc1 | - |
+|dev-libs/rocm-cmake|9999| | |
 |dev-libs/roct-thunk-interface| 2.3 |  | :heavy_check_mark: V2.0.0 |
 |dev-libs/rocr-runtime| 2.3 | | :heavy_check_mark: V2.0.0 |
 |media-libs/ROCm-OpenCL-Runtime| 2.3 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works.<br>Disadvantage: Downloads sources everytime. | - |
