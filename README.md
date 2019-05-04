@@ -25,6 +25,7 @@ All other ebuilds can be out of date!
 |dev-util/rocminfo| 9999 | Reports suitable informations. | |
 |sys-devel/hcc| 2.3 | fails when "debug" USE flag is set | |
 |sys-devel/hip| 2.3 | currently depends on HCC | |
+|dev-libs/rocBLAS| 2.3 | Installs, not tested yet. |  |
 
 
 Systems known to work:
