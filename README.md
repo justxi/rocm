@@ -12,20 +12,19 @@ All other ebuilds can be out of date!
 
 |Ebuild|Current Version|State|in Gentoo portage|
 |---|---|---|---|
-|sys-kernel/rocm-sources| 2.3 | based on linux kernel 5.0.0-rc1 | - |
+|sys-kernel/rocm-sources| 2.4 | based on linux kernel 5.0.0-rc1 | - |
 |dev-libs/rocm-cmake|9999| | |
-|dev-libs/roct-thunk-interface| 2.3 |  | :heavy_check_mark: V2.0.0 |
-|dev-libs/rocr-runtime| 2.3 | | :heavy_check_mark: V2.0.0 |
-|media-libs/ROCm-OpenCL-Runtime| 2.3 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works.<br>Disadvantage: Downloads sources everytime. | - |
-|dev-libs/rocm-opencl-runtime| 2.3 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works.<br>Advantage: Uses Gentoo git to checkout sources. | WIP |
+|dev-libs/roct-thunk-interface| 2.4 |  | :heavy_check_mark: V2.0.0 |
+|dev-libs/rocr-runtime| 2.4 | | :heavy_check_mark: V2.0.0 |
+|dev-libs/rocm-opencl-runtime| 2.4 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
-|dev-util/rocprofiler| 2.3 | Installs, program not tested yet. ||
-|dev-util/rocm-smi| 2.3 | Reports suitable informations. | |
+|dev-util/rocprofiler| 2.4 | Installs, program not tested yet. ||
+|dev-util/rocm-smi| 2.4 | Reports suitable informations. | |
 |dev-util/rocminfo| 9999 | Reports suitable informations. | |
-|sys-devel/hcc| 2.3 | fails when "debug" USE flag is set | |
-|sys-devel/hip| 2.3 | currently depends on HCC | |
-|sci-libs/rocBLAS| 2.3 | Installs, not tested yet. |  |
+|sys-devel/hcc| 2.4 | fails when "debug" USE flag is set | |
+|sys-devel/hip| 2.4 | currently depends on HCC | |
+|sci-libs/rocBLAS| 2.4 | Installs, not tested yet. |  |
 
 
 Systems known to work:
