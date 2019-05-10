@@ -31,4 +31,4 @@ Systems known to work:
 
 | No | CPU | PCIe |  GPU | additional information |
 |---|---|---|---|---|
-| 1 | Ryzen7 1800x | PCIe 3.0 | Radeon RX 560 (POLARIS11) | |
+| 1 | Core i5 8400 | PCIe 3.0 | Radeon RX 560 (POLARIS11) | |
