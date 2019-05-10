@@ -1,12 +1,12 @@
 # Copyright
-# 
+#
 
 EAPI=6
 inherit unpacker
 
 DESCRIPTION="hsa-ext-rocr"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm"
-SRC_URI="http://repo.radeon.com/rocm/apt/debian/pool/main/h/hsa-ext-rocr-dev/hsa-ext-rocr-dev_1.1.9-64-g619177e_amd64.deb"
+SRC_URI="http://repo.radeon.com/rocm/apt/debian/pool/main/h/hsa-ext-rocr-dev/hsa-ext-rocr-dev_1.1.9-68-gc862c1c_amd64.deb"
 
 LICENSE=""
 SLOT="0"
