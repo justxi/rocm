@@ -39,7 +39,7 @@ src_configure() {
 src_install() {
 	echo "HCC_HOME=/usr/lib/hcc/${SLOT}" > 99hcc || die
 	echo "HSA_PATH=/usr/lib" >> 99hcc || die
-	echo "LDPATH=/usr/lib/hcc/${SLOT}/lib" > 99hcc || die
+	echo "LDPATH=/usr/lib/hcc/${SLOT}/lib" >> 99hcc || die
 	doenvd 99hcc
 
 	cmake-utils_src_install
