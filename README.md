@@ -12,10 +12,10 @@ All other ebuilds can be out of date!
 
 |Ebuild|Current Version|State|in Gentoo portage|
 |---|---|---|---|
-|sys-kernel/rocm-sources| 2.4 | based on linux kernel 5.0.0-rc1 | - |
+|sys-kernel/rocm-sources| 2.5 | based on linux kernel 5.0.0-rc1 | - |
 |dev-libs/rocm-cmake|9999| | |
-|dev-libs/roct-thunk-interface| 2.4 |  | :heavy_check_mark: V2.0.0 |
-|dev-libs/rocr-runtime| 2.4 | | :heavy_check_mark: V2.0.0 |
+|dev-libs/roct-thunk-interface| 2.5 |  | :heavy_check_mark: V2.0.0 |
+|dev-libs/rocr-runtime| 2.5 | | :heavy_check_mark: V2.0.0 |
 |dev-libs/rocm-opencl-runtime| 2.4 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
