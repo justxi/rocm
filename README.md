@@ -19,8 +19,8 @@ All other ebuilds can be out of date!
 |dev-libs/rocm-opencl-runtime| 2.5 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
-|dev-util/rocprofiler| 2.4 | Installs, program not tested yet. ||
-|dev-util/rocm-smi| 2.4 | Reports suitable informations. | |
+|dev-util/rocprofiler| 2.5 | Installs, program not tested yet. ||
+|dev-util/rocm-smi| 2.5 | Reports suitable informations. | |
 |dev-util/rocminfo| 9999 | Reports suitable informations. | |
 |sys-devel/hcc| 2.4 | fails when "debug" USE flag is set | |
 |sys-devel/hip| 2.4 | currently depends on HCC | |
