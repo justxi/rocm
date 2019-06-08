@@ -16,7 +16,7 @@ All other ebuilds can be out of date!
 |dev-libs/rocm-cmake|9999| | |
 |dev-libs/roct-thunk-interface| 2.5 |  | :heavy_check_mark: V2.0.0 |
 |dev-libs/rocr-runtime| 2.5 | | :heavy_check_mark: V2.0.0 |
-|dev-libs/rocm-opencl-runtime| 2.4 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
+|dev-libs/rocm-opencl-runtime| 2.5 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
 |dev-util/rocprofiler| 2.4 | Installs, program not tested yet. ||
