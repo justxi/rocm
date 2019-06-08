@@ -27,6 +27,7 @@ All other ebuilds can be out of date!
 |sys-devel/amd-rocm-meta| 2.5 | | |
 |sci-libs/rocBLAS| 2.5 | Installs, not tested yet. |  |
 |sci-libs/rocPRIM| 2.5 | Installs only headers. | |
+|sci-libs/rocThrust| 2.5 | Installs only headers. | |
 
 
 Systems known to work:
