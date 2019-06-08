@@ -26,7 +26,7 @@ All other ebuilds can be out of date!
 |sys-devel/hip| 2.5 | currently depends on HCC | |
 |sys-devel/amd-rocm-meta| 2.5 | | |
 |sci-libs/rocBLAS| 2.5 | Installs, not tested yet. |  |
-|sci-libs/rocPRIM| 2.5 | Install only headers. | |
+|sci-libs/rocPRIM| 2.5 | Installs only headers. | |
 
 
 Systems known to work:
