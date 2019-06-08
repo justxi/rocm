@@ -1,0 +1,25 @@
+diff -Naur '--exclude=cmake' a/thrust/CMakeLists.txt b/thrust/CMakeLists.txt
+--- a/thrust/CMakeLists.txt	2019-06-08 22:00:45.092816778 +0200
++++ b/thrust/CMakeLists.txt	2019-06-08 22:06:59.720815349 +0200
+@@ -69,7 +69,8 @@
+   DIRECTORY
+     "./"
+     "${PROJECT_BINARY_DIR}/thrust/include/"
+-  DESTINATION rocthrust/include/thrust
++#  DESTINATION rocthrust/include/thrust
++  DESTINATION include/rocThrust/thrust
+   FILES_MATCHING
+   PATTERN "*.h"
+   PATTERN "*.cuh"
+@@ -84,8 +85,9 @@
+ rocm_export_targets(
+   TARGETS rocthrust-targets
+   NAME rocthrust
+-  PREFIX rocthrust
++#  PREFIX rocthrust
++  PREFIX
+ )
+ 
+ # Create symlinks
+-rocm_install_symlink_subdir(rocthrust)
++#rocm_install_symlink_subdir(rocthrust)
