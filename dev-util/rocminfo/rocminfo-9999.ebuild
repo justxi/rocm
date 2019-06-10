@@ -14,12 +14,14 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-libs/rocr-runtime"
+RDEPEND="dev-libs/rocm-cmake
+	dev-libs/rocr-runtime"
 
 src_unpack() {
 	git-r3_fetch ${EGIT_REPO_URI}
         git-r3_fetch "https://github.com/RadeonOpenCompute/rocm-cmake/"
 
+	# maybe this could be removed?
 	git-r3_checkout ${EGIT_REPO_URI}
         git-r3_checkout https://github.com/RadeonOpenCompute/rocm-cmake/ "${S}/rocm-cmake"
 

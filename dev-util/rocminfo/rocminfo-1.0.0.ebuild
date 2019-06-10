@@ -14,7 +14,8 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-libs/rocr-runtime
+RDEPEND="dev-libs/rocm-cmake
+	dev-libs/rocr-runtime
 	dev-lang/python:2.7"
 
 PATCHES=(
