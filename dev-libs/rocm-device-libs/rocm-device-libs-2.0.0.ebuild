@@ -7,7 +7,7 @@ inherit cmake-utils eapi7-ver
 
 DESCRIPTION="ROCm-Device-Libs"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm-Device-Libs"
-SRC_URI="https://github.com/RadeonOpenCompute/ROCm-Device-Libs/archive/roc-2.0.0.tar.gz -> rocm-device-libs-2.0.0.tar.gz"
+SRC_URI="https://github.com/RadeonOpenCompute/ROCm-Device-Libs/archive/roc-${PV}.tar.gz -> rocm-device-libs-${PV}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
