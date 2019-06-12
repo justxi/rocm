@@ -7,7 +7,7 @@ inherit cmake-utils eapi7-ver
 
 DESCRIPTION="ROCm-OpenCL-Driver"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver"
-SRC_URI="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/archive/roc-2.0.0.tar.gz -> rocm-opencl-driver-2.0.0.tar.gz"
+SRC_URI="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/archive/roc-${PV}.tar.gz -> rocm-opencl-driver-${PV}.tar.gz"
 
 LICENSE="MIT"
 #SLOT="0/$(ver_cut 1-2)"
