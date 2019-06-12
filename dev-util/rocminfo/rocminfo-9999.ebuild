@@ -17,16 +17,25 @@ DEPEND=""
 RDEPEND="dev-libs/rocm-cmake
 	dev-libs/rocr-runtime"
 
-src_unpack() {
-	git-r3_fetch ${EGIT_REPO_URI}
-        git-r3_fetch "https://github.com/RadeonOpenCompute/rocm-cmake/"
+#src_unpack() {
+#	git-r3_fetch ${EGIT_REPO_URI}
+#       git-r3_fetch "https://github.com/RadeonOpenCompute/rocm-cmake/"
+#
+#	# maybe this could be removed?
+#	git-r3_checkout ${EGIT_REPO_URI}
+#        git-r3_checkout https://github.com/RadeonOpenCompute/rocm-cmake/ "${S}/rocm-cmake"
+#
+#	ln -s "${S}/rocm-cmake/share/rocm/cmake/" "${S}/cmake-modules"
+#	sed -i -e "s/find_package(ROCM PATHS \/opt\/rocm)*/find_package(ROCM PATHS \${PROJECT_SOURCE_DIR}\/cmake-modules)/" "${S}/CMakeLists.txt"
+#}
 
-	# maybe this could be removed?
-	git-r3_checkout ${EGIT_REPO_URI}
-        git-r3_checkout https://github.com/RadeonOpenCompute/rocm-cmake/ "${S}/rocm-cmake"
+src_configure() {
+        local mycmakeargs=(
+                -DROCM_DIR=/usr
+                -DROCR_LIB_DIR=/usr/lib64
+        )
 
-	ln -s "${S}/rocm-cmake/share/rocm/cmake/" "${S}/cmake-modules"
-	sed -i -e "s/find_package(ROCM PATHS \/opt\/rocm)*/find_package(ROCM PATHS \${PROJECT_SOURCE_DIR}\/cmake-modules)/" "${S}/CMakeLists.txt"
+        cmake-utils_src_configure
 }
 
 src_install() {
