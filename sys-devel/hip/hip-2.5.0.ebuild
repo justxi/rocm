@@ -54,6 +54,7 @@ src_install() {
         echo "PATH=/usr/lib/hip/${SLOT}/bin" >> 99hip || die
         echo "HIP_PATH=/usr/lib/hip/${SLOT}" >> 99hip || die
         echo "LDPATH=/usr/lib/hip/${SLOT}/lib" >> 99hip || die
+        echo "CMAKE_PREFIX_PATH=/usr/lib/hip/${SLOT}/lib/cmake/hip" >> 99hip || die
         doenvd 99hip
 
         cmake-utils_src_install
