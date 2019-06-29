@@ -43,7 +43,7 @@ src_configure() {
 		-DBUILD_HIPIFY_CLANG=ON
 		-DHIP_COMPILER=hcc
 		-DHCC_HOME=/usr/lib/hcc/${SLOT}/
-		-DHSA_PATH=/usr/lib
+		-DHSA_PATH=/opt/rocm
 	)
 
         cmake-utils_src_configure
