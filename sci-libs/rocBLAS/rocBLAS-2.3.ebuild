@@ -74,7 +74,7 @@ src_configure() {
 		buildtype="-DCMAKE_BUILD_TYPE=Release"
 	fi
 
-	cmake -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"  ${buildtype}  ${S}
+	cmake -DDETECT_LOCAL_VIRTUALENV=1 -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"  ${buildtype}  ${S}
 }
 
 src_compile() {
