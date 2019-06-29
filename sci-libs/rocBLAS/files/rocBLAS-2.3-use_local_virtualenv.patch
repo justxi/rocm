@@ -1,11 +1,13 @@
 --- a/cmake/virtualenv.cmake	2019-05-04 09:57:15.124878859 +0200
 +++ b/cmake/virtualenv.cmake	2019-05-04 09:57:15.124878859 +0200
-@@ -11,7 +11,22 @@
+@@ -11,7 +11,24 @@
  
  set(VIRTUALENV_VERSION 15.1.0)
  function(virtualenv_create)
 -    if(NOT EXISTS ${VIRTUALENV_HOME_DIR}/bin/python)
-+    find_program(VIRTUALENV_EXE virtualenv)
++    if (DETECT_LOCAL_VIRTUALENV)
++        find_program(VIRTUALENV_EXE virtualenv)
++    endif()
 +    if (VIRTUALENV_EXE)
 +        execute_process( COMMAND ${VIRTUALENV_EXE} "--version" OUTPUT_VARIABLE VER )
 +
