@@ -1,7 +1,6 @@
-EAPI=6
+EAPI=7
 
-inherit versionator
-SLOT="2.5"
+SLOT="0/$(ver_cut 1-2)"
 
 DESCRIPTION="Meta package for ROCm"
 LICENSE="metapackage"
@@ -14,6 +13,7 @@ RDEPEND="=sys-devel/hcc-${PV}*
 	=dev-util/rocm-smi-${PV}*
 	=dev-util/rocprofiler-${PV}*
 	=dev-libs/rocr-debug-agent-${PV}*
+	=dev-util/rocminfo-${PV}*
 "
 
 S="${WORKDIR}"

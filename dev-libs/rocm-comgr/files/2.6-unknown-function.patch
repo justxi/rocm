@@ -1,0 +1,120 @@
+diff --git a/include/amd_comgr.h b/include/amd_comgr.h
+index ab9e2f0..ce31311 100644
+--- a/include/amd_comgr.h
++++ b/include/amd_comgr.h
+@@ -1315,7 +1315,6 @@ typedef enum amd_comgr_action_kind_s {
+    *    daz_opt
+    *    finite_only
+    *    unsafe_math
+-   *    wavefrontsize64
+    *
+    * For example, to enable daz_opt and unsafe_math, the options should be set
+    * as:
+diff --git a/src/comgr-device-libs.cpp b/src/comgr-device-libs.cpp
+index 2589779..b483025 100644
+--- a/src/comgr-device-libs.cpp
++++ b/src/comgr-device-libs.cpp
+@@ -107,14 +107,13 @@ amd_comgr_status_t addDeviceLibraries(DataAction *ActionInfo,
+     return Status;
+ 
+   bool CorrectlyRoundedSqrt = false, DazOpt = false, FiniteOnly = false,
+-       UnsafeMath = false, Wavefrontsize64 = false;
++       UnsafeMath = false;
+   for (auto &Option : ActionInfo->getOptions(true)) {
+     bool *Flag = StringSwitch<bool *>(Option)
+                      .Case("correctly_rounded_sqrt", &CorrectlyRoundedSqrt)
+                      .Case("daz_opt", &DazOpt)
+                      .Case("finite_only", &FiniteOnly)
+                      .Case("unsafe_math", &UnsafeMath)
+-                     .Case("wavefrontsize64", &Wavefrontsize64)
+                      .Default(nullptr);
+     // It is invalid to provide an unknown option and to repeat an option.
+     if (!Flag || *Flag)
+@@ -131,9 +130,6 @@ amd_comgr_status_t addDeviceLibraries(DataAction *ActionInfo,
+     return Status;
+   if (auto Status = addOCLCObject(ResultSet, get_oclc_unsafe_math(UnsafeMath)))
+     return Status;
+-  if (auto Status =
+-          addOCLCObject(ResultSet, get_oclc_wavefrontsize64(Wavefrontsize64)))
+-    return Status;
+ 
+   return AMD_COMGR_STATUS_SUCCESS;
+ }
+diff --git a/src/comgr-isa-metadata.def b/src/comgr-isa-metadata.def
+index 908404d..2df6694 100644
+--- a/src/comgr-isa-metadata.def
++++ b/src/comgr-isa-metadata.def
+@@ -58,11 +58,6 @@ HANDLE_ISA("amdgcn-amd-amdhsa--gfx902+xnack", false, 65536, 4, 40, 2048, 16, 800
+ HANDLE_ISA("amdgcn-amd-amdhsa--gfx904", false, 65536, 4, 40, 2048, 16, 800, 102, 4, 256, 256, 32)
+ HANDLE_ISA("amdgcn-amd-amdhsa--gfx906", false, 65536, 4, 40, 2048, 16, 800, 102, 4, 256, 256, 32)
+ HANDLE_ISA("amdgcn-amd-amdhsa--gfx906+sram-ecc", false, 65536, 4, 40, 2048, 16, 800, 102, 4, 256, 256, 32)
+-HANDLE_ISA("amdgcn-amd-amdhsa--gfx908", false, 65536, 4, 40, 2048, 16, 800, 102, 4, 256, 256, 32)
+-HANDLE_ISA("amdgcn-amd-amdhsa--gfx908+sram-ecc", false, 65536, 4, 40, 2048, 16, 800, 102, 4, 256, 256, 32)
+ HANDLE_ISA("amdgcn-amd-amdhsa--gfx909+xnack", false, 65536, 4, 40, 2048, 16, 800, 102, 4, 256, 256, 32)
+-HANDLE_ISA("amdgcn-amd-amdhsa--gfx1010", false, 65536, 4, 40, 2048, 106, 800, 106, 8, 256, 256, 32)
+-HANDLE_ISA("amdgcn-amd-amdhsa--gfx1011", false, 65536, 4, 40, 2048, 106, 800, 106, 8, 256, 256, 32)
+-HANDLE_ISA("amdgcn-amd-amdhsa--gfx1012", false, 65536, 4, 40, 2048, 106, 800, 106, 8, 256, 256, 32)
+ 
+ #undef HANDLE_ISA
+diff --git a/src/comgr-metadata.cpp b/src/comgr-metadata.cpp
+index bb89dd7..7f4c861 100644
+--- a/src/comgr-metadata.cpp
++++ b/src/comgr-metadata.cpp
+@@ -225,16 +225,8 @@ getNoteIsaName(StringRef VendorName, StringRef ArchitectureName,
+     NoteIsaName = "amdgcn-amd-amdhsa--gfx904";
+   else if (OldName == "AMD:AMDGPU:9:0:6")
+     NoteIsaName = "amdgcn-amd-amdhsa--gfx906";
+-  else if (OldName == "AMD:AMDGPU:9:0:8")
+-    NoteIsaName = "amdgcn-amd-amdhsa--gfx908";
+   else if (OldName == "AMD:AMDGPU:9:0:9")
+     NoteIsaName = "amdgcn-amd-amdhsa--gfx909";
+-  else if (OldName == "AMD:AMDGPU:10:1:0")
+-    NoteIsaName = "amdgcn-amd-amdhsa--gfx1010";
+-  else if (OldName == "AMD:AMDGPU:10:1:1")
+-    NoteIsaName = "amdgcn-amd-amdhsa--gfx1011";
+-  else if (OldName == "AMD:AMDGPU:10:1:2")
+-    NoteIsaName = "amdgcn-amd-amdhsa--gfx1012";
+   else
+     return AMD_COMGR_STATUS_ERROR_INVALID_ARGUMENT;
+ 
+@@ -430,21 +422,9 @@ static amd_comgr_status_t getElfIsaNameV3(const ELFObjectFile<ELFT> *Obj,
+   case ELF::EF_AMDGPU_MACH_AMDGCN_GFX906:
+     ElfIsaName += "gfx906";
+     break;
+-  case ELF::EF_AMDGPU_MACH_AMDGCN_GFX908:
+-    ElfIsaName += "gfx908";
+-    break;
+   case ELF::EF_AMDGPU_MACH_AMDGCN_GFX909:
+     ElfIsaName += "gfx909";
+     break;
+-  case ELF::EF_AMDGPU_MACH_AMDGCN_GFX1010:
+-    ElfIsaName += "gfx1010";
+-    break;
+-  case ELF::EF_AMDGPU_MACH_AMDGCN_GFX1011:
+-    ElfIsaName += "gfx1011";
+-    break;
+-  case ELF::EF_AMDGPU_MACH_AMDGCN_GFX1012:
+-    ElfIsaName += "gfx1012";
+-    break;
+   default:
+     return AMD_COMGR_STATUS_ERROR_INVALID_ARGUMENT;
+   }
+diff --git a/test/compile_device_libs_test.c b/test/compile_device_libs_test.c
+index dccb9f7..3739672 100644
+--- a/test/compile_device_libs_test.c
++++ b/test/compile_device_libs_test.c
+@@ -170,11 +170,11 @@ int main(int argc, char *argv[]) {
+                                        &count);
+   checkError(status, "amd_comgr_action_data_count");
+ 
+-  // Our 2 sources, plus 3 language libraries, plus 1 device library, plus 5
++  // Our 2 sources, plus 3 language libraries, plus 1 device library, plus 4
+   // features libraries.
+-  if (count != 11) {
++  if (count != 10) {
+     printf("AMD_COMGR_ACTION_ADD_DEVICE_LIBRARIES Failed: "
+-           "produced %zu BC objects (expected 11)\n",
++           "produced %zu BC objects (expected 10)\n",
+            count);
+     exit(1);
+   }
