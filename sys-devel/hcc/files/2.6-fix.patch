@@ -1,0 +1,10 @@
+--- hcc-2.6.0/clang/tools/clang-scan-deps/CMakeLists.old        2019-07-19 18:54:08.503092169 +0200
++++ hcc-2.6.0/clang/tools/clang-scan-deps/CMakeLists.txt        2019-07-19 18:54:01.127092408 +0200
+@@ -17,6 +17,7 @@
+   clangLex
+   clangParse
+   clangTooling
++  clangSerialization
+   )
+ 
+ target_link_libraries(clang-scan-deps

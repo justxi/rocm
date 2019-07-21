@@ -1,0 +1,11 @@
+--- rocminfo-roc-2.6.0/CMakeLists.old	2019-07-19 11:32:14.808951873 +0200
++++ rocminfo-roc-2.6.0/CMakeLists.txt	2019-07-19 11:36:57.687942701 +0200
+@@ -45,7 +45,7 @@
+ # Required Defines first:
+ 
+ set(ROCR_INC_DIR ${ROCM_DIR}/include)
+-set(ROCR_LIB_DIR ${ROCM_DIR}/lib)
++set(ROCR_LIB_DIR ${ROCM_DIR}/lib64)
+ #
+ # Determine ROCR Header files are present
+ #
