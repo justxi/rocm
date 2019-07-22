@@ -1,0 +1,24 @@
+--- ROCm-OpenCL-Runtime-roc-2.6.0/runtime/device/rocm/CMakeLists.old	2019-07-22 15:26:34.465258055 +0200
++++ ROCm-OpenCL-Runtime-roc-2.6.0/runtime/device/rocm/CMakeLists.txt	2019-07-22 15:30:48.867249806 +0200
+@@ -74,8 +74,8 @@
+ 
+ # generating opencl*.inc files
+ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/opencl1.2-c.amdgcn.pch
+-  COMMAND clang -cc1 -x cl-header -triple amdgcn-amd-amdhsa -Werror -O3 -DNDEBUG -cl-std=CL1.2 -emit-pch -o ${CMAKE_CURRENT_BINARY_DIR}/opencl1.2-c.amdgcn.pch < ${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h
+-  DEPENDS clang ${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h
++  COMMAND ${Clang_DIR}/bin/clang -cc1 -x cl-header -triple amdgcn-amd-amdhsa -Werror -O3 -DNDEBUG -cl-std=CL1.2 -emit-pch -o ${CMAKE_CURRENT_BINARY_DIR}/opencl1.2-c.amdgcn.pch < ${Clang_DIR}/lib/clang/9.0.0/include/opencl-c.h
++  DEPENDS ${Clang_DIR}/bin/clang ${Clang_DIR}/lib/clang/9.0.0/include/opencl-c.h
+   COMMENT "Generating opencl1.2-c.amdgcn.pch"
+ )
+ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/opencl1.2-c.amdgcn.inc
+@@ -88,8 +88,8 @@
+ add_dependencies(oclrocm opencl1.2-c.amdgcn.inc_target)
+ 
+ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/opencl2.0-c.amdgcn.pch
+-  COMMAND clang -cc1 -x cl-header -triple amdgcn-amd-amdhsa -Werror -O3 -DNDEBUG -cl-std=CL2.0 -emit-pch -o ${CMAKE_CURRENT_BINARY_DIR}/opencl2.0-c.amdgcn.pch < ${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h
+-  DEPENDS clang ${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/lib/Headers/opencl-c.h
++  COMMAND ${Clang_DIR}/bin/clang -cc1 -x cl-header -triple amdgcn-amd-amdhsa -Werror -O3 -DNDEBUG -cl-std=CL2.0 -emit-pch -o ${CMAKE_CURRENT_BINARY_DIR}/opencl2.0-c.amdgcn.pch < ${Clang_DIR}/lib/clang/9.0.0/include/opencl-c.h
++  DEPENDS ${Clang_DIR}/bin/clang ${Clang_DIR}/lib/clang/9.0.0/include/opencl-c.h
+   COMMENT "Generating opencl2.0-c.amdgcn.pch"
+ )
+ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/opencl2.0-c.amdgcn.inc
