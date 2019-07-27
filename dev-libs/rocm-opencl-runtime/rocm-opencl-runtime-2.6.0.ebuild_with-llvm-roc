@@ -1,0 +1,97 @@
+# Copyright
+#
+
+EAPI=6
+
+inherit cmake-utils git-r3
+
+DESCRIPTION="ROCm OpenCL Runtime"
+HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/"
+SRC_URI="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/archive/roc-${PV}.tar.gz -> rocm-opencl-runtime-${PV}.tar.gz
+	 https://github.com/RadeonOpenCompute/ROCm-OpenCL-Driver/archive/roc-${PV}.tar.gz -> rocm-opencl-driver-${PV}.tar.gz"
+
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64"
+IUSE=""
+
+PATCHES=(
+	"${FILESDIR}/roct-include-path.patch"
+	"${FILESDIR}/remove-installs.patch"
+	"${FILESDIR}/fix-clang-custom-command.patch"
+	"${FILESDIR}/fix-dependency.patch"
+	"${FILESDIR}/fix-libs.patch"
+	"${FILESDIR}/hack-disable-function.patch"
+	"${FILESDIR}/add-rpath.patch"
+)
+
+DEPEND="dev-lang/ocaml
+	dev-ml/findlib
+	app-admin/chrpath
+	dev-cpp/gtest
+	dev-libs/ocl-icd
+	dev-libs/rocr-runtime
+	dev-libs/rocm-device-libs"
+RDEPEND="$DEPEND"
+
+RESTRICT="strip"
+
+S="${WORKDIR}/ROCm-OpenCL-Runtime-roc-${PV}"
+
+BUILD_DIR="${WORKDIR}/build"
+
+CMAKE_BUILD_TYPE="Release"
+
+src_unpack() {
+	unpack ${A}
+	ln -s "${WORKDIR}/ROCm-OpenCL-Driver-roc-${PV}" "${S}/compiler/driver"
+	
+	EGIT_COMMIT="d0f452d8480416b3b44838b5790a27dc02e766f5"
+	git-r3_fetch "https://github.com/KhronosGroup/OpenCL-ICD-Loader"
+	git-r3_checkout https://github.com/KhronosGroup/OpenCL-ICD-Loader "${S}"/api/opencl/khronos/icd
+}
+
+src_prepare() {
+	# remove unittest, because it loads additional software (googletest)
+	sed -e "s:add_subdirectory(src/unittest):#add_subdirectory(src/unittest):" -i ${S}/compiler/driver/CMakeLists.txt || die
+	# try to change library path
+	#sed -e "s:target_link_libraries(opencl_driver \${llvm_libs}):target_link_libraries(opencl_driver /usr/lib/llvm/roc-${PV}/lib):" -i ${S}/compiler/driver/src/driver/CMakeLists.txt || die
+
+	# add path to /usr/lib/llvm/roc-${PV}/include ...
+	# patch -p1 < ${FILESDIR}/rocm-opencl-runtime-${PV}-add-paths.patch || die
+
+	# remove the compiler subdirectory, we want to detect it from the system ...
+	sed -e "s:add_subdirectory(compiler/llvm.*)::" -i CMakeLists.txt || die
+	# remove device libs subdirectory
+	sed -e "s:add_subdirectory(library/.*)::" -i CMakeLists.txt || die
+	# remove khronos ICD
+	sed -e "s:add_subdirectory(api/opencl/khronos/icd.*)::" -i CMakeLists.txt || die
+
+	# change include directories to llvm/clang ...
+	sed -e "s:\${CMAKE_SOURCE_DIR}/compiler/llvm/tools/clang/include:/usr/lib/llvm/roc-${PV}/include/:" -i CMakeLists.txt || die
+	sed -e "s:\${CMAKE_SOURCE_DIR}/compiler/llvm/lib/Target/AMDGPU:/usr/lib/llvm/roc-${PV}/include/llvm/Target:" -i CMakeLists.txt || die
+
+	cmake-utils_src_prepare
+}
+
+src_configure() {
+	local mycmakeargs=(
+		-DLLVM_DIR=/usr/lib/llvm/roc-${PV}/lib/cmake/llvm
+		-DClang_DIR=/usr/lib/llvm/roc-${PV}/
+		-DCMAKE_INSTALL_PREFIX=/usr/
+	)
+	cmake-utils_src_configure
+}
+
+src_install() {
+	chrpath --delete "${BUILD_DIR}/lib/libamdocl64.so"
+	dolib.so "${BUILD_DIR}/lib/libamdocl64.so"
+
+	insinto /etc/OpenCL/vendors
+	doins ${S}/api/opencl/config/amdocl64.icd
+}
+
+pkg_postinst() {
+	elog "If more than one OpenCL library is installed, set environment variable OCL_ICD_VENDORS:"
+	elog "> export OCL_ICD_VENDORS=amdocl64.icd"
+}

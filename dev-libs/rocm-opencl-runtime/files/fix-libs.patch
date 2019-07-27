@@ -1,0 +1,10 @@
+--- ROCm-OpenCL-Runtime-roc-2.6.0/api/opencl/amdocl/CMakeLists.old	2019-07-22 17:01:07.029074123 +0200
++++ ROCm-OpenCL-Runtime-roc-2.6.0/api/opencl/amdocl/CMakeLists.txt	2019-07-22 16:59:24.153077458 +0200
+@@ -69,4 +69,7 @@
+ 
+ target_link_libraries(amdocl64 opencl_driver oclelf pthread dl ${ROCR_LIBRARIES})
+ 
++target_link_directories(amdocl64 PUBLIC ${Clang_DIR}/lib)
++target_link_libraries(amdocl64 clangSerialization LLVMBitWriter LLVMIRReader LLVMLinker LLVMMCParser)
++
+ install(TARGETS amdocl64 LIBRARY DESTINATION lib/x86_64 COMPONENT applications)

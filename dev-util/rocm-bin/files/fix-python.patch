@@ -1,0 +1,8 @@
+--- work/opt/rocm/bin/rocm_agent_enumerator.old 2019-07-04 18:26:03.000000000 +0200
++++ work/opt/rocm/bin/rocm_agent_enumerator     2019-07-23 20:06:48.805783310 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ 
+ import os
+ import re
