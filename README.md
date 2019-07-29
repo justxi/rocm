@@ -22,6 +22,7 @@ All other ebuilds can be out of date!
 |dev-util/rocprofiler| 2.5 | Installs, program not tested yet. ||
 |dev-util/rocm-smi| 2.5 | Reports suitable informations. | |
 |dev-util/rocminfo| 9999 | Reports suitable informations. | |
+|dev-libs/rocm-comgr| | | |
 |sys-devel/hcc| 2.5 | fails when "debug" USE flag is set | |
 |sys-devel/hip| 2.5 | currently depends on HCC | |
 |sys-devel/amd-rocm-meta| 2.5 | | |
