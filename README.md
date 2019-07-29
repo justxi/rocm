@@ -24,6 +24,7 @@ All other ebuilds can be out of date!
 |dev-util/rocminfo| 2.6 | Reports suitable informations. | |
 |dev-libs/rocm-comgr| | | |
 |dev-libs/rocr-debug-agent | 2.6 |  | |
+|sys-devel/llvm-roc | 2.6 | | |
 |sys-devel/hcc| 2.6 | fails when "debug" USE flag is set | |
 |sys-devel/hip| 2.5 | currently depends on HCC | |
 |sys-devel/amd-rocm-meta| 2.6 | | |
