@@ -22,12 +22,12 @@ All other ebuilds can be out of date!
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. ||
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | |
 |dev-util/rocminfo| 2.6 | Reports suitable informations. | |
-|dev-libs/rocm-comgr| | | |
+|dev-libs/rocm-comgr| 2.6 | | |
 |dev-libs/rocr-debug-agent | 2.6 |  | |
 |sys-devel/llvm-roc | 2.6 | | |
-|sys-devel/hcc| 2.6 | fails when "debug" USE flag is set | |
+|sys-devel/hcc| 2.6 |  | |
 |sys-devel/hip| 2.5 | currently depends on HCC | |
-|sys-devel/amd-rocm-meta| 2.6 | | |
+|sys-devel/amd-rocm-meta| 2.5 | | |
 |sci-libs/rocBLAS| 2.5 | Installs, not tested yet. |  |
 |sci-libs/rocPRIM| 2.5 | Installs only headers. | |
 |sci-libs/rocThrust| 2.5 | Installs only headers. | |
