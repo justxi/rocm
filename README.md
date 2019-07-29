@@ -21,7 +21,7 @@ All other ebuilds can be out of date!
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. ||
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | |
-|dev-util/rocminfo| 9999 | Reports suitable informations. | |
+|dev-util/rocminfo| 2.6 | Reports suitable informations. | |
 |dev-libs/rocm-comgr| | | |
 |dev-libs/rocr-debug-agent | | | |
 |sys-devel/hcc| 2.5 | fails when "debug" USE flag is set | |
