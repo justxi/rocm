@@ -28,6 +28,8 @@ All other ebuilds can be out of date!
 |sci-libs/rocBLAS| 2.5 | Installs, not tested yet. |  |
 |sci-libs/rocPRIM| 2.5 | Installs only headers. | |
 |sci-libs/rocThrust| 2.5 | Installs only headers. | |
+|sci-libs/rocFFT| 2.5 | not tested yet | |
+|sci-libs/rocRAND| 2.5 | not tested yet | | 
 
 
 Systems known to work:
