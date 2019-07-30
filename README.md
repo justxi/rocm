@@ -13,18 +13,20 @@ All other ebuilds can be out of date!
 |Ebuild|Current Version|State|in Gentoo portage|
 |---|---|---|---|
 |sys-kernel/rocm-sources| 2.6 | based on linux kernel 5.0.0-rc1 | - |
-|dev-libs/rocm-cmake|9999| | |
+|dev-libs/rocm-cmake|9999| | WIP |
 |dev-libs/roct-thunk-interface| 2.6 |  | :heavy_check_mark: V2.0.0 |
 |dev-libs/rocr-runtime| 2.6 | | :heavy_check_mark: V2.0.0 |
+|dev-libs/rocm-device-libs | 2.6 | | WIP |
+|dev-llibs/rocm-opencl-driver | 2.6 | | WIP |
 |dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | ||
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. ||
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | |
-|dev-util/rocminfo| 2.6 | Reports suitable informations. | |
+|dev-util/rocminfo| 2.6 | Reports suitable informations. | WIP |
 |dev-libs/rocm-comgr| 2.6 | | |
 |dev-libs/rocr-debug-agent | 2.6 |  | |
-|sys-devel/llvm-roc | 2.6 | | |
+|sys-devel/llvm-roc | 2.6 | | WIP |
 |sys-devel/hcc| 2.6 |  | |
 |sys-devel/hip| 2.5 | currently depends on HCC | |
 |sys-devel/amd-rocm-meta| 2.5 | | |
