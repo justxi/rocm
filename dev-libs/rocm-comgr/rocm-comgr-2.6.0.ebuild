@@ -15,6 +15,8 @@ S="${WORKDIR}/${P}/lib/comgr"
 DESCRIPTION="Radeon Open Compute CompilerSupport"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm-CompilerSupport"
 
+KEYWORDS="~amd64"
+
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
 
