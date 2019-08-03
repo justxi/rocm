@@ -7,7 +7,7 @@ Ebuilds to install ROCm on Gentoo Linux
 
 Thanks to all contributors.
 
-The following table shows all ebuilds tested (2019-07-29) in this repository.<br>
+The following table shows all ebuilds tested (2019-01-03) in this repository.<br>
 All other ebuilds can be out of date!
 
 |Ebuild|Current Version|State|in Gentoo portage|
@@ -31,6 +31,8 @@ All other ebuilds can be out of date!
 |sys-devel/hip| 2.5 | currently depends on HCC | |
 |sys-devel/amd-rocm-meta| 2.5 | | |
 
+ROCm Libraries:
+|---|---|---|---|
 |sci-libs/rocBLAS| 2.5 | Installs, not tested yet. |  |
 |sci-libs/rocPRIM| 2.5 | Installs only headers. | |
 |sci-libs/rocThrust| 2.5 | Installs only headers. | |
