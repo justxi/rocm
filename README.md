@@ -30,8 +30,8 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report it works or not | |
 |sys-devel/llvm-roc | 2.6 | | WIP |
 |sys-devel/hcc| 2.6 |  | |
-|sys-devel/hip| 2.5 | currently depends on HCC | |
-|sys-devel/amd-rocm-meta| 2.5 | | |
+|sys-devel/hip| 2.6 | currently depends on HCC | |
+|sys-devel/amd-rocm-meta| 2.6 | | |
 
 <br>
 ROCm Libraries:
