@@ -33,7 +33,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/hip| 2.5 | currently depends on HCC | |
 |sys-devel/amd-rocm-meta| 2.5 | | |
 
-
+<br>
 ROCm Libraries:
 
 |Ebuild|Current Version|State|in Gentoo portage|
@@ -44,7 +44,7 @@ ROCm Libraries:
 |sci-libs/rocFFT| 2.5 | not tested yet | |
 |sci-libs/rocRAND| 2.5 | not tested yet | | 
 
-
+<br>
 Systems known to work:
 
 | No | CPU | PCIe |  GPU | additional information |
