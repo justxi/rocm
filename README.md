@@ -7,7 +7,7 @@ Ebuilds to install ROCm on Gentoo Linux
 
 Thanks to all contributors.
 
-The following tables shows all ebuilds tested (2019-01-03) in this repository. <br>
+The following tables show all ebuilds tested (2019-01-03) in this repository. <br>
 All other ebuilds can be out of date!
 
 Kernel, driver, libraries, compiler and tools:
