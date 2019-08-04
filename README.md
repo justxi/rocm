@@ -23,15 +23,15 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | | |
-|dev-util/rocm-bandwidth-test|No ebuild yet, any help is appreciated. | | |
+|dev-util/rocm-bandwidth-test| |No ebuild exist, any help is appreciated. | | 
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. ||
-|dev-libs/rocm-smi-lib| | No ebuild yet, any help is appreciated. | |
+|dev-libs/rocm-smi-lib| | No ebuild exist, any help is appreciated. | |
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | |
 |dev-util/rocminfo| 2.6 | Reports suitable informations. | WIP |
 |dev-libs/rocm-comgr| 2.6 | | |
 |dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report it works or not | |
-|dev-util/roctracer|No ebuild yet, any help is appreciated. | 
-|dev-util/rcp|No ebuild yet, any help is appreciated. | 
+|dev-util/roctracer| |No ebuild yet, any help is appreciated. | 
+|dev-util/rcp| |No ebuild yet, any help is appreciated. | 
 |sys-devel/llvm-roc | 2.6 | | WIP |
 |sys-devel/hcc| 2.6 |  | |
 |sys-devel/hip| 2.6 | currently depends on HCC | |
