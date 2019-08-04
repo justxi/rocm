@@ -22,8 +22,10 @@ Kernel, driver, libraries, compiler and tools:
 |dev-llibs/rocm-opencl-driver | 2.6 | | WIP |
 |dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
-|media-libs/hsa-ext-rocr| 1.1.9 | ||
+|media-libs/hsa-ext-rocr| 1.1.9 | | |
+|dev-util/rocm-bandwidth-test| | | |
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. ||
+|dev-libs/rocm-smi-lib| | no ebuild yet, any help is appreciated | |
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | |
 |dev-util/rocminfo| 2.6 | Reports suitable informations. | WIP |
 |dev-libs/rocm-comgr| 2.6 | | |
@@ -44,6 +46,14 @@ ROCm Libraries:
 |sci-libs/rocFFT| 2.5 | not tested yet | |
 |sci-libs/rocRAND| 2.5 | not tested yet | | 
 |sci-libs/rocALUTION| | | |
+|sci-libs/hipBLAS | | no ebuild exist, any help is appreciated | |
+|sci-libs/hipSPARSE | | no ebuild exist, any help is appreciated | |
+|sci-libs/hipThrust | | no ebuild exist, any help is appreciated | |
+|sci-libs/hipCub | | no ebuild exist, any help is appreciated | |
+|sci-libs/MIOpenGEMM | | no ebuild exist, any help is appreciated | |
+|sci-libs/MIOpen | | no ebuild exist, any help is appreciated | |
+|sci-libs/MIVisionX | | no ebuild exist, any help is appreciated | |
+|sci-libs/RCCL | | no ebuild exist, any help is appreciated | |
 
 <br>
 Systems known to work:
