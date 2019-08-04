@@ -23,13 +23,15 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | | |
-|dev-util/rocm-bandwidth-test| | | |
+|dev-util/rocm-bandwidth-test|No ebuild yet, any help is appreciated. | | |
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. ||
-|dev-libs/rocm-smi-lib| | no ebuild yet, any help is appreciated | |
+|dev-libs/rocm-smi-lib| | No ebuild yet, any help is appreciated. | |
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | |
 |dev-util/rocminfo| 2.6 | Reports suitable informations. | WIP |
 |dev-libs/rocm-comgr| 2.6 | | |
 |dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report it works or not | |
+|dev-util/roctracer|No ebuild yet, any help is appreciated. | 
+|dev-util/rcp|No ebuild yet, any help is appreciated. | 
 |sys-devel/llvm-roc | 2.6 | | WIP |
 |sys-devel/hcc| 2.6 |  | |
 |sys-devel/hip| 2.6 | currently depends on HCC | |
@@ -45,15 +47,15 @@ ROCm Libraries:
 |sci-libs/rocThrust| 2.5 | Installs only headers. | |
 |sci-libs/rocFFT| 2.5 | not tested yet | |
 |sci-libs/rocRAND| 2.5 | not tested yet | | 
-|sci-libs/rocALUTION| | | |
-|sci-libs/hipBLAS | | no ebuild exist, any help is appreciated | |
-|sci-libs/hipSPARSE | | no ebuild exist, any help is appreciated | |
-|sci-libs/hipThrust | | no ebuild exist, any help is appreciated | |
-|sci-libs/hipCub | | no ebuild exist, any help is appreciated | |
-|sci-libs/MIOpenGEMM | | no ebuild exist, any help is appreciated | |
-|sci-libs/MIOpen | | no ebuild exist, any help is appreciated | |
-|sci-libs/MIVisionX | | no ebuild exist, any help is appreciated | |
-|sci-libs/RCCL | | no ebuild exist, any help is appreciated | |
+|sci-libs/rocALUTION| |No ebuild exist, any help is appreciated.| |
+|sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | |
+|sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | |
+|sci-libs/hipThrust | | No ebuild exist, any help is appreciated. | |
+|sci-libs/hipCub | | No ebuild exist, any help is appreciated. | |
+|sci-libs/MIOpenGEMM | | No ebuild exist, any help is appreciated.| |
+|sci-libs/MIOpen | | No ebuild exist, any help is appreciated. | |
+|sci-libs/MIVisionX | | No ebuild exist, any help is appreciated. | |
+|sci-libs/RCCL | | No ebuild exist, any help is appreciated. | |
 
 <br>
 Systems known to work:
