@@ -43,6 +43,7 @@ ROCm Libraries:
 |sci-libs/rocThrust| 2.5 | Installs only headers. | |
 |sci-libs/rocFFT| 2.5 | not tested yet | |
 |sci-libs/rocRAND| 2.5 | not tested yet | | 
+|sci-libs/rocALUTION| | | |
 
 <br>
 Systems known to work:
