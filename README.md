@@ -12,9 +12,9 @@ All other ebuilds can be out of date!
 
 Kernel, driver, libraries, compiler and tools:
 
-|Ebuild|Current Version|State|in Gentoo portage|
-|---|---|---|---|
-|sys-kernel/rocm-sources| 2.6 | based on linux kernel 5.0.0-rc1 | FHS | - |
+|Ebuild|Current Version|State| FHS | in Gentoo portage| 
+|---|---|---|---|---|
+|sys-kernel/rocm-sources| 2.6 | based on linux kernel 5.0.0-rc1 |  | - |
 |dev-libs/rocm-cmake|9999| |   | :heavy_check_mark: |
 |dev-libs/roct-thunk-interface| 2.6 |  | | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocr-runtime| 2.6 | | | :heavy_check_mark: V2.6.0 |
@@ -32,7 +32,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report it works or not | | |
 |dev-util/roctracer| |No ebuild yet, any help is appreciated. |  | |
 |dev-util/rcp| |No ebuild yet, any help is appreciated. |  | |
-|sys-devel/llvm-roc | 2.6 | | :heavy_check_mark: V2.6.0 | | |
+|sys-devel/llvm-roc | 2.6 | | |:heavy_check_mark: V2.6.0 | |
 |sys-devel/hcc| 2.6 |  | | |
 |sys-devel/hip| 2.6 | currently depends on HCC | | |
 |sys-devel/amd-rocm-meta| 2.6 | | | |
