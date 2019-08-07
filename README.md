@@ -36,7 +36,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/llvm-roc | 2.6 | | Yes |:heavy_check_mark: V2.6.0 | |
 |sys-devel/hcc| 2.6 |  | (ok) | |
 |sys-devel/hip| 2.6 | currently depends on HCC | (ok) | |
-|sys-devel/amd-rocm-meta| 2.6 | | | |
+|sys-devel/amd-rocm-meta| 2.6 | | (ok) | |
 
 <br>
 ROCm Libraries:
