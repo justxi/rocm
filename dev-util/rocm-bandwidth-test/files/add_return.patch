@@ -1,0 +1,10 @@
+--- a/rocm_bandwidth_test_print.cpp	2019-08-07 21:48:31.049736002 +0200
++++ b/rocm_bandwidth_test_print.cpp	2019-08-07 21:48:43.579735954 +0200
+@@ -204,6 +204,7 @@
+   }
+   std::cout << "An illegal key to get value for" << std::endl;
+   assert(false);
++  return "";
+ }
+ 
+ void RocmBandwidthTest::PrintLinkPropsMatrix(uint32_t key) const {
