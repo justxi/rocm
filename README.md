@@ -40,22 +40,22 @@ Kernel, driver, libraries, compiler and tools:
 <br>
 ROCm Libraries:
 
-|Ebuild|Current Version|State|in Gentoo portage|
-|---|---|---|---|
-|sci-libs/rocBLAS| 2.5 | Installs, not tested yet. |  |
-|sci-libs/rocPRIM| 2.5 | Installs only headers. | |
-|sci-libs/rocThrust| 2.5 | Installs only headers. | |
-|sci-libs/rocFFT| 2.5 | not tested yet | |
-|sci-libs/rocRAND| 2.5 | not tested yet | | 
-|sci-libs/rocALUTION| |No ebuild exist, any help is appreciated.| |
-|sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | |
-|sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | |
-|sci-libs/hipThrust | | No ebuild exist, any help is appreciated. | |
-|sci-libs/hipCub | | No ebuild exist, any help is appreciated. | |
-|sci-libs/MIOpenGEMM | | No ebuild exist, any help is appreciated.| |
-|sci-libs/MIOpen | | No ebuild exist, any help is appreciated. | |
-|sci-libs/MIVisionX | | No ebuild exist, any help is appreciated. | |
-|sci-libs/RCCL | | No ebuild exist, any help is appreciated. | |
+|Ebuild|Current Version|State|FHS|in Gentoo portage|
+|---|---|---|---|---|
+|sci-libs/rocBLAS| 2.5 | Installs, not tested yet. |  | |
+|sci-libs/rocPRIM| 2.5 | Installs only headers. | | |
+|sci-libs/rocThrust| 2.5 | Installs only headers. | | |
+|sci-libs/rocFFT| 2.5 | not tested yet | | |
+|sci-libs/rocRAND| 2.5 | not tested yet | |  |
+|sci-libs/rocALUTION| |No ebuild exist, any help is appreciated.| | |
+|sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
+|sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
+|sci-libs/hipThrust | | No ebuild exist, any help is appreciated. | | |
+|sci-libs/hipCub | | No ebuild exist, any help is appreciated. | | |
+|sci-libs/MIOpenGEMM | | No ebuild exist, any help is appreciated.| | |
+|sci-libs/MIOpen | | No ebuild exist, any help is appreciated. | | |
+|sci-libs/MIVisionX | | No ebuild exist, any help is appreciated. | | |
+|sci-libs/RCCL | | No ebuild exist, any help is appreciated. | | |
 
 <br>
 Systems known to work:
