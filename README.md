@@ -16,10 +16,11 @@ Kernel, driver, libraries, compiler and tools:
 |---|---|---|---|---|
 |sys-kernel/rocm-sources| 2.6 | based on linux kernel 5.0.0-rc1 |  | - |
 |dev-libs/rocm-cmake|9999| |   | :heavy_check_mark: |
+|dev-util/rocm-cmake| 0.2 | |   | :heavy_check_mark: 0.2 |
 |dev-libs/roct-thunk-interface| 2.6 |  | | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocr-runtime| 2.6 | | | :heavy_check_mark: V2.6.0 |
-|dev-libs/rocm-device-libs | 2.6 | | | :heavy_check_mark: |
-|dev-llibs/rocm-opencl-driver | 2.6 | | | :heavy_check_mark: |
+|dev-libs/rocm-device-libs | 2.6 | | | :heavy_check_mark: V2.6.0 |
+|dev-llibs/rocm-opencl-driver | 2.6 | | | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. |  | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | | | |
@@ -27,7 +28,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. || |
 |dev-libs/rocm-smi-lib| | No ebuild exist, any help is appreciated. | | |
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | | |
-|dev-util/rocminfo| 2.6 | Reports suitable informations. | | :heavy_check_mark: |
+|dev-util/rocminfo| 2.6 | Reports suitable informations. | | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocm-comgr| 2.6 | | | | 
 |dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report it works or not | | |
 |dev-util/roctracer| |No ebuild yet, any help is appreciated. |  | |
