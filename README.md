@@ -30,7 +30,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | No! | |
 |dev-util/rocminfo| 2.6 | Reports suitable informations. | Yes | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocm-comgr| 2.6 | | (ok) | | 
-|dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report it works or not | | |
+|dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report it works or not | (ok) | |
 |dev-util/roctracer| |No ebuild yet, any help is appreciated. |  | |
 |dev-util/rcp| |No ebuild yet, any help is appreciated. |  | |
 |sys-devel/llvm-roc | 2.6 | | Yes |:heavy_check_mark: V2.6.0 | |
