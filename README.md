@@ -14,28 +14,28 @@ Kernel, driver, libraries, compiler and tools:
 
 |Ebuild|Current Version|State| FHS | in Gentoo portage| 
 |---|---|---|---|---|
-|sys-kernel/rocm-sources| 2.6 | based on linux kernel 5.0.0-rc1 |  |  |
-|dev-libs/rocm-cmake|9999| | ok | :heavy_check_mark: |
-|dev-util/rocm-cmake| 0.2 | | ok | :heavy_check_mark: V0.2 |
-|dev-libs/roct-thunk-interface| 2.6 |  | ok | :heavy_check_mark: V2.6.0 |
-|dev-libs/rocr-runtime| 2.6 | | ok | :heavy_check_mark: V2.6.0 |
-|dev-libs/rocm-device-libs | 2.6 | | ok | :heavy_check_mark: V2.6.0 |
-|dev-llibs/rocm-opencl-driver | 2.6 | | ok | :heavy_check_mark: V2.6.0 |
-|dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. |  | WIP |
-|media-libs/hsa-amd-aqlprofile| 1.0.0 | | | |
-|media-libs/hsa-ext-rocr| 1.1.9 | | | |
-|dev-util/rocm-bandwidth-test| 9999 |  | ok |  |
-|dev-util/rocprofiler| 2.6 | Installs, program not tested yet. || |
+|sys-kernel/rocm-sources| 2.6 | based on linux kernel 5.0.0-rc1 | (ok) |  |
+|dev-libs/rocm-cmake|9999| | Yes | :heavy_check_mark: |
+|dev-util/rocm-cmake| 0.2 | | Yes | :heavy_check_mark: V0.2 |
+|dev-libs/roct-thunk-interface| 2.6 |  | Yes | :heavy_check_mark: V2.6.0 |
+|dev-libs/rocr-runtime| 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
+|dev-libs/rocm-device-libs | 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
+|dev-llibs/rocm-opencl-driver | 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
+|dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | (ok) | WIP |
+|media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
+|media-libs/hsa-ext-rocr| 1.1.9 | | (ok) | |
+|dev-util/rocm-bandwidth-test| 9999 |  | (ok) |  |
+|dev-util/rocprofiler| 2.6 | Installs, program not tested yet. | No! | |
 |dev-libs/rocm-smi-lib| | No ebuild exist, any help is appreciated. | | |
-|dev-util/rocm-smi| 2.6 | Reports suitable informations. | | |
-|dev-util/rocminfo| 2.6 | Reports suitable informations. | ok | :heavy_check_mark: V2.6.0 |
-|dev-libs/rocm-comgr| 2.6 | | | | 
+|dev-util/rocm-smi| 2.6 | Reports suitable informations. | No! | |
+|dev-util/rocminfo| 2.6 | Reports suitable informations. | Yes | :heavy_check_mark: V2.6.0 |
+|dev-libs/rocm-comgr| 2.6 | | (ok) | | 
 |dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report it works or not | | |
 |dev-util/roctracer| |No ebuild yet, any help is appreciated. |  | |
 |dev-util/rcp| |No ebuild yet, any help is appreciated. |  | |
-|sys-devel/llvm-roc | 2.6 | | ok |:heavy_check_mark: V2.6.0 | |
+|sys-devel/llvm-roc | 2.6 | | Yes |:heavy_check_mark: V2.6.0 | |
 |sys-devel/hcc| 2.6 |  | ok | |
-|sys-devel/hip| 2.6 | currently depends on HCC | ok | |
+|sys-devel/hip| 2.6 | currently depends on HCC | Yes | |
 |sys-devel/amd-rocm-meta| 2.6 | | | |
 
 <br>
