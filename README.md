@@ -24,7 +24,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. |  | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | | |
 |media-libs/hsa-ext-rocr| 1.1.9 | | | |
-|dev-util/rocm-bandwidth-test| |No ebuild exist, any help is appreciated. | |  |
+|dev-util/rocm-bandwidth-test| 9999 |  | ok |  |
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. || |
 |dev-libs/rocm-smi-lib| | No ebuild exist, any help is appreciated. | | |
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | | |
