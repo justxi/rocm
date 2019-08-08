@@ -44,6 +44,7 @@ ROCm Libraries:
 |Ebuild|Current Version|State|FHS|in Gentoo portage|
 |---|---|---|---|---|
 |sci-libs/rocBLAS| 2.5 | Installs, not tested yet. |  | |
+|sci-libs/rocSPARSE|  | No ebuild exist, any help is appreciated. |  | |
 |sci-libs/rocPRIM| 2.5 | Installs only headers. | | |
 |sci-libs/rocThrust| 2.5 | Installs only headers. | | |
 |sci-libs/rocFFT| 2.5 | not tested yet | | |
