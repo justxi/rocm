@@ -45,11 +45,11 @@ ROCm Libraries:
 |---|---|---|---|---|
 |sci-libs/rocBLAS| 2.5 | Installs, not tested yet. |  | |
 |sci-libs/rocSPARSE|  | No ebuild exist, any help is appreciated. |  | |
+|sci-libs/rocALUTION| |No ebuild exist, any help is appreciated.| | |
 |sci-libs/rocPRIM| 2.5 | Installs only headers. | | |
 |sci-libs/rocThrust| 2.5 | Installs only headers. | | |
 |sci-libs/rocFFT| 2.5 | not tested yet | | |
 |sci-libs/rocRAND| 2.5 | not tested yet | |  |
-|sci-libs/rocALUTION| |No ebuild exist, any help is appreciated.| | |
 |sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipThrust | | Will be removed in the future, no ebuild will be created. | | |
