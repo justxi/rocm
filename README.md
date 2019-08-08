@@ -63,4 +63,5 @@ Systems known to work:
 
 | No | CPU | PCIe |  GPU | additional information |
 |---|---|---|---|---|
-| 1 | Core i5 8400 | PCIe 3.0 | Radeon RX 560 (POLARIS11) | |
+| 1 | Intel Core i5 8400 | PCIe 3.0 | Radeon RX 560 (POLARIS11) | |
+| 2 | Intel Core i7 6700k | PCIe 3.0 over Thunderbolt 3 | Radeon VII | |
