@@ -51,7 +51,7 @@ ROCm Libraries:
 |sci-libs/rocALUTION| |No ebuild exist, any help is appreciated.| | |
 |sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
-|sci-libs/hipThrust | | No ebuild exist, any help is appreciated. | | |
+|sci-libs/hipThrust | | Will be remove, no ebuild will be created. | | |
 |sci-libs/hipCub | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/MIOpenGEMM | | No ebuild exist, any help is appreciated.| | |
 |sci-libs/MIOpen | | No ebuild exist, any help is appreciated. | | |
