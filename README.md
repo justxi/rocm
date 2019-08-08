@@ -26,7 +26,7 @@ Kernel, driver, libraries, compiler and tools:
 |media-libs/hsa-ext-rocr| 1.1.9 | | (ok) | |
 |dev-util/rocm-bandwidth-test| 9999 | Reports suitable informations. | (ok) |  |
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. | No! | |
-|dev-libs/rocm-smi-lib| | No ebuild exist, any help is appreciated. | | |
+|dev-libs/rocm-smi-lib| 2.6 |  | (ok) | |
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | No! | |
 |dev-util/rocminfo| 2.6 | Reports suitable informations. | Yes | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocm-comgr| 2.6 | | (ok) | | 
