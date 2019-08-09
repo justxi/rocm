@@ -28,7 +28,7 @@ RESTRICT="strip"
 S="${WORKDIR}/rocBLAS-rocm-${PV}"
 BUILDDIR="${WORKDIR}/build/release"
 
-rocBLAS_V="2.2.5.0"
+rocBLAS_V="2.2.11.0"
 
 src_prepare() {
         # Use only the flags from rocBLAS - this should be fixed
@@ -58,7 +58,6 @@ src_prepare() {
 
 	cd ${S}
         eapply "${FILESDIR}/master-addTensileIncludePath.patch"
-	eapply "${FILESDIR}/rocBLAS-${PV}-use_local_virtualenv.patch"
         eapply_user
 }
 
