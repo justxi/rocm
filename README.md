@@ -27,7 +27,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocm-bandwidth-test| 9999 | Reports suitable informations. | (ok) |  |
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. | No! | |
 |dev-libs/rocm-smi-lib| 2.6 |  | (ok) | |
-|dev-util/rocm-smi| 2.6 | Reports suitable informations. | Yes | |
+|dev-util/rocm-smi| 2.6 | Reports suitable informations. | (ok) | |
 |dev-util/rocminfo| 2.6 | Reports suitable informations. | Yes | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocm-comgr| 2.6 | | (ok) | | 
 |dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report if it works or not | (ok) | |
