@@ -19,7 +19,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/roct-thunk-interface| 2.6 |  | Yes | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocr-runtime| 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocm-device-libs | 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
-|dev-llibs/rocm-opencl-driver | 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
+|dev-libs/rocm-opencl-driver | 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | (ok) | WIP |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |media-libs/hsa-ext-rocr| 1.1.9 | | (ok) | |
