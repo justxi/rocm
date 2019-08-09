@@ -15,7 +15,7 @@ IUSE=""
 S="${WORKDIR}/rocminfo-roc-${PV}"
 
 DEPEND=""
-RDEPEND="dev-libs/rocm-cmake
+RDEPEND="dev-util/rocm-cmake
 	dev-libs/rocr-runtime"
 
 PATCHES=(

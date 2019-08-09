@@ -14,7 +14,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-libs/rocm-cmake
+RDEPEND="dev-util/rocm-cmake
 	dev-libs/rocr-runtime"
 
 #src_unpack() {
