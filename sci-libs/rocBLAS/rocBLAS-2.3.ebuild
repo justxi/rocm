@@ -17,7 +17,7 @@ REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 RDEPEND="=sys-devel/hip-${PV}*"
 DEPEND="${RDPEND}
 	dev-util/cmake
-	dev-libs/rocm-cmake
+	dev-util/rocm-cmake
 	=dev-lang/python-2.7*
 	>=dev-python/virtualenv-15.1.0
 	dev-python/pyyaml"
