@@ -31,7 +31,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-comgr| 2.6 | | (ok) | | 
 |dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report if it works or not | (ok) | |
 |dev-util/roctracer| |Sources need modification (hardcoded paths, python 2.7 dep., downloads additional sources) |  | |
-|dev-util/rcp| |No ebuild yet, any help is appreciated. |  | |
+|dev-util/rcp| |Sources need modification (python 2.7 dep., problems with GCC 9.1, hardcoded paths)   |  | |
 |sys-devel/llvm-roc | 2.6 | | Yes |:heavy_check_mark: V2.6.0 | |
 |sys-devel/hcc| 2.6 |  | (ok) | |
 |sys-devel/hip| 2.6 | currently depends on HCC | (ok) | |
