@@ -1,0 +1,13 @@
+--- a/Src/HSAUtils/makefile	2019-08-10 17:24:00.939020368 +0200
++++ b/Src/HSAUtils/makefile	2019-08-10 17:23:38.033020456 +0200
+@@ -6,8 +6,8 @@
+ TARGETLIB = $(OUTPUT_LIB_DIR)/lib$(GPU_PROFILER_LIB_PREFIX)$(PROJECT_NAME)$(TARGET_SUFFIX).a
+ 
+ INCLUDES = \
+-	-isystem$(HSA_DIR)/include \
+-	-isystem$(HSA_DIR)/include/hsa \
++	-I$(HSA_DIR)/include \
++	-I$(HSA_DIR)/include/hsa \
+ 	-I$(TSINGLETON_DIR) \
+ 	-I$(HSAUTILS_DIR) \
+ 	-I$(DYNAMICLIBRARYMODULE_DIR)

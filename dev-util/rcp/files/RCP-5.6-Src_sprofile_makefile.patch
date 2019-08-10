@@ -1,0 +1,13 @@
+--- a/Src/sprofile/makefile	2019-08-10 17:29:30.691019110 +0200
++++ b/Src/sprofile/makefile	2019-08-10 17:28:48.572019271 +0200
+@@ -18,8 +18,8 @@
+ 	-isystem$(BOOST_DIR) \
+ 	-isystem$(CAL_DIR)/include \
+ 	-isystem$(APPSDK_DIR)/include \
+-	-isystem$(HSA_DIR)/include \
+-	-isystem$(HSA_DIR)/include/hsa \
++	-I$(HSA_DIR)/include \
++	-I$(HSA_DIR)/include/hsa \
+ 	-I$(DYNAMICLIBRARYMODULE_DIR) \
+ 	-I$(TSINGLETON_DIR) \
+ 	-I$(UTF8CPP_DIR) \

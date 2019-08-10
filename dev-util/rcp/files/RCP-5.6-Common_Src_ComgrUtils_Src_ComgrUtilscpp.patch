@@ -1,0 +1,20 @@
+--- a/Common/Src/ComgrUtils/Src/ComgrUtils.cpp	2019-08-10 16:35:33.553031459 +0200
++++ b/Common/Src/ComgrUtils/Src/ComgrUtils.cpp	2019-08-10 16:34:47.853031633 +0200
+@@ -286,7 +286,7 @@
+     {
+         return false;
+     }
+-    memset(iterState, 0, sizeof(CodeObjSymbolIterState));
++    memset(static_cast<void*>(iterState), 0, sizeof(CodeObjSymbolIterState));
+     static const size_t s_SCRATCH_BUFER_SIZE = 1024;
+     iterState->m_scratchBuffersizeInBytes = s_SCRATCH_BUFER_SIZE;
+     iterState->m_pScratchBuffer = (char*)malloc(iterState->m_scratchBuffersizeInBytes);
+@@ -750,7 +750,7 @@
+         free(ppln->m_pRegisterDataList);
+     }
+ 
+-    memset(&data, 0, sizeof(PalPipelineData));
++    memset(static_cast<void*>(&data), 0, sizeof(PalPipelineData));
+ }
+ 
+ std::pair<amd_comgr_status_t, std::string> CodeObj::GetLastError()

@@ -1,0 +1,11 @@
+--- a/Build/Linux/SConstruct	2019-08-10 16:03:12.577038863 +0200
++++ b/Build/Linux/SConstruct	2019-08-10 16:02:36.362039001 +0200
+@@ -94,7 +94,7 @@
+ ##############################################################
+ # Print out all environment variables of CXL_env if verbose is specified
+ if CXL_env['CXL_build_verbose'] != 0 :
+-	print CXL_env.Dump()
++	print( CXL_env.Dump() )
+ 
+ 
+ ##############################################################

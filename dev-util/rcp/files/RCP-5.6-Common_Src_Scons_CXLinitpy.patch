@@ -1,0 +1,59 @@
+--- a/Common/Src/SCons/CXL_init.py	2019-08-10 16:09:57.338037319 +0200
++++ b/Common/Src/SCons/CXL_init.py	2019-08-10 16:10:15.149037251 +0200
+@@ -15,7 +15,7 @@
+         sys.path.append("/usr/lib/python3/site-packages/SCons/Variables/")
+         enum_mod = __import__("EnumVariable")
+     except ImportError:
+-        print "Error: Could not import EnumVariable"
++        print("Error: Could not import EnumVariable")
+         exit(1)
+ 
+     # CXL_build
+@@ -914,7 +914,7 @@
+         try :
+             import_mod = __import__(libName)
+         except ImportError:
+-            print "Error: Could not import module " + libName + "(" + mod_path + ")\n"
++            print("Error: Could not import module " + libName + "(" + mod_path + ")\n")
+             exit (1)
+         else:
+             if (import_mod.VER.lower() == "live"):
+@@ -930,11 +930,11 @@
+                 # Check if CommonProjects directory is specified
+                 liveProj_dir = env['CXL_commonproj_dir']
+                 if (liveProj_dir == ""):
+-                    print "Error: CXL_commonproj_dir not specified"
++                    print("Error: CXL_commonproj_dir not specified")
+                     return
+ 
+                 if env['CXL_build_verbose'] != 0 :
+-                    print "Note: Using the 'live' code base for " + libName
++                    print("Note: Using the 'live' code base for " + libName)
+ 
+                 liveProj_dir += "/" + libName
+ 
+@@ -970,8 +970,8 @@
+                 tableKey = env['CXL_build'] + '-' + env['CXL_arch']
+ 
+                 if env['CXL_build_verbose'] != 0 :
+-                    print "Note: Using the version "+ import_mod.VER +" code base for " + libName
+-                    print "tableKey is: [" + tableKey + "]"
++                    print("Note: Using the version "+ import_mod.VER +" code base for " + libName)
++                    print("tableKey is: [" + tableKey + "]")
+ 
+                 ver_dir = mod_path + "/" + import_mod.VER
+ 
+@@ -1046,11 +1046,11 @@
+ # This mechanism enables a project to override the promotion model for a component
+ def initCommonProjects (env, ProjNameList) :
+     if (env['CXL_common_dir'] == ""):
+-        print "Error: CXL_common_dir not specified"
++        print("Error: CXL_common_dir not specified")
+         return
+ 
+     if (env['CXL_commonproj_dir'] == ""):
+-        print "Error: CXL_commonproj_dir not specified"
++        print("Error: CXL_commonproj_dir not specified")
+         return
+ 
+     initCommonLibAmd (env, ProjNameList)

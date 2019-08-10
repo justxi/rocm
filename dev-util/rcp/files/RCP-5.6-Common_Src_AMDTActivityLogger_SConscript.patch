@@ -1,0 +1,11 @@
+--- a/Common/Src/AMDTActivityLogger/SConscript	2019-08-10 16:28:41.739033030 +0200
++++ b/Common/Src/AMDTActivityLogger/SConscript	2019-08-10 16:27:59.829033190 +0200
+@@ -16,7 +16,7 @@
+ ])
+ 
+ # osMessageBox, osDesktop
+-env.Append(CPPFLAGS = '-std=c++11 -fno-strict-aliasing -D_LINUX -DAMDT_BUILD_SUFFIX= -DAMDT_DEBUG_SUFFIX=')
++env.Append(CPPFLAGS = '-std=c++11 -fno-strict-aliasing -Wno-cast-function-type -D_LINUX -DAMDT_BUILD_SUFFIX= -DAMDT_DEBUG_SUFFIX=')
+ 
+ sources = \
+ [

@@ -1,0 +1,16 @@
+--- a/Build/Linux/Common.mk	2019-08-10 17:00:04.043025850 +0200
++++ b/Build/Linux/Common.mk	2019-08-10 17:12:08.318023087 +0200
+@@ -61,11 +61,11 @@
+ GPU_PERF_API_DIR = $(COMMON_LIB_AMD)/GPUPerfAPI/3_3/Include
+ APPSDK_DIR = $(COMMON_LIB_AMD)/APPSDK/3-0
+ ACL_DIR = $(COMMON_LIB_AMD)/ACL/TOT
+-HSA_DIR = /opt/rocm/hsa
++HSA_DIR = /usr
+ HSA_LIB_DIR = $(HSA_DIR)/lib/
+ COMGR_DIR = $(HSA_DIR)/include/comgr/
+ BOOST_DIR = $(COMMON_LIB_EXT)/Boost/boost_1_59_0
+-BOOST_LIB_DIR = /usr/lib/x86_64-linux-gnu
++BOOST_LIB_DIR = /usr/lib64
+ BOOST_DEFINES = "-DBOOST_ALL_NO_LIB -DBOOST_NO_CXX11_NUMERIC_LIMITS"
+ DEVICEINFO_DIR = $(COMMON_SRC)/DeviceInfo
+ DEVICEINFO_INTERNAL_DIR = $(COMMON_SRC)/DeviceInfo-Internal

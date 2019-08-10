@@ -1,0 +1,11 @@
+--- a/Src/CLTraceAgent/CLEventManager.cpp	2019-08-10 16:41:42.073030053 +0200
++++ b/Src/CLTraceAgent/CLEventManager.cpp	2019-08-10 16:40:52.672030242 +0200
+@@ -234,7 +234,7 @@
+     else
+     {
+         CLEventPtr nullEvent;
+-        return std::move(nullEvent);
++        return nullEvent; //std::move(nullEvent);
+     }
+ }
+ 
