@@ -54,7 +54,10 @@ src_prepare() {
 		CurrentISA="906"
 	fi
 
+	eapply "${FILESDIR}/Tensile-2.6-add_HIP_include_path.patch"
+
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
+	sed -e "s:# target_include_directories( rocblas SYSTEM PUBLIC \${HIP_INCLUDE_DIRS} ):target_include_directories( rocblas SYSTEM PUBLIC \${HIP_INCLUDE_DIRS} ):" -i ${S}/library/src/CMakeLists.txt || die
 
 	cd ${S}
         eapply "${FILESDIR}/master-addTensileIncludePath.patch"
@@ -68,6 +71,7 @@ src_configure() {
 	export PATH=$PATH:/usr/lib/hcc/${PV}/bin
 	export hcc_DIR=/usr/lib/hcc/${PV}/lib/cmake/
 	export hip_DIR=/usr/lib/hip/${PV}/lib/cmake/
+	export HIP_PATH=/usr/lib/hip/${PV}/
 	export CXX=/usr/lib/hcc/${PV}/bin/hcc
 
 	if use debug; then
@@ -76,7 +80,7 @@ src_configure() {
 		buildtype="-DCMAKE_BUILD_TYPE=Release"
 	fi
 
-	cmake -DDETECT_LOCAL_VIRTUALENV=1 -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"  ${buildtype}  ${S}
+	cmake -DDETECT_LOCAL_VIRTUALENV=1 -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/" -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"  ${buildtype}  ${S}
 }
 
 src_compile() {

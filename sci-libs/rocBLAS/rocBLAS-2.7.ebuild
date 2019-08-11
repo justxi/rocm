@@ -28,7 +28,7 @@ RESTRICT="strip"
 S="${WORKDIR}/rocBLAS-rocm-2.6"
 BUILDDIR="${WORKDIR}/build/release"
 
-rocBLAS_V="2.2.6.0"
+rocBLAS_V="2.2.11.0"
 
 src_prepare() {
         # Use only the flags from rocBLAS - this should be fixed
