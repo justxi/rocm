@@ -47,7 +47,7 @@ ROCm Libraries:
 |---|---|---|---|---|
 |sci-libs/rocBLAS| 2.6 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocPRIM| 2.6 | Installs only headers. | (ok) | |
-|sci-libs/rocSPARSE|  | No ebuild exist, any help is appreciated. |  | |
+|sci-libs/rocSPARSE| 2.6 | Initial ebuild, improvements necessary. | (ok) | |
 |sci-libs/rocALUTION| |No ebuild exist, any help is appreciated.| | |
 |sci-libs/rocThrust| 2.5 | Installs only headers. | | |
 |sci-libs/rocFFT| 2.5 | not tested yet | | |
