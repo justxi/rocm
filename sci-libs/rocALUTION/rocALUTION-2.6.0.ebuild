@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+openmp mpi hip"
 
-RDEPEND="hip? ( =sys-devel/hip-$(ver_cut 1-2) )"
+RDEPEND="hip? ( =sys-devel/hip-$(ver_cut 1-2)* )"
 DEPEND="${RDEPEND}
 	dev-util/cmake"
 
@@ -22,6 +22,10 @@ CMAKE_BUILD_TYPE="RelWithDebInfo"
 S="${WORKDIR}/${PN}-rocm-$(ver_cut 1-2)"
 
 src_configure() {
+
+	export hcc_DIR=/usr/lib/hcc/2.6/lib/cmake/hcc/
+	export HIP_IGNORE_HCC_VERSION=1
+
 	local mycmakeargs=(
 		-DSUPPORT_OMP=$(usex openmp ON OFF)
 		-DSUPPORT_HIP=$(usex hip ON OFF)
