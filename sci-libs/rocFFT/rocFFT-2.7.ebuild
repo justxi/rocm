@@ -15,7 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="=sys-devel/hip-${PV}*"
+#RDEPEND="=sys-devel/hip-${PV}*"
+RDEPEND=""
 DEPEND="${RDPEND}
 	dev-util/cmake"
 
@@ -31,13 +32,19 @@ src_configure() {
 	mkdir -p "${WORKDIR}/build/"
 	cd "${WORKDIR}/build/"
 
-	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
-	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
-	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
-	export HIP_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
-	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
+#	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
+#	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
+#	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
+#	export HIP_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
+#	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
-	cmake -DHIP_PLATFORM=hcc -DHIP_ROOT_DIR=/usr/lib/hip/$(ver_cut 1-2)/ -DBUILD_TEST=OFF -DCMAKE_INSTALL_PREFIX="/usr/lib/" ${S}
+	export PATH=$PATH:/usr/lib/hcc/2.6/bin
+	export hcc_DIR=/usr/lib/hcc/2.6/lib/cmake/
+	export hip_DIR=/usr/lib/hip/2.6/lib/cmake/
+	export HIP_DIR=/usr/lib/hip/2.6/lib/cmake/
+	export CXX=/usr/lib/hcc/2.6/bin/hcc
+
+	cmake -DHIP_PLATFORM=hcc -DCMAKE_INSTALL_PREFIX="/usr/lib/" ${S}
 }
 
 src_compile() {
