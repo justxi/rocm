@@ -52,7 +52,7 @@ ROCm Libraries:
 |sci-libs/rocThrust| 2.5 | Installs only headers. | ? | |
 |sci-libs/rocFFT| 2.5 | not tested yet | ? | |
 |sci-libs/rocRAND| 2.6 | not tested yet | (ok) |  |
-|sci-libs/hipCub | 2.7 | No ebuild exist, any help is appreciated. | | |
+|sci-libs/hipCub | 2.7 | No ebuild exist, any help is appreciated. | ? | |
 |sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipThrust | | Will be removed in the future, no ebuild will be created. | | |
