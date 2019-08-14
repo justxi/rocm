@@ -48,7 +48,7 @@ ROCm Libraries:
 |sci-libs/rocBLAS| 2.6 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocPRIM| 2.6 | Installs only headers. | (ok) | |
 |sci-libs/rocSPARSE| 2.6 | Initial ebuild, improvements necessary. | (ok) | |
-|sci-libs/rocALUTION| 2.6 | HIP support not enabled, because it does not find rocSPARSE | No | |
+|sci-libs/rocALUTION| 2.6 | HIP support not enabled, because it does not find rocSPARSE | (ok) | |
 |sci-libs/rocThrust| 2.6 | Installs only headers. | (ok) | |
 |sci-libs/rocFFT| 2.6 | not tested yet | (ok) | |
 |sci-libs/rocRAND| 2.6 | not tested yet | (ok) |  |
