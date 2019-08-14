@@ -23,7 +23,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocr-runtime| 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocm-device-libs | 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
 |dev-libs/rocm-opencl-driver | 2.6 | | Yes | :heavy_check_mark: V2.6.0 |
-|dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | (ok) | WIP |
+|dev-libs/rocm-opencl-runtime| 2.6 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark: V2.6.0 |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |media-libs/hsa-ext-rocr| 1.1.9 | | (ok) | |
 |dev-util/rocm-bandwidth-test| 9999 | Reports suitable informations. | (ok) |  |
