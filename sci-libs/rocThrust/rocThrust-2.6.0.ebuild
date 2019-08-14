@@ -26,6 +26,11 @@ src_prepare() {
 	eapply "${FILESDIR}/master-disable2ndfindhcc.patch"
 	eapply "${FILESDIR}/rocThrust-2.6-disable-rocPRIM-download.patch"
 	eapply "${FILESDIR}/rocThrust-2.6-changeHeaderInstallPath.patch"
+
+	sed -e "s: PREFIX rocthrust:# PREFIX rocthrust:" -i ${S}/thrust/CMakeLists.txt
+	sed -e "s:  DESTINATION rocthrust/include/thrust:  DESTINATION include/rocthrust:" -i ${S}/thrust/CMakeLists.txt
+	sed -e "s:rocm_install_symlink_subdir(rocthrust):#rocm_install_symlink_subdir(rocthrust):" -i ${S}/thrust/CMakeLists.txt
+
 	eapply_user
 }
 
