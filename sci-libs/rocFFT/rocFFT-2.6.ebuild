@@ -31,6 +31,9 @@ src_prepare() {
 	eapply "${FILESDIR}/rocFFT-library_src_CMakeListstxt.patch"
 	eapply "${FILESDIR}/rocFFT-library_src_device_CMakeListstxt.patch"
 
+	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i ${S}/library/src/CMakeLists.txt
+	sed -e "s: PREFIX rocfft:# PREFIX rocfft:" -i ${S}/library/src/CMakeLists.txt
+
 	eapply_user
 }
 
@@ -44,7 +47,7 @@ src_configure() {
 	export HIP_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
 	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
-	cmake -DHIP_PLATFORM=hcc -DCMAKE_INSTALL_PREFIX="/usr/lib/" -DAMDGPU_TARGETS="gfx803"  ${S}
+	cmake -DHIP_PLATFORM=hcc -DCMAKE_INSTALL_PREFIX="/usr/" -DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/" -DAMDGPU_TARGETS="gfx803"  ${S}
 }
 
 src_compile() {
