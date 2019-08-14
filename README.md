@@ -50,7 +50,7 @@ ROCm Libraries:
 |sci-libs/rocSPARSE| 2.6 | Initial ebuild, improvements necessary. | (ok) | |
 |sci-libs/rocALUTION| 2.6 | HIP support not enabled, because it does not find rocSPARSE | No | |
 |sci-libs/rocThrust| 2.6 | Installs only headers. | No | |
-|sci-libs/rocFFT| 2.6 | not tested yet | No | |
+|sci-libs/rocFFT| 2.6 | not tested yet | (ok) | |
 |sci-libs/rocRAND| 2.6 | not tested yet | (ok) |  |
 |sci-libs/hipCub | 2.6 | No ebuild exist, any help is appreciated. | (ok)| |
 |sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
