@@ -25,14 +25,14 @@ S="${WORKDIR}/rocFFT-0.9.4"
 src_prepare() {
 	cd ${S}
 
-#	sed -e "s:target_link_libraries( rocfft-device PRIVATE --amdgpu-target=\${target} ):target_compile_options( rocfft-device PRIVATE --amdgpu-target=\${target} ):" -i library/src/device/CMakeLists.txt
-#	sed -e "s:target_link_libraries( rocfft PRIVATE --amdgpu-target=\${target} ):target_compile_options( rocfft PRIVATE --amdgpu-target=\${target} ):" -i library/src/CMakeLists.txt
-
-	eapply "${FILESDIR}/rocFFT-library_src_CMakeListstxt.patch"
+eapply "${FILESDIR}/rocFFT-library_src_CMakeListstxt.patch"
 	eapply "${FILESDIR}/rocFFT-library_src_device_CMakeListstxt.patch"
 
 	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i ${S}/library/src/CMakeLists.txt
 	sed -e "s: PREFIX rocfft:# PREFIX rocfft:" -i ${S}/library/src/CMakeLists.txt
+
+	sed -e "s: PREFIX rocfft:# PREFIX rocfft:" -i ${S}/library/src/device/CMakeLists.txt
+	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i ${S}/library/src/device/CMakeLists.txt
 
 	eapply_user
 }
