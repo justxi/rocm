@@ -31,7 +31,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-smi-lib| 2.6 |  | (ok) | |
 |dev-util/rocm-smi| 2.6 | Reports suitable informations. | (ok) | |
 |dev-util/rocminfo| 2.6 | Reports suitable informations. | Yes | :heavy_check_mark: V2.6.0 |
-|dev-libs/rocm-comgr| 2.6 | | (ok) | | 
+|dev-libs/rocm-comgr| 2.6 | | Yes | :heavy_check_mark: V2.6.0 | 
 |dev-libs/rocr-debug-agent | 2.6 | fails on a few systems - please report if it works or not | (ok) | |
 |dev-util/roctracer| 2.6 | Installs a library, not tested yet. | (ok) | |
 |dev-util/rcp| 5.6 | Installs, not tested yet.  | (ok) | |
