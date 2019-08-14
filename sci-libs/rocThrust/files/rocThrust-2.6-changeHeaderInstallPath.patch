@@ -1,0 +1,26 @@
+diff --git a/thrust/CMakeLists.txt b/thrust/CMakeLists.txt
+index 982efd5..ac450a4 100644
+--- a/thrust/CMakeLists.txt
++++ b/thrust/CMakeLists.txt
+@@ -46,7 +46,8 @@ install(
+   DIRECTORY
+     "./"
+     "${PROJECT_BINARY_DIR}/thrust/include/"
+-  DESTINATION rocthrust/include/thrust
++#  DESTINATION rocthrust/include/thrust
++  DESTINATION include/rocThrust/thrust
+   FILES_MATCHING
+   PATTERN "*.h"
+   PATTERN "*.cuh"
+@@ -61,8 +62,9 @@ include(ROCMExportTargetsHeaderOnly)
+ # Export targets
+ rocm_export_targets_header_only(
+   TARGETS rocthrust
+-  PREFIX rocthrust
++  #PREFIX rocthrust
++  PREFIX
+ )
+ 
+ # Create symlinks
+-rocm_install_symlink_subdir(rocthrust)
++#rocm_install_symlink_subdir(rocthrust)
