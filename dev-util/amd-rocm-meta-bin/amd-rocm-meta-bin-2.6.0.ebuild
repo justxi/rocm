@@ -74,14 +74,12 @@ src_install() {
 	dodir /opt
 	cp -ar opt/* "${D}"/opt/ || die
 	
-	echo "HSA_PATH=/opt/rocm" > 99hcc || die
-	echo "HCC_HOME=/opt/rocm/hcc" >> 99hcc || die
-	echo "HIP_PATH=/opt/rocm/hip" >> 99hcc || die
-	echo "CMAKE_PREFIX_PATH=/opt/rocm/lib/cmake:/opt/rocm/hcc/lib/cmake/hcc:/opt/rocm/hip/lib/cmake/hip" >> 99hcc || die
-	echo "HIP_PLATFORM=hcc" >> 99hcc || die
-	echo "LDPATH=/opt/rocm/lib:/opt/rocm/lib64:/opt/rocm/hcc/lib:/opt/rocm/hip/lib:/opt/rocm/hsa/lib" >> 99hcc || die
-	echo "PATH=/opt/rocm/bin:/opt/rocm/hcc/bin:/opt/rocm/hip/bin" >> 99hcc || die
-	doenvd 99hcc
-
-	#cp -a usr/share/skypeforlinux "${D}"/opt || die
+	echo "HSA_PATH=/opt/rocm" > 99rocm || die
+	echo "HCC_HOME=/opt/rocm/hcc" >> 99rocm || die
+	echo "HIP_PATH=/opt/rocm/hip" >> 99rocm || die
+	echo "HIP_PLATFORM=hcc" >> 99rocm || die
+	echo "LDPATH=/opt/rocm/lib:/opt/rocm/lib64:/opt/rocm/hcc/lib:/opt/rocm/hip/lib:/opt/rocm/hsa/lib" >> 99rocm || die
+	echo "PATH=/opt/rocm/bin:/opt/rocm/hcc/bin:/opt/rocm/hip/bin" >> 99rocm || die
+	echo "ROOTPATH=/opt/rocm/bin:/opt/rocm/hcc/bin:/opt/rocm/hip/bin" >> 99rocm || die
+	doenvd 99rocm
 }
