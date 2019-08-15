@@ -57,7 +57,6 @@ ROCm Libraries:
 |sci-libs/hipCub | 2.6 | No ebuild exist, any help is appreciated. | (ok)| |
 |sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
-|sci-libs/hipThrust | | Will be removed in the future, no ebuild will be created. | | |
 |sci-libs/MIOpenGEMM | | No ebuild exist, any help is appreciated.| | |
 |sci-libs/MIOpen | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/MIVisionX | | No ebuild exist, any help is appreciated. | | |
