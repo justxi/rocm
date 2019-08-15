@@ -8,6 +8,8 @@ Ebuilds to install ROCm on Gentoo Linux
 **The ebuilds for ROCm 2.7 in this repository are currently in a highly experimental state!**<br>
 **Use them only if your are interested in helping to stabilise them.**
 
+**All ebuilds which are already exist in Gentoo portage are removed from this repository.**
+
 Thanks to all contributors.
 
 The following tables show all ebuilds tested (2019-01-03) in this repository. <br>
