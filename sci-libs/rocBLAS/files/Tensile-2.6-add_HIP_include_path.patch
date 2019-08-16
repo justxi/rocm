@@ -1,0 +1,10 @@
+--- a/Tensile/TensileCreateLibrary.py	2019-08-11 10:24:27.938964767 +0200
++++ b/Tensile/TensileCreateLibrary.py	2019-08-11 10:26:38.221964270 +0200
+@@ -123,6 +123,7 @@
+     hipLinkFlags = subprocess.check_output([which('hcc-config'), '--ldflags', '--shared']).decode().split(' ')
+ 
+     hipFlags += ['-I', outputPath]
++    hipFlags += ['-I', '/usr/lib64/hip/2.6/include/']
+ 
+     compileArgs = [which('hcc')] + hipFlags + archFlags + [kernelFile, '-c', '-o', objectFilepath]
+     linkArgs = [globalParameters['AssemblerPath']] + hipLinkFlags + archFlags + [objectFilepath, '-shared', '-o', soFilepath]
