@@ -25,7 +25,7 @@ src_compile() {
 }
 
 src_install() {
-	exeinto /opt/rocm/bin
+	exeinto /usr/bin
 	doexe ${S}/rocm_smi.py
-	dosym ./rocm_smi.py /opt/rocm/bin/rocm-smi
+	dosym ./rocm_smi.py /usr/bin/rocm-smi
 }
