@@ -5,12 +5,12 @@ EAPI=6
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-2.6.tar.gz -> rocm-rocBLAS-${PV}.tar.gz
-         https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-2.6.tar.gz -> rocm-Tensile-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-${PV}.tar.gz -> rocm-rocBLAS-${PV}.tar.gz
+         https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="**"
+KEYWORDS="~amd64"
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
@@ -25,7 +25,7 @@ DEPEND="${RDPEND}
 # stripped library is not working
 RESTRICT="strip"
 
-S="${WORKDIR}/rocBLAS-rocm-2.6"
+S="${WORKDIR}/rocBLAS-rocm-${PV}"
 BUILDDIR="${WORKDIR}/build/release"
 
 rocBLAS_V="2.2.11.0"

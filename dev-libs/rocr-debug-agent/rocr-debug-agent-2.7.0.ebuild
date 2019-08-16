@@ -5,9 +5,9 @@ EAPI=7
 
 inherit cmake-utils linux-info
 
-SRC_URI="https://github.com/ROCm-Developer-Tools/rocr_debug_agent/archive/roc-2.6.0.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/rocr_debug_agent-roc-2.6.0/src"
-KEYWORDS="**"
+SRC_URI="https://github.com/ROCm-Developer-Tools/rocr_debug_agent/archive/roc-${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/rocr_debug_agent-roc-${PV}/src"
+KEYWORDS="~amd64"
 
 DESCRIPTION="Radeon Open Compute Debug Agent"
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/rocr_debug_agent/"
