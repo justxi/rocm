@@ -8,11 +8,11 @@ DESCRIPTION="HCC - An open source C++ compiler for heterogeneous devices"
 HOMEPAGE="https://github.com/RadeonOpenCompute/hcc"
 
 EGIT_REPO_URI="https://github.com/RadeonOpenCompute/hcc.git"
-EGIT_BRANCH="clang_tot_upgrade"
+EGIT_COMMIT="roc-hcc-${PV}"
 
 LICENSE=""
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="**"
+KEYWORDS="~amd64"
 IUSE="debug"
 CMAKE_BUILD_TYPE=Release
 
