@@ -1,0 +1,72 @@
+diff -u -r old/clang-ocl.in clang-ocl-roc-2.7.0/clang-ocl.in
+--- old/clang-ocl.in	2019-01-15 11:09:51.000000000 +0100
++++ clang-ocl-roc-2.7.0/clang-ocl.in	2019-08-17 11:54:08.581491230 +0200
+@@ -3,9 +3,9 @@
+ set -e
+  
+ OPENCL_ROOT=@OPENCL_ROOT@
+-BITCODE_DIR=${OPENCL_ROOT}/lib/x86_64/bitcode
+-CLANG=${OPENCL_ROOT}/bin/x86_64/clang
+-LLVM_LINK=${OPENCL_ROOT}/bin/x86_64/llvm-link
++BITCODE_DIR=${OPENCL_ROOT}
++CLANG=${OPENCL_ROOT}/llvm/roc/bin/clang
++LLVM_LINK=${OPENCL_ROOT}/llvm/roc/bin/llvm-link
+ 
+ TRIPLE=@TRIPLE@
+ 
+diff -u -r old/CMakeLists.txt clang-ocl-roc-2.7.0/CMakeLists.txt
+--- old/CMakeLists.txt	2019-08-17 11:46:31.288506058 +0200
++++ clang-ocl-roc-2.7.0/CMakeLists.txt	2019-08-17 11:51:14.762496867 +0200
+@@ -12,29 +12,26 @@
+ 
+ rocm_setup_version(VERSION 0.4.0)
+ 
+-find_path(OPENCL_ROOT lib/x86_64/bitcode/opencl.amdgcn.bc
+-    PATH_SUFFIXES 
+-        opencl
+-        lib/opencl
++find_path(OPENCL_ROOT opencl.amdgcn.bc
+     PATHS
+-        /opt/rocm
++        /usr/lib
+ )
+ if(NOT OPENCL_ROOT)
+     message(FATAL_ERROR "Can't find opencl")
+ endif()
+ 
+-find_program(CLINFO clinfo PATHS ${OPENCL_ROOT}/bin/x86_64/)
+-execute_process(COMMAND ${CLINFO} OUTPUT_VARIABLE CLINFO_OUT RESULT_VARIABLE RESULT)
+-if(RESULT EQUAL 0)
+-    string(REGEX MATCH "Platform Version[^\\(]*\\(([0-9]+).*\\)" PLATFORM_VER ${CLINFO_OUT})
+-    set(OPENCL_VER "${CMAKE_MATCH_1}")
+-    if(OPENCL_VER LESS 2534)
+-        set(TRIPLE amdgcn-amd-amdhsa-opencl)
+-    else()
+-        set(TRIPLE amdgcn-amd-amdhsa-amdgizcl)
+-    endif()
+-    message(STATUS "OpenCL Version: ${OPENCL_VER}")
+-else()
++#find_program(CLINFO clinfo PATHS ${OPENCL_ROOT}/bin/x86_64/)
++#execute_process(COMMAND ${CLINFO} OUTPUT_VARIABLE CLINFO_OUT RESULT_VARIABLE RESULT)
++#if(RESULT EQUAL 0)
++#    string(REGEX MATCH "Platform Version[^\\(]*\\(([0-9]+).*\\)" PLATFORM_VER ${CLINFO_OUT})
++#    set(OPENCL_VER "${CMAKE_MATCH_1}")
++#    if(OPENCL_VER LESS 2534)
++#        set(TRIPLE amdgcn-amd-amdhsa-opencl)
++#    else()
++#        set(TRIPLE amdgcn-amd-amdhsa-amdgizcl)
++#    endif()
++#    message(STATUS "OpenCL Version: ${OPENCL_VER}")
++#else()
+     find_program(LLVM_DIS llvm-dis PATHS /opt/rocm /opt/rocm/hcc)
+     execute_process(COMMAND ${LLVM_DIS} -o - ${OPENCL_ROOT}/lib/x86_64/bitcode/oclc_isa_version_900.amdgcn.bc OUTPUT_VARIABLE LLVM_DIS_OUT)
+     if(LLVM_DIS_OUT MATCHES "amdgcn-amd-amdhsa-opencl")
+@@ -42,7 +39,7 @@
+     else()
+         set(TRIPLE amdgcn-amd-amdhsa-amdgizcl)
+     endif()
+-endif()
++#endif()
+ 
+ message(STATUS "OpenCL Triple: ${TRIPLE}")
+ 
