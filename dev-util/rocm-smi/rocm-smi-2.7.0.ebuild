@@ -5,20 +5,24 @@ EAPI=6
 
 DESCRIPTION="ROCm System Management Interface"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROC-smi"
-SRC_URI="https://github.com/RadeonOpenCompute/ROC-smi/archive/roc-${PV}.tar.gz -> rocm-smi-${PV}.tar.gz"
+
+if [[ ${PV} == *9999 ]] ; then
+	KEYWORDS="**"
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROC-smi"
+	EGIT_BRANCH="master"
+else
+	SRC_URI="https://github.com/RadeonOpenCompute/ROC-smi/archive/roc-${PV}.tar.gz -> rocm-smi-${PV}.tar.gz"
+	KEYWORDS="~amd64"
+	S="${WORKDIR}/ROC-smi-roc-${PV}"
+fi
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
 RDEPEND="dev-libs/rocr-runtime"
-
-src_unpack() {
-	unpack ${A}
-	mv ROC-smi-roc-${PV} rocm-smi-${PV}
-}
 
 src_compile() {
 	einfo "Nothing todo"
