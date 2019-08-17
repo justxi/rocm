@@ -10,7 +10,7 @@ SRC_URI="https://github.com/RadeonOpenCompute/rocminfo/archive/roc-${PV}.tar.gz 
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="**"
+KEYWORDS="~amd64"
 IUSE=""
 S="${WORKDIR}/rocminfo-roc-${PV}"
 
