@@ -7,13 +7,15 @@ SLOT="0/$(ver_cut 1-2)"
 
 KEYWORDS="~amd64"
 
-IUSE="debug-tools extra"
+IUSE="debug-tools extra opencl"
 
-RDEPEND="=dev-libs/rocm-opencl-runtime-${PV}*
+RDEPEND="
 	=sys-devel/hcc-${PV}*
 	=sys-devel/hip-${PV}*
 	=dev-util/rocminfo-${PV}*
 	=dev-util/rocm-smi-${PV}*
+	opencl? ( =dev-libs/rocm-opencl-runtime-${PV}* )
+	opencl? ( =dev-utils/rocm-clang-ocl-${PV}* )
 	debug-tools? ( =dev-libs/rocr-debug-agent-${PV}* )
 	debug-tools? ( =dev-util/rocprofiler-${PV}* )
 	extra? ( =sci-libs/hipCUB-$(ver_cut 1-2)* )
