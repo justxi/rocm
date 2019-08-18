@@ -3,7 +3,7 @@
 
 EAPI=7
 
-DESCRIPTION=""
+DESCRIPTION="AMD's library for BLAS on ROCm."
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-rocBLAS-${PV}.tar.gz
          https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-Tensile-${PV}.tar.gz"
@@ -54,6 +54,8 @@ src_prepare() {
 		CurrentISA="906"
 	fi
 
+	eapply "${FILESDIR}/Tensile-2.7-add_HIP_include_path.patch"
+
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 
 	cd ${S}
@@ -76,7 +78,7 @@ src_configure() {
 		buildtype="-DCMAKE_BUILD_TYPE=Release"
 	fi
 
-	cmake -DDETECT_LOCAL_VIRTUALENV=1 -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-$(ver_cut)" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/" -DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"  -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"  ${buildtype}  ${S}
+	cmake -DDETECT_LOCAL_VIRTUALENV=1 -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-$(ver_cut 1-2)" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/" -DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"  -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"  ${buildtype}  ${S}
 }
 
 src_compile() {
