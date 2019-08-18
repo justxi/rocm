@@ -14,7 +14,7 @@ EGIT_BRANCH="master"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
@@ -61,7 +61,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_CLIENTS_SAMPLES=OFF
 		-DAMDGPU_TARGETS="${CurrentISA}"
-		-DCMAKE_INSTALL_PREFIX="/usr/"
+		-DCMAKE_INSTALL_PREFIX="/usr"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocsparse"
 	)
 
