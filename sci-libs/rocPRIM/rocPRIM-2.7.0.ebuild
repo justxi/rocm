@@ -7,8 +7,8 @@ inherit cmake-utils
 
 DESCRIPTION="HIP parallel primitives for developing performant GPU-accelerated code on AMD ROCm platform"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocPRIM"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/rocPRIM/archive/${PV}.tar.gz -> rocPRIM-${PV}.tar.gz"
-S="${WORKDIR}/rocPRIM-rocm-$(ver_cut 1-2)"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocPRIM/archive/rocm-$(ver_cut 1-2).tar.gz -> rocPRIM-${PV}.tar.gz"
+
 LICENSE=""
 SLOT="0"
 KEYWORDS="~amd64"
@@ -17,6 +17,8 @@ IUSE=""
 RDEPEND=">=sys-devel/hip-${PV}"
 DEPEND="${RDPEND}
 	dev-util/cmake"
+
+S="${WORKDIR}/rocPRIM-rocm-$(ver_cut 1-2)"
 
 src_prepare() {
 	eapply "${FILESDIR}/master-disable2ndfindhcc.patch"
@@ -45,6 +47,6 @@ src_configure() {
 		-DHIP_PLATFORM=hcc
 		-DCMAKE_INSTALL_PREFIX=/usr/
 	)
-	
+
 	cmake-utils_src_configure
 }
