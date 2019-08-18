@@ -46,13 +46,13 @@ src_configure() {
         # /opt/rocm/bin/rocm_agent_enumerator is executed,
         # this leads to a sandbox violation
         if use gfx803; then
-                CurrentISA="803"
+                CurrentISA="gfx803"
         fi
         if use gfx900; then
-                CurrentISA="900"
+                CurrentISA="gfx900"
         fi
         if use gfx906; then
-                CurrentISA="906"
+                CurrentISA="gfx906"
         fi
 
 	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
