@@ -57,6 +57,7 @@ src_prepare() {
 	eapply "${FILESDIR}/Tensile-2.7-add_HIP_include_path.patch"
 
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
+	sed -e "s:COMMAND \${CMAKE_HOME_DIRECTORY}/header_compilation_tests.sh:COMMAND true:" -i ${S}/library/src/CMakeLists.txt || die
 
 	cd ${S}
         eapply "${FILESDIR}/master-addTensileIncludePath.patch"

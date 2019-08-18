@@ -12,7 +12,7 @@ SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-$(ver_cut 
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
@@ -59,6 +59,9 @@ src_prepare() {
 
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 
+	# disable tests - to reenable change path in header_compilation_tests.sh and workdir in library/src/CMakeLists.txt
+	sed -e "s:COMMAND \${CMAKE_HOME_DIRECTORY}/header_compilation_tests.sh:COMMAND true:" -i ${S}/library/src/CMakeLists.txt || die
+
 	cd ${S}
         eapply "${FILESDIR}/master-addTensileIncludePath.patch"
         eapply_user
@@ -91,6 +94,5 @@ src_configure() {
 
 src_install() {
 	chrpath --delete "${BUILDDIR}/library/src/librocblas.so.${rocBLAS_V}"
-
 	cmake-utils_src_install
 }
