@@ -3,7 +3,7 @@
 
 EAPI=7
 
-#inherit cmake-utils
+inherit cmake-utils
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocRAND"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ROCmSoftwarePlatform/rocRAND/archive/rocm-2.7.tar.gz
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
@@ -40,8 +40,8 @@ src_prepare() {
 }
 
 src_configure() {
-	mkdir -p "${WORKDIR}/build/"
-	cd "${WORKDIR}/build/"
+#	mkdir -p "${WORKDIR}/build/"
+#	cd "${WORKDIR}/build/"
 
 	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
 	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
@@ -49,23 +49,23 @@ src_configure() {
 	export HIP_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
 	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
-#	local mycmakeargs=(
-#		-DHIP_PLATFORM=hcc
-#		-DHIP_ROOT_DIR=/usr/lib/hip/$(ver_cut 1-2)/
-#		-DBUILD_TEST=OFF
-#		-DCMAKE_INSTALL_PREFIX="/usr/lib/"
-#	)
+	local mycmakeargs=(
+		-DHIP_PLATFORM=hcc
+		-DHIP_ROOT_DIR=/usr/lib/hip/$(ver_cut 1-2)/
+		-DBUILD_TEST=OFF
+		-DCMAKE_INSTALL_PREFIX="/usr/lib/"
+	)
 
-	cmake -DHIP_PLATFORM=hcc -DHIP_ROOT_DIR=/usr/lib/hip/$(ver_cut 1-2)/ -DBUILD_TEST=OFF -DCMAKE_INSTALL_PREFIX="/usr/" ${S}
-#	cmake-utils_src_configure
+#	cmake -DHIP_PLATFORM=hcc -DHIP_ROOT_DIR=/usr/lib/hip/$(ver_cut 1-2)/ -DBUILD_TEST=OFF -DCMAKE_INSTALL_PREFIX="/usr/" ${S}
+	cmake-utils_src_configure
 }
 
-src_compile() {
-	cd "${WORKDIR}/build/"
-	make VERBOSE=1
-}
+#src_compile() {
+#	cd "${WORKDIR}/build/"
+#	make VERBOSE=1
+#}
 
-src_install() {
-	cd "${WORKDIR}/build/"
-	emake DESTDIR="${D}" install
-}
+#src_install() {
+#	cd "${WORKDIR}/build/"
+#	emake DESTDIR="${D}" install
+#}
