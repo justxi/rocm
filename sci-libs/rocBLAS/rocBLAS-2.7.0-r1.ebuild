@@ -71,7 +71,7 @@ src_prepare() {
 src_configure() {
 	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
 	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
-	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
+	export hip_DIR=/usr/lib/hip/lib/cmake/
 	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
 	if use debug; then
