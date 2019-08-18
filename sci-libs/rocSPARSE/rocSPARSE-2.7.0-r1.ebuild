@@ -39,9 +39,6 @@ src_prepare() {
 }
 
 src_configure() {
-#        mkdir -p "${BUILD_DIR}"
-#        cd ${BUILD_DIR}
-
         # if the ISA is not set previous to the autodetection,
         # /opt/rocm/bin/rocm_agent_enumerator is executed,
         # this leads to a sandbox violation
@@ -65,18 +62,5 @@ src_configure() {
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocsparse"
 	)
 
-#	cmake -DBUILD_CLIENTS_SAMPLES=OFF -DAMDGPU_TARGETS="${CurrentISA}" -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_INSTALL_INCLUDEDIR="include/rocsparse" ../..
 	cmake-utils_src_configure
 }
-
-#src_compile() {
-#        cd ${BUILD_DIR}
-#        make VERBOSE=1
-#}
-
-#src_install() {
-#        cd ${BUILD_DIR}
-#	emake DESTDIR="${D}" install
-#}
-
-
