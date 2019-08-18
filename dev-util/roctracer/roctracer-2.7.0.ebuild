@@ -5,7 +5,7 @@ EAPI=6
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/roctracer.git"
-SRC_URI="https://github.com/ROCm-Developer-Tools/roctracer/archive/roc-2.6.0.tar.gz -> rocm-tracer-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCm-Developer-Tools/roctracer/archive/roc-${PV}.tar.gz -> rocm-tracer-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -27,7 +27,7 @@ PATCHES=(
 
 src_unpack() {
 	unpack ${A}
-	mv roctracer-roc-2.6.0 roctracer-${PV}
+	mv roctracer-roc-${PV} roctracer-${PV}
 }
 
 src_configure() {

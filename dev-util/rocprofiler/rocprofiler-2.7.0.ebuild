@@ -5,7 +5,7 @@ EAPI=6
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocprofiler.git"
-SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/roc-2.6.0.tar.gz -> rocm-profiler-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/roc-${PV}.tar.gz -> rocm-profiler-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -23,7 +23,7 @@ PATCHES=(
 
 src_unpack() {
 	unpack ${A}
-	mv rocprofiler-roc-2.6.0 rocprofiler-${PV}
+	mv rocprofiler-roc-${PV} rocprofiler-${PV}
 }
 
 src_configure() {
