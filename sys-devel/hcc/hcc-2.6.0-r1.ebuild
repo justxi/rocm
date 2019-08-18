@@ -49,7 +49,6 @@ src_install() {
 	doenvd 99hcc
 
 	cmake-utils_src_install
-#	die "Just to debug..."
 }
 
 pkg_postinst() {
