@@ -37,6 +37,7 @@ src_prepare() {
         sed -e "s:\$<INSTALL_INTERFACE\:rocrand/include:\$<INSTALL_INTERFACE\:include/rocrand/:" -i library/CMakeLists.txt
 
         eapply_user
+	cmake-utils_src_prepare
 }
 
 src_configure() {
