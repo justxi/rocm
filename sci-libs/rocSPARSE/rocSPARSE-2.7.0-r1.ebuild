@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit git-r3
+inherit git-r3 cmake-utils
 
 DESCRIPTION="Common interface that provides Basic Linear Algebra Subroutines for sparse computation"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSPARSE"
@@ -14,7 +14,7 @@ EGIT_BRANCH="master"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
@@ -35,11 +35,12 @@ src_prepare() {
         sed -e "s:rocm_install_symlink_subdir(rocsparse):#rocm_install_symlink_subdir(rocsparse):" -i library/CMakeLists.txt
 
         eapply_user
+	cmake-utils_src_prepare
 }
 
 src_configure() {
-        mkdir -p "${BUILD_DIR}"
-        cd ${BUILD_DIR}
+#        mkdir -p "${BUILD_DIR}"
+#        cd ${BUILD_DIR}
 
         # if the ISA is not set previous to the autodetection,
         # /opt/rocm/bin/rocm_agent_enumerator is executed,
@@ -57,17 +58,25 @@ src_configure() {
 	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/hcc/
 	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
-	cmake -DBUILD_CLIENTS_SAMPLES=OFF -DAMDGPU_TARGETS="${CurrentISA}" -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_INSTALL_INCLUDEDIR="include/rocsparse" ../..
+	local mycmakeargs=(
+		-DBUILD_CLIENTS_SAMPLES=OFF
+		-DAMDGPU_TARGETS="${CurrentISA}"
+		-DCMAKE_INSTALL_PREFIX="/usr/"
+		-DCMAKE_INSTALL_INCLUDEDIR="include/rocsparse"
+	)
+
+#	cmake -DBUILD_CLIENTS_SAMPLES=OFF -DAMDGPU_TARGETS="${CurrentISA}" -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_INSTALL_INCLUDEDIR="include/rocsparse" ../..
+	cmake-utils_src_configure
 }
 
-src_compile() {
-        cd ${BUILD_DIR}
-        make VERBOSE=1
-}
+#src_compile() {
+#        cd ${BUILD_DIR}
+#        make VERBOSE=1
+#}
 
-src_install() {
-        cd ${BUILD_DIR}
-	emake DESTDIR="${D}" install
-}
+#src_install() {
+#        cd ${BUILD_DIR}
+#	emake DESTDIR="${D}" install
+#}
 
 

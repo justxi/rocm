@@ -18,7 +18,8 @@ KEYWORDS="~amd64"
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
-RDEPEND="=sys-devel/hip-2.6*"
+RDEPEND="=sys-devel/hip-2.6*
+	 =sci-libs/rocPRIM-2.6*"
 DEPEND="${RDPEND}
 	dev-util/cmake"
 
@@ -45,13 +46,13 @@ src_configure() {
         # /opt/rocm/bin/rocm_agent_enumerator is executed,
         # this leads to a sandbox violation
         if use gfx803; then
-                CurrentISA="803"
+                CurrentISA="gfx803"
         fi
         if use gfx900; then
-                CurrentISA="900"
+                CurrentISA="gfx900"
         fi
         if use gfx906; then
-                CurrentISA="906"
+                CurrentISA="gfx906"
         fi
 
 	export hcc_DIR=/usr/lib/hcc/2.6/lib/cmake/hcc/
