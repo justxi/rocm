@@ -3,7 +3,7 @@
 
 EAPI=7
 
-#inherit git-r3
+inherit cmake-utils
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocFFT"
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ROCmSoftwarePlatform/rocFFT/archive/rocm-$(ver_cut 1
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="+gfx803 gfx900 gfx906"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
@@ -34,11 +34,12 @@ src_prepare() {
 	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i ${S}/library/src/device/CMakeLists.txt
 
 	eapply_user
+	cmake-utils_src_prepare
 }
 
 src_configure() {
-	mkdir -p "${WORKDIR}/build/"
-	cd "${WORKDIR}/build/"
+#	mkdir -p "${WORKDIR}/build/"
+#	cd "${WORKDIR}/build/"
 
         # if the ISA is not set previous to the autodetection,
         # /opt/rocm/bin/rocm_agent_enumerator is executed,
@@ -59,15 +60,23 @@ src_configure() {
 	export HIP_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
 	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
-	cmake -DHIP_PLATFORM=hcc -DCMAKE_INSTALL_PREFIX="/usr/" -DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/" -DAMDGPU_TARGETS="${CurrentISA}"  ${S}
+	local mycmakeargs=(
+		-DHIP_PLATFORM=hcc
+		-DCMAKE_INSTALL_PREFIX="/usr/"
+		-DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/"
+		-DAMDGPU_TARGETS="${CurrentISA}"
+	)
+
+#	cmake -DHIP_PLATFORM=hcc -DCMAKE_INSTALL_PREFIX="/usr/" -DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/" -DAMDGPU_TARGETS="${CurrentISA}"  ${S}
+	cmake-utils_src_configure
 }
 
-src_compile() {
-	cd "${WORKDIR}/build/"
-	make VERBOSE=1
-}
+#src_compile() {
+#	cd "${WORKDIR}/build/"
+#	make VERBOSE=1
+#}
 
-src_install() {
-	cd "${WORKDIR}/build/"
-	emake DESTDIR="${D}" install
-}
+#src_install() {
+#	cd "${WORKDIR}/build/"
+#	emake DESTDIR="${D}" install
+#}
