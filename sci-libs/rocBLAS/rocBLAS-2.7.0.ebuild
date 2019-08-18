@@ -1,12 +1,12 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-${PV}.tar.gz -> rocm-rocBLAS-${PV}.tar.gz
-         https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-rocBLAS-${PV}.tar.gz
+         https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-Tensile-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -14,10 +14,10 @@ KEYWORDS="~amd64"
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
-RDEPEND="=sys-devel/hip-${PV}*"
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
 DEPEND="${RDPEND}
 	dev-util/cmake
-	dev-libs/rocm-cmake
+	dev-util/rocm-cmake
 	=dev-lang/python-2.7*
 	>=dev-python/virtualenv-15.1.0
 	dev-python/pyyaml"
@@ -25,7 +25,7 @@ DEPEND="${RDPEND}
 # stripped library is not working
 RESTRICT="strip"
 
-S="${WORKDIR}/rocBLAS-rocm-${PV}"
+S="${WORKDIR}/rocBLAS-rocm-$(ver_cut 1-2)"
 BUILDDIR="${WORKDIR}/build/release"
 
 rocBLAS_V="2.4.0"
@@ -36,7 +36,7 @@ src_prepare() {
         CXXFLAGS=""
         LDFLAGS=""
 
-	cd "${WORKDIR}/Tensile-rocm-${PV}"
+	cd "${WORKDIR}/Tensile-rocm-$(ver_cut 1-2)"
 
 	# if the ISA is not set previous to the autodetection,
 	# /opt/rocm/bin/rocm_agent_enumerator is executed,
@@ -65,10 +65,10 @@ src_configure() {
         mkdir -p ${BUILDDIR}
         cd ${BUILDDIR}
 
-	export PATH=$PATH:/usr/lib/hcc/${PV}/bin
-	export hcc_DIR=/usr/lib/hcc/${PV}/lib/cmake/
-	export hip_DIR=/usr/lib/hip/${PV}/lib/cmake/
-	export CXX=/usr/lib/hcc/${PV}/bin/hcc
+	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
+	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
+	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
+	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
 	if use debug; then
 		buildtype="-DCMAKE_BUILD_TYPE=Debug"
@@ -76,7 +76,7 @@ src_configure() {
 		buildtype="-DCMAKE_BUILD_TYPE=Release"
 	fi
 
-	cmake -DDETECT_LOCAL_VIRTUALENV=1 -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/" -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"  ${buildtype}  ${S}
+	cmake -DDETECT_LOCAL_VIRTUALENV=1 -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-$(ver_cut)" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/" -DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"  -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"  ${buildtype}  ${S}
 }
 
 src_compile() {
