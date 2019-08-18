@@ -54,7 +54,7 @@ src_configure() {
 		-DHIP_PLATFORM=hcc
 		-DHIP_COMPILER=$(usex llvm-roc-backend "clang" "hcc")
 		-DHCC_HOME=${HCC_HOME}
-		-DHSA_PATH=/usr/lib/cmake/hsakmt/
+		-DHSA_PATH="/usr"
 	)
 
 	if use llvm-roc-backend; then
