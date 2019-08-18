@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ROCmSoftwarePlatform/rocFFT/archive/rocm-$(ver_cut 1
 
 LICENSE=""
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="+gfx803 gfx900 gfx906"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
@@ -38,9 +38,6 @@ src_prepare() {
 }
 
 src_configure() {
-#	mkdir -p "${WORKDIR}/build/"
-#	cd "${WORKDIR}/build/"
-
         # if the ISA is not set previous to the autodetection,
         # /opt/rocm/bin/rocm_agent_enumerator is executed,
         # this leads to a sandbox violation
@@ -62,21 +59,10 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DHIP_PLATFORM=hcc
-		-DCMAKE_INSTALL_PREFIX="/usr/"
+		-DCMAKE_INSTALL_PREFIX="/usr"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/"
 		-DAMDGPU_TARGETS="${CurrentISA}"
 	)
 
-#	cmake -DHIP_PLATFORM=hcc -DCMAKE_INSTALL_PREFIX="/usr/" -DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/" -DAMDGPU_TARGETS="${CurrentISA}"  ${S}
 	cmake-utils_src_configure
 }
-
-#src_compile() {
-#	cd "${WORKDIR}/build/"
-#	make VERBOSE=1
-#}
-
-#src_install() {
-#	cd "${WORKDIR}/build/"
-#	emake DESTDIR="${D}" install
-#}
