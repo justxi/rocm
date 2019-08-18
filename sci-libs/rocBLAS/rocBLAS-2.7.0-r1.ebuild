@@ -59,6 +59,8 @@ src_prepare() {
 
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 
+#	sed -e "s:\$<BUILD_INTERFACE\:\${CMAKE_CURRENT_SOURCE_DIR}/include>:#\$<BUILD_INTERFACE\:\${CMAKE_CURRENT_SOURCE_DIR}/include>:" -i ${S}/library/src/CMakeLists.txt
+
 	# disable tests - to reenable change path in header_compilation_tests.sh and workdir in library/src/CMakeLists.txt
 	sed -e "s:COMMAND \${CMAKE_HOME_DIRECTORY}/header_compilation_tests.sh:COMMAND true:" -i ${S}/library/src/CMakeLists.txt || die
 
