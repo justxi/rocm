@@ -22,14 +22,14 @@ fi
 
 LICENSE=""
 SLOT="0/$(ver_cut 1-2)"
-IUSE="debug +clang +hcc-backend llvm-roc-backend"
+IUSE="debug +hipify +hcc-backend llvm-roc-backend"
 CMAKE_BUILD_TYPE=Release
 
 REQUIRED_USE="^^ ( hcc-backend llvm-roc-backend )"
 
 DEPEND=">=dev-libs/rocm-comgr-${PV}
 	>=sys-devel/hcc-${PV}
-	clang? ( >=sys-devel/clang-8.0.0 )
+	hipify? ( >=sys-devel/clang-8.0.0 )
 	llvm-roc-backend? ( =dev-libs/rocm-device-libs-${PV}* )
 	llvm-roc-backend? ( =sys-devel/llvm-roc-${PV}* )
 "
@@ -50,7 +50,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip" ${S}
-		-DBUILD_HIPIFY_CLANG=$(usex clang)
+		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_PLATFORM=hcc
 		-DHIP_COMPILER=$(usex llvm-roc-backend "clang" "hcc")
 		-DHCC_HOME=${HCC_HOME}
@@ -72,13 +72,13 @@ src_install() {
 	echo "HIP_PATH=/usr/lib/hip" >> 99hip || die
 	echo "LDPATH=/usr/lib/hip/lib" >> 99hip || die
 	echo "ROOTPATH=/usr/lib/hip/bin" >> 99hip || die
-	
+
 	if use llvm-roc-backend; then
 		echo "HIP_COMPILER=clang" >> 99hip || die
 		echo "HIP_CLANG_PATH=/usr/lib/llvm/roc/bin" >> 99hip || die
 		echo "DEVICE_LIB_PATH=/usr/lib/" >> 99hip || die
 	fi
-	
+
 	doenvd 99hip
 
 	cmake-utils_src_install
