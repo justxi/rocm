@@ -53,7 +53,7 @@ ROCm Libraries:
 |sci-libs/rocALUTION| 2.6 | Ebuild under test... | (ok) | |
 |sci-libs/rocThrust| 2.6 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocFFT| 2.6 | Installs, not tested yet | (ok) | |
-|sci-libs/rocRAND| 2.6 | Installs, Not tested yet | (ok) |  |
+|sci-libs/rocRAND| 2.6 | Installs, not tested yet | (ok) |  |
 |sci-libs/hipCub | 2.6 | Installs, not tested yet. | (ok)| |
 |sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
