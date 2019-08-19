@@ -47,14 +47,14 @@ ROCm Libraries:
 
 |Ebuild|Current Version|State|FHS|in Gentoo portage|
 |---|---|---|---|---|
-|sci-libs/rocBLAS| 2.6 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocPRIM| 2.6 | Installs only headers. | (ok) | |
-|sci-libs/rocSPARSE| 2.6 | Initial ebuild, improvements necessary. | (ok) | |
-|sci-libs/rocALUTION| 2.6 | HIP support not enabled, because it does not find rocSPARSE | (ok) | |
-|sci-libs/rocThrust| 2.6 | Installs only headers. | (ok) | |
-|sci-libs/rocFFT| 2.6 | Not tested yet | (ok) | |
-|sci-libs/rocRAND| 2.6 | Not tested yet | (ok) |  |
-|sci-libs/hipCub | 2.6 | Not tested yet. | (ok)| |
+|sci-libs/rocBLAS| 2.6 | Installs, a CMake problem muest be fixed to use cmake-utils. | (ok) | |
+|sci-libs/rocPRIM| 2.6 | Installs, not tested yet. | (ok) | |
+|sci-libs/rocSPARSE| 2.6 | Uses master branch to build, because file release does not work. | (ok) | |
+|sci-libs/rocALUTION| 2.6 | Ebuild under test... | (ok) | |
+|sci-libs/rocThrust| 2.6 | Installs, not tested yet. | (ok) | |
+|sci-libs/rocFFT| 2.6 | Installs, not tested yet | (ok) | |
+|sci-libs/rocRAND| 2.6 | Installs, Not tested yet | (ok) |  |
+|sci-libs/hipCub | 2.6 | Installs, not tested yet. | (ok)| |
 |sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/MIOpenGEMM | | No ebuild exist, any help is appreciated.| | |
