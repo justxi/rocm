@@ -26,9 +26,9 @@ IUSE="debug +hipify +hcc-backend llvm-roc-backend"
 REQUIRED_USE="^^ ( hcc-backend llvm-roc-backend )"
 
 DEPEND=">=dev-libs/rocm-comgr-${PV}
-	>=sys-devel/hcc-${PV}
+	hcc-backend? ( >=sys-devel/hcc-${PV} )
 	hipify? ( >=sys-devel/clang-8.0.0 )
-	llvm-roc-backend? ( =dev-libs/rocm-device-libs-${PV}* )
+	llvm-roc-backend? ( >=dev-libs/rocm-device-libs-${PV} )
 	llvm-roc-backend? ( =sys-devel/llvm-roc-${PV}* )"
 RDEPEND="${DEPEND}"
 
@@ -50,14 +50,19 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip" ${S}
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
-		-DHIP_PLATFORM=hcc
 		-DHIP_COMPILER=$(usex llvm-roc-backend "clang" "hcc")
-		-DHCC_HOME=${HCC_HOME}
-		-DHSA_PATH=/usr
+		-DHSA_PATH=/opt/rocm
 	)
 
+	if use hcc-backend; then
+		mycmakeargs+=(
+			-DHIP_PLATFORM=hcc
+			-DHCC_HOME=${HCC_HOME}
+		)
+	fi
 	if use llvm-roc-backend; then
 		mycmakeargs+=(
+			-DHIP_PLATFORM=hip-clang
 			-DCMAKE_PREFIX_PATH=/usr/lib/llvm/roc
 		)
 	fi
