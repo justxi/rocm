@@ -23,17 +23,16 @@ fi
 LICENSE=""
 SLOT="0/$(ver_cut 1-2)"
 IUSE="debug +hipify +hcc-backend llvm-roc-backend"
-CMAKE_BUILD_TYPE=Release
-
 REQUIRED_USE="^^ ( hcc-backend llvm-roc-backend )"
 
 DEPEND=">=dev-libs/rocm-comgr-${PV}
 	>=sys-devel/hcc-${PV}
 	hipify? ( >=sys-devel/clang-8.0.0 )
 	llvm-roc-backend? ( =dev-libs/rocm-device-libs-${PV}* )
-	llvm-roc-backend? ( =sys-devel/llvm-roc-${PV}* )
-"
+	llvm-roc-backend? ( =sys-devel/llvm-roc-${PV}* )"
 RDEPEND="${DEPEND}"
+
+CMAKE_BUILD_TYPE=Release
 
 src_prepare() {
 	eapply "${FILESDIR}/DisableTest.patch"
