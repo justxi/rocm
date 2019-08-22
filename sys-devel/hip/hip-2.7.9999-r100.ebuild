@@ -31,7 +31,6 @@ DEPEND=">=dev-libs/rocm-comgr-${PV}
 	hipify? ( >=sys-devel/clang-8.0.0 )
 	llvm-roc-backend? ( >=dev-libs/rocm-device-libs-${PV} )
 	llvm-roc-backend? ( =sys-devel/llvm-roc-${PV}* )"
-#	hcc-backend? ( >=sys-devel/hcc-${PV} )
 
 RDEPEND="${DEPEND}"
 
@@ -59,15 +58,8 @@ src_configure() {
 		-DHCC_HOME=${HCC_HOME}
 	)
 
-#	if use hcc-backend; then
-#		mycmakeargs+=(
-#			-DHIP_PLATFORM=hcc
-#			-DHCC_HOME=${HCC_HOME}
-#		)
-#	fi
 	if use llvm-roc-backend; then
 		mycmakeargs+=(
-#			-DHIP_PLATFORM=hip-clang
 			-DCMAKE_PREFIX_PATH=/usr/lib/llvm/roc
 		)
 	fi
