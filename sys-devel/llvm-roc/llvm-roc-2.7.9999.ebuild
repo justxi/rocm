@@ -24,14 +24,13 @@ fi
 
 LICENSE="UoI-NCSA rc BSD public-domain"
 SLOT="0"
-IUSE=""
+IUSE="debug"
 
 RDEPEND="virtual/cblas
 	 dev-libs/rocr-runtime"
 DEPEND="${RDEPEND}"
 
 CMAKE_BUILD_TYPE=RelWithDebInfo
-
 
 src_unpack() {
 	if [[ ${PV} == *9999 ]]; then
@@ -60,7 +59,12 @@ src_configure() {
 		-DLLVM_INSTALL_UTILS=ON
 		-DLLVM_VERSION_SUFFIX=roc
 		-DOCAMLFIND=NO
+		-DLLVM_ENABLE_EH=ON
+                -DLLVM_ENABLE_RTTI=ON
 	)
+
+	use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
+
 	cmake-utils_src_configure
 }
 
