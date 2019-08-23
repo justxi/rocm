@@ -20,7 +20,7 @@ IUSE="+rocm nvidia"
 REQUIRED_USE="^^ ( rocm nvidia )"
 
 DEPEND="rocm? ( =sys-devel/hip-2.7.9999-r100 )
-	rocm? ( =sys-devel/llvm-roc-2.7.9999[!debug] )
+	rocm? ( =sys-devel/llvm-roc-2.7.9999[-debug] )
 	nvidia? ( >=dev-util/nvidia-cuda-toolkit-9.0 )"
 RDEPEND="${DEPEND}
 	 dev-util/cmake"
