@@ -3,8 +3,7 @@
 
 EAPI=7
 
-inherit git-r3
-# cmake-utils
+inherit cmake-utils git-r3
 
 DESCRIPTION="AMD's library for BLAS on ROCm."
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
@@ -34,8 +33,6 @@ RESTRICT="strip"
 
 #S="${WORKDIR}/rocBLAS-rocm-$(ver_cut 1-2)"
 S="${WORKDIR}/rocBLAS-${PV}"
-
-BUILDDIR="${WORKDIR}/build/release"
 
 rocBLAS_V="2.6.1"
 
@@ -83,13 +80,10 @@ src_prepare() {
 	cd ${S}
         eapply "${FILESDIR}/master-addTensileIncludePath.patch"
         eapply_user
-#	cmake-utils_src_prepare
+	cmake-utils_src_prepare
 }
 
 src_configure() {
-        mkdir -p ${BUILDDIR}
-        cd ${BUILDDIR}
-
 #	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
 #	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
 #	export hip_DIR=/usr/lib/hip/lib/cmake/
@@ -105,26 +99,19 @@ src_configure() {
 		buildtype="Release"
 	fi
 
-#	local mycmakeargs=(
-#		-DDETECT_LOCAL_VIRTUALENV=1
-#		-DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-$(ver_cut 1-2)"
-#		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
-#		-DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"
-#		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
-#		-DCMAKE_BUILD_TYPE=${buildtype}
-#	)
+	local mycmakeargs=(
+		-DDETECT_LOCAL_VIRTUALENV=1
+		-DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-$(ver_cut 1-2)"
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
+		-DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"
+		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
+		-DCMAKE_BUILD_TYPE=${buildtype}
+	)
 
-	cmake -DDETECT_LOCAL_VIRTUALENV=1 -DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-$(ver_cut 1-2)" -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/" -DCMAKE_INSTALL_INCLUDEDIR="include/rocblas" -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}" -DCMAKE_BUILD_TYPE=${buildtype} ${S}
-#	cmake-utils_src_configure
+	cmake-utils_src_configure
 }
 
 src_install() {
-        cd ${BUILDDIR}
-
 	chrpath --delete "${BUILDDIR}/library/src/librocblas.so.${rocBLAS_V}"
-
-        # install to /usr/lib/rocblas
-        emake DESTDIR="${D}" install
-
-#	cmake-utils_src_install
+	cmake-utils_src_install
 }
