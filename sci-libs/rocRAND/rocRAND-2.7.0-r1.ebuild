@@ -41,17 +41,20 @@ src_prepare() {
 }
 
 src_configure() {
-	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
-	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
-	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
-	export HIP_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
-	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
+	local HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
+
+	export PATH=$PATH:${HCC_ROOT}/bin
+	export hcc_DIR=${HCC_ROOT}/lib/cmake/
+	export hip_DIR=/usr/lib/hip/lib/cmake/
+	export HIP_DIR=/usr/lib/hip/lib/cmake/
+	export CXX=${HCC_ROOT}/bin/hcc
 
 	local mycmakeargs=(
 		-DHIP_PLATFORM=hcc
-		-DHIP_ROOT_DIR=/usr/lib/hip/$(ver_cut 1-2)/
+		-DHIP_ROOT_DIR=/usr/lib/hip
 		-DBUILD_TEST=OFF
 		-DCMAKE_INSTALL_PREFIX="/usr"
+		-DCMAKE_CXX_FLAGS:STRING="-I${HCC_ROOT}/include"
 	)
 
 	cmake-utils_src_configure
