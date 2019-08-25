@@ -1,0 +1,13 @@
+diff --git a/Tensile/TensileCreateLibrary.py b/Tensile/TensileCreateLibrary.py
+index e4b1c75d..d729f920 100755
+--- a/Tensile/TensileCreateLibrary.py
++++ b/Tensile/TensileCreateLibrary.py
+@@ -128,6 +128,7 @@ def buildSourceCodeObjectFile(CxxCompiler, outputPath, kernelFile):
+       hipLinkFlags = subprocess.check_output([which('hcc-config'), '--ldflags', '--shared']).decode().split(' ')
+ 
+       hipFlags += ['-I', outputPath]
++      hipFlags += ['-I', '/usr/lib64/hip/include']
+ 
+       compileArgs = [which('hcc')] + hipFlags + archFlags + [kernelFile, '-c', '-o', objectFilepath]
+ 
+
