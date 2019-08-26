@@ -16,12 +16,21 @@ fi
 
 LICENSE="BSD 2-Clause \"Simplified\" License"
 SLOT="0"
-IUSE="+rocm nvidia"
+IUSE="+rocm nvidia +cuda9 cuda10"
 REQUIRED_USE="^^ ( rocm nvidia )"
+REQUIRED_USE="^^ ( cuda9 cuda10 )"
 
 DEPEND="rocm? ( =sys-devel/hip-2.7.9999-r100 )
 	rocm? ( =sys-devel/llvm-roc-2.7.9999[-debug] )
-	nvidia? ( >=dev-util/nvidia-cuda-toolkit-9.0 )"
+	nvidia? ( >=dev-util/nvidia-cuda-toolkit-9.0 )
+	nvidia? (
+		cuda9? (
+			=sys-devel/clang-8*[-debug]
+			=dev-util/nvidia-cuda-toolkit-9* )
+		cuda10? (
+			=sys-devel/clang-9*[-debug]
+			=dev-util/nvidia-cuda-toolkit-10.0* )
+	)"
 RDEPEND="${DEPEND}
 	 dev-util/cmake"
 
@@ -45,6 +54,13 @@ src_configure() {
 			-DCLANG_EXECUTABLE_PATH=/usr/lib/llvm/roc/bin/clang++
 			-DCLANG_INCLUDE_PATH=/usr/lib64/llvm/roc/lib/clang/10.0.0/include/
 			-DROCM_PATH=/usr/
+			-DCMAKE_INSTALL_PREFIX=/usr/local
+		)
+	fi
+
+	if use nvidia; then
+		local mycmakeargs=(
+			-DCLANG_INCLUDE_PATH=/usr/lib/llvm/8/include/clang/
 			-DCMAKE_INSTALL_PREFIX=/usr/local
 		)
 	fi
