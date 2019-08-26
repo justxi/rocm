@@ -25,6 +25,16 @@ RDEPEND="dev-libs/rocr-runtime
 	sys-devel/llvm-roc:="
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+        "${FILESDIR}/0001-Remove-as.h-CMakeLists.txt-so-it-doesn-t-get-install.patch"
+)
+
+src_prepare() {
+	eapply_user
+	cmake-utils_src_prepare
+#        default
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DLLVM_DIR="${EPREFIX}/usr/lib/llvm/roc/"
