@@ -36,12 +36,13 @@ RDEPEND="${DEPEND}
 
 CMAKE_BUILD_TYPE=Release
 
-#src_prepare() {
-#	sed -e "s:LIBRARY DESTINATION lib:LIBRARY DESTINATION lib64" -i src/libhipSYCL/CMakeLists.txt
-#
-#	eapply_user
-#	cmake-utils_src_prepare
-#}
+src_prepare() {
+	sed -e "s:LIBRARY DESTINATION lib:LIBRARY DESTINATION lib64:" -i src/libhipSYCL/CMakeLists.txt || die
+	sed -e "s:LIBRARY DESTINATION lib:LIBRARY DESTINATION lib64:" -i src/hipsycl_clang_plugin/CMakeLists.txt || die
+	sed -e "s:os.path.join(config.hipsycl_installation_path,\"lib/\"):os.path.join(config.hipsycl_installation_path,\"lib64/\"):" -i bin/syclcc-clang || die
+	eapply_user
+	cmake-utils_src_prepare
+}
 
 src_configure() {
 
@@ -54,16 +55,19 @@ src_configure() {
 			-DCLANG_EXECUTABLE_PATH=/usr/lib/llvm/roc/bin/clang++
 			-DCLANG_INCLUDE_PATH=/usr/lib64/llvm/roc/lib/clang/10.0.0/include/
 			-DROCM_PATH=/usr/
-			-DCMAKE_INSTALL_PREFIX=/usr/local
 		)
 	fi
 
 	if use nvidia; then
 		local mycmakeargs=(
 			-DCLANG_INCLUDE_PATH=/usr/lib/llvm/8/include/clang/
-			-DCMAKE_INSTALL_PREFIX=/usr/local
 		)
 	fi
+
+	mycmakeargs+=(
+		-DSYCLCC_CONFIG_FILE_GLOBAL_INSTALLATION=true
+		-DCMAKE_INSTALL_PREFIX=/usr
+	)
 
 	cmake-utils_src_configure
 }
