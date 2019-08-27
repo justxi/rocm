@@ -13,22 +13,31 @@ if [[ ${PV} == *9999 ]] ; then
         S="${WORKDIR}/${P}"
         KEYWORDS="**"
 fi
+# wait for release...
 
 LICENSE="BSD 2-Clause \"Simplified\" License"
 SLOT="0"
+
+# Currently different branches of clang are necessary to build for nVidia or ROCm backend
+# there only one of the backends can be enabled
 IUSE="+rocm nvidia +cuda9 cuda10"
 REQUIRED_USE="^^ ( rocm nvidia )"
+
+# only selected versions of CUDA in combination with clang are supported
+# see: https://github.com/illuhad/hipSYCL/blob/master/doc/install-cuda.md
 REQUIRED_USE="^^ ( cuda9 cuda10 )"
 
+# While the needed dependencies for CUDA are almost in Gentoo portage,
+# the dependencies for ROCm are not completely stable
 DEPEND="rocm? ( =sys-devel/hip-2.7.9999-r100 )
 	rocm? ( =sys-devel/llvm-roc-2.7.9999[-debug] )
 	nvidia? ( >=dev-util/nvidia-cuda-toolkit-9.0 )
 	nvidia? (
 		cuda9? (
-			=sys-devel/clang-8*[-debug]
+			=sys-devel/clang-8*[llvm_targets_NVPTX,-debug]
 			=dev-util/nvidia-cuda-toolkit-9* )
 		cuda10? (
-			=sys-devel/clang-9*[-debug]
+			=sys-devel/clang-9*[llvm_targets_NVPTX,-debug]
 			=dev-util/nvidia-cuda-toolkit-10.0* )
 	)"
 RDEPEND="${DEPEND}
