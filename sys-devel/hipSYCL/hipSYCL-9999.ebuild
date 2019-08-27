@@ -49,6 +49,7 @@ src_prepare() {
 	sed -e "s:LIBRARY DESTINATION lib:LIBRARY DESTINATION lib64:" -i src/libhipSYCL/CMakeLists.txt || die
 	sed -e "s:LIBRARY DESTINATION lib:LIBRARY DESTINATION lib64:" -i src/hipsycl_clang_plugin/CMakeLists.txt || die
 	sed -e "s:os.path.join(config.hipsycl_installation_path,\"lib/\"):os.path.join(config.hipsycl_installation_path,\"lib64/\"):" -i bin/syclcc-clang || die
+	sed -e "s:DESTINATION lib/cmake:DESTINATION lib64/cmake/hipSYCL:" -i CMakeLists.txt || die
 	eapply_user
 	cmake-utils_src_prepare
 }
@@ -68,9 +69,16 @@ src_configure() {
 	fi
 
 	if use nvidia; then
-		local mycmakeargs=(
-			-DCLANG_INCLUDE_PATH=/usr/lib/llvm/8/include/clang/
-		)
+		if use cuda9; then
+			local mycmakeargs=(
+				-DCLANG_INCLUDE_PATH=/usr/lib/llvm/8/include/clang/
+			)
+		fi
+		if use cuda10; then
+			local mycmakeargs=(
+				-DCLANG_INCLUDE_PATH=/usr/lib/llvm/9/include/clang/
+			)
+		fi
 	fi
 
 	mycmakeargs+=(
