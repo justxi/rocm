@@ -7,6 +7,8 @@ inherit cmake-utils
 
 if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/"
+	# 21.08.2019
+	EGIT_COMMIT="b020b945ed3c630e39bdf8efd3956871e5961785"
 	inherit git-r3
 	S="${WORKDIR}/${P}/lib/comgr"
 else
