@@ -64,8 +64,11 @@ src_prepare() {
 	# disable tests - to reenable change path in header_compilation_tests.sh and workdir in library/src/CMakeLists.txt
 	sed -e "s:COMMAND \${CMAKE_HOME_DIRECTORY}/header_compilation_tests.sh:COMMAND true:" -i ${S}/library/src/CMakeLists.txt || die
 
+	# debugging....
+#	sed -e "s:# NOTE\::get_target_property(targetVar rocblas INTERFACE_INCLUDE_DIRECTORIES)\nmessage(\${targetVar}):" -i ${S}/library/src/CMakeLists.txt || die
+
 	cd ${S}
-        eapply "${FILESDIR}/master-addTensileIncludePath.patch"
+#        eapply "${FILESDIR}/master-addTensileIncludePath.patch"
         eapply_user
 	cmake-utils_src_prepare
 }

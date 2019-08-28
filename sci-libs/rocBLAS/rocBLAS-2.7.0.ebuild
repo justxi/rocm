@@ -60,7 +60,7 @@ src_prepare() {
 	sed -e "s:COMMAND \${CMAKE_HOME_DIRECTORY}/header_compilation_tests.sh:COMMAND true:" -i ${S}/library/src/CMakeLists.txt || die
 
 	cd ${S}
-        eapply "${FILESDIR}/master-addTensileIncludePath.patch"
+#        eapply "${FILESDIR}/master-addTensileIncludePath.patch"
         eapply_user
 }
 
