@@ -7,6 +7,10 @@ inherit cmake-utils
 
 if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROCm-Device-Libs/"
+	# 27.08.2019
+	EGIT_COMMIT="ecdba121acc092df600cd7053dbbdf822ceb4939"
+	# 13.08.2019
+#	EGIT_COMMIT="ac6a51547af45d31d116502e835ad6c762d139d5"
 	inherit git-r3
 	S="${WORKDIR}/${P}"
 else
