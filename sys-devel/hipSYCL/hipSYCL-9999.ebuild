@@ -20,7 +20,7 @@ SLOT="0"
 
 # Currently different branches of clang are necessary to build for nVidia or ROCm backend
 # there only one of the backends can be enabled
-IUSE="+rocm nvidia +cuda9 cuda10"
+IUSE="+rocm nvidia +cuda9 cuda10 debug"
 REQUIRED_USE="^^ ( rocm nvidia )"
 
 # only selected versions of CUDA in combination with clang are supported
@@ -85,6 +85,12 @@ src_configure() {
 		-DSYCLCC_CONFIG_FILE_GLOBAL_INSTALLATION=true
 		-DCMAKE_INSTALL_PREFIX=/usr
 	)
+
+	if use debug; then
+		mycmakeargs+=(
+			-DHIPSYCL_DEBUG_LEVEL=3
+		)
+	fi
 
 	cmake-utils_src_configure
 }
