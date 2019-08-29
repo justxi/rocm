@@ -47,7 +47,7 @@ ROCm Libraries:
 
 |Ebuild|Current Version|State|FHS|in Gentoo portage|
 |---|---|---|---|---|
-|sci-libs/rocBLAS| 2.7 | Installs, a CMake problem must be fixed to use cmake-utils. | (ok) | |
+|sci-libs/rocBLAS| 2.7 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocPRIM| 2.7 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocSPARSE| 2.7 | Uses master branch to build, because released files do not work. | (ok) | |
 |sci-libs/rocALUTION| 2.7 | Ebuild under test... | (ok) | |
