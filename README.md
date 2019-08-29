@@ -2,7 +2,7 @@ Ebuilds to install ROCm on Gentoo Linux
 
 -> https://github.com/RadeonOpenCompute/ROCm
 
-**Please report all problems here first, if you tried ebuilds of this repository.**
+**Please report all problems here first, if you tried ebuilds of this repository.**<br>
 If you have a problem with an ebuild from Gentoo portage then submit a bugreport at https://bugs.gentoo.org/.
 
 **The ebuilds for ROCm 2.7 in this repository are in an experimental state!**<br>
