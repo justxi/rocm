@@ -1,0 +1,38 @@
+diff --git a/clients/benchmarks/CMakeLists.txt b/clients/benchmarks/CMakeLists.txt
+index f2db7ac..e310be0 100755
+--- a/clients/benchmarks/CMakeLists.txt
++++ b/clients/benchmarks/CMakeLists.txt
+@@ -97,7 +97,7 @@ else()
+     target_link_libraries( rocsolver-bench PRIVATE ${Boost_LIBRARIES} cblas lapack roc::rocsolver )
+ endif()
+ 
+-target_link_libraries( rocsolver-bench PRIVATE /opt/rocm/rocblas/lib/librocblas.so ) #${ROCBLAS_LIBRARY})
++target_link_libraries( rocsolver-bench PRIVATE /usr/lib64/librocblas.so ) #${ROCBLAS_LIBRARY})
+ 
+ 
+ get_target_property( HIPHCC_LOCATION hip::hip_hcc IMPORTED_LOCATION_RELEASE )
+diff --git a/clients/gtest/CMakeLists.txt b/clients/gtest/CMakeLists.txt
+index 9607789..dd46e07 100755
+--- a/clients/gtest/CMakeLists.txt
++++ b/clients/gtest/CMakeLists.txt
+@@ -106,7 +106,7 @@ else()
+     target_link_libraries( rocsolver-test PRIVATE ${GTEST_LIBRARIES} ${Boost_LIBRARIES} cblas lapack roc::rocsolver )
+ endif()
+ 
+-target_link_libraries( rocsolver-test PRIVATE /opt/rocm/rocblas/lib/librocblas.so ) #${ROCBLAS_LIBRARY})
++target_link_libraries( rocsolver-test PRIVATE /usr/lib64/librocblas.so ) #${ROCBLAS_LIBRARY})
+ 
+ get_target_property( HIPHCC_LOCATION hip::hip_hcc IMPORTED_LOCATION_RELEASE )
+ 
+diff --git a/library/src/CMakeLists.txt b/library/src/CMakeLists.txt
+index ff09671..6177ef1 100755
+--- a/library/src/CMakeLists.txt
++++ b/library/src/CMakeLists.txt
+@@ -73,6 +73,7 @@ target_include_directories( rocsolver
+           $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+           $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+           $<BUILD_INTERFACE:${Tensile_INC}>
++	  $<BUILD_INTERFACE:/usr/include/rocblas>
+           $<INSTALL_INTERFACE:include>
+           )
+ 

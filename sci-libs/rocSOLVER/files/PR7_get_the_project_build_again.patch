@@ -1,0 +1,715 @@
+From bd4c0f87dab617ef8290248ef8e554a7a13a1ec2 Mon Sep 17 00:00:00 2001
+From: jzuniga-amd <juan.zuniga-anaya@amd.com>
+Date: Wed, 28 Aug 2019 16:52:03 -0600
+Subject: [PATCH 1/3] Do basic corrections to get the code to compile
+
+- remove non-existing rocblas-types references
+- correct signature of template functions
+- add .gitignore file
+---
+ .gitignore                             | 44 ++++++++++++++++++++++++++
+ library/include/rocsolver-types.h      |  4 +--
+ library/src/CMakeLists.txt             |  3 +-
+ library/src/lapack/roclapack_getf2.hpp |  2 +-
+ 4 files changed, 49 insertions(+), 4 deletions(-)
+ create mode 100644 .gitignore
+
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..9425889
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1,44 @@
++# Compiled Object files
++*.slo
++*.lo
++*.o
++*.obj
++
++# Precompiled Headers
++*.gch
++*.pch
++
++# Compiled Dynamic libraries
++*.so
++*.dylib
++*.dll
++
++# Fortran module files
++*.mod
++
++# Compiled Static libraries
++*.lai
++*.la
++*.a
++*.lib
++
++# Executables
++*.exe
++*.out
++*.app
++
++# vim tags
++tags
++.tags
++.*.swp
++
++# Editors
++.vscode
++
++# build-in-source directory
++build*
++
++# emacs temporary/backup files
++.\#*
++\#*\#
++*~
+diff --git a/library/include/rocsolver-types.h b/library/include/rocsolver-types.h
+index 214c190..646f5d2 100644
+--- a/library/include/rocsolver-types.h
++++ b/library/include/rocsolver-types.h
+@@ -15,14 +15,14 @@ typedef rocblas_int rocsolver_int;
+ typedef rocblas_float_complex rocsolver_float_complex;
+ typedef rocblas_double_complex rocsolver_double_complex;
+ typedef rocblas_half rocsolver_half;
+-typedef rocblas_half_complex rocsolver_half_complex;
++//typedef rocblas_half_complex rocsolver_half_complex;
+ typedef rocblas_handle rocsolver_handle;
+ typedef rocblas_operation rocsolver_operation;
+ typedef rocblas_fill rocsolver_fill;
+ typedef rocblas_diagonal rocsolver_diagonal;
+ typedef rocblas_side rocsolver_side;
+ typedef rocblas_status rocsolver_status;
+-typedef rocblas_precision rocsolver_precision;
++//typedef rocblas_precision rocsolver_precision;
+ typedef rocblas_layer_mode rocsolver_layer_mode;
+ 
+ #endif
+diff --git a/library/src/CMakeLists.txt b/library/src/CMakeLists.txt
+index b6c2c4a..2d0f177 100755
+--- a/library/src/CMakeLists.txt
++++ b/library/src/CMakeLists.txt
+@@ -49,7 +49,8 @@ add_library( roc::rocsolver ALIAS rocsolver )
+ 
+ rocm_clang_tidy_check(rocsolver)
+ 
+-target_link_libraries( rocsolver PRIVATE hip::hip_hcc hip::hip_device hcc::hccshared )
++#target_link_libraries( rocsolver PRIVATE hip::hip_hcc hip::hip_device hcc::hccshared )
++target_link_libraries( rocsolver PRIVATE hip::hip_hcc hcc::hccshared hsa )
+ target_link_libraries( rocsolver PRIVATE /opt/rocm/rocblas/lib/librocblas.so ) #${ROCBLAS_LIBRARY})
+ 
+ # Test for specific compiler features if cmake version is recent enough
+diff --git a/library/src/lapack/roclapack_getf2.hpp b/library/src/lapack/roclapack_getf2.hpp
+index 1100824..fdc5b64 100644
+--- a/library/src/lapack/roclapack_getf2.hpp
++++ b/library/src/lapack/roclapack_getf2.hpp
+@@ -26,7 +26,7 @@ using namespace std;
+ template <typename T>
+ __global__ void getf2_check_singularity(T *A, rocblas_int *jp, rocblas_int j,
+                                         rocblas_int lda,
+-                                        rocblas_int *inpsResGPUInt) {
++                                        T *inpsResGPUInt) {
+ 
+   (*jp) = j + (*jp); // jp is 1 index, j is zero
+ 
+
+From b60946831c3edb7104464a0ef66cf3d01ccce0e6 Mon Sep 17 00:00:00 2001
+From: jzuniga-amd <juan.zuniga-anaya@amd.com>
+Date: Thu, 29 Aug 2019 10:38:02 -0600
+Subject: [PATCH 2/3] Update/correct CMake files to build the project with
+ latest rocm stack
+
+---
+ CMakeLists.txt                    | 99 ++++++++++---------------------
+ clients/CMakeLists.txt            | 12 +++-
+ clients/benchmarks/CMakeLists.txt | 60 +++++++++++++++----
+ clients/gtest/CMakeLists.txt      | 65 +++++++++++++++-----
+ clients/include/utility.h         |  4 +-
+ cmake/virtualenv.cmake            | 27 +++++++--
+ library/CMakeLists.txt            | 17 +++---
+ library/src/CMakeLists.txt        | 22 +++----
+ 8 files changed, 187 insertions(+), 119 deletions(-)
+ mode change 100755 => 100644 CMakeLists.txt
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+old mode 100755
+new mode 100644
+index 837fffa..aeb6dae
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -5,6 +5,11 @@
+ # The ROCm platform requires Ubuntu 16.04 or Fedora 24, which has cmake 3.5
+ cmake_minimum_required( VERSION 3.5 )
+ 
++# We use C++14 features, this will add compile option: -std=c++14
++set( CMAKE_CXX_STANDARD 14 )
++# Without this line, it will add -std=gnu++14 instead, which has some issues.
++set( CMAKE_CXX_EXTENSIONS OFF )
++
+ # Consider removing this in the future
+ # This should appear before the project command, because it does not use FORCE
+ if( WIN32 )
+@@ -30,6 +35,9 @@ endif()
+ 
+ project( rocsolver LANGUAGES CXX )
+ 
++set(THREADS_PREFER_PTHREAD_FLAG ON)
++find_package(Threads REQUIRED)
++
+ # ########################################################################
+ # NOTE:  CUDA compiling path
+ # ########################################################################
+@@ -42,7 +50,7 @@ project( rocsolver LANGUAGES CXX )
+ # 2.  You must add HIP_SOURCE_PROPERTY_FORMAT OBJ properties to .cpp files
+ # to get HIP_ADD_LIBRARY to recognize the file
+ # 3.  HIP_ADD_LIBRARY invokes a call to add_custom_command() to compile files,
+-# and rocSOLVER does the same.  The order in which custom commands execute is
++# and rocBLAS does the same.  The order in which custom commands execute is
+ # undefined, and sometimes a file is attempted to be compiled before it has
+ # been generated.  The fix for this is to create 'PHONY' targets, which I
+ # don't desire.
+@@ -61,9 +69,21 @@ project( rocsolver LANGUAGES CXX )
+ # Main
+ # ########################################################################
+ 
+-if( CMAKE_CXX_COMPILER MATCHES ".*/hipcc$" )
+-  # For now, we assume hipcc compiler means to compile for CUDA backend
+-  message( STATUS "HIPCC compiler detected; CUDA backend selected" )
++if( CMAKE_CXX_COMPILER MATCHES ".*/hipcc$" OR CMAKE_CXX_COMPILER MATCHES ".*/hcc$")
++  # Determine if CXX Compiler is hcc, hip-clang or nvcc
++  execute_process(COMMAND ${CMAKE_CXX_COMPILER} "--version" OUTPUT_VARIABLE CXX_OUTPUT
++                  OUTPUT_STRIP_TRAILING_WHITESPACE
++                  ERROR_STRIP_TRAILING_WHITESPACE)
++  string(REGEX MATCH "[A-Za-z]* ?clang version" TMP_CXX_VERSION ${CXX_OUTPUT})
++  string(REGEX MATCH "[A-Za-z]+" CXX_VERSION_STRING ${TMP_CXX_VERSION})
++endif()
++
++if( CXX_VERSION_STRING MATCHES "clang" )
++  message( STATUS "Use hip-clang to build for amdgpu backend" )
++# set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Xclang -fallow-half-arguments-and-returns" )
++  set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__HIP_HCC_COMPAT_MODE__=1" )
++elseif( CXX_VERSION_STRING MATCHES "nvcc" )
++  message( STATUS "HIPCC nvcc compiler detected; CUDA backend selected" )
+ 
+   set( CMAKE_C_COMPILE_OPTIONS_PIC "-Xcompiler ${CMAKE_C_COMPILE_OPTIONS_PIC}" )
+   set( CMAKE_CXX_COMPILE_OPTIONS_PIC "-Xcompiler ${CMAKE_CXX_COMPILE_OPTIONS_PIC}" )
+@@ -79,8 +99,9 @@ if( CMAKE_CXX_COMPILER MATCHES ".*/hipcc$" )
+   set( CMAKE_CXX_COMPILE_OPTIONS_VISIBILITY "-Xcompiler ${CMAKE_CXX_COMPILE_OPTIONS_VISIBILITY}" )
+   set( CMAKE_C_COMPILE_OPTIONS_VISIBILITY_INLINES_HIDDEN "-Xcompiler ${CMAKE_C_COMPILE_OPTIONS_VISIBILITY_INLINES_HIDDEN}" )
+   set( CMAKE_CXX_COMPILE_OPTIONS_VISIBILITY_INLINES_HIDDEN "-Xcompiler ${CMAKE_CXX_COMPILE_OPTIONS_VISIBILITY_INLINES_HIDDEN}" )
+-elseif( CMAKE_CXX_COMPILER MATCHES ".*/hcc$" )
++elseif( CXX_VERSION_STRING MATCHES "HCC" )
+   message( STATUS "HCC compiler set; ROCm backend selected [ CXX=/opt/rocm/bin/hcc cmake ... ]" )
++  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -hc")
+ endif( )
+ 
+ # This finds the rocm-cmake project, and installs it if not found
+@@ -117,65 +138,10 @@ include( ROCMCreatePackage )
+ include( ROCMInstallTargets )
+ include( ROCMPackageConfigHelpers )
+ include( ROCMInstallSymlinks )
+-include( ROCMClangTidy )
+-rocm_enable_clang_tidy(
+-    CHECKS
+-        *
+-        -cert-env33-c
+-        -android-cloexec-fopen
+-        -cert-msc50-cpp
+-        -clang-analyzer-alpha.core.CastToStruct
+-        -clang-analyzer-optin.performance.Padding
+-        -clang-diagnostic-deprecated-declarations
+-        -clang-diagnostic-extern-c-compat
+-        -clang-diagnostic-unused-command-line-argument
+-        -cppcoreguidelines-pro-bounds-array-to-pointer-decay
+-        -cppcoreguidelines-pro-bounds-constant-array-index
+-        -cppcoreguidelines-pro-bounds-pointer-arithmetic
+-        -cppcoreguidelines-pro-type-member-init
+-        -cppcoreguidelines-pro-type-reinterpret-cast
+-        -cppcoreguidelines-pro-type-union-access
+-        -cppcoreguidelines-pro-type-vararg
+-        -cppcoreguidelines-special-member-functions
+-        -fuchsia-*
+-        -google-readability-braces-around-statements
+-        -google-readability-todo
+-        -google-runtime-int
+-        -google-runtime-references
+-        -hicpp-braces-around-statements
+-        -hicpp-explicit-conversions
+-        -hicpp-no-array-decay
+-        -hicpp-special-member-functions
+-        -hicpp-use-override
+-        # This check is broken
+-        -hicpp-use-auto
+-        -llvm-header-guard
+-        -llvm-include-order
+-        -misc-macro-parentheses
+-        -modernize-use-auto
+-        -modernize-use-override
+-        -modernize-pass-by-value
+-        -modernize-use-default-member-init
+-        -modernize-use-transparent-functors
+-        -performance-unnecessary-value-param
+-        -readability-braces-around-statements
+-        -readability-else-after-return
+-        -readability-named-parameter
+-        -*-explicit-constructor
+-        -*-use-emplace
+-        -*-use-equals-default
+-    ERRORS
+-        *
+-        -readability-inconsistent-declaration-parameter-name
+-    HEADER_FILTER
+-        ".*hpp"
+-    EXTRA_ARGS
+-        -DROCSOLVER_USE_CLANG_TIDY
+-    ANALYZE_TEMPORARY_DTORS ON
+-
+-)
+-
+-rocm_setup_version( VERSION 0.1.0 NO_GIT_TAG_VERSION )
++
++# Versioning via rocm-cmake
++set ( VERSION_STRING "2.7.0" )
++rocm_setup_version( VERSION ${VERSION_STRING} )
+ 
+ # Append our library helper cmake path and the cmake path for hip (for convenience)
+ # Users may override HIP path by specifying their own in CMAKE_MODULE_PATH
+@@ -200,11 +166,8 @@ if( CMAKE_CXX_COMPILER MATCHES ".*/hcc$" )
+   find_package( hip REQUIRED CONFIG PATHS /opt/rocm )
+ endif( )
+ 
+-find_package( rocblas REQUIRED CONFIG PATHS /opt/rocm )
+-include_directories( ${rocblas_INCLUDE_DIR} )
+-
+ # CMake list of machine targets
+-set( AMDGPU_TARGETS gfx803;gfx900 CACHE STRING "List of specific machine types for library to target" )
++set( AMDGPU_TARGETS gfx803;gfx900;gfx906;gfx908 CACHE STRING "List of specific machine types for library to target" )
+ 
+ add_subdirectory( library )
+ 
+diff --git a/clients/CMakeLists.txt b/clients/CMakeLists.txt
+index fa3a6fd..bc6a720 100755
+--- a/clients/CMakeLists.txt
++++ b/clients/CMakeLists.txt
+@@ -22,6 +22,15 @@ endif()
+ # This project may compile dependencies for clients
+ project( rocsolver-clients LANGUAGES CXX )
+ 
++if(EXISTS /etc/redhat-release)
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp=libgomp -pthread")
++else()
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -pthread")
++endif()
++
++set(THREADS_PREFER_PTHREAD_FLAG ON)
++find_package(Threads REQUIRED)
++
+ list( APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake )
+ 
+ include( build-options )
+@@ -35,7 +44,8 @@ if( NOT TARGET rocsolver )
+ endif( )
+ 
+ # Hip headers required of all clients; clients use hip to allocate device memory
+-find_package( hip REQUIRED CONFIG PATHS /opt/rocm )
++list( APPEND CMAKE_PREFIX_PATH /opt/rocm )
++find_package( hip REQUIRED CONFIG PATHS ${CMAKE_PREFIX_PATH} )
+ 
+ # Quietly look for CUDA, but if not found it's not an error
+ # The presense of hip is not sufficient to determine if we want a rocm or cuda backend
+diff --git a/clients/benchmarks/CMakeLists.txt b/clients/benchmarks/CMakeLists.txt
+index 4170758..f2db7ac 100755
+--- a/clients/benchmarks/CMakeLists.txt
++++ b/clients/benchmarks/CMakeLists.txt
+@@ -8,6 +8,12 @@ set( Boost_DETAILED_FAILURE_MSG ON )
+ set( Boost_ADDITIONAL_VERSIONS 1.65.1 1.65 )
+ set( Boost_USE_STATIC_LIBS OFF )
+ 
++if(EXISTS /etc/redhat-release)
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp=libgomp -pthread")
++else()
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp -pthread")
++endif()
++
+ find_package( Boost COMPONENTS program_options )
+ 
+ if( NOT Boost_FOUND )
+@@ -20,6 +26,9 @@ if( NOT Boost_FOUND )
+   endif( )
+ endif( )
+ 
++set( THREADS_PREFER_PTHREAD_FLAG ON )
++find_package( Threads REQUIRED )
++
+ # Linking lapack library requires fortran flags
+ enable_language( Fortran )
+ find_package( cblas CONFIG REQUIRED )
+@@ -39,7 +48,6 @@ set( rocsolver_benchmark_common
+ add_executable( rocsolver-bench client.cpp ${rocsolver_benchmark_common} )
+ target_compile_features( rocsolver-bench PRIVATE cxx_static_assert cxx_nullptr cxx_auto_type )
+ 
+-rocm_clang_tidy_check(rocsolver-bench)
+ 
+ if( BUILD_WITH_TENSILE )
+     target_compile_definitions( rocsolver-bench PRIVATE BUILD_WITH_TENSILE=1 )
+@@ -53,17 +61,45 @@ target_include_directories( rocsolver-bench
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
+ )
+ 
+-# External header includes included as system files
+-target_include_directories( rocsolver-bench
+-  SYSTEM PRIVATE
+-    $<BUILD_INTERFACE:${HIP_INCLUDE_DIRS}>
+-    $<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
+-    $<BUILD_INTERFACE:${CBLAS_INCLUDE_DIRS}>
+-    )
++#set( BLIS_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/build/deps/blis/include/blis )
++#set( BLIS_LIBRARY ${CMAKE_SOURCE_DIR}/build/deps/blis/lib/libblis.so )
++
++if( EXISTS /etc/redhat-release)
++    set( OPENMP_INCLUDE_DIR /opt/rh/devtoolset-7/root/usr/lib/gcc/x86_64-redhat-linux/7/include )
++    set( OPENMP_LIBRARY /opt/rh/devtoolset-7/root/usr/lib/gcc/x86_64-redhat-linux/7/libgomp.so ) 
++    set( CLANG_INCLUDE_DIR /opt/rocm/hcc/lib/clang/9.0.0/include ) 
++
++    # External header includes included as system files
++    target_include_directories( rocsolver-bench
++      SYSTEM PRIVATE
++        $<BUILD_INTERFACE:${CLANG_INCLUDE_DIR}> 
++#        $<BUILD_INTERFACE:${BLIS_INCLUDE_DIR}>
++        $<BUILD_INTERFACE:${HIP_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${HCC_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${CBLAS_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${OPENMP_INCLUDE_DIR}> 
++        )
++
++    target_link_libraries( rocsolver-bench PRIVATE ${Boost_LIBRARIES} ${OPENMP_LIBRARY} cblas lapack roc::rocsolver )
++
++else()
++    # External header includes included as system files
++    target_include_directories( rocsolver-bench
++      SYSTEM PRIVATE
++        $<BUILD_INTERFACE:${HIP_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${HCC_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${CBLAS_INCLUDE_DIRS}>
++#        $<BUILD_INTERFACE:${BLIS_INCLUDE_DIR}>
++        )
++
++    target_link_libraries( rocsolver-bench PRIVATE ${Boost_LIBRARIES} cblas lapack roc::rocsolver )
++endif()
+ 
+-target_link_libraries( rocsolver-bench PRIVATE ${Boost_LIBRARIES} cblas lapack roc::rocsolver )
+ target_link_libraries( rocsolver-bench PRIVATE /opt/rocm/rocblas/lib/librocblas.so ) #${ROCBLAS_LIBRARY})
+ 
++
+ get_target_property( HIPHCC_LOCATION hip::hip_hcc IMPORTED_LOCATION_RELEASE )
+ 
+ if( CUDA_FOUND )
+@@ -83,9 +119,9 @@ if( CMAKE_CXX_COMPILER MATCHES ".*/hcc$" )
+   # Remove following when hcc is fixed; hcc emits following spurious warning ROCm v1.6.1
+   # "clang-5.0: warning: argument unused during compilation: '-isystem /opt/rocm/include'"
+   target_compile_options( rocsolver-bench PRIVATE -Wno-unused-command-line-argument -mf16c )
+-
+-elseif( CMAKE_COMPILER_IS_GNUCXX )
+-  # GCC needs specific flags to turn on f16c intrinsics
++  target_include_directories( rocsolver-bench PRIVATE /opt/rocm/hsa/include)
++elseif( CMAKE_COMPILER_IS_GNUCXX OR CXX_VERSION_STRING MATCHES "clang")
++  # GCC or hip-clang needs specific flags to turn on f16c intrinsics
+   target_compile_options( rocsolver-bench PRIVATE -mf16c )
+ endif( )
+ 
+diff --git a/clients/gtest/CMakeLists.txt b/clients/gtest/CMakeLists.txt
+index def7c60..9607789 100755
+--- a/clients/gtest/CMakeLists.txt
++++ b/clients/gtest/CMakeLists.txt
+@@ -2,6 +2,10 @@
+ # Copyright 2016 Advanced Micro Devices, Inc.
+ # ########################################################################
+ 
++# For debugging, uncomment this
++# set( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -g -O0" )
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
++
+ # set( Boost_DEBUG ON )
+ set( Boost_USE_MULTITHREADED ON )
+ set( Boost_DETAILED_FAILURE_MSG ON )
+@@ -53,9 +57,7 @@ set( rocsolver_benchmark_common
+     )
+ 
+ add_executable( rocsolver-test ${roclapack_test_source} ${rocsolver_test_source} ${rocsolver_benchmark_common} )
+-target_compile_features( rocsolver-test PRIVATE cxx_static_assert cxx_nullptr cxx_auto_type )
+-
+-rocm_clang_tidy_check(rocsolver-test)
++#target_compile_features( rocsolver-test PRIVATE cxx_static_assert cxx_nullptr cxx_auto_type )
+ 
+ target_compile_definitions( rocsolver-test PRIVATE BUILD_WITH_TENSILE=0 GOOGLE_TEST )
+ 
+@@ -65,16 +67,45 @@ target_include_directories( rocsolver-test
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
+ )
+ 
+-# External header includes included as system files
+-target_include_directories( rocsolver-test
+-  SYSTEM PRIVATE
+-    $<BUILD_INTERFACE:${HIP_INCLUDE_DIRS}>
+-    $<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
+-    $<BUILD_INTERFACE:${GTEST_INCLUDE_DIRS}>
+-    $<BUILD_INTERFACE:${CBLAS_INCLUDE_DIRS}>
+-    )
+ 
+-target_link_libraries( rocsolver-test PRIVATE ${GTEST_LIBRARIES} ${Boost_LIBRARIES} cblas lapack roc::rocsolver Threads::Threads )
++#set( BLIS_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/build/deps/blis/include/blis )
++#set( BLIS_LIBRARY ${CMAKE_SOURCE_DIR}/build/deps/blis/lib/libblis.so )
++
++if( EXISTS /etc/redhat-release)
++    set( OPENMP_INCLUDE_DIR /opt/rh/devtoolset-7/root/usr/lib/gcc/x86_64-redhat-linux/7/include )
++    set( OPENMP_LIBRARY /opt/rh/devtoolset-7/root/usr/lib/gcc/x86_64-redhat-linux/7/libgomp.so ) 
++    set( CLANG_INCLUDE_DIR /opt/rocm/hcc/lib/clang/9.0.0/include ) 
++
++    # External header includes included as system files
++    target_include_directories( rocsolver-test
++      SYSTEM PRIVATE
++        $<BUILD_INTERFACE:${CLANG_INCLUDE_DIR}> 
++#        $<BUILD_INTERFACE:${BLIS_INCLUDE_DIR}>
++        $<BUILD_INTERFACE:${HIP_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${HCC_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${GTEST_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${CBLAS_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${OPENMP_INCLUDE_DIR}> 
++        )
++
++    target_link_libraries( rocsolver-test PRIVATE ${GTEST_LIBRARIES} ${Boost_LIBRARIES} ${OPENMP_LIBRARY} cblas lapack roc::rocsolver )
++
++else()
++    # External header includes included as system files
++    target_include_directories( rocsolver-test
++      SYSTEM PRIVATE
++        $<BUILD_INTERFACE:${HIP_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${HCC_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${GTEST_INCLUDE_DIRS}>
++        $<BUILD_INTERFACE:${CBLAS_INCLUDE_DIRS}>
++#        $<BUILD_INTERFACE:${BLIS_INCLUDE_DIR}>
++        )
++
++    target_link_libraries( rocsolver-test PRIVATE ${GTEST_LIBRARIES} ${Boost_LIBRARIES} cblas lapack roc::rocsolver )
++endif()
++
+ target_link_libraries( rocsolver-test PRIVATE /opt/rocm/rocblas/lib/librocblas.so ) #${ROCBLAS_LIBRARY})
+ 
+ get_target_property( HIPHCC_LOCATION hip::hip_hcc IMPORTED_LOCATION_RELEASE )
+@@ -96,10 +127,14 @@ if( CMAKE_CXX_COMPILER MATCHES ".*/hcc$" )
+   # Remove following when hcc is fixed; hcc emits following spurious warning ROCm v1.6.1
+   # "clang-5.0: warning: argument unused during compilation: '-isystem /opt/rocm/include'"
+   target_compile_options( rocsolver-test PRIVATE -Wno-unused-command-line-argument -mf16c )
++  target_include_directories( rocsolver-test PRIVATE /opt/rocm/hsa/include)
++elseif( CMAKE_COMPILER_IS_GNUCXX OR CXX_VERSION_STRING MATCHES "clang" )
++  # GCC or hip-clang needs specific flag to turn on f16c intrinsics
++  target_compile_options( rocsolver-solver PRIVATE -mf16c )
++endif( )
+ 
+-elseif( CMAKE_COMPILER_IS_GNUCXX )
+-  # GCC needs specific flag to turn on f16c intrinsics
+-  target_compile_options( rocsolver-test PRIVATE -mf16c )
++if( CXX_VERSION_STRING MATCHES "clang" )
++  target_link_libraries( rocsolver-test PRIVATE -lpthread -lm )
+ endif( )
+ 
+ set_target_properties( rocsolver-test PROPERTIES CXX_EXTENSIONS NO )
+diff --git a/clients/include/utility.h b/clients/include/utility.h
+index 7997edf..1939954 100644
+--- a/clients/include/utility.h
++++ b/clients/include/utility.h
+@@ -73,7 +73,7 @@ inline rocblas_half float_to_half(float val) {
+   // return static_cast<rocblas_half>( _mm_cvtsi128_si32( _mm_cvtps_ph(
+   // _mm_set_ss( val ), 0 ) )
+   // );
+-  return _cvtss_sh(val, 0);
++  //return _cvtss_sh(val, 0);
+ }
+ 
+ // Helper routine to convert halfs into their floats equivalent; uses F16C
+@@ -82,7 +82,7 @@ inline float half_to_float(rocblas_half val) {
+   // return
+   // static_cast<rocblas_half>(_mm_cvtss_f32(_mm_cvtph_ps(_mm_cvtsi32_si128(val),
+   // 0)));
+-  return _cvtsh_ss(val);
++  //return _cvtsh_ss(val);
+ }
+ 
+ /* ============================================================================================
+diff --git a/cmake/virtualenv.cmake b/cmake/virtualenv.cmake
+index a5d6d58..ba44867 100644
+--- a/cmake/virtualenv.cmake
++++ b/cmake/virtualenv.cmake
+@@ -1,15 +1,34 @@
+ # find_package(PythonInterp)
+ # # TODO: Check PYTHON_VERSION_MAJOR
+ 
+-find_program(VIRTUALENV_PYTHON_EXE python)
+-
++find_program(VIRTUALENV_PYTHON_EXE python3)
++if(NOT VIRTUALENV_PYTHON_EXE)
++    find_program(VIRTUALENV_PYTHON_EXE python)
++endif()
+ 
+ set(VIRTUALENV_SOURCE_DIR ${CMAKE_BINARY_DIR}/virtualenv-source CACHE PATH "Path to virtualenv source")
+ set(VIRTUALENV_HOME_DIR ${CMAKE_BINARY_DIR}/virtualenv CACHE PATH "Path to virtual environment")
+ 
+ set(VIRTUALENV_VERSION 15.1.0)
+ function(virtualenv_create)
+-    if(NOT EXISTS ${VIRTUALENV_HOME_DIR}/bin/python)
++    if (DETECT_LOCAL_VIRTUALENV)
++        find_program(VIRTUALENV_EXE virtualenv)
++	if (VIRTUALENV_EXE)
++            execute_process( COMMAND ${VIRTUALENV_EXE} "--version" OUTPUT_VARIABLE VER )
++
++            if (${VER} VERSION_GREATER_EQUAL ${VIRTUALENV_VERSION})
++                set(LOCAL_VIRTUALENV_OK TRUE)
++            endif()
++        endif()
++    endif()
++
++    if (LOCAL_VIRTUALENV_OK)
++	if(NOT EXISTS ${VIRTUALENV_HOME_DIR}/bin/python)
++        	execute_process(
++	            COMMAND ${VIRTUALENV_PYTHON_EXE} ${VIRTUALENV_EXE} --system-site-packages  ${VIRTUALENV_HOME_DIR}
++        	)
++	endif()
++    elseif(NOT EXISTS ${VIRTUALENV_HOME_DIR}/bin/python)
+         file(DOWNLOAD https://pypi.python.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-${VIRTUALENV_VERSION}.tar.gz
+             ${VIRTUALENV_SOURCE_DIR}/virtualenv-${VIRTUALENV_VERSION}.tar.gz
+             STATUS status LOG log
+@@ -44,6 +63,6 @@ function(virtualenv_install)
+     # TODO: Check result
+     message("${VIRTUALENV_HOME_DIR}/pip install ${ARGN}")
+     execute_process(
+-        COMMAND ${VIRTUALENV_HOME_DIR}/bin/python ${VIRTUALENV_HOME_DIR}/bin/pip install ${ARGN}
++        COMMAND ${VIRTUALENV_HOME_DIR}/bin/python3 ${VIRTUALENV_HOME_DIR}/bin/pip install ${ARGN}
+     )
+ endfunction()
+diff --git a/library/CMakeLists.txt b/library/CMakeLists.txt
+index 1e8a30d..60da35a 100755
+--- a/library/CMakeLists.txt
++++ b/library/CMakeLists.txt
+@@ -1,5 +1,5 @@
+ # ########################################################################
+-# Copyright 2016 Advanced Micro Devices, Inc.
++# Copyright 2016-2019 Advanced Micro Devices, Inc.
+ # ########################################################################
+ 
+ # The following helper functions wrap common cmake functions.  They are
+@@ -13,14 +13,17 @@
+ # ########################################################################
+ function( target_compile_features target_name )
+   # With Cmake v3.5, hipcc (with nvcc backend) does not work with target_compile_features
+-  # Turn on -std=c++11 manually
++  # Turn on -std=c++14 manually
+   if( CMAKE_CXX_COMPILER MATCHES ".*/hipcc$" )
+-    set_target_properties( ${target_name} PROPERTIES CXX_STANDARD 11 CXX_STANDARD_REQUIRED ON )
++    set_target_properties( ${target_name} PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED ON )
+   else( )
+     _target_compile_features( ${target_name} ${ARGN} )
+   endif( )
+ endfunction( )
+ 
++set(THREADS_PREFER_PTHREAD_FLAG ON)
++find_package(Threads REQUIRED)
++
+ # ########################################################################
+ # target_link_libraries() override
+ # ########################################################################
+@@ -130,18 +133,18 @@ endif( )
+ set( CPACK_RPM_EXCLUDE_FROM_AUTO_FILELIST_ADDITION "\${CPACK_PACKAGING_INSTALL_PREFIX}" "\${CPACK_PACKAGING_INSTALL_PREFIX}/include" "\${CPACK_PACKAGING_INSTALL_PREFIX}/lib" )
+ 
+ # Give rocsolver compiled for CUDA backend a different name
+-if( CMAKE_CXX_COMPILER MATCHES ".*/hcc$" )
++if( CMAKE_CXX_COMPILER MATCHES ".*/hcc$" OR CXX_VERSION_STRING MATCHES "clang" )
+     set( package_name rocsolver )
+ else( )
+     set( package_name rocsolver-alt )
+ endif( )
+ 
+-set( ROCSOLVER_CONFIG_DIR "\${CPACK_PACKAGING_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}" CACHE PATH "Path placed into ldconfig file" )
++set( ROCBLAS_CONFIG_DIR "\${CPACK_PACKAGING_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}" CACHE PATH "Path placed into ldconfig file" )
+ 
+ rocm_create_package(
+     NAME ${package_name}
+     DESCRIPTION "Radeon Open Compute SOLVER library"
+-    MAINTAINER "Johannes M Dieterich <Johannes.Dieterich@amd.com>"
++    MAINTAINER "Kent Knox <kent.knox@amd.com>"
+     LDCONFIG
+-    LDCONFIG_DIR ${ROCSOLVER_CONFIG_DIR}
++    LDCONFIG_DIR ${ROCBLAS_CONFIG_DIR}
+ )
+diff --git a/library/src/CMakeLists.txt b/library/src/CMakeLists.txt
+index 2d0f177..ff09671 100755
+--- a/library/src/CMakeLists.txt
++++ b/library/src/CMakeLists.txt
+@@ -23,6 +23,9 @@ endfunction( )
+ # package_targets is used as a list of install target
+ set( package_targets rocsolver )
+ 
++set(THREADS_PREFER_PTHREAD_FLAG ON)
++find_package(Threads REQUIRED)
++
+ set( rocsolver_auxiliary_source
+   include/definitions.h
+   include/rocsolver_unique_ptr.hpp
+@@ -47,22 +50,21 @@ add_library( rocsolver
+ 
+ add_library( roc::rocsolver ALIAS rocsolver )
+ 
+-rocm_clang_tidy_check(rocsolver)
+-
+-#target_link_libraries( rocsolver PRIVATE hip::hip_hcc hip::hip_device hcc::hccshared )
+-target_link_libraries( rocsolver PRIVATE hip::hip_hcc hcc::hccshared hsa )
+-target_link_libraries( rocsolver PRIVATE /opt/rocm/rocblas/lib/librocblas.so ) #${ROCBLAS_LIBRARY})
++# Remove this check when we no longer build with older rocm stack(ie < 1.8.2)
++if(TARGET hip::device)
++target_link_libraries( rocsolver PRIVATE hip::device )
++else()
++target_link_libraries( rocsolver PRIVATE hip::hip_hcc hip::hip_device hcc::hccshared )
++endif()
+ 
+-# Test for specific compiler features if cmake version is recent enough
+-target_compile_features( rocsolver PRIVATE cxx_static_assert cxx_nullptr cxx_auto_type )
++set_target_properties( rocsolver PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED ON )
+ 
+ if( CMAKE_CXX_COMPILER MATCHES ".*/hcc$" )
+   # Remove following when hcc is fixed; hcc emits following spurious warning ROCm v1.6.1
+   # "clang-5.0: warning: argument unused during compilation: '-isystem /opt/rocm/include'"
+-  target_compile_options( rocsolver PRIVATE -Wno-unused-command-line-argument )
+-
++  target_compile_options( rocsolver PRIVATE -Wno-unused-command-line-argument -fno-gpu-rdc )
+   foreach( target ${AMDGPU_TARGETS} )
+-    target_link_libraries( rocsolver PRIVATE --amdgpu-target=${target} )
++    target_compile_options( rocsolver PRIVATE --amdgpu-target=${target} )
+   endforeach( )
+ endif( )
+ 
+
+From 02e142cd686e3a335bf546f13317c3d5e1baa2b5 Mon Sep 17 00:00:00 2001
+From: jzuniga-amd <juan.zuniga-anaya@amd.com>
+Date: Thu, 29 Aug 2019 10:59:15 -0600
+Subject: [PATCH 3/3] Change maintainer email
+
+---
+ library/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/library/CMakeLists.txt b/library/CMakeLists.txt
+index 60da35a..afd7337 100755
+--- a/library/CMakeLists.txt
++++ b/library/CMakeLists.txt
+@@ -144,7 +144,7 @@ set( ROCBLAS_CONFIG_DIR "\${CPACK_PACKAGING_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBD
+ rocm_create_package(
+     NAME ${package_name}
+     DESCRIPTION "Radeon Open Compute SOLVER library"
+-    MAINTAINER "Kent Knox <kent.knox@amd.com>"
++    MAINTAINER "RocSOLVER maintainer <rocsolver-maintainer@amd.com>"
+     LDCONFIG
+     LDCONFIG_DIR ${ROCBLAS_CONFIG_DIR}
+ )
