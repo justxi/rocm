@@ -18,7 +18,7 @@ KEYWORDS="~amd64"
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
-RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]
 	 =sci-libs/rocPRIM-$(ver_cut 1-2)*"
 DEPEND="${RDPEND}
 	dev-util/cmake"
