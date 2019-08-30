@@ -54,6 +54,7 @@ ROCm Libraries:
 |sci-libs/rocThrust| 2.7 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocFFT| 2.7 | Installs, not tested yet | (ok) | |
 |sci-libs/rocRAND| 2.7 | Installs, not tested yet | (ok) |  |
+|sci-libs/rocSOLVER| 9999 | Installs, not tested yet | (ok) | |
 |sci-libs/hipCub | 2.7 | Installs, not tested yet. | (ok)| |
 |sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
