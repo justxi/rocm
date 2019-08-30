@@ -38,8 +38,13 @@ src_unpack() {
 		git-r3_fetch "https://github.com/RadeonOpenCompute/clang"
 		git-r3_fetch "https://github.com/RadeonOpenCompute/lld"
 
+		EGIT_COMMIT="b9bf68527b202329f7ccacad9eb31dde488782ed"
 		git-r3_checkout ${EGIT_REPO}
+
+		EGIT_COMMIT="c69e49f4d1152e5f9172ff40ef33a8b6ef944992"
 		git-r3_checkout "https://github.com/RadeonOpenCompute/clang" "${S}/tools/compiler"
+
+		EGIT_COMMIT="2733326d1399d18ccf802c7cfbb044cc36d5b8c4"
 		git-r3_checkout "https://github.com/RadeonOpenCompute/lld" "${S}/tools/lld"
 	else
 		unpack ${A}
