@@ -28,6 +28,8 @@ src_prepare() {
 	sed -e "s:rocm_install_symlink_subdir(hipcub):#rocm_install_symlink_subdir(hipcub):" -i ${$}/hipcub/CMakeLists.txt
 	sed -e "s:<INSTALL_INTERFACE\:hipcub/include/:<INSTALL_INTERFACE\:include/hipcub/:" -i ${S}/hipcub/CMakeLists.txt
 
+	# TODO: Install to "/usr/lib64/cmake" instead of "/usr/lib/cmake"?
+
 	eapply_user
 	cmake-utils_src_prepare
 }
