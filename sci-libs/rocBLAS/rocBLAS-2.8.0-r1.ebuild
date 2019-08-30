@@ -71,14 +71,11 @@ src_prepare() {
 	eapply "${FILESDIR}/Tensile-2.8-add_HIP_include_path.patch"
 
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
-
-#	sed -e "s:\$<BUILD_INTERFACE\:\${CMAKE_CURRENT_SOURCE_DIR}/include>:#\$<BUILD_INTERFACE\:\${CMAKE_CURRENT_SOURCE_DIR}/include>:" -i ${S}/library/src/CMakeLists.txt
-
-	# disable tests - to reenable change path in header_compilation_tests.sh and workdir in library/src/CMakeLists.txt
+	sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/rocblas:" -i ${S}/library/src/CMakeLists.txt || die
+	# disable tests - there is already a patch on github...
 	sed -e "s:COMMAND \${CMAKE_HOME_DIRECTORY}/header_compilation_tests.sh:COMMAND true:" -i ${S}/library/src/CMakeLists.txt || die
 
 	cd ${S}
-#        eapply "${FILESDIR}/master-addTensileIncludePath.patch"
         eapply_user
 	cmake-utils_src_prepare
 }
