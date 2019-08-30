@@ -15,7 +15,7 @@ IUSE=""
 S="${WORKDIR}/rocThrust-rocm-$(ver_cut 1-2)"
 
 RDEPEND=">=sys-devel/hip-${PV}
-	 =sci-libs/rocPRIM-${PV}"
+	 =sci-libs/rocPRIM-${PV}*"
 DEPEND="${RDPEND}
 	dev-util/cmake"
 
