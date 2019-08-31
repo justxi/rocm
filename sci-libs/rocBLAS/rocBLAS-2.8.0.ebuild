@@ -13,6 +13,7 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
 # No release for 2.8 yet available
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS"
 EGIT_BRANCH="master-rocm-2.8"
+EGIT_COMMIT="2b1befc1e791998f00f1bf1e71f7ca4b2490cb2c"
 
 LICENSE=""
 SLOT="0"
