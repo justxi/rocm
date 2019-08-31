@@ -11,6 +11,7 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSPARSE"
 # Build does not work with archive file... using git master instead to test the installation...
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocSPARSE"
 EGIT_BRANCH="master"
+EGIT_COMMIT="e00532a888cf6653d0e9415b399199afe71d1baa"
 
 LICENSE=""
 SLOT="0"
