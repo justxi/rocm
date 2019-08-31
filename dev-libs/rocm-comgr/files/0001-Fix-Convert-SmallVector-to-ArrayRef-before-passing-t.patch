@@ -1,0 +1,23 @@
+From 8914f3b3b2a326afb786b69948708fe5de7557ed Mon Sep 17 00:00:00 2001
+From: "Luke A. Guest" <laguest@archeia.com>
+Date: Sat, 31 Aug 2019 13:18:41 +0100
+Subject: [PATCH] Fix: Convert SmallVector to ArrayRef before passing to
+ CreateFromArgs.
+
+
+diff --git a/src/comgr-compiler.cpp b/src/comgr-compiler.cpp
+index cb646b7..7582e85 100644
+--- a/src/comgr-compiler.cpp
++++ b/src/comgr-compiler.cpp
+@@ -613,7 +613,7 @@ amd_comgr_status_t InProcessDriver::execute(ArrayRef<const char *> Args) {
+       if (!Clang->hasDiagnostics())
+         return AMD_COMGR_STATUS_ERROR;
+       if (!CompilerInvocation::CreateFromArgs(
+-              Clang->getInvocation(), Argv.data(), Argv.data() + Argv.size(),
++              Clang->getInvocation(), ArrayRef<const char *>(Argv.data(), Argv.size()),
+               Clang->getDiagnostics()))
+         return AMD_COMGR_STATUS_ERROR;
+       if (!ExecuteCompilerInvocation(Clang.get()))
+-- 
+2.23.0
+

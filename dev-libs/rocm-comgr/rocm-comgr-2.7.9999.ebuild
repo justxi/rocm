@@ -20,6 +20,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.6.0-find-clang.patch"
 	"${FILESDIR}/${PN}-2.6.0-find-lld-includes.patch"
 	"${FILESDIR}/${PN}-2.6.0-dependencies.patch"
+	"${FILESDIR}/0001-Fix-Convert-SmallVector-to-ArrayRef-before-passing-t.patch"
 )
 
 DESCRIPTION="Radeon Open Compute Code Object Manager"
