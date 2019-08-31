@@ -34,17 +34,16 @@ CMAKE_BUILD_TYPE=RelWithDebInfo
 
 src_unpack() {
 	if [[ ${PV} == *9999 ]]; then
-		git-r3_fetch ${EGIT_REPO}
-		git-r3_fetch "https://github.com/RadeonOpenCompute/clang"
-		git-r3_fetch "https://github.com/RadeonOpenCompute/lld"
-
 		EGIT_COMMIT="cadd94b2be2654fbf5dc751b689bf219f34e9758"
+		git-r3_fetch ${EGIT_REPO}
 		git-r3_checkout ${EGIT_REPO}
 
 		EGIT_COMMIT="acfb9c8dbb68e01b51fadf9eeec9421cb309a319"
+		git-r3_fetch "https://github.com/RadeonOpenCompute/clang"
 		git-r3_checkout "https://github.com/RadeonOpenCompute/clang" "${S}/tools/compiler"
 
 		EGIT_COMMIT="2733326d1399d18ccf802c7cfbb044cc36d5b8c4"
+		git-r3_fetch "https://github.com/RadeonOpenCompute/lld"
 		git-r3_checkout "https://github.com/RadeonOpenCompute/lld" "${S}/tools/lld"
 	else
 		unpack ${A}
