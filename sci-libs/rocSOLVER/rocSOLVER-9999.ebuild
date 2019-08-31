@@ -8,7 +8,7 @@ inherit cmake-utils git-r3
 DESCRIPTION="Implementation of a subset of LAPACK functionality on the ROCm platform"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
-#EGIT_BRANCH="master"
+EGIT_BRANCH="master"
 EGIT_COMMIT="198e32eb99ee67ba638e9f2e2c6f4fa40219f68f"
 
 LICENSE=""
