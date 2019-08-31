@@ -10,6 +10,7 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocALUTION"
 # No release for 2.8 yet available
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocALUTION"
 EGIT_BRANCH="master-rocm-2.8"
+EGIT_COMMIT="834406c9012bba7fd1c76d6d3b8fe8350bb3ee23"
 
 LICENSE=""
 SLOT="0"
