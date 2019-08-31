@@ -9,7 +9,8 @@ HOMEPAGE="https://github.com/ROCm-Developer-Tools/HIP"
 
 if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/ROCm-Developer-Tools/HIP.git"
-#	EGIT_BRANCH="master"
+	EGIT_BRANCH="master"
+	# for hipSYCL
 	EGIT_COMMIT="8ff7a99a4cc431cb4feb0e7cbf02b967917f4aa4"
 	inherit git-r3
 	S="${WORKDIR}/${P}"
