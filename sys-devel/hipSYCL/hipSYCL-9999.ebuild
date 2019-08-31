@@ -9,6 +9,7 @@ HOMEPAGE="https://github.com/illuhad/hipSYCL"
 if [[ ${PV} == *9999 ]] ; then
         EGIT_REPO_URI="https://github.com/illuhad/hipSYCL"
         EGIT_BRANCH="master"
+	EGIT_COMMIT="f99ffb6123e30f5c045bc944c9ebba452781aa00"
         inherit git-r3
         S="${WORKDIR}/${P}"
         KEYWORDS="**"
