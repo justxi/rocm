@@ -36,6 +36,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-comgr| 2.7 | | Yes | :heavy_check_mark:<br> V2.6.0, V2.7.0 | 
 |dev-libs/rocr-debug-agent | 2.7 | fails on a few systems - please report if it works or not | (ok) | |
 |dev-util/roctracer| 2.7 | Installs a library, not tested yet. | (ok) | |
+|dev-utilrocm-clang-ocl| 2.7 | | (ok) | |
 |dev-util/rcp| 5.6 | Installs, not tested yet.  | (ok) | |
 |sys-devel/llvm-roc | 2.7 | | Yes |:heavy_check_mark:<br> V2.6.0, V2.7.0 | |
 |sys-devel/hcc| 2.7 |  | (ok) | |
@@ -56,12 +57,12 @@ ROCm Libraries:
 |sci-libs/rocRAND| 2.7 | Installs, not tested yet | (ok) |  |
 |sci-libs/rocSOLVER| 9999 | Installs, not tested yet | (ok) | |
 |sci-libs/hipCub | 2.7 | Installs, not tested yet. | (ok)| |
+|sci-libs/MIOpenGEMM | 9999 | Installs, not tested yet. (Uses master, releases are too old) | (ok) | |
+|sci-libs/MIOpen | 2.7 | Installs, not tested yet. | (ok) | |
+|sci-libs/RCCL | 2.7 | Ebuild under test. | (ok) | |
 |sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
-|sci-libs/MIOpenGEMM | | No ebuild exist, any help is appreciated.| | |
-|sci-libs/MIOpen | | No ebuild exist, any help is appreciated. | | |
 |sci-libs/MIVisionX | | No ebuild exist, any help is appreciated. | | |
-|sci-libs/RCCL | | No ebuild exist, any help is appreciated. | | |
 
 <br>
 Systems known to work:
@@ -70,3 +71,4 @@ Systems known to work:
 |---|---|---|---|---|
 | 1 | Intel Core i5 8400 | PCIe 3.0 | Radeon RX 560 (POLARIS11) | |
 | 2 | Intel Core i7 6700k | PCIe 3.0 over Thunderbolt 3 | Radeon VII | |
+| 3 | AMD Ryzen 1700 | PCIe 3.0 | Radeon RX 580 | |
