@@ -8,7 +8,7 @@ inherit cmake-utils
 if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROCm-CompilerSupport/"
 	# 21.08.2019
-	EGIT_COMMIT="b020b945ed3c630e39bdf8efd3956871e5961785"
+#	EGIT_COMMIT="b020b945ed3c630e39bdf8efd3956871e5961785"
 	inherit git-r3
 	S="${WORKDIR}/${P}/lib/comgr"
 else
@@ -20,8 +20,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.6.0-find-clang.patch"
 	"${FILESDIR}/${PN}-2.6.0-find-lld-includes.patch"
 	"${FILESDIR}/${PN}-2.6.0-dependencies.patch"
-	"${FILESDIR}/0001-Fix-Convert-SmallVector-to-ArrayRef-before-passing-t.patch"
 )
+#	"${FILESDIR}/0001-Fix-Convert-SmallVector-to-ArrayRef-before-passing-t.patch"
 
 DESCRIPTION="Radeon Open Compute Code Object Manager"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm-CompilerSupport"
