@@ -9,10 +9,7 @@ OPENCL_ICD_COMMIT="bc9728edf8cace79cf33bf75560be88fc2432dc4"
 SRC_URI="https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/${OPENCL_ICD_COMMIT}.tar.gz -> OpenCL-ICD-Loader-${OPENCL_ICD_COMMIT}.tar.gz"
 if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/"
-	EGIT_BRANCH="master"
-	EGIT_COMMIT="a94737ccab3cbe1f94a71749307bcc9530bfede1"
 	inherit git-r3
-	S="${WORKDIR}/ROCm-OpenCL-Runtime-roc-${PV}"
 else
 	SRC_URI+=" https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/archive/roc-${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
@@ -25,24 +22,18 @@ HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime"
 LICENSE="Apache-2.0 MIT"
 SLOT="0/$(ver_cut 1-2)"
 
-RDEPEND=">=dev-libs/rocr-runtime-$(ver_cut 1-2)
-	>=dev-libs/rocm-comgr-$(ver_cut 1-2)
-	>=dev-libs/rocm-device-libs-$(ver_cut 1-2)
-	>=dev-libs/rocm-opencl-driver-$(ver_cut 1-2)"
+RDEPEND=">=dev-libs/rocr-runtime-${PV}
+	>=dev-libs/rocm-comgr-${PV}
+	>=dev-libs/rocm-device-libs-${PV}
+	>=dev-libs/rocm-opencl-driver-${PV}"
 DEPEND="${RDEPEND}
 	dev-lang/ocaml
 	dev-ml/findlib"
 
 PATCHES=(
-	"${FILESDIR}/${P}-unbundle-dependencies.patch"
+	"${FILESDIR}/${P}-update-to-master.patch"
+	"${FILESDIR}/rocm-opencl-runtime-2.7.9999-unbundle-dependencies.patch"
 )
-
-src_unpack() {
-	unpack ${A}
-
-	git-r3_fetch ${EGIT_REPO_URI}
-	git-r3_checkout ${EGIT_REPO_URI} ${S}
-}
 
 src_prepare() {
 	mkdir -p "${S}"/api/opencl/khronos/ || die
