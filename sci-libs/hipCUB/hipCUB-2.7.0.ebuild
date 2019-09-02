@@ -25,10 +25,10 @@ src_prepare() {
 
 	sed -e "s: PREFIX hipcub:# PREFIX hipcub:" -i ${S}/hipcub/CMakeLists.txt
 	sed -e "s:  DESTINATION hipcub/include/:  DESTINATION include/:" -i ${S}/hipcub/CMakeLists.txt
-	sed -e "s:rocm_install_symlink_subdir(hipcub):#rocm_install_symlink_subdir(hipcub):" -i ${$}/hipcub/CMakeLists.txt
+	sed -e "s:rocm_install_symlink_subdir(hipcub):#rocm_install_symlink_subdir(hipcub):" -i ${S}/hipcub/CMakeLists.txt
 
 	eapply_user
-	cmake-utils_src_prepare 
+	cmake-utils_src_prepare
 }
 
 src_configure() {
@@ -36,12 +36,12 @@ src_configure() {
 	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
 	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
-	local mycmakeargs=( 
+	local mycmakeargs=(
 		-DHIP_PLATFORM=hcc
 		-DBUILD_TEST=OFF
 		-Drocprim_DIR=/usr
 		-DCMAKE_INSTALL_PREFIX=/usr
 	)
-	
-	cmake-utils_src_configure 
+
+	cmake-utils_src_configure
 }
