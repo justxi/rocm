@@ -28,12 +28,10 @@ src_prepare() {
 }
 
 src_configure() {
-	cmake -DHALF_INCLUDE_DIR=/usr/include/half ${S}
 	cmake-utils_src_configure
 }
 
 src_compile() {
-	BUILD_DIR="${WORKDIR}/MIOpen-roc-${PV}"
 	cmake-utils_src_compile
 }
 
