@@ -62,8 +62,8 @@ ROCm Libraries:
 |sci-libs/MIOpenGEMM | 9999 | Installs, not tested yet. (Uses master, releases are too old) | (ok) | |
 |sci-libs/MIOpen | 2.7 | Installs, not tested yet. | (ok) | |
 |sci-libs/RCCL | 2.7 | Installs, not tested yet. | (ok) | |
-|sci-libs/hipBLAS | | No ebuild exist, any help is appreciated. | | |
-|sci-libs/hipSPARSE | | No ebuild exist, any help is appreciated. | | |
+|sci-libs/hipBLAS | | Ebuild exist, testing is appreciated. | No | |
+|sci-libs/hipSPARSE | | Ebuild exist, testing is appreciated. | No | |
 |sci-libs/MIVisionX | | No ebuild exist, any help is appreciated. | | |
 
 <br>
