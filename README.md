@@ -28,6 +28,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-device-libs | 2.7 | | Yes | :heavy_check_mark:<br> V2.6.0, V2.7.0 |
 |dev-libs/rocm-opencl-driver | 2.7 | | Yes | :heavy_check_mark:<br> V2.6.0, V2.7.0 |
 |dev-libs/rocm-opencl-runtime| 2.7 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark:<br> V2.6.0 |
+|dev-libs/RCCL | 2.7 | Installs, not tested yet. | (ok) | |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |media-libs/hsa-ext-rocr| 1.1.9.99 | | Yes | :heavy_check_mark:<br> V1.1.9.99 |
 |dev-util/rocm-bandwidth-test| 9999 | Reports suitable informations. | (ok) |  |
@@ -61,7 +62,6 @@ ROCm Libraries:
 |sci-libs/hipCub | 2.7 | Installs, not tested yet. | (ok)| |
 |sci-libs/MIOpenGEMM | 9999 | Installs, not tested yet. (Uses master, releases are too old) | ? | |
 |sci-libs/MIOpen | 2.7 | Installs, not tested yet. | ? | |
-|sci-libs/RCCL | 2.7 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipBLAS | 2.7 | Ebuild exist, testing is appreciated. | ? | |
 |sci-libs/hipSPARSE | 2.7 | Ebuild exist, testing is appreciated. | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any help is appreciated. | | |
