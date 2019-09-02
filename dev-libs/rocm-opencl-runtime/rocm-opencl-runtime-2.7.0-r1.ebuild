@@ -32,7 +32,7 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${P}-update-to-master.patch"
-	"${FILESDIR}/rocm-opencl-runtime-2.7.9999-unbundle-dependencies.patch"
+	"${FILESDIR}/${P}-unbundle-dependencies.patch"
 )
 
 src_prepare() {

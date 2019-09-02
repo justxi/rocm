@@ -165,6 +165,27 @@ index 8ea8517..d1223ed 100644
 +file(GENERATE OUTPUT "${CMAKE_BINARY_DIR}/amdocl64.icd" CONTENT "$<TARGET_FILE_NAME:amdocl64>")
 +install(FILES "${CMAKE_BINARY_DIR}/amdocl64.icd" DESTINATION "${CMAKE_INSTALL_FULL_SYSCONFDIR}/OpenCL/vendors/")
 +
+diff --git a/opencl.xml b/opencl.xml
+index c53f8d7..e69de29 100644
+--- a/opencl.xml
++++ b/opencl.xml
+@@ -1,16 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<manifest>
+-  <remote name="RadeonOpenCompute" fetch="https://github.com/RadeonOpenCompute/"/>
+-  <remote name="KhronosGroup" fetch="https://github.com/KhronosGroup/"/>
+-
+-  <default remote="RadeonOpenCompute" revision="master" sync-c="true" sync-j="4"/>
+-
+-  <project path="opencl" name="ROCm-OpenCL-Runtime"/>
+-  <project path="opencl/compiler/driver" name="ROCm-OpenCL-Driver"/>
+-  <project path="opencl/compiler/llvm" name="llvm" revision="amd-common"/>
+-  <project path="opencl/compiler/llvm/tools/clang" name="clang" revision="amd-common"/>
+-  <project path="opencl/compiler/llvm/tools/lld" name="lld" revision="amd-common"/>
+-  <project path="opencl/library/amdgcn" name="ROCm-Device-Libs"/>
+-
+-  <project path="opencl/api/opencl/khronos/icd" name="OpenCL-ICD-Loader" remote="KhronosGroup"/>
+-</manifest>
 diff --git a/runtime/CMakeLists.txt b/runtime/CMakeLists.txt
 index 2c9dfd6..863b4bf 100644
 --- a/runtime/CMakeLists.txt
