@@ -23,6 +23,6 @@ src_unpack(){
 }
 
 src_install() {
-	insinto /usr/include/half
+	insinto /usr/include
 	doins include/half.hpp
 }
