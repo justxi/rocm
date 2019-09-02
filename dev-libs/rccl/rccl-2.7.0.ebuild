@@ -1,7 +1,7 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
 
 inherit cmake-utils
 
@@ -27,16 +27,20 @@ src_prepare() {
 		CurrentISA="803"
 	fi
 	if use gfx900; then
-        CurrentISA="900"
+		CurrentISA="900"
 	fi
 	if use gfx906; then
-        CurrentISA="906"
-    fi
+		CurrentISA="906"
+	fi
 	cmake-utils_src_prepare
 }
 
 src_configure() {
-#	cmake -DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}" ${S}
+	CMAKE_MAKEFILE_GENERATOR=emake
+	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
+	local mycmakeargs=(
+		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
+	)
 	cmake-utils_src_configure
 }
 
