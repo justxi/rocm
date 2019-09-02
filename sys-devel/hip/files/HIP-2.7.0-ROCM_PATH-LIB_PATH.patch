@@ -1,0 +1,29 @@
+--- a/bin/hipcc	2019-09-02 13:51:52.464620538 +0200
++++ b/bin/hipcc	2019-09-02 13:54:22.451410499 +0200
+@@ -161,7 +161,7 @@
+ $default_amdgpu_target = 1;
+ 
+ if ($HIP_PLATFORM eq "clang") {
+-    $ROCM_PATH=$ENV{'ROCM_PATH'} // "/opt/rocm";
++    $ROCM_PATH="/usr"; // $ENV{'ROCM_PATH'} // "/opt/rocm";
+     $HIPCC="$HIP_CLANG_PATH/clang++";
+ 
+     # If $HIPCC clang++ is not compiled, use clang instead
+@@ -227,7 +227,7 @@
+     $HCC_VERSION_MAJOR=$HCC_VERSION;
+     $HCC_VERSION_MAJOR=~s/\..*//;
+ 
+-    $ROCM_PATH=$ENV{'ROCM_PATH'} // "/opt/rocm";
++    $ROCM_PATH="/usr"; // $ENV{'ROCM_PATH'} // "/opt/rocm";
+ 
+     $HIP_ATP_MARKER=$ENV{'HIP_ATP_MARKER'} // 1;
+     $marker_path = "$ROCM_PATH/profiler/CXLActivityLogger";
+@@ -273,7 +273,7 @@
+     $HIPCXXFLAGS .= " -isystem $HSA_PATH/include";
+     $HIPCXXFLAGS .= " -Wno-deprecated-register";
+ 
+-    $HIPLDFLAGS .= " -L$HSA_PATH/lib -L$ROCM_PATH/lib -lhsa-runtime64 -lhc_am ";
++    $HIPLDFLAGS .= " -L$HSA_PATH/lib64 -L$ROCM_PATH/lib64 -lhsa-runtime64 -lhc_am ";
+ #    $HIPLDFLAGS .= " -L$HCC_HOME/compiler/lib -lLLVMAMDGPUDesc -lLLVMAMDGPUUtils -lLLVMMC -lLLVMCore -lLLVMSupport ";
+ 
+     # Add trace marker library:
