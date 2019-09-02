@@ -21,12 +21,9 @@ DEPEND="${RDPEND}
 	dev-util/cmake"
 
 src_prepare() {
-#	eapply "${FILESDIR}/master-disable2ndfindhcc.patch"
-
-#	sed -e "s: PREFIX hipcub:# PREFIX hipcub:" -i ${S}/hipcub/CMakeLists.txt
-#	sed -e "s:  DESTINATION hipcub/include/:  DESTINATION include/:" -i ${S}/hipcub/CMakeLists.txt
-#	sed -e "s:rocm_install_symlink_subdir(hipcub):#rocm_install_symlink_subdir(hipcub):" -i ${$}/hipcub/CMakeLists.txt
-#	sed -e "s:<INSTALL_INTERFACE\:hipcub/include/:<INSTALL_INTERFACE\:include/hipcub/:" -i ${S}/hipcub/CMakeLists.txt
+	sed -e "s: PREFIX hipsparse:# PREFIX hipsparse:" -i ${S}/library/CMakeLists.txt || die
+	sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/hipsparse/:" -i ${S}/library/CMakeLists.txt || die
+	sed -e "s:rocm_install_symlink_subdir(hipsparse):#rocm_install_symlink_subdir(hipsparse):" -i ${S}/library/CMakeLists.txt || die
 
 	eapply_user
 	cmake-utils_src_prepare
@@ -40,6 +37,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DHIP_PLATFORM=hcc
 		-DCMAKE_INSTALL_PREFIX=/usr
+		-DCMAKE_INSTALL_INCLUDEDIR=include/hipsparse
 	)
 
 	cmake-utils_src_configure
