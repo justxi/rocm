@@ -23,7 +23,14 @@ REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 S="${WORKDIR}/rccl-${PV}"
 
-src_prepare() {
+PATCHES=(
+	"${FILESDIR}/rccl-2.7.0-change_install_location.patch"
+)
+
+src_configure() {
+	CMAKE_MAKEFILE_GENERATOR=emake
+	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
+
 	if use gfx803; then
 		CurrentISA="803"
 	fi
@@ -33,22 +40,10 @@ src_prepare() {
 	if use gfx906; then
 		CurrentISA="906"
 	fi
-	cmake-utils_src_prepare
-}
 
-src_configure() {
-	CMAKE_MAKEFILE_GENERATOR=emake
-	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
 	local mycmakeargs=(
 		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
 	)
+
 	cmake-utils_src_configure
-}
-
-src_compile() {
-	cmake-utils_src_compile
-}
-
-src_install() {
-	cmake-utils_src_install
 }
