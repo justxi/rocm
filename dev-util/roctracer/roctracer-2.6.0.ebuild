@@ -16,7 +16,7 @@ RDEPEND="dev-libs/rocr-runtime
 	 sys-devel/llvm-roc"
 DEPEND="dev-util/cmake
 	dev-lang/python:2.7
-	${RDPEND}"
+	${RDEPEND}"
 
 #PATCHES=(
 #        "${FILESDIR}/python.patch"

@@ -18,7 +18,7 @@ IUSE=""
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
          =sci-libs/rocPRIM-${PV}"
-DEPEND="${RDPEND}
+DEPEND="${RDEPEND}
 	dev-util/cmake"
 
 src_prepare() {

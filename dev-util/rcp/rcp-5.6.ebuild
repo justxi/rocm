@@ -16,7 +16,7 @@ RDEPEND="dev-util/rocprofiler"
 DEPEND="dev-util/cmake
 	dev-lang/python:2.7
 	dev-libs/boost[static-libs]
-	${RDPEND}"
+	${RDEPEND}"
 
 S="${WORKDIR}/RCP-${PV}"
 

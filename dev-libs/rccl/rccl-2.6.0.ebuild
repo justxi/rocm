@@ -15,8 +15,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="=sys-devel/hip-${PV}"
 DEPEND="${RDEPEND}
-	dev-util/cmake
-	dev-util/rocm-cmake"
+	dev-util/cmake"
 
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
@@ -38,6 +37,7 @@ src_prepare() {
 
 src_configure() {
 	CMAKE_MAKEFILE_GENERATOR=emake
+	CMAKE_PREFIX_PATH="/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/hcc/:/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/hip/"
 	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
 	local mycmakeargs=(
 		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"

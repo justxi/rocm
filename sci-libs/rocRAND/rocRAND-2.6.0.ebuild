@@ -17,7 +17,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
-DEPEND="${RDPEND}
+DEPEND="${RDEPEND}
 	dev-util/cmake"
 
 src_prepare() {

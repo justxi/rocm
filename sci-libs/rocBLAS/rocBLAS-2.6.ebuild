@@ -15,7 +15,7 @@ IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 RDEPEND="=sys-devel/hip-${PV}*"
-DEPEND="${RDPEND}
+DEPEND="${RDEPEND}
 	dev-util/cmake
 	dev-util/rocm-cmake
 	=dev-lang/python-2.7*

@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="=dev-lang/python-2.7*
-	dev-python/pyyaml"
+#RDEPEND="dev-python/pyyaml
+#		=dev-lang/python-2.7*"
 DEPEND="dev-util/cmake"
-	${RDPEND}
+	${RDEPEND}
