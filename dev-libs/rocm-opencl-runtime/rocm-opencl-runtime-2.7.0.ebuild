@@ -25,7 +25,8 @@ SLOT="0/$(ver_cut 1-2)"
 RDEPEND=">=dev-libs/rocr-runtime-${PV}
 	>=dev-libs/rocm-comgr-${PV}
 	>=dev-libs/rocm-device-libs-${PV}
-	>=dev-libs/rocm-opencl-driver-${PV}"
+	>=dev-libs/rocm-opencl-driver-${PV}
+	dev-libs/ocl-icd[khronos-headers]"
 DEPEND="${RDEPEND}
 	dev-lang/ocaml
 	dev-ml/findlib"
@@ -40,6 +41,7 @@ src_prepare() {
 	mkdir -p "${S}"/api/opencl/khronos/ || die
 	mv "${WORKDIR}/OpenCL-ICD-Loader-${OPENCL_ICD_COMMIT}" "${S}"/api/opencl/khronos/icd || die
 	cmake-utils_src_prepare
+	[ -d tools/clinfo ] && rm -rf tools/clinfo || die
 }
 
 src_configure() {
