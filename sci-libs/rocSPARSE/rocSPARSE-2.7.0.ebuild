@@ -21,7 +21,7 @@ REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
 	 =sci-libs/rocPRIM-$(ver_cut 1-2)*"
-DEPEND="${RDPEND}
+DEPEND="${RDEPEND}
 	dev-util/cmake"
 
 #S="${WORKDIR}/rocSPARSE-rocm-$(ver_cut 1-2)"

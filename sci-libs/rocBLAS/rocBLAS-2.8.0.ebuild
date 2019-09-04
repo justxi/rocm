@@ -23,7 +23,7 @@ REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 #RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
 RDEPEND=">=sys-devel/hip-2.7"
-DEPEND="${RDPEND}
+DEPEND="${RDEPEND}
 	dev-util/cmake
 	dev-util/rocm-cmake
 	=dev-lang/python-2.7*

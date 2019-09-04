@@ -13,8 +13,8 @@ LICENSE=""
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="=sys-devel/hip-${PV}"
-DEPEND="${RDPEND}
+RDEPEND="=sys-devel/hip-${PV}*"
+DEPEND="${RDEPEND}
 	dev-util/cmake
 	dev-util/rocm-cmake"
 
@@ -43,12 +43,4 @@ src_configure() {
 		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
 	)
 	cmake-utils_src_configure
-}
-
-src_compile() {
-	cmake-utils_src_compile
-}
-
-src_install() {
-	cmake-utils_src_install
 }

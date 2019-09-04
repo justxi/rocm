@@ -19,7 +19,7 @@ REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 #RDEPEND=">=sys-devel/hip-${PV}"
 RDEPEND=""
-DEPEND="${RDPEND}
+DEPEND="${RDEPEND}
 	dev-util/cmake
 	>=dev-util/ninja-1.9.0"
 

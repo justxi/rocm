@@ -16,7 +16,7 @@ S="${WORKDIR}/rocThrust-rocm-$(ver_cut 1-2)"
 
 RDEPEND=">=sys-devel/hip-${PV}
 	 =sci-libs/rocPRIM-${PV}"
-DEPEND="${RDPEND}
+DEPEND="${RDEPEND}
 	dev-util/cmake"
 
 src_prepare() {

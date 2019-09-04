@@ -1,9 +1,9 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
 
-inherit cmake-utils
+inherit cmake-utils flag-o-matic
 
 DESCRIPTION="MIOpen"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpen"
@@ -13,12 +13,13 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="=sys-devel/hip-${PV}
+RDEPEND="=sys-devel/hip-${PV}*
 	>=dev-libs/half-1.12.0
-	=dev-util/rocm-clang-ocl-${PV}
+	=dev-util/rocm-clang-ocl-${PV}*
 	dev-libs/boost"
-DEPEND="${RDPEND}
-	dev-util/cmake"
+DEPEND="${RDEPEND}
+	dev-util/cmake
+	sci-libs/rocBLAS"
 
 S="${WORKDIR}/MIOpen-roc-${PV}"
 
@@ -28,13 +29,8 @@ src_prepare() {
 }
 
 src_configure() {
+	strip-flags
+	CMAKE_MAKEFILE_GENERATOR=emake
+	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
 	cmake-utils_src_configure
-}
-
-src_compile() {
-	cmake-utils_src_compile
-}
-
-src_install() {
-	cmake-utils_src_install
 }

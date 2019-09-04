@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND=">=sys-devel/hip-${PV}"
-DEPEND="${RDPEND}
+DEPEND="${RDEPEND}
 	dev-util/cmake"
 
 S="${WORKDIR}/rocPRIM-rocm-$(ver_cut 1-2)"

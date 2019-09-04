@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]"
-DEPEND="${RDPEND}
+DEPEND="${RDEPEND}
 	dev-util/cmake
 	=dev-util/rocm-cmake-$(ver_cut 1-2)*"
 
