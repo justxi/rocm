@@ -22,7 +22,7 @@ REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
 S="${WORKDIR}/rccl-${PV}"
 
-src_prepare() {
+src_configure() {
 	if use gfx803; then
 		CurrentISA="803"
 	fi
@@ -32,10 +32,6 @@ src_prepare() {
 	if use gfx906; then
 		CurrentISA="906"
 	fi
-	cmake-utils_src_prepare
-}
-
-src_configure() {
 	CMAKE_MAKEFILE_GENERATOR=emake
 	CMAKE_PREFIX_PATH="/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/hcc/:/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/hip/"
 	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
