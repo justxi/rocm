@@ -13,7 +13,7 @@ LICENSE=""
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="=sys-devel/hip-${PV}"
+RDEPEND="=sys-devel/hip-${PV}*"
 DEPEND="${RDPEND}
 	dev-util/cmake
 	dev-util/rocm-cmake"

@@ -13,9 +13,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="=sys-devel/hip-${PV}
+RDEPEND="=sys-devel/hip-${PV}*
 	>=dev-libs/half-1.12.0
-	=dev-util/rocm-clang-ocl-${PV}
+	=dev-util/rocm-clang-ocl-${PV}*
 	dev-libs/boost"
 DEPEND="${RDEPEND}
 	dev-util/cmake

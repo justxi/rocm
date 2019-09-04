@@ -13,9 +13,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="=sys-devel/hip-${PV}
+RDEPEND="=sys-devel/hip-${PV}*
 	>=dev-libs/half-1.12.0
-	=dev-util/rocm-clang-ocl-${PV}
+	=dev-util/rocm-clang-ocl-${PV}*
 	dev-libs/boost"
 DEPEND="${RDEPEND}
 	dev-util/cmake
@@ -31,11 +31,6 @@ src_prepare() {
 src_configure() {
 	strip-flags
 	CMAKE_MAKEFILE_GENERATOR=emake
-	CMAKE_PREFIX_PATH="/usr/lib64/cmake/rocblas/"
 	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
-	local mycmakeargs=(
-		-DCMAKE_PREFIX_PATH="/usr/lib/hip/$(ver_cut 1-2)/;/usr/lib/hcc/$(ver_cut 1-2)/;/usr/bin/clang-ocl"
-		-DMIOPEN_USE_ROCBLAS=0
-	)
 	cmake-utils_src_configure
 }

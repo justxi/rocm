@@ -57,11 +57,11 @@ src_prepare() {
 	eapply "${FILESDIR}/Tensile-2.6-add_HIP_include_path.patch"
 
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
+	 sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 	# is the following necessary?
 	sed -e "s:# target_include_directories( rocblas SYSTEM PUBLIC \${HIP_INCLUDE_DIRS} ):target_include_directories( rocblas SYSTEM PUBLIC \${HIP_INCLUDE_DIRS} ):" -i ${S}/library/src/CMakeLists.txt || die
 
 	cd ${S}
-        eapply "${FILESDIR}/master-addTensileIncludePath.patch"
         eapply_user
 }
 
