@@ -30,7 +30,9 @@ REQUIRED_USE="^^ ( cuda9 cuda10 )"
 
 # While the needed dependencies for CUDA are almost in Gentoo portage,
 # the dependencies for ROCm are not completely stable
-DEPEND="rocm? ( =sys-devel/hip-2.7.9999-r100[llvm-roc-backend,-hcc-backend] )
+DEPEND="=dev-lang/python-3*
+	dev-libs/boost
+	rocm? ( =sys-devel/hip-2.7.9999-r100[llvm-roc-backend,-hcc-backend] )
 	rocm? ( =sys-devel/llvm-roc-2.7.9999[-debug] )
 	nvidia? ( >=dev-util/nvidia-cuda-toolkit-9.0 )
 	nvidia? (
