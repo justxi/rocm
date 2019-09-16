@@ -4,7 +4,7 @@
      hipLinkFlags = subprocess.check_output([which('hcc-config'), '--ldflags', '--shared']).decode().split(' ')
  
      hipFlags += ['-I', outputPath]
-+    hipFlags += ['-I', '/usr/lib64/hip/include/']
++    hipFlags += ['-I', '/usr/lib/hip/include/']
  
      compileArgs = [which('hcc')] + hipFlags + archFlags + [kernelFile, '-c', '-o', objectFilepath]
      linkArgs = [globalParameters['AssemblerPath']] + hipLinkFlags + archFlags + [objectFilepath, '-shared', '-o', soFilepath]
