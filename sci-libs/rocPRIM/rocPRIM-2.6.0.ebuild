@@ -16,10 +16,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="=sys-devel/hip-2.6*"
-DEPEND="${RDEPEND}
-	dev-util/cmake
+RDEPEND="=sys-devel/hip-2.6*
 	dev-util/rocm-cmake"
+DEPEND="${RDEPEND}
+	dev-util/cmake"
 
 src_prepare() {
 	cd ${S}

@@ -14,10 +14,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND=">=sys-devel/hip-${PV}"
-DEPEND="${RDEPEND}
-	dev-util/cmake
+RDEPEND=">=sys-devel/hip-${PV}
 	dev-util/rocm-cmake-${PV}"
+DEPEND="${RDEPEND}
+	dev-util/cmake"
 
 S="${WORKDIR}/rocPRIM-rocm-$(ver_cut 1-2)"
 
