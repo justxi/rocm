@@ -2,7 +2,7 @@
 #
 
 EAPI=7
-inherit cmake-utils
+inherit cmake-utils flag-o-matic
 
 DESCRIPTION="C++ Heterogeneous-Compute Interface for Portability"
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/HIP"
@@ -44,13 +44,14 @@ src_prepare() {
 }
 
 src_configure() {
+	strip-flags
 	if ! use debug; then
 		append-cflags "-DNDEBUG"
 		append-cxxflags "-DNDEBUG"
 	fi
 
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip" ${S}
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip"
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_PLATFORM=hcc
 		-DHIP_COMPILER=$(usex llvm-roc-backend "clang" "hcc")
@@ -59,8 +60,8 @@ src_configure() {
 	)
 
 	if use llvm-roc-backend; then
-		mycmakeargs+=(
-			-DCMAKE_PREFIX_PATH=/usr/lib/llvm/roc
+		mycmakeargs+=( 
+			-DCMAKE_PREFIX_PATH="/usr/lib/llvm/roc" 
 		)
 	fi
 

@@ -23,6 +23,7 @@ DEPEND="${RDEPEND}
 	dev-vcs/git"
 
 src_configure() {
+	strip-flags
 	if ! use debug; then
 		append-cflags "-DNDEBUG"
 		append-cxxflags "-DNDEBUG"
@@ -39,9 +40,10 @@ src_configure() {
 
 src_install() {
 	echo "HCC_HOME=/usr/lib/hcc/$(ver_cut 1-2)" > 99hcc || die
-	echo "HSA_PATH=/opt/rocm" >> 99hcc || die
+	echo "HSA_PATH=/usr" >> 99hcc || die
 	echo "LDPATH=/usr/lib/hcc/$(ver_cut 1-2)/lib" >> 99hcc || die
 	echo "ROOTPATH=/usr/lib/hcc/$(ver_cut 1-2)/bin" >> 99hcc || die
+	echo "ROCM_PATH=/usr" >> 99hcc || die
 	doenvd 99hcc
 
 	cmake-utils_src_install
