@@ -16,7 +16,8 @@ IUSE=""
 
 RDEPEND=">=sys-devel/hip-${PV}"
 DEPEND="${RDEPEND}
-	dev-util/cmake"
+	dev-util/cmake
+	dev-util/rocm-cmake-${PV}"
 
 S="${WORKDIR}/rocPRIM-rocm-$(ver_cut 1-2)"
 

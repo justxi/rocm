@@ -18,7 +18,8 @@ IUSE=""
 
 RDEPEND="=sys-devel/hip-2.6*"
 DEPEND="${RDEPEND}
-	dev-util/cmake"
+	dev-util/cmake
+	dev-util/rocm-cmake"
 
 src_prepare() {
 	cd ${S}
