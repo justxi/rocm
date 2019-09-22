@@ -15,7 +15,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND=">=sys-devel/hip-${PV}
-	dev-util/rocm-cmake-${PV}"
+	>=dev-util/rocm-cmake-${PV}"
 DEPEND="${RDEPEND}
 	dev-util/cmake"
 
