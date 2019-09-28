@@ -1,0 +1,27 @@
+diff -u -r roctracer-2.7.0/scriptold/hipap.py roctracer-2.7.0/script/hipap.py
+--- roctracer-2.7.0/scriptold/hipap.py	2019-06-21 10:16:18.000000000 +0200
++++ roctracer-2.7.0/script/hipap.py	2019-08-07 15:54:41.956836034 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ import os, sys, re
+ 
+ verbose = 0
+diff -u -r roctracer-2.7.0/scriptold/hsaap.py roctracer-2.7.0/script/hsaap.py
+--- roctracer-2.7.0/scriptold/hsaap.py	2019-06-21 10:16:18.000000000 +0200
++++ roctracer-2.7.0/script/hsaap.py	2019-08-07 15:54:43.750835976 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ import os, sys, re
+ 
+ OUT='inc/hsa_prof_str.h'
+--- a/script/kfdap.py	2019-09-28 11:52:30.864731310 +0200
++++ b/script/kfdap.py	2019-09-28 11:52:59.324731201 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python2
+ import os, sys, re
+ 
+ OUT_H = 'inc/kfd_prof_str.h'
+
