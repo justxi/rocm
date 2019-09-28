@@ -10,7 +10,7 @@ EGIT_REPO_URI="https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver"
 EGIT_BRANCH="roc-2.8.x"
 
 LICENSE=""
-SLOT="2.7"
+SLOT="2.8"
 KEYWORDS="~amd64"
 IUSE=""
 
