@@ -7,7 +7,7 @@ EAPI=7
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocRAND"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/rocRAND/archive/rocm-2.7.tar.gz -> rocRAND-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocRAND/archive/rocm-$(ver_cut 1-2).tar.gz -> rocRAND-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"

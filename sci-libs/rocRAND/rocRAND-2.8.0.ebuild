@@ -5,9 +5,9 @@ EAPI=7
 
 inherit cmake-utils
 
-DESCRIPTION=""
+DESCRIPTION="Generate pseudo-random and quasi-random numbers"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocRAND"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/rocRAND/archive/rocm-$(ver_cut 1-2).tar.gz -> rocRAND-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocRAND/archive/${PV}.tar.gz -> rocRAND-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -18,8 +18,6 @@ RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]"
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	=dev-util/rocm-cmake-$(ver_cut 1-2)*"
-
-S="${WORKDIR}/rocRAND-rocm-$(ver_cut 1-2)"
 
 src_prepare() {
         cd ${S}
