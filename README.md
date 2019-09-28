@@ -22,7 +22,7 @@ Kernel, driver, libraries, compiler and tools:
 |Ebuild|Current Version|State| FHS | in Gentoo portage| 
 |---|---|---|---|---|
 |sys-kernel/rocm-sources| 2.7 | based on linux kernel 5.0.0-rc1 | (ok) |  |
-|dev-util/rocm-cmake| 2.7 | | Yes | :heavy_check_mark:<br> V0.2, V2.7.0 |
+|dev-util/rocm-cmake| 2.7 | | Yes | :heavy_check_mark:<br> V0.2, V2.7.0, V2.8.0 |
 |dev-libs/roct-thunk-interface| 2.7 |  | Yes | :heavy_check_mark:<br> V2.6.0, V2.7.0 |
 |dev-libs/rocr-runtime| 2.7 | | Yes | :heavy_check_mark:<br> V2.6.0, V2.7.0 |
 |dev-libs/rocm-device-libs | 2.7 | | Yes | :heavy_check_mark:<br> V2.6.0, V2.7.0 |
@@ -35,13 +35,13 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocprofiler| 2.6 | Installs, program not tested yet. | (ok) | |
 |dev-libs/rocm-smi-lib| 2.7 |  | (ok) | |
 |dev-util/rocm-smi| 2.7 | Reports suitable informations. | (ok) | |
-|dev-util/rocminfo| 2.7 | Reports suitable informations. | Yes | :heavy_check_mark:<br> V2.6.0, V2.7.0 |
+|dev-util/rocminfo| 2.7 | Reports suitable informations. | Yes | :heavy_check_mark:<br> V2.6.0, V2.7.0, V2.8.0 |
 |dev-libs/rocm-comgr| 2.7 | | Yes | :heavy_check_mark:<br> V2.6.0, V2.7.0 | 
 |dev-libs/rocr-debug-agent | 2.7 | fails on a few systems - please report if it works or not | (ok) | |
 |dev-util/roctracer| 2.7 | Installs a library, not tested yet. | (ok) | |
 |dev-utilrocm-clang-ocl| 2.7 | | (ok) | |
 |dev-util/rcp| 5.6 | Installs, not tested yet.  | (ok) | |
-|sys-devel/llvm-roc | 2.7 | | Yes |:heavy_check_mark:<br> V2.6.0, V2.7.0 | |
+|sys-devel/llvm-roc | 2.7 | | Yes |:heavy_check_mark:<br> V2.6.0, V2.7.0, V2.8.0 | |
 |sys-devel/hcc| 2.7 |  | (ok) | |
 |sys-devel/hip| 2.7 | currently depends on HCC, building based on clang (HIP-clang) is currently under test | (ok) | |
 |sys-devel/amd-rocm-meta| 2.7 | | (ok) | |
