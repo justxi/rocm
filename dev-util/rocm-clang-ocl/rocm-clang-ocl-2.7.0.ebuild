@@ -21,4 +21,5 @@ IUSE="debug"
 
 RDEPEND="dev-libs/rocm-opencl-runtime"
 DEPEND="dev-util/cmake
-		${RDEPEND}"
+	dev-util/rocm-cmake
+	${RDEPEND}"
