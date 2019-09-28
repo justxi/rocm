@@ -4,7 +4,6 @@
 EAPI=7
 
 inherit cmake-utils
-#git-r3
 
 DESCRIPTION="AMD's library for BLAS on ROCm."
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
@@ -17,8 +16,7 @@ KEYWORDS="~amd64"
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
-#RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
-RDEPEND=">=sys-devel/hip-2.7"
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	dev-util/rocm-cmake
