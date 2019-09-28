@@ -38,7 +38,10 @@ RDEPEND="${DEPEND}"
 src_prepare() {
 	eapply "${FILESDIR}/DisableTest.patch"
 	eapply "${FILESDIR}/HIP-2.7.0-ROCM_PATH-LIB_PATH.patch"
+
 	sed -e "s:#!/usr/bin/python:#!/usr/bin/python2:" -i hip_prof_gen.py || die
+#	sed -e "s:\$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:#\$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:" -i FILE
+
 	eapply_user
 	cmake-utils_src_prepare
 }
