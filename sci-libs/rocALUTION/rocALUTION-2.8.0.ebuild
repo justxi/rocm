@@ -1,8 +1,9 @@
+# Copyright
 #
 
 EAPI=7
 
-inherit cmake-utils 
+inherit cmake-utils
 #git-r3
 
 DESCRIPTION="Sparse linear algebra library"
@@ -16,7 +17,7 @@ SRC_URI="https://github.com/ROCmSoftwarePlatform/rocALUTION/archive/rocm-$(ver_c
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="**"
 IUSE="+hip +openmp mpi"
 
 #RDEPEND="hip? ( >=sys-devel/hip-2.7 )
