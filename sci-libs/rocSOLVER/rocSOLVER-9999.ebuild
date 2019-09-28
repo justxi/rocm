@@ -9,7 +9,7 @@ DESCRIPTION="Implementation of a subset of LAPACK functionality on the ROCm plat
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 EGIT_BRANCH="master"
-EGIT_COMMIT="198e32eb99ee67ba638e9f2e2c6f4fa40219f68f"
+EGIT_COMMIT="609832fcf7095e11d5fb65cf0c5cfae0a4e771eb"
 
 LICENSE=""
 SLOT="0"
@@ -25,20 +25,13 @@ DEPEND="${RDEPEND}
 
 #S="${WORKDIR}/rocSOLVER-rocm-$(ver_cut 1-2)"
 
-#PATCHES=(
-#	"${FILESDIR}/PR7_get_the_project_build_again.patch"
-#	"${FILESDIR}/my.patch"
-#)
-
 src_prepare() {
-	eapply "${FILESDIR}/PR7_get_the_project_build_again.patch"
-	eapply "${FILESDIR}/my.patch"
+	eapply "${FILESDIR}/rocSOLVER-9999-change-rocBLAS-location.patch"
 
 	sed -e "s: PREFIX rocsolver:# PREFIX rocsolver:" -i library/src/CMakeLists.txt
 	sed -e "s:\$<INSTALL_INTERFACE\:include>:\$<INSTALL_INTERFACE\:include/rocsolver>:" -i library/src/CMakeLists.txt
 	sed -e "s:rocm_install_symlink_subdir( rocsolver ):#rocm_install_symlink_subdir( rocsolver ):" -i library/src/CMakeLists.txt
 
-#	eapply_user
 	cmake-utils_src_prepare
 }
 
