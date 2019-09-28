@@ -64,7 +64,7 @@ ROCm Libraries:
 |sci-libs/MIOpen | 2.7 | Installs, not tested yet. | ? | |
 |sci-libs/hipBLAS | 2.7 | Ebuild exist, testing is appreciated. | (ok) | |
 |sci-libs/hipSPARSE | 2.7 | Ebuild exist, testing is appreciated. | (ok) | |
-|sci-libs/MIVisionX | | No ebuild exist, any help is appreciated. | | |
+|sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
 
 <br>
 Systems known to work:
