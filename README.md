@@ -60,8 +60,8 @@ ROCm Libraries:
 |sci-libs/rocRAND| 2.7 | Installs, not tested yet | (ok) |  |
 |sci-libs/rocSOLVER| 9999 | Installs, not tested yet | (ok) | |
 |sci-libs/hipCub | 2.7 | Installs, not tested yet. | (ok)| |
-|sci-libs/MIOpenGEMM | 9999 | Installs, not tested yet. (Uses master, releases are too old) | ? | |
-|sci-libs/MIOpen | 2.7 | Installs, not tested yet. | ? | |
+|sci-libs/MIOpenGEMM | 9999 | Installs, not tested yet. (Uses master, releases are too old) | (ok) | |
+|sci-libs/MIOpen | 2.7 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipBLAS | 2.7 | Ebuild exist, testing is appreciated. | (ok) | |
 |sci-libs/hipSPARSE | 2.7 | Ebuild exist, testing is appreciated. | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
