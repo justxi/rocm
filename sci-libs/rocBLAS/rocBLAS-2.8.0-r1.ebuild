@@ -3,20 +3,17 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake-utils
+#git-r3
 
 DESCRIPTION="AMD's library for BLAS on ROCm."
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
-#SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-rocBLAS-${PV}.tar.gz
-#         https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-Tensile-${PV}.tar.gz"
-# No release for 2.8 yet available
-EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS"
-EGIT_BRANCH="master-rocm-2.8"
-EGIT_COMMIT="2b1befc1e791998f00f1bf1e71f7ca4b2490cb2c"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-rocBLAS-${PV}.tar.gz
+         https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-Tensile-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="**"
+KEYWORDS="~amd64"
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
@@ -32,18 +29,9 @@ DEPEND="${RDEPEND}
 # stripped library is not working
 RESTRICT="strip"
 
-#S="${WORKDIR}/rocBLAS-rocm-$(ver_cut 1-2)"
-S="${WORKDIR}/rocBLAS-${PV}"
+S="${WORKDIR}/rocBLAS-rocm-$(ver_cut 1-2)"
 
-rocBLAS_V="2.6.1"
-
-src_unpack() {
-	git-r3_fetch ${EGIT_REPO}
-	git-r3_fetch "https://github.com/ROCmSoftwarePlatform/Tensile"
-
-	git-r3_checkout ${EGIT_REPO}
-	git-r3_checkout "https://github.com/ROCmSoftwarePlatform/Tensile" "${WORKDIR}/Tensile-rocm-2.8"
-}
+rocBLAS_V="0.1"
 
 src_prepare() {
         # Use only the flags from rocBLAS - this should be fixed
@@ -82,14 +70,10 @@ src_prepare() {
 }
 
 src_configure() {
-#	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
-#	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
-#	export hip_DIR=/usr/lib/hip/lib/cmake/
-#	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
-	export PATH=$PATH:/usr/lib/hcc/2.7/bin
-	export hcc_DIR=/usr/lib/hcc/2.7/lib/cmake/
+	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
+	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
 	export hip_DIR=/usr/lib/hip/lib/cmake/
-	export CXX=/usr/lib/hcc/2.7/bin/hcc
+	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
 	if use debug; then
 		buildtype="Debug"
