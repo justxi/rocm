@@ -17,6 +17,13 @@ LICENSE="MIT"
 RDEPEND="virtual/opencl"
 DEPEND="dev-util/rocm-cmake"
 
+src_prepare() {
+	sed -e "s:set( miopengemm_INSTALL_DIR miopengemm):set( miopengemm_INSTALL_DIR \"\"):" -i miopengemm/CMakeLists.txt
+	sed -e "s:rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):#rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):" -i miopengemm/CMakeLists.txt
+
+	cmake-utils_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"

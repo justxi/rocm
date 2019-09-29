@@ -9,13 +9,13 @@ SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/roc-${PV}.t
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="**"
+KEYWORDS="~amd64"
 IUSE="debug"
 
 RDEPEND="media-libs/hsa-amd-aqlprofile
          dev-libs/rocr-runtime"
-DEPEND="dev-util/cmake"
-	${RDEPEND}
+DEPEND="dev-util/cmake
+	${RDEPEND}"
 
 PATCHES=(
         "${FILESDIR}/remove-test.patch"
@@ -55,4 +55,3 @@ pkg_postinst() {
         elog "If there is an error about \"aqlprofile ...\", try to preload the library libhsa-amd-aqlprofile64.so"
         elog "> LD_PRELOAD=/usr/lib64/libhsa-amd-aqlprofile64.so.1.0.0 [command]"
 }
-
