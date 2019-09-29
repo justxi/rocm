@@ -22,17 +22,16 @@ fi
 
 LICENSE=""
 SLOT="0/$(ver_cut 1-2)"
-IUSE="debug +hipify +hcc-backend llvm-roc-backend"
-CMAKE_BUILD_TYPE=Release
 
+IUSE="debug +hipify +hcc-backend llvm-roc-backend"
 REQUIRED_USE="^^ ( hcc-backend llvm-roc-backend )"
 
 DEPEND=">=dev-libs/rocm-comgr-${PV}
 	>=sys-devel/hcc-${PV}
+	>=dev-util/rocminfo-${PV}-r1
 	hipify? ( >=sys-devel/clang-8.0.0 )
 	llvm-roc-backend? ( =dev-libs/rocm-device-libs-${PV}* )
-	llvm-roc-backend? ( =sys-devel/llvm-roc-${PV}* )
-"
+	llvm-roc-backend? ( =sys-devel/llvm-roc-${PV}* )"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
@@ -40,7 +39,11 @@ src_prepare() {
 	eapply "${FILESDIR}/HIP-2.7.0-ROCM_PATH-LIB_PATH.patch"
 
 	sed -e "s:#!/usr/bin/python:#!/usr/bin/python2:" -i hip_prof_gen.py || die
-#	sed -e "s:\$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:#\$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:" -i FILE
+
+	# Due to setting HAS_PATH to "/usr", this results in setting "-isystem /usr/include"
+	# which results in a "stdlib.h" not found while compiling "rocALUTION"
+	# currently comment out, remove in future?
+	sed -e "s:    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:#    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:" -i bin/hipcc
 
 	eapply_user
 	cmake-utils_src_prepare
@@ -51,6 +54,9 @@ src_configure() {
 	if ! use debug; then
 		append-cflags "-DNDEBUG"
 		append-cxxflags "-DNDEBUG"
+		buildtype="Release"
+	else
+		buildtype="Debug"
 	fi
 
 	local mycmakeargs=(
@@ -60,11 +66,12 @@ src_configure() {
 		-DHIP_COMPILER=$(usex llvm-roc-backend "clang" "hcc")
 		-DHCC_HOME=${HCC_HOME}
 		-DHSA_PATH="/usr"
+		-DCMAKE_BUILD_TYPE=${buildtype}
 	)
 
 	if use llvm-roc-backend; then
-		mycmakeargs+=( 
-			-DCMAKE_PREFIX_PATH="/usr/lib/llvm/roc" 
+		mycmakeargs+=(
+			-DCMAKE_PREFIX_PATH="/usr/lib/llvm/roc"
 		)
 	fi
 
