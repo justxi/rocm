@@ -65,20 +65,17 @@ PATCHES=(
         "${FILESDIR}/fix-python.patch"
 )
 
-src_prepare() {
-	
-	default
-}
-
 src_install() {
 	dodir /opt
 	cp -ar opt/* "${D}"/opt/ || die
-	
+
 	echo "HSA_PATH=/opt/rocm" > 99rocm || die
+	echo "ROCM_HOME=/opt/rocm/hcc" >> 99rocm || die
+	echo "ROCM_AGENT_ENUM=/opt/rocm/bin/rocm_agent_enumerator" >> 99rocm || die
 	echo "HCC_HOME=/opt/rocm/hcc" >> 99rocm || die
 	echo "HIP_PATH=/opt/rocm/hip" >> 99rocm || die
 	echo "HIP_PLATFORM=hcc" >> 99rocm || die
-	echo "LDPATH=/opt/rocm/lib:/opt/rocm/lib64:/opt/rocm/hcc/lib:/opt/rocm/hip/lib:/opt/rocm/hsa/lib" >> 99rocm || die
+	echo "LDPATH=/opt/rocm/lib:/opt/rocm/lib64:/opt/rocm/hcc/lib:/opt/rocm/hip/lib:/opt/rocm/hsa/lib:/opt/rocm/opencl/lib/x86_64:/opt/rocm/rocrand/lib" >> 99rocm || die
 	echo "PATH=/opt/rocm/bin:/opt/rocm/hcc/bin:/opt/rocm/hip/bin" >> 99rocm || die
 	echo "ROOTPATH=/opt/rocm/bin:/opt/rocm/hcc/bin:/opt/rocm/hip/bin" >> 99rocm || die
 	doenvd 99rocm

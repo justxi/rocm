@@ -17,22 +17,27 @@ IUSE="debug"
 CMAKE_BUILD_TYPE=Release
 
 RDEPEND="=dev-libs/rocr-runtime-${PV}*
-	 dev-util/rocminfo"
+	dev-util/rocminfo"
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	dev-vcs/git"
+
 
 src_configure() {
 	strip-flags
 	if ! use debug; then
 		append-cflags "-DNDEBUG"
 		append-cxxflags "-DNDEBUG"
+		buildtype="Debug"
+	else
+		buildtype="Release"
 	fi
 
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=OFF
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hcc/$(ver_cut 1-2)"
 		-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/hcc/$(ver_cut 1-2)/share/man"
+		-DCMAKE_BUILD_TYPE=${buildtype}
 	)
 
 	cmake-utils_src_configure
@@ -50,6 +55,6 @@ src_install() {
 }
 
 pkg_postinst() {
-        elog "HCC is marked depracated, see:"
-        elog "https://github.com/RadeonOpenCompute/hcc#deprecation-notice"
+	elog "HCC is marked depracated, see:"
+	elog "https://github.com/RadeonOpenCompute/hcc#deprecation-notice"
 }

@@ -23,10 +23,9 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/MIOpen-roc-${PV}"
 
-src_prepare() {
-	eapply "${FILESDIR}"/${P}-remove-static-boost.patch
-	cmake-utils_src_prepare
-}
+PATCHES=(
+	"${FILESDIR}/${P}-remove-static-boost.patch"
+)
 
 src_configure() {
 	strip-flags

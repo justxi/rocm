@@ -17,17 +17,9 @@ LICENSE="MIT"
 RDEPEND="virtual/opencl"
 DEPEND="dev-util/rocm-cmake"
 
-src_prepare() {
-	cmake-utils_src_prepare
-}
-
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
 	)
 	cmake-utils_src_configure
-}
-
-src_install() {
-	cmake-utils_src_install
 }

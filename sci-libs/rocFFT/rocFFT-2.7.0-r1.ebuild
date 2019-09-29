@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake-utils flag-o-matic
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocFFT"
@@ -39,24 +39,21 @@ src_prepare() {
 }
 
 src_configure() {
-        # if the ISA is not set previous to the autodetection,
-        # /opt/rocm/bin/rocm_agent_enumerator is executed,
-        # this leads to a sandbox violation
-        if use gfx803; then
-                CurrentISA="gfx803"
-        fi
-        if use gfx900; then
-                CurrentISA="gfx900"
-        fi
-        if use gfx906; then
-                CurrentISA="gfx906"
-        fi
+	strip-flags
+	# if the ISA is not set previous to the autodetection,
+	# /opt/rocm/bin/rocm_agent_enumerator is executed,
+	# this leads to a sandbox violation
+	if use gfx803; then
+		CurrentISA="gfx803"
+	fi
+	if use gfx900; then
+		CurrentISA="gfx900"
+	fi
+	if use gfx906; then
+		CurrentISA="gfx906"
+	fi
 
-	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
-	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
-	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
-	export HIP_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
-	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
+	CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
 
 	local mycmakeargs=(
 		-DHIP_PLATFORM=hcc

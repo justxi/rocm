@@ -45,7 +45,7 @@ src_prepare() {
 
 src_configure() {
 	strip-flags
-	if ! use debug; then
+	if use debug; then
 		append-cflags "-DNDEBUG"
 		append-cxxflags "-DNDEBUG"
 	fi
@@ -55,7 +55,7 @@ src_configure() {
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_PLATFORM=hcc
 		-DHIP_COMPILER=$(usex llvm-roc-backend "clang" "hcc")
-		-DHCC_HOME=${HCC_HOME}
+		-DHCC_HOME=/usr/lib/hcc/$(ver_cut 1-2)
 		-DHSA_PATH="/usr"
 	)
 

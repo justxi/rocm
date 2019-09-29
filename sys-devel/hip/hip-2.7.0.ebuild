@@ -43,7 +43,7 @@ src_prepare() {
 }
 
 src_configure() {
-	if ! use debug; then
+	if use debug; then
 		append-cflags "-DNDEBUG"
 		append-cxxflags "-DNDEBUG"
 	fi

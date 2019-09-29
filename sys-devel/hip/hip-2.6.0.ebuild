@@ -33,7 +33,7 @@ src_prepare() {
 
 src_configure() {
         export LLVM_BUILD=/usr/lib/llvm/roc-${PV}
-        if ! use debug; then
+        if use debug; then
                 append-cflags "-DNDEBUG"
                 append-cxxflags "-DNDEBUG"
         fi
