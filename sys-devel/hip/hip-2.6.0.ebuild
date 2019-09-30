@@ -14,9 +14,9 @@ KEYWORDS="~amd64"
 IUSE="debug"
 CMAKE_BUILD_TYPE=Release
 
-DEPEND="=sys-devel/hcc-${PV}*
-        dev-libs/rocm-comgr
-        sys-devel/llvm-roc"
+DEPEND="=sys-devel/hcc-${PV}
+	dev-libs/rocm-comgr
+	sys-devel/llvm-roc"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
@@ -28,15 +28,15 @@ src_prepare() {
 	eapply "${FILESDIR}/${PV}-DisableTest.patch"
 	sed -e "s:#!/usr/bin/python:#!/usr/bin/python2:" -i hip_prof_gen.py || die
 	eapply_user
-        cmake-utils_src_prepare
+	cmake-utils_src_prepare
 }
 
 src_configure() {
-        export LLVM_BUILD=/usr/lib/llvm/roc-${PV}
-        if use debug; then
-                append-cflags "-DNDEBUG"
-                append-cxxflags "-DNDEBUG"
-        fi
+	export LLVM_BUILD=/usr/lib/llvm/roc-${PV}
+	if ! use debug; then
+		append-cflags "-DNDEBUG"
+		append-cxxflags "-DNDEBUG"
+	fi
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)" ${S}
@@ -48,16 +48,16 @@ src_configure() {
 		-DHSA_PATH=/opt/rocm
 	)
 
-        cmake-utils_src_configure
+	cmake-utils_src_configure
 }
 
 src_install() {
-        echo "HIP_PLATFORM=hcc" > 99hip || die
-        echo "PATH=/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
-        echo "HIP_PATH=/usr/lib/hip/$(ver_cut 1-2)" >> 99hip || die
-        echo "LDPATH=/usr/lib/hip/$(ver_cut 1-2)/lib" >> 99hip || die
-        echo "CMAKE_PREFIX_PATH=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/hip" >> 99hip || die
-        doenvd 99hip
+	echo "HIP_PLATFORM=hcc" > 99hip || die
+	echo "PATH=/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
+	echo "HIP_PATH=/usr/lib/hip/$(ver_cut 1-2)" >> 99hip || die
+	echo "LDPATH=/usr/lib/hip/$(ver_cut 1-2)/lib" >> 99hip || die
+	echo "CMAKE_PREFIX_PATH=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/hip" >> 99hip || die
+	doenvd 99hip
 
-        cmake-utils_src_install
+	cmake-utils_src_install
 }

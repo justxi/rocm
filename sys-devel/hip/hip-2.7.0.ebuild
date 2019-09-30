@@ -43,7 +43,7 @@ src_prepare() {
 }
 
 src_configure() {
-	if use debug; then
+	if ! use debug; then
 		append-cflags "-DNDEBUG"
 		append-cxxflags "-DNDEBUG"
 	fi
@@ -58,8 +58,8 @@ src_configure() {
 	)
 
 	if use llvm-roc-backend; then
-		mycmakeargs+=(
-			-DCMAKE_PREFIX_PATH=/usr/lib/llvm/roc
+		mycmakeargs+=( 
+			-DCMAKE_PREFIX_PATH=/usr/lib/llvm/roc 
 		)
 	fi
 
