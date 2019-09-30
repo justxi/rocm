@@ -12,7 +12,7 @@ If you have a problem with an ebuild from Gentoo portage then submit a bugreport
 
 All ebuilds which are already exist in Gentoo portage will be removed from this repository.
 
-Thanks to all contributors.
+**Thanks to all contributors.**
 
 The following tables show all ebuilds tested (2019-09-29) in this repository. <br>
 All other ebuilds can be out of date!
