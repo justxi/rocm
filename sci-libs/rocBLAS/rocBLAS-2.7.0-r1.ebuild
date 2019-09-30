@@ -38,15 +38,12 @@ src_prepare() {
 	# this leads to a sandbox violation
 	if use gfx803; then
 		eapply "${FILESDIR}/Tensile-CurrentISA-803.patch"
-		CurrentISA="803"
 	fi
 	if use gfx900; then
 		eapply "${FILESDIR}/Tensile-CurrentISA-900.patch"
-		CurrentISA="900"
 	fi
 	if use gfx906; then
 		eapply "${FILESDIR}/Tensile-CurrentISA-906.patch"
-		CurrentISA="906"
 	fi
 
 	eapply "${FILESDIR}/Tensile-2.7-add_HIP_include_path.patch"
@@ -65,7 +62,18 @@ src_prepare() {
 src_configure() {
 	strip-flags
 
+	if use gfx803; then
+		CurrentISA="803"
+	fi
+	if use gfx900; then
+		CurrentISA="900"
+	fi
+	if use gfx906; then
+		CurrentISA="906"
+	fi
+
 	CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
+	HCC_HOME=/usr/lib/hcc/$(ver_cut 1-2)
 
 	if use debug; then
 		buildtype="Debug"
