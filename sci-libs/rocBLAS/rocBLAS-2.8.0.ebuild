@@ -3,12 +3,12 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake-utils flag-o-matic
 
 DESCRIPTION="AMD's library for BLAS on ROCm."
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-rocBLAS-${PV}.tar.gz
-         https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-Tensile-${PV}.tar.gz"
+	https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-$(ver_cut 1-2).tar.gz -> rocm-Tensile-${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -32,11 +32,6 @@ S="${WORKDIR}/rocBLAS-rocm-$(ver_cut 1-2)"
 rocBLAS_V="0.1"
 
 src_prepare() {
-        # Use only the flags from rocBLAS - this should be fixed
-        CFLAGS=""
-        CXXFLAGS=""
-        LDFLAGS=""
-
 	cd "${WORKDIR}/Tensile-rocm-$(ver_cut 1-2)"
 
 	# if the ISA is not set previous to the autodetection,
@@ -63,15 +58,14 @@ src_prepare() {
 	sed -e "s:COMMAND \${CMAKE_HOME_DIRECTORY}/header_compilation_tests.sh:COMMAND true:" -i ${S}/library/src/CMakeLists.txt || die
 
 	cd ${S}
-        eapply_user
+	eapply_user
 	cmake-utils_src_prepare
 }
 
 src_configure() {
-	export PATH=$PATH:/usr/lib/hcc/$(ver_cut 1-2)/bin
-	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/
-	export hip_DIR=/usr/lib/hip/lib/cmake/
-	export CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
+	strip-flags
+	CXX=/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc
+	HCC_HOME=/usr/lib/hcc/$(ver_cut 1-2)
 
 	if use debug; then
 		buildtype="Debug"

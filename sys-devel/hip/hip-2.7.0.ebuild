@@ -58,8 +58,8 @@ src_configure() {
 	)
 
 	if use llvm-roc-backend; then
-		mycmakeargs+=(
-			-DCMAKE_PREFIX_PATH=/usr/lib/llvm/roc
+		mycmakeargs+=( 
+			-DCMAKE_PREFIX_PATH=/usr/lib/llvm/roc 
 		)
 	fi
 
