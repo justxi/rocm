@@ -8,6 +8,8 @@ If you have a problem with an ebuild from Gentoo portage then submit a bugreport
 
 **The ebuilds for ROCm 2.8.0 are in a good state now.**<br>
 
+**All 2.9.0 ebuilds in this repository are preliminary versions build mostly against ROCm 2.8.0.**
+
 **All *9999 ebuilds in this repository, as expected, are in an experimental state!**<br>
 
 **Thanks to all contributors.**
@@ -33,7 +35,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocprofiler| 2.8 | Installs, program not tested yet. | (ok) | |
 |dev-libs/rocm-smi-lib| 2.8 |  | (ok) | |
 |dev-util/rocm-smi| 2.8 | Reports suitable informations. | (ok) | |
-|dev-util/rocminfo| 2.8 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0 |
+|dev-util/rocminfo| 2.8 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0 |
 |dev-libs/rocm-comgr| 2.8 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0 | 
 |dev-libs/rocr-debug-agent | 2.8 | fails on a few systems - please report if it works or not | (ok) | |
 |dev-util/roctracer| 2.8 | Installs a library, not tested yet. | (ok) | |
