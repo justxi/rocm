@@ -49,14 +49,14 @@ src_prepare() {
 }
 
 src_configure() {
+	export HIP_DIR=/usr/lib/hip/lib/cmake/
+	export hip_DIR=${HIP_DIR}
+
 #	local HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	local HCC_ROOT=/usr/lib/hcc/2.8
-
+	export CXX=${HCC_ROOT}/bin/hcc
 	export PATH=$PATH:${HCC_ROOT}/bin
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/
-	export hip_DIR=/usr/lib/hip/lib/cmake/
-	export HIP_DIR=/usr/lib/hip/lib/cmake/
-	export CXX=${HCC_ROOT}/bin/hcc
 
 	local mycmakeargs=(
 		-DHIP_PLATFORM=hcc
