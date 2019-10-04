@@ -4,7 +4,7 @@
 EAPI=6
 
 DESCRIPTION=""
-HOMEPAGE="https://github.com/ROCmSoftwarePlatform/roctracer.git"
+HOMEPAGE="https://github.com/ROCm-Developer-Tools/roctracer.git"
 SRC_URI="https://github.com/ROCm-Developer-Tools/roctracer/archive/roc-${PV}.tar.gz -> rocm-tracer-${PV}.tar.gz"
 
 LICENSE=""
