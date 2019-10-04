@@ -15,7 +15,7 @@ EGIT_BRANCH="master-rocm-2.9"
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 
 #RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]"
