@@ -9,7 +9,8 @@ DESCRIPTION="Implementation of a subset of LAPACK functionality on the ROCm plat
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 EGIT_BRANCH="master"
-EGIT_COMMIT="609832fcf7095e11d5fb65cf0c5cfae0a4e771eb"
+#EGIT_COMMIT="609832fcf7095e11d5fb65cf0c5cfae0a4e771eb"
+EGIT_COMMIT="eebed83b82b8b42c2030926dec43376a45d7319b"
 
 LICENSE=""
 SLOT="0"
@@ -55,6 +56,10 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX=/usr/
 		-DCMAKE_INSTALL_INCLUDEDIR=/usr/include/rocsolver
 		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
+		-DBUILD_CLIENTS_SAMPLES=NO
+		-DBUILD_CLIENTS_TESTS=NO
+		-DBUILD_CLIENTS_BENCHMARKS=NO
+		-Wno-dev
 	)
 
 	cmake-utils_src_configure
