@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ROCmSoftwarePlatform/rocFFT/archive/rocm-$(ver_cut 1
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="+gfx803 gfx900 gfx906"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
