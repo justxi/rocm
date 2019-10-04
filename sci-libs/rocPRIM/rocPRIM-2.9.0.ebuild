@@ -20,8 +20,8 @@ IUSE=""
 
 #RDEPEND=">=sys-devel/hip-${PV}
 #	>=dev-util/rocm-cmake-${PV}"
-RDEPEND=">=sys-devel/hip-2.8*
-	>=dev-util/rocm-cmake-2.8*"
+RDEPEND=">=sys-devel/hip-2.8
+	>=dev-util/rocm-cmake-2.8"
 DEPEND="${RDEPEND}
 	dev-util/cmake"
 
