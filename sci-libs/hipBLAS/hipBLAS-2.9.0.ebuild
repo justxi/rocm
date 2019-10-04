@@ -15,9 +15,9 @@ KEYWORDS=""
 IUSE=""
 S="${WORKDIR}/hipBLAS-rocm-$(ver_cut 1-2)"
 
-#RDEPEND="=sys-devel/hip-2.8*
+#RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
 #         =sci-libs/rocBLAS-${PV}*"
-RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
+RDEPEND=">=sys-devel/hip-2.8
          =sci-libs/rocBLAS-${PV}*"
 DEPEND="${RDPEND}
 	dev-util/cmake"
