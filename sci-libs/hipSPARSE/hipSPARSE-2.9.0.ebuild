@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ROCmSoftwarePlatform/hipSPARSE/archive/rocm-$(ver_cu
 
 LICENSE=""
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE=""
 S="${WORKDIR}/hipSPARSE-rocm-$(ver_cut 1-2)"
 
