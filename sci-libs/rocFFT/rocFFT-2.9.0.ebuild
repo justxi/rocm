@@ -54,9 +54,9 @@ src_configure() {
         fi
 
 #	export HIP_ROOT=/usr/lib/hip/$(ver_cut 1-2)
-	export HIP_ROOT=/usr/lib/hip/2.8
-	export HIP_DIR=${HIP_ROOT}/lib/cmake/
-	export hip_DIR=${HIP_DIR}
+#	export HIP_ROOT=/usr/lib/hip/2.8
+#	export HIP_DIR=${HIP_ROOT}/lib/cmake/
+#	export hip_DIR=${HIP_DIR}
 
 #	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export HCC_ROOT=/usr/lib/hcc/2.8/
@@ -65,6 +65,7 @@ src_configure() {
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/
 
 	local mycmakeargs=(
+		-Wno-dev
 		-DHIP_PLATFORM=hcc
 		-DCMAKE_INSTALL_PREFIX="/usr"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/"
