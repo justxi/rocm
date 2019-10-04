@@ -88,6 +88,6 @@ src_configure() {
 }
 
 src_install() {
-	chrpath --delete "${BUILDDIR}/library/src/librocblas.so.${rocBLAS_V}"
 	cmake-utils_src_install
+	chrpath --delete "${D}/usr/lib64/librocblas.so.${rocBLAS_V}"
 }
