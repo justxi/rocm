@@ -12,11 +12,13 @@ EGIT_COMMIT="roc-hcc-${PV}"
 
 LICENSE=""
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="debug"
 CMAKE_BUILD_TYPE=Release
 
-RDEPEND="=dev-libs/rocr-runtime-${PV}*
+#RDEPEND="=dev-libs/rocr-runtime-${PV}*
+#	 dev-util/rocminfo"
+RDEPEND=">=dev-libs/rocr-runtime-2.8
 	 dev-util/rocminfo"
 DEPEND="${RDEPEND}
 	dev-util/cmake
