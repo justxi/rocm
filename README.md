@@ -60,11 +60,12 @@ ROCm Libraries:
 |sci-libs/rocRAND| 2.8 | Installs, not tested yet | (ok) |  |
 |sci-libs/rocSOLVER| 9999 | Installs, not tested yet | (ok) | |
 |sci-libs/hipCub | 2.8 | Installs, not tested yet. | (ok)| |
-|sci-libs/MIOpenGEMM | 9999 | Installs, not tested yet. (Uses master, releases are too old) | (ok) | |
-|sci-libs/MIOpen | 2.8 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipBLAS | 2.8 | Ebuild exist, testing is appreciated. | (ok) | |
 |sci-libs/hipSPARSE | 2.8 | Ebuild exist, testing is appreciated. | (ok) | |
+|sci-libs/MIOpenGEMM | 9999 | Installs, not tested yet. (Uses master, releases are too old) | (ok) | |
+|sci-libs/MIOpen | 2.8 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
+|sci-libs/MIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
 
 <br>
 Systems known to work:
