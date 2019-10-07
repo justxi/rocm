@@ -31,7 +31,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/RCCL | 2.8 | Installs, not tested yet. | (ok) | |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |media-libs/hsa-ext-rocr| 1.1.9.99 | | Yes | :heavy_check_mark:<br> V1.1.9.99 |
-|dev-util/rocm-bandwidth-test| 9999 | Reports suitable informations. | (ok) |  |
+|dev-util/rocm-bandwidth-test| 2.8 | Reports suitable informations. | (ok) |  |
 |dev-util/rocprofiler| 2.8 | Installs, program not tested yet. | (ok) | |
 |dev-libs/rocm-smi-lib| 2.8 |  | (ok) | |
 |dev-util/rocm-smi| 2.8 | Reports suitable informations. | (ok) | |
