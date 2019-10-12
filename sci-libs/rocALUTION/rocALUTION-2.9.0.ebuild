@@ -17,8 +17,7 @@ IUSE="+hip +openmp mpi +gfx803 gfx900 gfx906"
 REQUIRED_USE="|| ( hip openmp mpi )"
 REQUIRED_USE="|| ( gfx803 gfx900 gfx906 )"
 
-#RDEPEND="hip? ( =sys-devel/hip-$(ver_cut 1-2)* )
-RDEPEND="hip? ( =sys-devel/hip-2.8* )
+RDEPEND="hip? ( =sys-devel/hip-$(ver_cut 1-2)* )
 	 hip? ( =sci-libs/rocSPARSE-$(ver_cut 1-2)* )
 	 hip? ( =sci-libs/rocBLAS-$(ver_cut 1-2)* )
 	 mpi? ( virtual/mpi )
@@ -51,8 +50,7 @@ src_prepare() {
 }
 
 src_configure() {
-#	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/hcc/
-	export hcc_DIR=/usr/lib/hcc/2.8/lib/cmake/hcc/
+	export hcc_DIR=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/hcc/
 
 	local mycmakeargs=(
 		-DSUPPORT_OMP=$(usex openmp ON OFF)

@@ -1,5 +1,5 @@
 # Copyright
-# 
+#
 
 EAPI=6
 

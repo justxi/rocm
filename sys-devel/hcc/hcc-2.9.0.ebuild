@@ -16,9 +16,7 @@ KEYWORDS="~amd64"
 IUSE="debug"
 CMAKE_BUILD_TYPE=Release
 
-#RDEPEND="=dev-libs/rocr-runtime-${PV}*
-#	 dev-util/rocminfo"
-RDEPEND=">=dev-libs/rocr-runtime-2.8
+RDEPEND="=dev-libs/rocr-runtime-${PV}*
 	 dev-util/rocminfo"
 DEPEND="${RDEPEND}
 	dev-util/cmake

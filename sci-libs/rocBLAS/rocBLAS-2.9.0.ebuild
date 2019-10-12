@@ -16,8 +16,7 @@ KEYWORDS=""
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
-#RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
-RDEPEND="=sys-devel/hip-2.8*"
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	dev-util/rocm-cmake
@@ -65,8 +64,7 @@ src_prepare() {
 
 src_configure() {
 	strip-flags
-#	HCC_HOME=/usr/lib/hcc/$(ver_cut 1-2)
-	HCC_HOME=/usr/lib/hcc/2.8
+	HCC_HOME=/usr/lib/hcc/$(ver_cut 1-2)
 	CXX=${HCC_HOME}/bin/hcc
 
 	if use debug; then

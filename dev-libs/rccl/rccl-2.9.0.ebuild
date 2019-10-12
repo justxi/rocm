@@ -13,8 +13,7 @@ LICENSE=""
 SLOT="0"
 KEYWORDS="~amd64"
 
-#RDEPEND="=sys-devel/hip-${PV}*"
-RDEPEND="=sys-devel/hip-2.8*"
+RDEPEND="=sys-devel/hip-${PV}*"
 DEPEND="${RDPEND}
 	dev-util/cmake
 	dev-util/rocm-cmake"
@@ -30,8 +29,7 @@ PATCHES=(
 
 src_configure() {
 	CMAKE_MAKEFILE_GENERATOR=emake
-#	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
-	CXX="/usr/lib/hcc/2.8/bin/hcc"
+	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
 
 	if use gfx803; then
 		CurrentISA="803"

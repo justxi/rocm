@@ -7,10 +7,9 @@ inherit cmake-utils git-r3
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocThrust"
-#SRC_URI="https://github.com/ROCmSoftwarePlatform/rocThrust/archive/${PV}.tar.gz -> rocThrust-$(ver_cut 1-2).tar.gz"
-# No release yet!
-EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocThrust"
-EGIT_BRANCH="master-rocm-2.9"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocThrust/archive/${PV}.tar.gz -> rocThrust-$(ver_cut 1-2).tar.gz"
+#EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocThrust"
+#EGIT_BRANCH="master-rocm-2.9"
 #EGIT_COMMIT=""
 
 LICENSE=""
@@ -18,11 +17,9 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-#S="${WORKDIR}/rocThrust-rocm-$(ver_cut 1-2)"
+S="${WORKDIR}/rocThrust-rocm-$(ver_cut 1-2)"
 
-#RDEPEND=">=sys-devel/hip-${PV}
-#	 =sci-libs/rocPRIM-${PV}*"
-RDEPEND=">=sys-devel/hip-2.8
+RDEPEND=">=sys-devel/hip-${PV}
 	 =sci-libs/rocPRIM-${PV}*"
 DEPEND="${RDEPEND}
 	dev-util/cmake"
@@ -45,8 +42,7 @@ src_prepare() {
 src_configure() {
 	export hip_DIR=/usr/lib/hip/lib/cmake/
 
-#	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
-	export HCC_ROOT=/usr/lib/hcc/2.8
+	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/
 	export CXX=${HCC_ROOT}/bin/hcc
 

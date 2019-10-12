@@ -7,10 +7,9 @@ inherit cmake-utils git-r3
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipCUB"
-#SRC_URI="https://github.com/ROCmSoftwarePlatform/hipCUB/archive/${PV}.tar.gz -> hipCUB-$(ver_cut 1-2).tar.gz"
-# No release yet.
-EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/hipCUB"
-EGIT_BRANCH="master-rocm-2.9"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/hipCUB/archive/${PV}.tar.gz -> hipCUB-$(ver_cut 1-2).tar.gz"
+#EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/hipCUB"
+#EGIT_BRANCH="master-rocm-2.9"
 #EGIT_COMMIT=""
 
 LICENSE=""
@@ -18,11 +17,9 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-#S="${WORKDIR}/hipCUB-rocm-$(ver_cut 1-2)"
+S="${WORKDIR}/hipCUB-rocm-$(ver_cut 1-2)"
 
-#RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
-#         =sci-libs/rocPRIM-${PV}*"
-RDEPEND="=sys-devel/hip-2.8*
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
          =sci-libs/rocPRIM-${PV}*"
 DEPEND="${RDEPEND}
 	dev-util/cmake"
@@ -46,8 +43,7 @@ src_prepare() {
 src_configure() {
 #	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
 
-#	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
-	export HCC_ROOT=/usr/lib/hcc/2.8
+	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/
 	export CXX=${HCC_ROOT}/bin/hcc
 

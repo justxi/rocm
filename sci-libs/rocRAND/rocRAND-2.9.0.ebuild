@@ -7,10 +7,9 @@ inherit cmake-utils git-r3
 
 DESCRIPTION="Generate pseudo-random and quasi-random numbers"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocRAND"
-#SRC_URI="https://github.com/ROCmSoftwarePlatform/rocRAND/archive/${PV}.tar.gz -> rocRAND-${PV}.tar.gz"
-# No release yet.
-EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocRAND"
-EGIT_BRANCH="master-rocm-2.9"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocRAND/archive/${PV}.tar.gz -> rocRAND-${PV}.tar.gz"
+#EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocRAND"
+#EGIT_BRANCH="master-rocm-2.9"
 #EGIT_COMMIT=""
 
 LICENSE=""
@@ -18,12 +17,10 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-#RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]"
-RDEPEND="=sys-devel/hip-2.8*[hcc-backend]"
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]"
 DEPEND="${RDEPEND}
 	dev-util/cmake
-	=dev-util/rocm-cmake-2.8*"
-#	=dev-util/rocm-cmake-$(ver_cut 1-2)*"
+	=dev-util/rocm-cmake-$(ver_cut 1-2)*"
 
 src_prepare() {
         cd ${S}
@@ -52,8 +49,7 @@ src_configure() {
 	export HIP_DIR=/usr/lib/hip/lib/cmake/
 	export hip_DIR=${HIP_DIR}
 
-#	local HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
-	local HCC_ROOT=/usr/lib/hcc/2.8
+	local HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export CXX=${HCC_ROOT}/bin/hcc
 	export PATH=$PATH:${HCC_ROOT}/bin
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/

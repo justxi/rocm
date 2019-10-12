@@ -15,8 +15,7 @@ KEYWORDS=""
 IUSE="+gfx803 gfx900 gfx906"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
-#RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
-RDEPEND="=sys-devel/hip-2.8*"
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
 	dev-util/cmake"
 
@@ -58,8 +57,7 @@ src_configure() {
 #	export HIP_DIR=${HIP_ROOT}/lib/cmake/
 #	export hip_DIR=${HIP_DIR}
 
-#	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
-	export HCC_ROOT=/usr/lib/hcc/2.8/
+	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export CXX=${HCC_ROOT}/bin/hcc
 	export PATH=$PATH:${HCC_ROOT}/bin
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/

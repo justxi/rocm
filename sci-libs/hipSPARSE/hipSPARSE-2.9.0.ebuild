@@ -15,9 +15,7 @@ KEYWORDS=""
 IUSE=""
 S="${WORKDIR}/hipSPARSE-rocm-$(ver_cut 1-2)"
 
-#RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
-#         =sci-libs/rocSPARSE-${PV}*"
-RDEPEND="=sys-devel/hip-2.8*
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
          =sci-libs/rocSPARSE-${PV}*"
 DEPEND="${RDPEND}
 	dev-util/cmake"
@@ -34,8 +32,7 @@ src_prepare() {
 src_configure() {
 #	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
 
-#	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
-	export HCC_ROOT=/usr/lib/hcc/2.8
+	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/
 	export CXX=${HCC_ROOT}/bin/hcc
 

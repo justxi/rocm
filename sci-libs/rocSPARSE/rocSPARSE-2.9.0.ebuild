@@ -15,9 +15,7 @@ KEYWORDS=""
 IUSE="+gfx803 gfx900 gfx906 debug"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
-#RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]
-#	 =sci-libs/rocPRIM-$(ver_cut 1-2)*"
-RDEPEND="=sys-devel/hip-2.8*[hcc-backend]
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]
 	 =sci-libs/rocPRIM-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
 	dev-util/cmake"
@@ -53,9 +51,7 @@ src_configure() {
                 CurrentISA="gfx906"
         fi
 
-#	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
-	export HCC_ROOT=/usr/lib/hcc/2.8
-
+	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/hcc/
 	export CXX=${HCC_ROOT}/bin/hcc
 
