@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake-utils
+# git-r3
 
 DESCRIPTION="Generate pseudo-random and quasi-random numbers"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocRAND"

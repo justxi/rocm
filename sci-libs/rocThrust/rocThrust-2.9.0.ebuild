@@ -3,11 +3,12 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake-utils
+# git-r3
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocThrust"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/rocThrust/archive/${PV}.tar.gz -> rocThrust-$(ver_cut 1-2).tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocThrust/archive/${PV}.tar.gz -> rocThrust-${PV}.tar.gz"
 #EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocThrust"
 #EGIT_BRANCH="master-rocm-2.9"
 #EGIT_COMMIT=""
@@ -17,7 +18,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-S="${WORKDIR}/rocThrust-rocm-$(ver_cut 1-2)"
+#S="${WORKDIR}/rocThrust-rocm-${PV}"
 
 RDEPEND=">=sys-devel/hip-${PV}
 	 =sci-libs/rocPRIM-${PV}*"

@@ -3,7 +3,8 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake-utils
+#git-r3
 
 DESCRIPTION="HIP parallel primitives for developing performant GPU-accelerated code on AMD ROCm platform"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocPRIM"
