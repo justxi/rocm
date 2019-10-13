@@ -1,11 +1,13 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
+
+inherit cmake-utils
 
 DESCRIPTION="ROC profiler library."
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/rocprofiler.git"
-SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/roc-${PV}.tar.gz -> rocm-profiler-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/roc-${PV}.tar.gz -> rocprofiler-${PV}.tar.gz"
 
 LICENSE=""
 KEYWORDS="~amd64"
@@ -22,35 +24,25 @@ PATCHES=(
         "${FILESDIR}/${P}-install.patch"
 )
 
-src_unpack() {
-	unpack ${A}
-	mv rocprofiler-roc-${PV} rocprofiler-${PV}
-}
+S="${WORKDIR}/rocprofiler-roc-${PV}"
+
 
 src_configure() {
-        mkdir -p "${WORKDIR}/build/"
-        cd "${WORKDIR}/build/"
-
 	export CMAKE_PREFIX_PATH=/usr/include/hsa:/usr/lib/
 
+	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
+        )
+
 	if use debug; then
-		export CMAKE_BUILD_TYPE=debug
-#		export CMAKE_DEBUG_TRACE=1
-#		export CMAKE_LD_AQLPROFILE=1
+		mycmakeargs+=(
+			export CMAKE_BUILD_TYPE=debug
+#			export CMAKE_DEBUG_TRACE=1
+#			export CMAKE_LD_AQLPROFILE=1
+		)
 	fi
 
-#	cmake -DCMAKE_INSTALL_PREFIX="${EPREFIX}/opt/rocm"  ${S}
-	cmake -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"  ${S}
-}
-
-src_compile() {
-        cd "${WORKDIR}/build/"
-        make
-}
-
-src_install() {
-        cd "${WORKDIR}/build/"
-	emake DESTDIR="${D}" install
+	cmake-utils_src_configure
 }
 
 pkg_postinst() {
