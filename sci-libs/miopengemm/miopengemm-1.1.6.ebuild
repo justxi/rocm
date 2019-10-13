@@ -3,16 +3,18 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake-utils
+#git-r3
 
 DESCRIPTION="MIOpenGEMM"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM"
-SLOT="0"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/archive/${PV}.tar.gz -> miopengemm-${PV}.tar.gz"
+#EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM.git"
+#EGIT_COMMIT="6275a879995b58a6e0b8cca7b1ad8421a5e02ade"
 
-EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM.git"
-EGIT_COMMIT="6275a879995b58a6e0b8cca7b1ad8421a5e02ade"
 KEYWORDS="~amd64"
 LICENSE="MIT"
+SLOT="0"
 
 RDEPEND="virtual/opencl"
 DEPEND="dev-util/rocm-cmake"
