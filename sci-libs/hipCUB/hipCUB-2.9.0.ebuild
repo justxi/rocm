@@ -3,11 +3,12 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake-utils
+# git-r3
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipCUB"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/hipCUB/archive/${PV}.tar.gz -> hipCUB-$(ver_cut 1-2).tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/hipCUB/archive/${PV}.tar.gz -> hipCUB-${PV}.tar.gz"
 #EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/hipCUB"
 #EGIT_BRANCH="master-rocm-2.9"
 #EGIT_COMMIT=""
@@ -16,8 +17,6 @@ LICENSE=""
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-
-S="${WORKDIR}/hipCUB-rocm-$(ver_cut 1-2)"
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
          =sci-libs/rocPRIM-${PV}*"
