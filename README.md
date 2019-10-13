@@ -6,9 +6,7 @@ Ebuilds to install ROCm on Gentoo Linux
 All ebuilds which are already exist in Gentoo portage will be removed from this repository.<br>
 If you have a problem with an ebuild from Gentoo portage then submit a bugreport at https://bugs.gentoo.org/.
 
-**The ebuilds for ROCm 2.8.0 are in a good state now.**<br>
-
-**All 2.9.0 ebuilds in this repository are preliminary versions no fully tested.**
+**The ebuilds for ROCm 2.9.0 are in a good state now.**<br>
 
 **All *9999 ebuilds in this repository, as expected, are in an experimental state!**<br>
 
@@ -44,7 +42,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/llvm-roc | 2.9 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0 | |
 |sys-devel/hcc| 2.9 |  | (ok) | |
 |sys-devel/hip| 2.9 | currently depends on HCC, building based on clang (HIP-clang) is currently under test | (ok) | |
-|sys-devel/amd-rocm-meta| 2.8 | | (ok) | |
+|sys-devel/amd-rocm-meta| 2.9 | | (ok) | |
 
 <br>
 ROCm Libraries:
@@ -59,11 +57,11 @@ ROCm Libraries:
 |sci-libs/rocFFT| 2.9 | Installs, not tested yet | (ok) | |
 |sci-libs/rocRAND| 2.9 | Installs, not tested yet | (ok) |  |
 |sci-libs/rocSOLVER| 9999 | Installs, not tested yet | (ok) | |
-|sci-libs/hipCub | 2.8 | Installs, not tested yet. | (ok)| |
-|sci-libs/hipBLAS | 2.8 | Installs, not tested yet. | (ok) | |
-|sci-libs/hipSPARSE | 2.8 | Installs, not tested yet. | (ok) | |
+|sci-libs/hipCub | 2.9 | Installs, not tested yet. | (ok)| |
+|sci-libs/hipBLAS | 2.9 | Installs, not tested yet. | (ok) | |
+|sci-libs/hipSPARSE | 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
-|sci-libs/MIOpen | 2.8 | Installs, not tested yet. | (ok) | |
+|sci-libs/MIOpen | 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
 |sci-libs/MIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
 
