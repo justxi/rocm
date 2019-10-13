@@ -9,8 +9,10 @@ DESCRIPTION="Implementation of a subset of LAPACK functionality on the ROCm plat
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 EGIT_BRANCH="master"
+
 #EGIT_COMMIT="609832fcf7095e11d5fb65cf0c5cfae0a4e771eb"
-EGIT_COMMIT="eebed83b82b8b42c2030926dec43376a45d7319b"
+#EGIT_COMMIT="eebed83b82b8b42c2030926dec43376a45d7319b"
+EGIT_COMMIT="a038b53800c002c1268ea5ed9fb937738acc394d"
 
 LICENSE=""
 SLOT="0"
@@ -63,4 +65,9 @@ src_configure() {
 	)
 
 	cmake-utils_src_configure
+}
+
+src_install() {
+	cmake-utils_src_install
+	chrpath --delete "${D}/usr/lib64/librocsolver.so.2.7.0.50-a038b53-dirty"
 }
