@@ -3,13 +3,14 @@
 
 EAPI=6
 
-DESCRIPTION=""
-HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocprofiler.git"
+DESCRIPTION="ROC profiler library."
+HOMEPAGE="https://github.com/ROCm-Developer-Tools/rocprofiler.git"
 SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/roc-${PV}.tar.gz -> rocm-profiler-${PV}.tar.gz"
 
 LICENSE=""
-SLOT="0"
 KEYWORDS="~amd64"
+SLOT="0"
+
 IUSE="debug"
 
 RDEPEND="media-libs/hsa-amd-aqlprofile
@@ -18,7 +19,7 @@ DEPEND="dev-util/cmake
 	${RDEPEND}"
 
 PATCHES=(
-        "${FILESDIR}/remove-test.patch"
+        "${FILESDIR}/${P}-install.patch"
 )
 
 src_unpack() {
@@ -38,7 +39,8 @@ src_configure() {
 #		export CMAKE_LD_AQLPROFILE=1
 	fi
 
-	cmake -DCMAKE_INSTALL_PREFIX="${EPREFIX}/opt/rocm"  ${S}
+#	cmake -DCMAKE_INSTALL_PREFIX="${EPREFIX}/opt/rocm"  ${S}
+	cmake -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"  ${S}
 }
 
 src_compile() {
