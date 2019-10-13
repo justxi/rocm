@@ -10,8 +10,8 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpen"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/MIOpen/archive/roc-${PV}.tar.gz -> MIOpen-${PV}.tar.gz"
 
 LICENSE="MIT"
-SLOT="0"
 KEYWORDS="~amd64"
+SLOT="0"
 
 RDEPEND="=sys-devel/hip-${PV}*
 	>=dev-libs/half-1.12.0

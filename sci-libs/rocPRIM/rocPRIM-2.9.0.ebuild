@@ -4,18 +4,15 @@
 EAPI=7
 
 inherit cmake-utils
-#git-r3
 
 DESCRIPTION="HIP parallel primitives for developing performant GPU-accelerated code on AMD ROCm platform"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocPRIM"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocPRIM/archive/${PV}.tar.gz -> rocPRIM-${PV}.tar.gz"
-#EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocPRIM"
-#EGIT_BRANCH="master-rocm-2.9"
-#EGIT_COMMIT=""
 
 LICENSE=""
+KEYWORDS="~amd64"
 SLOT="0"
-KEYWORDS=""
+
 IUSE=""
 
 RDEPEND=">=sys-devel/hip-${PV}

@@ -4,18 +4,15 @@
 EAPI=7
 
 inherit cmake-utils
-# git-r3
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipCUB"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/hipCUB/archive/${PV}.tar.gz -> hipCUB-${PV}.tar.gz"
-#EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/hipCUB"
-#EGIT_BRANCH="master-rocm-2.9"
-#EGIT_COMMIT=""
 
 LICENSE=""
+KEYWORDS="~amd64"
 SLOT="0"
-KEYWORDS=""
+
 IUSE=""
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
@@ -40,8 +37,6 @@ src_prepare() {
 }
 
 src_configure() {
-#	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
-
 	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/
 	export CXX=${HCC_ROOT}/bin/hcc

@@ -6,21 +6,22 @@ inherit git-r3 cmake-utils flag-o-matic
 
 DESCRIPTION="HCC - An open source C++ compiler for heterogeneous devices"
 HOMEPAGE="https://github.com/RadeonOpenCompute/hcc"
-
 EGIT_REPO_URI="https://github.com/RadeonOpenCompute/hcc.git"
 EGIT_COMMIT="roc-hcc-${PV}"
 
 LICENSE=""
-SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
+SLOT="0/$(ver_cut 1-2)"
+
 IUSE="debug"
-CMAKE_BUILD_TYPE=Release
 
 RDEPEND="=dev-libs/rocr-runtime-${PV}*
 	 dev-util/rocminfo"
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	dev-vcs/git"
+
+CMAKE_BUILD_TYPE=Release
 
 src_configure() {
 	strip-flags

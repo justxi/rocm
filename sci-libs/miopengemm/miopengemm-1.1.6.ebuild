@@ -1,16 +1,13 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 inherit cmake-utils
-#git-r3
 
 DESCRIPTION="MIOpenGEMM"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/archive/${PV}.tar.gz -> miopengemm-${PV}.tar.gz"
-#EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM.git"
-#EGIT_COMMIT="6275a879995b58a6e0b8cca7b1ad8421a5e02ade"
 
 KEYWORDS="~amd64"
 LICENSE="MIT"

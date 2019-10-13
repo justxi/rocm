@@ -10,8 +10,9 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipSPARSE"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/hipSPARSE/archive/rocm-$(ver_cut 1-2).tar.gz -> hipSPARSE-$(ver_cut 1-2).tar.gz"
 
 LICENSE=""
+KEYWORDS="~amd64"
 SLOT="0"
-KEYWORDS=""
+
 IUSE=""
 S="${WORKDIR}/hipSPARSE-rocm-$(ver_cut 1-2)"
 
@@ -30,14 +31,11 @@ src_prepare() {
 }
 
 src_configure() {
-#	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
-
 	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/
 	export CXX=${HCC_ROOT}/bin/hcc
 
 	local mycmakeargs=(
-#		-DHIP_PLATFORM=hcc
 		-DCMAKE_INSTALL_PREFIX=/usr
 		-DCMAKE_INSTALL_INCLUDEDIR=include/hipsparse
 	)

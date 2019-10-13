@@ -4,18 +4,15 @@
 EAPI=7
 
 inherit cmake-utils
-# git-r3
 
 DESCRIPTION="Generate pseudo-random and quasi-random numbers"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocRAND"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocRAND/archive/${PV}.tar.gz -> rocRAND-${PV}.tar.gz"
-#EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocRAND"
-#EGIT_BRANCH="master-rocm-2.9"
-#EGIT_COMMIT=""
 
 LICENSE=""
+KEYWORDS="~amd64"
 SLOT="0"
-KEYWORDS=""
+
 IUSE=""
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]"

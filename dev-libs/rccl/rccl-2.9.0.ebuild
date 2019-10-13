@@ -10,8 +10,8 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rccl"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rccl/archive/${PV}.tar.gz -> rccl-${PV}.tar.gz"
 
 LICENSE=""
-SLOT="0"
 KEYWORDS="~amd64"
+SLOT="0"
 
 RDEPEND="=sys-devel/hip-${PV}*"
 DEPEND="${RDPEND}

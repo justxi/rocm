@@ -59,6 +59,12 @@ src_configure() {
 		buildtype="Debug"
 	fi
 
+
+	# TODO: Currently a GENTOO configuration is build,
+	# this is also used in the cmake configuration files
+	# which will be installed to find HIP;
+	# Other ROCm packages expect a "RELEASE" configuration,
+	# see "hipBLAS"
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip"
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)

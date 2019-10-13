@@ -5,7 +5,7 @@ LICENSE="metapackage"
 
 SLOT="0/$(ver_cut 1-2)"
 
-KEYWORDS=""
+KEYWORDS="~amd64"
 
 IUSE="debug-tools hip opencl profiling science"
 

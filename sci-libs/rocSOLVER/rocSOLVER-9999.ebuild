@@ -9,14 +9,12 @@ DESCRIPTION="Implementation of a subset of LAPACK functionality on the ROCm plat
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 EGIT_BRANCH="master"
-
-#EGIT_COMMIT="609832fcf7095e11d5fb65cf0c5cfae0a4e771eb"
-#EGIT_COMMIT="eebed83b82b8b42c2030926dec43376a45d7319b"
 EGIT_COMMIT="a038b53800c002c1268ea5ed9fb937738acc394d"
 
 LICENSE=""
+KEYWORDS="~amd64"
 SLOT="0"
-KEYWORDS="**"
+
 IUSE="+gfx803 gfx900 gfx906"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
@@ -25,8 +23,6 @@ RDEPEND=""
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	>=dev-util/ninja-1.9.0"
-
-#S="${WORKDIR}/rocSOLVER-rocm-$(ver_cut 1-2)"
 
 src_prepare() {
 	eapply "${FILESDIR}/rocSOLVER-9999-change-rocBLAS-location.patch"

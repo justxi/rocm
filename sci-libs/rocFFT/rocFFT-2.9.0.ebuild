@@ -10,8 +10,9 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocFFT"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocFFT/archive/rocm-$(ver_cut 1-2).tar.gz -> rocFFT-${PV}.tar.gz"
 
 LICENSE=""
+KEYWORDS="~amd64"
 SLOT="0"
-KEYWORDS=""
+
 IUSE="+gfx803 gfx900 gfx906"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
@@ -51,11 +52,6 @@ src_configure() {
         if use gfx906; then
                 CurrentISA="gfx906"
         fi
-
-#	export HIP_ROOT=/usr/lib/hip/$(ver_cut 1-2)
-#	export HIP_ROOT=/usr/lib/hip/2.8
-#	export HIP_DIR=${HIP_ROOT}/lib/cmake/
-#	export hip_DIR=${HIP_DIR}
 
 	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export CXX=${HCC_ROOT}/bin/hcc

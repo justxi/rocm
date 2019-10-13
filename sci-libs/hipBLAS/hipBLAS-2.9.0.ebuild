@@ -10,9 +10,11 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipBLAS"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/hipBLAS/archive/rocm-$(ver_cut 1-2).tar.gz -> hipBLAS-$(ver_cut 1-2).tar.gz"
 
 LICENSE=""
+KEYWORDS="~amd64"
 SLOT="0"
-KEYWORDS=""
+
 IUSE=""
+
 S="${WORKDIR}/hipBLAS-rocm-$(ver_cut 1-2)"
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
@@ -31,8 +33,6 @@ src_prepare() {
 }
 
 src_configure() {
-#	export hip_DIR=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/
-
 	export HCC_HOME=/usr/lib/hcc/$(ver_cut 1-2)
 	export hcc_DIR=${HCC_HOME}/lib/cmake/
 	export CXX=${HCC_HOME}/bin/hcc

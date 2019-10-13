@@ -10,8 +10,8 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocALUTION"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocALUTION/archive/rocm-$(ver_cut 1-2).tar.gz -> rocALUTION-${PV}.tar.gz"
 
 LICENSE=""
+KEYWORDS="~amd64"
 SLOT="0"
-KEYWORDS=""
 
 IUSE="+hip +openmp mpi +gfx803 gfx900 gfx906"
 REQUIRED_USE="|| ( hip openmp mpi )"
