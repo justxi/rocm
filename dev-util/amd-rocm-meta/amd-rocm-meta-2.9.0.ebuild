@@ -17,7 +17,7 @@ RDEPEND="
 	opencl? ( >=dev-libs/rocm-opencl-runtime-$(ver_cut 1-2) )
 	opencl? ( =dev-util/rocm-clang-ocl-$(ver_cut 1-2)* )
 
-	hip? (=sys-devel/hip-$(ver_cut 1-2)* )
+	hip? ( =sys-devel/hip-$(ver_cut 1-2)* )
 	hip? ( =sci-libs/hipBLAS-$(ver_cut 1-2)* )
 	hip? ( =sci-libs/hipCUB-$(ver_cut 1-2)* )
 	hip? ( =sci-libs/hipSPARSE-$(ver_cut 1-2)* )
@@ -32,7 +32,7 @@ RDEPEND="
 	science? ( =sci-libs/rocThrust-$(ver_cut 1-2)* )
 	science? ( sci-libs/rocSOLVER )
 
-	profiling? ( =dev-libs/rocm-bandwidth-test-$(ver_cut 1-2)* )
+	profiling? ( =dev-util/rocm-bandwidth-test-$(ver_cut 1-2)* )
 
 	debug-tools? ( =dev-libs/rocr-debug-agent-$(ver_cut 1-2)* )
 	debug-tools? ( =dev-util/rocprofiler-$(ver_cut 1-2)* )
