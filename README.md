@@ -37,7 +37,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocm-smi| 2.9 | Reports suitable informations. | (ok) | |
 |dev-util/rocminfo| 2.9 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0 |
 |dev-libs/rocm-comgr| 2.9 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0 | 
-|dev-libs/rocr-debug-agent | 2.9 | fails on a few systems - please report if it works or not | (ok) | |
+|dev-libs/rocr-debug-agent | 2.9 |  | (ok) | |
 |dev-util/roctracer| 2.9 | Installs a library, not tested yet. | (ok) | |
 |dev-util/rocm-clang-ocl| 2.9 | | (ok) | |
 |dev-util/rcp| 5.6 | Installs, not tested yet.  | (ok) | |
@@ -62,7 +62,7 @@ ROCm Libraries:
 |sci-libs/hipCub | 2.8 | Installs, not tested yet. | (ok)| |
 |sci-libs/hipBLAS | 2.8 | Ebuild exist, testing is appreciated. | (ok) | |
 |sci-libs/hipSPARSE | 2.8 | Ebuild exist, testing is appreciated. | (ok) | |
-|sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. (Uses master, releases are too old) | (ok) | |
+|sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpen | 2.8 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
 |sci-libs/MIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
