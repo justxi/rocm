@@ -16,7 +16,7 @@ LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
 
 PATCHES=(
-        "${FILESDIR}/cmake.patch"
+        "${FILESDIR}/${P}-cmake.patch"
 )
 
 RDEPEND="dev-libs/rocr-runtime
