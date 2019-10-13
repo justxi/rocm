@@ -44,7 +44,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/llvm-roc | 2.9 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0 | |
 |sys-devel/hcc| 2.9 |  | (ok) | |
 |sys-devel/hip| 2.9 | currently depends on HCC, building based on clang (HIP-clang) is currently under test | (ok) | |
-|sys-devel/amd-rocm-meta| 2.8 | | (ok) | |
+|sys-devel/amd-rocm-meta| 2.9 | | (ok) | |
 
 <br>
 ROCm Libraries:
@@ -60,7 +60,7 @@ ROCm Libraries:
 |sci-libs/rocRAND| 2.9 | Installs, not tested yet | (ok) |  |
 |sci-libs/rocSOLVER| 9999 | Installs, not tested yet | (ok) | |
 |sci-libs/hipCub | 2.9 | Installs, not tested yet. | (ok)| |
-|sci-libs/hipBLAS | 2.8 | Installs, not tested yet. | (ok) | |
+|sci-libs/hipBLAS | 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipSPARSE | 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpen | 2.9 | Installs, not tested yet. | (ok) | |
