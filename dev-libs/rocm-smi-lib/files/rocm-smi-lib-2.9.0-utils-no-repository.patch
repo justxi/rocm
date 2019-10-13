@@ -1,0 +1,21 @@
+diff --git a/cmake_modules/version_util.sh b/cmake_modules/version_util.sh
+index eb49576..cfe825e 100755
+--- a/cmake_modules/version_util.sh
++++ b/cmake_modules/version_util.sh
+@@ -27,6 +27,8 @@ commits_since_last_tag() {
+   echo $NUM_COMMITS
+ }
+ 
++if [ -d ".git" ]; then
++
+ case $TARGET in
+     count) commits_since_last_tag ;;
+     *) die "Invalid target $target" ;;
+@@ -34,3 +36,6 @@ esac
+ 
+ exit 0
+ 
++else
++exit -1
++fi
+
