@@ -19,6 +19,8 @@ SLOT="0"
 RDEPEND="virtual/opencl"
 DEPEND="dev-util/rocm-cmake"
 
+S="${WORKDIR}/MIOpenGEMM-${PV}"
+
 src_prepare() {
 	sed -e "s:set( miopengemm_INSTALL_DIR miopengemm):set( miopengemm_INSTALL_DIR \"\"):" -i miopengemm/CMakeLists.txt
 	sed -e "s:rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):#rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):" -i miopengemm/CMakeLists.txt
