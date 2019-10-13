@@ -63,7 +63,7 @@ ROCm Libraries:
 |sci-libs/hipBLAS | 2.8 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipSPARSE | 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
-|sci-libs/MIOpen | 2.8 | Installs, not tested yet. | (ok) | |
+|sci-libs/MIOpen | 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
 |sci-libs/MIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
 
