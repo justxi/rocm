@@ -5,26 +5,37 @@ LICENSE="metapackage"
 
 SLOT="0/$(ver_cut 1-2)"
 
-KEYWORDS="~amd64"
+KEYWORDS=""
 
-IUSE="debug-tools extra opencl"
+IUSE="debug-tools hip opencl profiling science"
 
 RDEPEND="
-	=sys-devel/hcc-${PV}*
-	=sys-devel/hip-${PV}*
-	=dev-util/rocminfo-${PV}*
-	=dev-util/rocm-smi-${PV}*
+	=dev-util/rocminfo-$(ver_cut 1-2)*
+	=dev-util/rocm-smi-$(ver_cut 1-2)*
+	=sys-devel/hcc-$(ver_cut 1-2)*
+
 	opencl? ( >=dev-libs/rocm-opencl-runtime-$(ver_cut 1-2) )
-	opencl? ( =dev-util/rocm-clang-ocl-${PV}* )
-	debug-tools? ( =dev-libs/rocr-debug-agent-${PV}* )
-	debug-tools? ( =dev-util/rocprofiler-${PV}* )
-	extra? ( =sci-libs/hipCUB-$(ver_cut 1-2)* )
-	extra? ( =sci-libs/rocPRIM-$(ver_cut 1-2)* )
-	extra? ( =sci-libs/rocRAND-$(ver_cut 1-2)* )
-	extra? ( =sci-libs/rocThrust-$(ver_cut 1-2)* )
+	opencl? ( =dev-util/rocm-clang-ocl-$(ver_cut 1-2)* )
+
+	hip? (=sys-devel/hip-$(ver_cut 1-2)* )
+	hip? ( =sci-libs/hipBLAS-$(ver_cut 1-2)* )
+	hip? ( =sci-libs/hipCUB-$(ver_cut 1-2)* )
+	hip? ( =sci-libs/hipSPARSE-$(ver_cut 1-2)* )
+
+	science? ( =sci-libs/rocALUTION-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocBLAS-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocRAND-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocFFT-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocPRIM-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocRAND-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocSPARSE-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocThrust-$(ver_cut 1-2)* )
+	science? ( sci-libs/rocSOLVER )
+
+	profiling? ( =dev-libs/rocm-bandwidth-test-$(ver_cut 1-2)* )
+
+	debug-tools? ( =dev-libs/rocr-debug-agent-$(ver_cut 1-2)* )
+	debug-tools? ( =dev-util/rocprofiler-$(ver_cut 1-2)* )
+	debug-tools? ( =dev-util/roctracer-$(ver_cut 1-2)* )
 "
 
-#disabled since not working
-#	debug-tools? ( =dev-util/roctracer-${PV}* )
-#	extra? ( =sci-libs/rocBLAS-$(ver_cut 1-2)* )
-#	extra? ( =sci-libs/rocFFT-$(ver_cut 1-2)* )
