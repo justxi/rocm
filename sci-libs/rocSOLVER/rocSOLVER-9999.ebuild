@@ -22,6 +22,7 @@ REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 RDEPEND=""
 DEPEND="${RDEPEND}
 	dev-util/cmake
+	sys-devel/hcc
 	>=dev-util/ninja-1.9.0"
 
 src_prepare() {
