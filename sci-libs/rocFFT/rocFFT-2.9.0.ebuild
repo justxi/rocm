@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="+gfx803 gfx900 gfx906"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
-RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*[hcc-backend]"
+RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
 	dev-util/cmake"
 
