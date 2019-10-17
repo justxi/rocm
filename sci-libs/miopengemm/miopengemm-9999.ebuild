@@ -10,8 +10,7 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM"
 SLOT="0"
 
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM.git"
-EGIT_COMMIT="6275a879995b58a6e0b8cca7b1ad8421a5e02ade"
-KEYWORDS="~amd64"
+KEYWORDS=""
 LICENSE="MIT"
 
 RDEPEND="virtual/opencl"

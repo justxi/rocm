@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cd465804..188f182a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -207,7 +207,7 @@ message(STATUS "AMDGCN assembler: ${MIOPEN_AMDGCN_ASSEMBLER}")
+ 
+ # miopengemm
+ if(MIOPEN_USE_MIOPENGEMM)
+-    find_package(miopengemm PATHS /opt/rocm)
++    find_package(miopengemm PATHS /usr)
+     if(miopengemm_FOUND)
+         message(STATUS "Build with miopengemm")
+         set(MIOPEN_USE_MIOPENGEMM 1)
