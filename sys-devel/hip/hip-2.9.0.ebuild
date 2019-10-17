@@ -28,7 +28,7 @@ REQUIRED_USE="^^ ( hcc-backend llvm-roc-backend )"
 
 DEPEND=">=dev-libs/rocm-comgr-${PV}
 	>=sys-devel/hcc-${PV}
-	>=dev-util/rocminfo-${PV}-r1
+	=dev-util/rocminfo-${PV}*
 	hipify? ( >=sys-devel/clang-8.0.0 )
 	llvm-roc-backend? ( =dev-libs/rocm-device-libs-${PV}* )
 	llvm-roc-backend? ( =sys-devel/llvm-roc-${PV}* )"

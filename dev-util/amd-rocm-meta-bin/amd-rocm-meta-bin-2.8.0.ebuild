@@ -77,7 +77,7 @@ src_install() {
 	doins "${FILESDIR}/amdocl64.icd"
 
 	echo "HSA_PATH=/opt/rocm" > 99rocm || die
-	echo "ROCM_HOME=/opt/rocm/hcc" >> 99rocm || die
+	echo "ROCM_PATH=/opt/rocm/hcc" >> 99rocm || die
 	echo "ROCM_AGENT_ENUM=/opt/rocm/bin/rocm_agent_enumerator" >> 99rocm || die
 	echo "HCC_HOME=/opt/rocm/hcc" >> 99rocm || die
 	echo "HIP_PATH=/opt/rocm/hip" >> 99rocm || die

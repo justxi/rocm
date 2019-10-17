@@ -14,8 +14,8 @@ IUSE="debug"
 
 RDEPEND="media-libs/hsa-amd-aqlprofile
          dev-libs/rocr-runtime"
-DEPEND="dev-util/cmake"
-	${RDEPEND}
+DEPEND="dev-util/cmake
+	${RDEPEND}"
 
 #PATCHES=(
 #        "${FILESDIR}/remove-test.patch"
