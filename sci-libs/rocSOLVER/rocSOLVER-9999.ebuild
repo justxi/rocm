@@ -23,6 +23,7 @@ RDEPEND=""
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	sys-devel/hcc
+	sys-devel/hip
 	>=dev-util/ninja-1.9.0"
 
 src_prepare() {
