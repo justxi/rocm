@@ -9,6 +9,7 @@ DESCRIPTION="Khronos official OpenCL ICD Loader"
 HOMEPAGE="https://github.com/KhronosGroup/OpenCL-ICD-Loader"
 
 EGIT_REPO_URI="https://github.com/KhronosGroup/OpenCL-ICD-Loader.git"
+EGIT_COMMIT="978b4b3a29a3aebc86ce9315d5c5963e88722d03"
 
 LICENSE="Apache-2.0"
 SLOT="0"
