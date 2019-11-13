@@ -74,11 +74,12 @@ Systems known to work:
 
 <br>
 === For tensorflow-rocm ===
+
 ``` emerge miopen rocFFT rocRAND rocBLAS rccl rocm-smi rocminfo ```
 
 === AMDGPU wiki page ===
 
-https://wiki.gentoo.org/wiki/AMDGPU
+https://wiki.gentoo.org/wiki/AMDGPU#SME
 
 === udev rule for ROCm ===
 
