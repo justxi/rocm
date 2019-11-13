@@ -14,7 +14,8 @@ LICENSE="MIT"
 SLOT="0"
 
 RDEPEND="virtual/opencl"
-DEPEND="dev-util/rocm-cmake"
+DEPEND="dev-util/rocm-cmake
+	sys-devel/llvm-roc"
 
 S="${WORKDIR}/MIOpenGEMM-${PV}"
 

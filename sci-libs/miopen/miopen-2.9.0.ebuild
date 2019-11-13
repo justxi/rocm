@@ -20,6 +20,7 @@ RDEPEND="
 	>=dev-libs/half-1.12.0
 	dev-libs/khronos-ocl-icd
 	opencl? (
+		sys-devel/llvm-roc
 		sci-libs/miopengemm )
 	!opencl? (
 		=dev-util/rocm-clang-ocl-${PV}*

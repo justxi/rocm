@@ -99,4 +99,6 @@ Add your user account to the group:
 
 In no particular order some helpful utilities for testing ROCm are:
 
+Note: clinfo might not work with a noexec /tmp
+
 ``` rocminfo && rocm-smi && hipconfig && clinfo && MIOpenDriver pool ```
