@@ -42,13 +42,17 @@ src_prepare() {
 
 src_configure() {
 	strip-flags
+	filter-flags '*march*'
+
 	CMAKE_MAKEFILE_GENERATOR=emake
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX=${EPREFIX}/usr/
+		-DCMAKE_BUILD_TYPE=Release
 	)
 
 	if use opencl; then
+		CXX="/usr/lib/llvm/roc/bin/clang++"
 		mycmakeargs+=( "-DMIOPEN_BACKEND=OpenCL" )
 	else
 		CXX="${HCC_HOME}/bin/hcc"

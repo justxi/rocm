@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake-utils flag-o-matic
 
 DESCRIPTION="MIOpenGEMM"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM"
@@ -18,6 +18,8 @@ DEPEND="dev-util/rocm-cmake"
 
 S="${WORKDIR}/MIOpenGEMM-${PV}"
 
+IUSE="-benchmark"
+
 src_prepare() {
 	sed -e "s:set( miopengemm_INSTALL_DIR miopengemm):set( miopengemm_INSTALL_DIR \"\"):" -i miopengemm/CMakeLists.txt
 	sed -e "s:rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):#rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):" -i miopengemm/CMakeLists.txt
@@ -26,8 +28,16 @@ src_prepare() {
 }
 
 src_configure() {
+	strip-flags
+	filter-flags '*march*'
+
+	CXX=/usr/lib/llvm/roc/bin/clang++
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
 	)
+
+	if use benchmark; then
+		mycmakeargs+=( "-DAPI_BENCH_MIOGEMM=On" )
+	fi
 	cmake-utils_src_configure
 }

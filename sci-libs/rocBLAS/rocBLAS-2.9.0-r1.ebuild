@@ -65,7 +65,8 @@ src_prepare() {
 
 src_configure() {
 	strip-flags
-	HCC_HOME=/usr/lib/hcc/$(ver_cut 1-2)
+	filter-flags '*march*'
+
 	CXX=${HCC_HOME}/bin/hcc
 
 	if use debug; then

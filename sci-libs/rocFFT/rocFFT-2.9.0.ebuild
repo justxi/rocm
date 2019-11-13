@@ -40,6 +40,9 @@ src_prepare() {
 }
 
 src_configure() {
+	strip-flags
+	filter-flags '*march*'
+
 	# if the ISA is not set previous to the autodetection,
 	# /opt/rocm/bin/rocm_agent_enumerator is executed,
 	# this leads to a sandbox violation
@@ -52,7 +55,6 @@ src_configure() {
 	if use gfx906; then
 		CurrentISA="gfx906"
 	fi
-	strip-flags
 
 	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export CXX=${HCC_ROOT}/bin/hcc

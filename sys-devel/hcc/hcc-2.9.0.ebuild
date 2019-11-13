@@ -25,6 +25,8 @@ CMAKE_BUILD_TYPE=Release
 
 src_configure() {
 	strip-flags
+	append-cxxflags '-O2'
+
 	if ! use debug; then
 		append-cflags "-DNDEBUG"
 		append-cxxflags "-DNDEBUG"
