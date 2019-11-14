@@ -15,23 +15,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 PATCHES=(
-	${FILESDIR}/${PV}-clang-ocl.patch
+	${FILESDIR}/fix-directories.patch
 )
 
 RDEPEND="dev-libs/rocm-opencl-runtime"
 DEPEND="dev-util/cmake
 	dev-util/rocm-cmake
 	${RDEPEND}"
-
-src_configure() {
-	echo
-}
-
-src_compile() {
-	echo
-}
-
-src_install() {
-	exeinto /usr/bin
-	doexe ${S}/clang-ocl
-}
