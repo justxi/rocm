@@ -32,7 +32,6 @@ src_configure() {
 	strip-flags
 	filter-flags '*march*'
 
-	CXX=/usr/lib/llvm/roc/bin/clang++
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
 	)

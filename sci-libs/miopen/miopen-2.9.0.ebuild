@@ -53,7 +53,6 @@ src_configure() {
 	)
 
 	if use opencl; then
-		CXX="/usr/lib/llvm/roc/bin/clang++"
 		mycmakeargs+=( "-DMIOPEN_BACKEND=OpenCL" )
 	else
 		CXX="${HCC_HOME}/bin/hcc"
