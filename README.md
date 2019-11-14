@@ -80,6 +80,7 @@ Systems known to work:
 === AMDGPU wiki page ===
 
 https://wiki.gentoo.org/wiki/AMDGPU#SME
+https://wiki.gentoo.org/wiki/AMDGPU#Kernel
 
 === udev rule for ROCm ===
 
