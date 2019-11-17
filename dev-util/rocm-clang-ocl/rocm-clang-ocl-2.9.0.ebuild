@@ -16,6 +16,7 @@ KEYWORDS="~amd64"
 
 PATCHES=(
 	${FILESDIR}/fix-directories.patch
+	${FILESDIR}/${PV}-fix-paths.patch
 )
 
 RDEPEND="dev-libs/rocm-opencl-runtime"

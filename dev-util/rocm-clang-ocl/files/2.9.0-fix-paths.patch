@@ -1,0 +1,21 @@
+diff --git a/clang-ocl.in b/clang-ocl.in.o
+index 0ffb0eb..e4d5406 100644
+--- a/clang-ocl.in
++++ b/clang-ocl.in.o
+@@ -51,14 +51,14 @@ ${CLANG} -c -emit-llvm \
+ -mllvm -amdgpu-early-inline-all \
+ -Xclang -target-feature -Xclang -code-object-v3 \
+ -Xclang -cl-ext=+cl_khr_fp64,+cl_khr_global_int32_base_atomics,+cl_khr_global_int32_extended_atomics,+cl_khr_local_int32_base_atomics,+cl_khr_local_int32_extended_atomics,+cl_khr_int64_base_atomics,+cl_khr_int64_extended_atomics,+cl_khr_3d_image_writes,+cl_khr_byte_addressable_store,+cl_khr_gl_sharing,+cl_amd_media_ops,+cl_amd_media_ops2,+cl_khr_subgroups \
+--include ${OPENCL_ROOT}/include/opencl-c.h \
++-include ${OPENCL_ROOT}/llvm/roc/lib/clang/10.0.0/include/opencl-c.h \
+ ${options} -o ${output_file}.orig.bc ${input_file}
+  
+ ${LLVM_LINK} -f -o ${output_file}.linked.bc ${output_file}.orig.bc \
+ $BITCODE_DIR/opencl.amdgcn.bc \
+ $BITCODE_DIR/ocml.amdgcn.bc \
+ $BITCODE_DIR/ockl.amdgcn.bc \
+-$BITCODE_DIR/irif.amdgcn.bc \
++${HCC_HOME}/rocdl/irif/irif.amdgcn.bc \
+ $BITCODE_DIR/oclc_correctly_rounded_sqrt_off.amdgcn.bc \
+ $BITCODE_DIR/oclc_daz_opt_on.amdgcn.bc \
+ $BITCODE_DIR/oclc_finite_only_off.amdgcn.bc \
