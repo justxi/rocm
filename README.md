@@ -71,3 +71,35 @@ Systems known to work:
 | 1 | Intel Core i5 8400 | PCIe 3.0 | Radeon RX 560 (POLARIS11) | |
 | 2 | Intel Core i7 6700k | PCIe 3.0 over Thunderbolt 3 | Radeon VII | |
 | 3 | AMD Ryzen 1700 | PCIe 3.0 | Radeon RX 580 | |
+
+<br>
+=== For tensorflow-rocm ===
+
+``` emerge miopen rocFFT rocRAND rocBLAS rccl rocm-smi rocminfo ```
+
+=== AMDGPU wiki page ===
+
+https://wiki.gentoo.org/wiki/AMDGPU#SME
+https://wiki.gentoo.org/wiki/AMDGPU#Kernel
+
+=== udev rule for ROCm ===
+
+This is so ROCm utilities and libraries can function correctly.
+
+``` echo 'SUBSYSTEM=="kfd", KERNEL=="kfd", TAG+="uaccess", GROUP="video"' | sudo tee /etc/udev/rules.d/70-kfd.rules ```
+
+You probably also want to add a video group if you don't already have one and add yourself to it.
+
+Add a video group:
+``` emerge acct-group/video ```
+
+Add your user account to the group:
+``` sudo usermod -a -G video $LOGNAME ```
+
+=== ROCm debugging tools ===
+
+In no particular order some helpful utilities for testing ROCm are:
+
+Note: clinfo might not work with a noexec /tmp
+
+``` rocminfo && rocm-smi && hipconfig && clinfo && MIOpenDriver pool ```
