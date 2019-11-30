@@ -25,8 +25,8 @@ src_configure() {
 }
 
 src_install() {
-	into /usr/lib64/OpenCL/vendors/amd
+	into /usr/lib64/OpenCL/vendors/khronos
 	dolib.so ${BUILD_DIR}/libOpenCL.so*
-	dosym lib64/libOpenCL.so.1.2 /usr/lib64/OpenCL/vendors/amd/libOpenCL.so.1
-	dosym lib64/libOpenCL.so.1.2 /usr/lib64/OpenCL/vendors/amd/libOpenCL.so
+	dosym lib64/libOpenCL.so.1.2 /usr/lib64/OpenCL/vendors/khronos/libOpenCL.so.1
+	dosym lib64/libOpenCL.so.1.2 /usr/lib64/OpenCL/vendors/khronos/libOpenCL.so
 }
