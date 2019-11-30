@@ -53,8 +53,8 @@ ROCm Libraries:
 |sci-libs/rocPRIM| 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocSPARSE| 2.10 | Installs, not tested yet.  | (ok) | |
 |sci-libs/rocALUTION| 2.9 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocThrust| 2.9 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocFFT| 2.9 | Installs, not tested yet | (ok) | |
+|sci-libs/rocThrust| 2.10 | Installs, not tested yet. | (ok) | |
+|sci-libs/rocFFT| 2.10 | Installs, not tested yet | (ok) | |
 |sci-libs/rocRAND| 2.10 | Installs, not tested yet | (ok) |  |
 |sci-libs/rocSOLVER| 9999 | Installs, not tested yet | (ok) | |
 |sci-libs/hipCub | 2.10 | Installs, not tested yet. | (ok)| |
