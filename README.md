@@ -50,14 +50,14 @@ ROCm Libraries:
 |Ebuild|Current Version|State|FHS|in Gentoo portage|
 |---|---|---|---|---|
 |sci-libs/rocBLAS| 2.9 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocPRIM| 2.9 | Installs, not tested yet. | (ok) | |
+|sci-libs/rocPRIM| 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocSPARSE| 2.9 | Installs, not tested yet.  | (ok) | |
 |sci-libs/rocALUTION| 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocThrust| 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocFFT| 2.9 | Installs, not tested yet | (ok) | |
 |sci-libs/rocRAND| 2.9 | Installs, not tested yet | (ok) |  |
 |sci-libs/rocSOLVER| 9999 | Installs, not tested yet | (ok) | |
-|sci-libs/hipCub | 2.9 | Installs, not tested yet. | (ok)| |
+|sci-libs/hipCub | 2.10 | Installs, not tested yet. | (ok)| |
 |sci-libs/hipBLAS | 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipSPARSE | 2.9 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
