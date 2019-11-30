@@ -42,7 +42,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/llvm-roc | 2.10 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 | |
 |sys-devel/hcc| 2.10 |  | (ok) | |
 |sys-devel/hip| 2.10 | currently depends on HCC, building based on clang (HIP-clang) is currently under test | (ok) | |
-|sys-devel/amd-rocm-meta| 2.10 | Currently sci-libs dependencies are disabled! | (ok) | |
+|sys-devel/amd-rocm-meta| 2.10 | Currently roctracer is disabled! | (ok) | |
 
 <br>
 ROCm Libraries:
@@ -52,7 +52,7 @@ ROCm Libraries:
 |sci-libs/rocBLAS| 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocPRIM| 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocSPARSE| 2.10 | Installs, not tested yet.  | (ok) | |
-|sci-libs/rocALUTION| 2.9 | Installs, not tested yet. | (ok) | |
+|sci-libs/rocALUTION| 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocThrust| 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocFFT| 2.10 | Installs, not tested yet | (ok) | |
 |sci-libs/rocRAND| 2.10 | Installs, not tested yet | (ok) |  |
