@@ -26,7 +26,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-device-libs | 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
 |dev-libs/rocm-opencl-driver | 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
 |dev-libs/rocm-opencl-runtime| 2.10 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark:<br> 2.6.0, 2.8.0, 2.9.0, 2.10.0 |
-|dev-libs/RCCL | 2.9 |  | (ok) | |
+|dev-libs/RCCL | 2.10 |  | (ok) | |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |media-libs/hsa-ext-rocr| 1.1.9.122 | | Yes | :heavy_check_mark:<br> V1.1.9.112, V1.1.9.122 |
 |dev-util/rocm-bandwidth-test| 2.10 | Reports suitable informations. | (ok) |  |
@@ -37,11 +37,11 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-comgr| 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 | 
 |dev-libs/rocr-debug-agent | 2.10 |  | (ok) | |
 |dev-util/roctracer| 2.9 | No release yet. | (ok) | |
-|dev-util/rocm-clang-ocl| 2.9 | | (ok) | |
+|dev-util/rocm-clang-ocl| 2.10 | | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
 |sys-devel/llvm-roc | 2.10 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 | |
 |sys-devel/hcc| 2.10 |  | (ok) | |
-|sys-devel/hip| 2.9 | currently depends on HCC, building based on clang (HIP-clang) is currently under test | (ok) | |
+|sys-devel/hip| 2.10 | currently depends on HCC, building based on clang (HIP-clang) is currently under test | (ok) | |
 |sys-devel/amd-rocm-meta| 2.9 | | (ok) | |
 
 <br>
