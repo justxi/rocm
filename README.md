@@ -7,8 +7,7 @@ All ebuilds which are already exist in Gentoo portage will be removed from this 
 If you have a problem with an ebuild from Gentoo portage then submit a bugreport at https://bugs.gentoo.org/.
 
 **The ebuilds for ROCm 2.9.0 are in a good state now.**<br>
-
-**Ebuilds for ROCm 2.10.0 seem to be in a good state now too.**<br>
+**And the ebuilds for ROCm 2.10.0 seem to be in a good state now too.**<br>
 
 **Thanks to all contributors.**
 
