@@ -18,9 +18,9 @@ Kernel, driver, libraries, compiler and tools:
 
 |Ebuild|Current Version|State| FHS | in Gentoo portage| 
 |---|---|---|---|---|
-|sys-kernel/rocm-sources| 2.10 | based on linux kernel 5.0.0-rc1 | (ok) |  |
-|dev-util/rocm-cmake| 2.10 | | Yes | :heavy_check_mark:<br> 0.2, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
-|dev-libs/roct-thunk-interface| 2.10 |  | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
+|sys-kernel/rocm-sources| 3.0.0 | based on linux kernel 5.2.0-rc1 | (ok) |  |
+|dev-util/rocm-cmake| 3.0.0 | | Yes | :heavy_check_mark:<br> 0.2, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
+|dev-libs/roct-thunk-interface| 3.0.0 |  | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
 |dev-libs/rocr-runtime| 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
 |dev-libs/rocm-device-libs | 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
 |dev-libs/rocm-opencl-driver | 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
@@ -32,7 +32,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocprofiler| 2.10 |  | (ok) | |
 |dev-libs/rocm-smi-lib| 2.10 |  | (ok) | |
 |dev-util/rocm-smi| 2.10 | Reports suitable informations. | (ok) | |
-|dev-util/rocminfo| 2.10 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
+|dev-util/rocminfo| 2.10 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
 |dev-libs/rocm-comgr| 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 | 
 |dev-libs/rocr-debug-agent | 2.10 |  | (ok) | |
 |dev-util/roctracer| 2.10 |  | (ok) | |
