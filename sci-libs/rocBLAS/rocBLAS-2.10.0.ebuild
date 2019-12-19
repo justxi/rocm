@@ -54,6 +54,8 @@ src_prepare() {
 	eapply "${FILESDIR}/Tensile-2.8-add_HIP_include_path.patch"
 
 	sed -e "s:const Items empty:const Items empty = {}:" -i Tensile/Source/lib/include/Tensile/EmbeddedData.hpp || die
+	# Eliminate requirement of LLVM version 7.0 - there is already a patch on github
+	sed -e "s:find_package(LLVM 7.0:find_package(LLVM:" -i Tensile/Source/lib/CMakeLists.txt || die
 
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 	sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/rocblas:" -i ${S}/library/src/CMakeLists.txt || die
