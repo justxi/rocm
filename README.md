@@ -6,8 +6,8 @@ Ebuilds to install ROCm on Gentoo Linux
 All ebuilds which are already exist in Gentoo portage will be removed from this repository.<br>
 If you have a problem with an ebuild from Gentoo portage then submit a bugreport at https://bugs.gentoo.org/.
 
-**The ebuilds for ROCm 2.9.0 are in a good state now.**<br>
-**And the ebuilds for ROCm 2.10.0 seem to be in a good state now too.**<br>
+**The ebuilds for ROCm 2.9.0 and 2.10.0 are in a good state now.**<br>
+**The ebuilds for ROCm 3.0.0 are currently work in progress.**<br>
 
 **Thanks to all contributors.**
 
