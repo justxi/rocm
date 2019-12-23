@@ -12,7 +12,7 @@ EGIT_COMMIT="roc-hcc-${PV}"
 
 LICENSE=""
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="debug"
 CMAKE_BUILD_TYPE=Release
 
