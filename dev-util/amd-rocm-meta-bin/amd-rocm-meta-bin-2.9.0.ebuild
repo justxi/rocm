@@ -8,7 +8,7 @@ inherit rpm
 DESCRIPTION="AMD ROCm"
 HOMEPAGE="https://github.com/RadeonOpenCompute/"
 SRC_URI="
-http://repo.radeon.com/rocm/yum/2.8.0/atmi-0.7.1-0.7.1-553-gf785be6-Linux.rpm -> ${PN}-${PV}-1.rpm
+http://repo.radeon.com/rocm/yum/2.9.0/atmi-0.7.1-0.7.1-553-gf785be6-Linux.rpm -> ${PN}-${PV}-1.rpm
 http://repo.radeon.com/rocm/yum/2.9.0/comgr-1.3.0.92-rocm-rel-2.9-6-a73e4ce-Linux.rpm -> ${PN}-${PV}-2.rpm
 http://repo.radeon.com/rocm/yum/2.9.0/cxlactivitylogger-5.6.7259-gf50cd35.x86_64.rpm -> ${PN}-${PV}-3.rpm
 http://repo.radeon.com/rocm/yum/2.9.0/half-1.12.0-Linux.rpm -> ${PN}-${PV}-4.rpm

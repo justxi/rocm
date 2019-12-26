@@ -55,12 +55,13 @@ src_configure() {
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_PLATFORM=hcc
 		-DHIP_COMPILER=$(usex llvm-roc-backend "clang" "hcc")
-		-DHCC_HOME=/usr/lib/hcc/$(ver_cut 1-2)
+		-DHCC_HOME="/usr/lib/hcc/$(ver_cut 1-2)"
 		-DHSA_PATH="/usr"
 	)
 
+
 	if use llvm-roc-backend; then
-		mycmakeargs+=( 
+		mycmakeargs+=(
 			-DCMAKE_PREFIX_PATH="/usr/lib/llvm/roc"
 		)
 	fi
