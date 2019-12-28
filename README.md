@@ -62,7 +62,7 @@ ROCm Libraries:
 |sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpen | 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
-|sci-libs/MIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
+|sci-libs/AMDMIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
 
 <br>
 Systems known to work:
