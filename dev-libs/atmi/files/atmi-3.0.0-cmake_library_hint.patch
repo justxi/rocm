@@ -1,0 +1,72 @@
+diff -Naur a/src/cmake_modules/FindROCm.cmake b/src/cmake_modules/FindROCm.cmake
+--- src/cmake_modules/FindROCm.cmake	2019-12-28 15:12:54.411782256 +0100
++++ src/cmake_modules/FindROCm.cmake	2019-12-28 15:15:49.337781589 +0100
+@@ -36,14 +36,14 @@
+   ROCR_LIBRARY
+     hsa-runtime64
+   HINTS
+-    ${ROC_DIR}/lib
+-    ${ROCR_DIR}/lib
++    ${ROC_DIR}/lib64
++    ${ROCR_DIR}/lib64
+     ${ROCR_DIR}
+-    /opt/rocm/lib
+-    /opt/rocm/hsa/lib
+-    /usr/local/lib
++    /opt/rocm/lib64
++    /opt/rocm/hsa/lib64
++    /usr/local/lib64
+     /usr/lib/x86_64-linux-gnu
+-    /usr/lib
++    /usr/lib64
+     ENV LIBRARY_PATH
+     ENV LD_LIBRARY_PATH
+ )
+@@ -51,14 +51,14 @@
+   ROCT_LIBRARY
+     hsakmt
+   HINTS
+-    ${ROC_DIR}/lib
+-    ${ROCT_DIR}/lib
++    ${ROC_DIR}/lib64
++    ${ROCT_DIR}/lib64
+     ${ROCT_DIR}
+-    /opt/rocm/lib
+-    /opt/rocm/hsa/lib
+-    /usr/local/lib
++    /opt/rocm/lib64
++    /opt/rocm/hsa/lib64
++    /usr/local/lib64
+     /usr/lib/x86_64-linux-gnu
+-    /usr/lib
++    /usr/lib64
+     ENV LIBRARY_PATH
+     ENV LD_LIBRARY_PATH
+ )
+diff -Naur a/src/device_runtime/CMakeLists.txt b/src/device_runtime/CMakeLists.txt
+--- src/device_runtime/CMakeLists.txt	2019-12-28 15:33:35.671777521 +0100
++++ src/device_runtime/CMakeLists.txt	2019-12-28 15:36:01.737776964 +0100
+@@ -80,8 +80,8 @@
+     ATMI_DE_DEP_LIBHSA_LIBRARIES
+     ockl.amdgcn.bc
+     PATHS
+-    ${DEVICE_LIB_DIR}/lib
+-    ${CMAKE_INSTALL_PATH}/lib/libdevice/${MYGPU}
++    ${DEVICE_LIB_DIR}/lib64
++    ${CMAKE_INSTALL_PATH}/lib64/libdevice/${MYGPU}
+     NO_DEFAULT_PATH
+     )
+ else()
+@@ -98,9 +98,9 @@
+     ATMI_DE_DEP_LIBHSA_LIBRARIES
+     ockl.amdgcn.bc
+     PATHS
+-    ${DEVICE_LIB_DIR}/lib
+-    /opt/rocm/lib
+-    /usr/local/lib
++    ${DEVICE_LIB_DIR}/lib64
++    /opt/rocm/lib64
++    /usr/local/lib64
+     NO_DEFAULT_PATH
+     )
+ endif()
