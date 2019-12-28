@@ -12,7 +12,7 @@ SRC_URI="https://github.com/RadeonOpenCompute/llvm-project/archive/roc-ocl-${PV}
 LICENSE="UoI-NCSA rc BSD public-domain"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="debug"
 
 RDEPEND="virtual/cblas
 	 dev-libs/rocr-runtime"
@@ -42,6 +42,9 @@ src_configure() {
 		-DLLVM_VERSION_SUFFIX=roc
 		-DOCAMLFIND=NO
 	)
+
+	use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
+
 	cmake-utils_src_configure
 }
 
