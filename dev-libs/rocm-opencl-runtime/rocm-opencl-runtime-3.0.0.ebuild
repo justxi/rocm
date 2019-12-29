@@ -28,7 +28,8 @@ RDEPEND=">=dev-libs/rocr-runtime-${PV}
 	dev-libs/ocl-icd[khronos-headers]"
 DEPEND="${RDEPEND}
 	dev-lang/ocaml
-	dev-ml/findlib"
+	dev-ml/findlib
+	>=dev-util/rocm-cmake-${PV}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.0.0-change-install-location.patch"
