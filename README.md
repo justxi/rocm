@@ -21,10 +21,10 @@ Kernel, driver, libraries, compiler and tools:
 |sys-kernel/rocm-sources| 3.0.0 | based on linux kernel 5.2.0-rc1 | (ok) |  |
 |dev-util/rocm-cmake| 3.0.0 | | Yes | :heavy_check_mark:<br> 0.2, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
 |dev-libs/roct-thunk-interface| 3.0.0 |  | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
-|dev-libs/rocr-runtime| 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
-|dev-libs/rocm-device-libs | 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
-|dev-libs/rocm-opencl-driver | 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
-|dev-libs/rocm-opencl-runtime| 2.10 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark:<br> 2.6.0, 2.8.0, 2.9.0, 2.10.0 |
+|dev-libs/rocr-runtime| 3.0.0 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
+|dev-libs/rocm-device-libs | 3.0.0 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
+|dev-libs/rocm-opencl-driver | 2.10 | Marked deprecated. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
+|dev-libs/rocm-opencl-runtime| 3.0.0 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark:<br> 2.6.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
 |dev-libs/RCCL | 2.10 |  | (ok) | |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |media-libs/hsa-ext-rocr| 1.1.9.139 | | Yes | :heavy_check_mark:<br> V1.1.9.122, V1.1.9.139 |
@@ -33,13 +33,13 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-smi-lib| 2.10 |  | (ok) | |
 |dev-util/rocm-smi| 2.10 | Reports suitable informations. | (ok) | |
 |dev-util/rocminfo| 2.10 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
-|dev-libs/rocm-comgr| 2.10 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 | 
+|dev-libs/rocm-comgr| 3.0.0 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 | 
 |dev-libs/rocr-debug-agent | 2.10 |  | (ok) | |
 |dev-util/roctracer| 2.10 |  | (ok) | |
 |dev-util/rocm-clang-ocl| 2.10 | | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
-|sys-devel/llvm-roc | 2.10 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 | |
-|sys-devel/hcc| 2.10 |  | (ok) | |
+|sys-devel/llvm-roc | 3.0.0 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 | |
+|sys-devel/hcc| 2.10 | Marked deprecated.  | (ok) | |
 |sys-devel/hip| 2.10 | currently depends on HCC, building based on clang (HIP-clang) is currently under test | (ok) | |
 |sys-devel/amd-rocm-meta| 2.10 |  | (ok) | |
 
