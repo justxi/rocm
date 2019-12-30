@@ -13,7 +13,8 @@ KEYWORDS="~amd64"
 IUSE="debug"
 
 RDEPEND="dev-libs/rocr-runtime
-	 sys-devel/llvm-roc"
+	 sys-devel/llvm-roc
+	 sys-devel/hip"
 DEPEND="dev-util/cmake
 	dev-lang/python:2.7
 	${RDEPEND}"
@@ -28,7 +29,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/roctracer-2.8.0-python.patch"
+	eapply "${FILESDIR}/roctracer-${PV}-python.patch"
 
 	# do not add "roctracer" to CMAKE_INSTALL_PREFIX
 	sed -e "s:set ( CMAKE_INSTALL_PREFIX \${CMAKE_INSTALL_PREFIX}/\${ROCTRACER_NAME} ):#set ( CMAKE_INSTALL_PREFIX \${CMAKE_INSTALL_PREFIX}/\${ROCTRACER_NAME} ):" -i ${S}/CMakeLists.txt

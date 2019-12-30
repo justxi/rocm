@@ -21,7 +21,7 @@ PATCHES=(
 	"${FILESDIR}/rocm-smi-lib-2.9.0-utils-no-repository.patch"
 )
 
-S="${WORKDIR}/rocm_smi_lib-roc-${PV}"
+S="${WORKDIR}/rocm_smi_lib-roc.${PV}"
 
 src_prepare() {
 	sed -e "s:LIBRARY DESTINATION \${ROCM_SMI}/lib COMPONENT \${ROCM_SMI_COMPONENT}):LIBRARY DESTINATION lib64 COMPONENT \${ROCM_SMI_COMPONENT}):" -i ${S}/CMakeLists.txt
