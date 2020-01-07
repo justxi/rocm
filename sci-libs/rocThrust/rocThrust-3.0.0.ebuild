@@ -25,9 +25,9 @@ src_prepare() {
 	eapply "${FILESDIR}/rocThrust-2.7-disable-rocPRIM-download.patch"
 
 	sed -e "s: PREFIX rocthrust:# PREFIX rocthrust:" -i ${S}/thrust/CMakeLists.txt
-	sed -e "s:  DESTINATION rocthrust/include/thrust:  DESTINATION include/rocthrust/thrust:" -i ${S}/thrust/CMakeLists.txt
+	sed -e "s:  DESTINATION rocthrust/include/thrust:  DESTINATION \$\{CMAKE_INSTALL_FULL_INCLUDEDIR\}/thrust:" -i ${S}/thrust/CMakeLists.txt
 	sed -e "s:rocm_install_symlink_subdir(rocthrust):#rocm_install_symlink_subdir(rocthrust):" -i ${S}/thrust/CMakeLists.txt
-	sed -e "s:<INSTALL_INTERFACE\:rocthrust/include/:<INSTALL_INTERFACE\:include/rocthrust/:" -i ${S}/thrust/CMakeLists.txt
+	sed -e "s:<INSTALL_INTERFACE\:rocthrust/include/:<INSTALL_INTERFACE\:\$\{CMAKE_INSTALL_INCLUDEDIR\}:" -i ${S}/thrust/CMakeLists.txt
 
 	# TODO: install cmake files to "/usr/lib64/cmake" instead of "/usr/lib/cmake"?
 
