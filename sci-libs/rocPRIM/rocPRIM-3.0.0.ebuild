@@ -25,7 +25,7 @@ S="${WORKDIR}/rocPRIM-${PV}"
 src_prepare() {
 	eapply "${FILESDIR}/master-disable2ndfindhcc.patch"
 
-	sed -e "s:find_package(HIP 1.5.18263 REQUIRED):find_package(HIP 2.8.19386 REQUIRED):" -i cmake/VerifyCompiler.cmake
+	sed -e "s:find_package(HIP 1.5.18263 REQUIRED):find_package(HIP 3.0.19521 REQUIRED):" -i cmake/VerifyCompiler.cmake
 
 	sed -e "s: PREFIX rocprim:# PREFIX rocprim:" -i rocprim/CMakeLists.txt
 	sed -e "s:\$<INSTALL_INTERFACE\:rocprim/include/>:\$<INSTALL_INTERFACE\:include/rocprim/>:" -i rocprim/CMakeLists.txt
