@@ -28,6 +28,7 @@ src_prepare() {
 	sed -e "s:  DESTINATION rocthrust/include/thrust:  DESTINATION include/rocthrust:" -i ${S}/thrust/CMakeLists.txt
 	sed -e "s:rocm_install_symlink_subdir(rocthrust):#rocm_install_symlink_subdir(rocthrust):" -i ${S}/thrust/CMakeLists.txt
 	sed -e "s:\${CMAKE_INSTALL_INCLUDEDIR}:&/rocthrust:" -i ${S}/cmake/ROCMExportTargetsHeaderOnly.cmake
+	sed -e "s:\${ROCM_INSTALL_LIBDIR}:\${CMAKE_INSTALL_LIBDIR}:" -i ${S}/cmake/ROCMExportTargetsHeaderOnly.cmake
 
 	eapply_user
 	cmake-utils_src_prepare 
