@@ -57,7 +57,6 @@ src_configure() {
 		-DHIP_PLATFORM=hcc
 		-DHIP_ROOT_DIR=/usr/lib/hip
 		-DBUILD_TEST=OFF
-		-DCMAKE_INSTALL_PREFIX="/usr"
 		-DCMAKE_CXX_FLAGS:STRING="-I${HCC_ROOT}/include"
 	)
 
