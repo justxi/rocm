@@ -41,7 +41,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DHIP_PLATFORM=hcc
 		-DBUILD_TEST=OFF
-		-DCMAKE_INSTALL_PREFIX=/usr/
 	)
 	
 	cmake-utils_src_configure 
