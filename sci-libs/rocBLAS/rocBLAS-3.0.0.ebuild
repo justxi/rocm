@@ -23,7 +23,8 @@ DEPEND="${RDEPEND}
 	dev-util/rocm-cmake
 	=dev-lang/python-2.7*
 	>=dev-python/virtualenv-15.1.0
-	dev-python/pyyaml"
+	dev-python/pyyaml
+	dev-perl/File-Which"
 
 # stripped library is not working
 RESTRICT="strip"
