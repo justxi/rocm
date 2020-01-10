@@ -81,6 +81,8 @@ src_configure() {
 		)
 	fi
 
+	local HIP_PATH=""
+
 	cmake-utils_src_configure
 }
 
