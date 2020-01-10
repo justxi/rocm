@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake-utils flag-o-matic check-reqs
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocFFT"
@@ -20,7 +20,19 @@ RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
 	dev-util/cmake"
 
+CHECKREQS_MEMORY="28G"
+
 S="${WORKDIR}/rocFFT-rocm-$(ver_cut 1-2)"
+
+
+pkg_pretend() {
+	if [ "${MAKEOPTS}" != "" ] && [ "${MAKEOPTS}" != "-j1" ]; then
+		einfo "-------------------------------------------------------------------"
+		einfo " If the build takes too long or swaps too much, try MAKEOPTS=\"-j1\""
+		einfo " e.g. override it in /etc/package/package.env "
+		einfo "-------------------------------------------------------------------"
+	fi
+}
 
 src_prepare() {
 	cd ${S}
