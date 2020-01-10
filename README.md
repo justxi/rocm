@@ -6,8 +6,7 @@ Ebuilds to install ROCm on Gentoo Linux
 All ebuilds which are already exist in Gentoo portage will be removed from this repository.<br>
 If you have a problem with an ebuild from Gentoo portage then submit a bugreport at https://bugs.gentoo.org/.
 
-**The ebuilds for ROCm 3.0.0 except "sci-libs" are in a good state.**<br>
-The ebuilds for the "sci-libs" are currently tested, all with version 3.0.0 merge fine on my system. 
+**The ebuilds for ROCm 3.0.0  are in a good state.**<br>
 
 **Thanks to all contributors.**
 
@@ -20,11 +19,11 @@ Kernel, driver, libraries, compiler and tools:
 |---|---|---|---|---|
 |sys-kernel/rocm-sources| 3.0.0 | based on linux kernel 5.2.0-rc1 | (ok) |  |
 |dev-util/rocm-cmake| 3.0.0 | | Yes | :heavy_check_mark:<br> 0.2, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
-|dev-libs/roct-thunk-interface| 3.0.0 |  | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
-|dev-libs/rocr-runtime| 3.0.0 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
-|dev-libs/rocm-device-libs | 3.0.0 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
-|dev-libs/rocm-opencl-driver | 2.10 | Marked deprecated. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0 |
-|dev-libs/rocm-opencl-runtime| 3.0.0 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark:<br> 2.6.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
+|dev-libs/roct-thunk-interface| 3.0.0 |  | Yes | :heavy_check_mark:<br> 3.0.0 |
+|dev-libs/rocr-runtime| 3.0.0 | | Yes | :heavy_check_mark:<br> 3.0.0 |
+|dev-libs/rocm-device-libs | 3.0.0 | | Yes | :heavy_check_mark:<br> 3.0.0 |
+|dev-libs/rocm-opencl-driver | 2.10 | Marked deprecated. | Yes | :heavy_check_mark:<br> 2.10.0 |
+|dev-libs/rocm-opencl-runtime| 3.0.0 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark:<br> 3.0.0 |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |media-libs/hsa-ext-rocr| 1.1.9.139 | | Yes | :heavy_check_mark:<br> V1.1.9.122, V1.1.9.139 |
 |dev-util/rocm-bandwidth-test| 3.0.0 | Reports suitable informations. | (ok) |  |
@@ -38,7 +37,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rcp| 5.6 |   | (ok) | |
 |sys-devel/llvm-roc | 3.0.0 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 | |
 |sys-devel/hcc| 3.0.0 | Marked deprecated.  | (ok) | |
-|sys-devel/hip| 3.0.0 | currently depends on HCC, building based on clang (HIP-clang) is currently under test | (ok) | |
+|sys-devel/hip| 3.0.0 | currently depends on HCC | (ok) | |
 |dev-util/roctracer| 3.0.0 |  | (ok) | |
 |dev-libs/RCCL | 3.0.0 |  | (ok) | |
 |sys-devel/amd-rocm-meta| 3.0.0 |  | (ok) | |
@@ -60,7 +59,7 @@ ROCm Libraries:
 |sci-libs/hipBLAS | 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipSPARSE | 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
-|sci-libs/MIOpen | 2.10 | Installs, not tested yet. | (ok) | |
+|sci-libs/MIOpen | 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
 |sci-libs/AMDMIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
 
