@@ -54,10 +54,10 @@ ROCm Libraries:
 |sci-libs/rocSPARSE| 3.0.0 | Installs, not tested yet.  | (ok) | |
 |sci-libs/rocBLAS| 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocSOLVER| 3.0.0 | Installs, not tested yet | (ok) | |
-|sci-libs/rocALUTION| 2.10 | Installs, not tested yet. | (ok) | |
+|sci-libs/rocALUTION| 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocThrust| 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipCUB | 3.0.0 | Installs, not tested yet. | (ok)| |
-|sci-libs/hipBLAS | 2.10 | Installs, not tested yet. | (ok) | |
+|sci-libs/hipBLAS | 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipSPARSE | 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpen | 2.10 | Installs, not tested yet. | (ok) | |
