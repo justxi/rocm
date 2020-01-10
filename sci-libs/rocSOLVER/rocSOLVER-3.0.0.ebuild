@@ -10,22 +10,21 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocSOLVER/archive/${PV}.tar.gz -> rocSOLVER-${PV}.tar.gz"
 
 LICENSE=""
-KEYWORDS=""
+KEYWORDS="~amd64"
 SLOT="0"
 
 IUSE="+gfx803 gfx900 gfx906"
 REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
 
-#RDEPEND=">=sys-devel/hip-${PV}"
-RDEPEND=""
+RDEPEND=">=sys-devel/hip-${PV}
+	 >=sci-libs/rocBLAS-${PV}"
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	sys-devel/hcc
-	sys-devel/hip
 	>=dev-util/ninja-1.9.0"
 
 src_prepare() {
-	eapply "${FILESDIR}/rocSOLVER-9999-change-rocBLAS-location.patch"
+	eapply "${FILESDIR}/rocSOLVER-3.0.0-add_include_path.patch"
 
 	sed -e "s: PREFIX rocsolver:# PREFIX rocsolver:" -i library/src/CMakeLists.txt
 	sed -e "s:\$<INSTALL_INTERFACE\:include>:\$<INSTALL_INTERFACE\:include/rocsolver>:" -i library/src/CMakeLists.txt

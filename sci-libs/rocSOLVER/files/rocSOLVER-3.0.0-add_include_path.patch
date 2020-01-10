@@ -1,0 +1,12 @@
+diff --git a/library/src/CMakeLists.txt b/library/src/CMakeLists.txt
+index ff09671..6177ef1 100755
+--- a/library/src/CMakeLists.txt
++++ b/library/src/CMakeLists.txt
+@@ -73,6 +73,7 @@ target_include_directories( rocsolver
+           $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+           $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+           $<BUILD_INTERFACE:${Tensile_INC}>
++	  $<BUILD_INTERFACE:/usr/include/rocblas>
+           $<INSTALL_INTERFACE:include>
+           )
+ 
