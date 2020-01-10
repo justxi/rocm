@@ -23,7 +23,7 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	eapply "${FILESDIR}/master-disable2ndfindhcc.patch"
 
-        sed -e "s:find_package(HIP 1.5.18263 REQUIRED):find_package(HIP 2.8.19386 REQUIRED):" -i cmake/VerifyCompiler.cmake
+        sed -e "s:find_package(HIP 1.5.18263 REQUIRED):find_package(HIP 3.0.19521 REQUIRED):" -i cmake/VerifyCompiler.cmake
 
 	sed -e "s: PREFIX hipcub:# PREFIX hipcub:" -i ${S}/hipcub/CMakeLists.txt
 	sed -e "s:  DESTINATION hipcub/include/:  DESTINATION include/:" -i ${S}/hipcub/CMakeLists.txt

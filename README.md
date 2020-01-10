@@ -53,12 +53,12 @@ ROCm Libraries:
 |sci-libs/rocFFT| 3.0.0 | Installs, not tested yet | (ok) | |
 |sci-libs/rocSPARSE| 3.0.0 | Installs, not tested yet.  | (ok) | |
 |sci-libs/rocBLAS| 2.10 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocALUTION| 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocSOLVER| 9999 | Installs, not tested yet | (ok) | |
+|sci-libs/rocALUTION| 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocThrust| 3.0.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/hipCub | 2.10 | Installs, not tested yet. | (ok)| |
+|sci-libs/hipCUB | 3.0.0 | Installs, not tested yet. | (ok)| |
 |sci-libs/hipBLAS | 2.10 | Installs, not tested yet. | (ok) | |
-|sci-libs/hipSPARSE | 2.10 | Installs, not tested yet. | (ok) | |
+|sci-libs/hipSPARSE | 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpen | 2.10 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |

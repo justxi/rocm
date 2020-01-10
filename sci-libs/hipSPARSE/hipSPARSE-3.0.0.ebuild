@@ -16,10 +16,13 @@ SLOT="0"
 IUSE=""
 S="${WORKDIR}/hipSPARSE-rocm-$(ver_cut 1-2)"
 
-RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
+RDEPEND=">dev-util/rocminfo-$(ver_cut 1-2)
+         =sys-devel/hip-$(ver_cut 1-2)*
          =sci-libs/rocSPARSE-${PV}*"
 DEPEND="${RDPEND}
 	dev-util/cmake"
+
+#CMAKE_MAKEFILE_GENERATOR="emake"
 
 src_prepare() {
 	sed -e "s: PREFIX hipsparse:# PREFIX hipsparse:" -i ${S}/library/CMakeLists.txt || die
@@ -31,6 +34,14 @@ src_prepare() {
 }
 
 src_configure() {
+
+#	if use gfx803; then
+#		echo "gfx803" >> ${TEMP}/target.lst
+#	fi
+#	export ROCM_TARGET_LST=${TEMP}/target.lst
+#	/usr/bin/rocm_agent_enumerator
+
+
 	export HCC_ROOT=/usr/lib/hcc/$(ver_cut 1-2)
 	export hcc_DIR=${HCC_ROOT}/lib/cmake/
 	export CXX=${HCC_ROOT}/bin/hcc
