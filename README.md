@@ -31,7 +31,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-smi-lib| 3.0.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.0.0 | Reports suitable informations. | (ok) | |
 |dev-util/rocminfo| 3.0.0 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
-|dev-libs/rocm-comgr| 3.0.0 | | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 | 
+|dev-libs/rocm-comgr| 3.0.0 | | Yes | :heavy_check_mark:<br> 3.0.0 | 
 |dev-libs/rocr-debug-agent | 3.0.0 |  | (ok) | |
 |dev-util/rocm-clang-ocl| 3.0.0 | | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
