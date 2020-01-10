@@ -64,5 +64,5 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
-	chrpath --delete "${D}/usr/lib64/librocsolver.so.2.7.0.50-a038b53-dirty"
+	chrpath --delete "${D}/usr/lib64/librocsolver.so.2.7.0.0"
 }
