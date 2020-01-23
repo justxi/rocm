@@ -17,6 +17,7 @@ RDEPEND="dev-libs/rocr-runtime
 	 sys-devel/hip"
 DEPEND="dev-util/cmake
 	dev-lang/python:2.7
+	dev-python/CppHeaderParser
 	${RDEPEND}"
 
 src_unpack() {
