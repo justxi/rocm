@@ -50,6 +50,7 @@ src_prepare() {
 
 	# change lib to lib64
 	sed -e "s:install ( TARGETS \"roctx64\" LIBRARY DESTINATION lib ):install ( TARGETS \"roctx64\" LIBRARY DESTINATION lib64 ):" -i ${S}/CMakeLists.txt
+	sed -e "s:install ( TARGETS \"kfdwrapper64\" LIBRARY DESTINATION lib ):install ( TARGETS \"kfdwrapper64\" LIBRARY DESTINATION lib64 ):" -i ${S}/CMakeLists.txt
 
 	# do not install links
 	sed -e "s:install ( FILES \${PROJECT_BINARY_DIR}/so-roctx-link DESTINATION ../lib RENAME \${ROCTX_LIBRARY}.so ):#install ( FILES \${PROJECT_BINARY_DIR}/so-roctx-link DESTINATION ../lib RENAME \${ROCTX_LIBRARY}.so ):" -i ${S}/CMakeLists.txt
