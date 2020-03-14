@@ -17,7 +17,7 @@ Kernel, driver, libraries, compiler and tools:
 
 |Ebuild|Current Version|State| FHS | in Gentoo portage| 
 |---|---|---|---|---|
-|sys-kernel/rocm-sources| 3.0.0 | based on linux kernel 5.2.0-rc1 | (ok) |  |
+|sys-kernel/rocm-sources| 3.1.0 | based on linux kernel 5.2.0-rc1 | (ok) |  |
 |dev-util/rocm-cmake| 3.0.0 | | Yes | :heavy_check_mark:<br> 0.2, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0 |
 |dev-libs/roct-thunk-interface| 3.1.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0 |
 |dev-libs/rocr-runtime| 3.1.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0 |
