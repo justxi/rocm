@@ -25,7 +25,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-opencl-driver | 2.10 | Marked deprecated. | Yes | :heavy_check_mark:<br> 2.10.0 |
 |dev-libs/rocm-opencl-runtime| 3.3.0 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
-|media-libs/hsa-ext-rocr| 1.1.9.139 | | Yes | :heavy_check_mark:<br> V1.1.9.122, V1.1.9.139 |
+|media-libs/hsa-ext-rocr| 1.1.30100.0 | | Yes | :heavy_check_mark:<br> 1.1.9.139, 1.1.30100.0 |
 |dev-util/rocm-bandwidth-test| 3.1.0 | Reports suitable informations. | (ok) |  |
 |dev-util/rocprofiler| 3.1.0 |  | (ok) | |
 |dev-libs/rocm-smi-lib| 3.1.0 |  | (ok) | |
