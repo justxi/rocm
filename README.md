@@ -31,12 +31,12 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocm-smi| 3.3.0 | Reports suitable informations. | (ok) | |
 |dev-util/rocminfo| 3.3.0 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0 |
 |dev-libs/rocm-comgr| 3.3.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 | 
-|dev-libs/rocr-debug-agent | 3.1.0 |  | (ok) | |
-|dev-util/rocm-clang-ocl| 3.1.0 | | (ok) | |
+|dev-util/rocm-clang-ocl| 3.3.0 | | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
 |sys-devel/llvm-roc | 3.3.0 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0 | |
 |sys-devel/hcc| 3.1.0 | Marked deprecated.  | (ok) | |
 |sys-devel/hip| 3.1.0 | currently depends on HCC | (ok) | |
+|dev-libs/rocr-debug-agent | 3.1.0 |  | (ok) | |
 |dev-util/roctracer| 3.0.0 |  | (ok) | |
 |dev-libs/RCCL | 3.0.0 |  | (ok) | |
 |sys-devel/amd-rocm-meta| 3.0.0 |  | (ok) | |
