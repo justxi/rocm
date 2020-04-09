@@ -27,7 +27,7 @@ Kernel, driver, libraries, compiler and tools:
 |media-libs/hsa-ext-rocr| 1.1.30100.0 | | Yes | :heavy_check_mark:<br> 1.1.9.139, 1.1.30100.0 |
 |dev-util/rocm-bandwidth-test| 3.3.0 | Reports suitable informations. | (ok) |  |
 |dev-util/rocprofiler| 3.3.0 |  | (ok) | |
-|dev-libs/rocm-smi-lib| 3.1.0 |  | (ok) | |
+|dev-libs/rocm-smi-lib| 3.3.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.1.0 | Reports suitable informations. | (ok) | |
 |dev-util/rocminfo| 3.3.0 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0 |
 |dev-libs/rocm-comgr| 3.3.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 | 
