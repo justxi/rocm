@@ -39,9 +39,9 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/hcc| 3.3.0 | Marked deprecated.  | (ok) | |
 |sys-devel/hip| 3.3.0 | currently depends on HCC | (ok) | |
 |dev-libs/rocr-debug-agent | 3.3.0 |  | (ok) | |
-|dev-util/roctracer| 3.0.0 |  | (ok) | |
+|dev-util/roctracer| 3.3.0 |  | (ok) | |
 |dev-libs/RCCL | 3.0.0 |  | (ok) | |
-|sys-devel/amd-rocm-meta| 3.3.0 | currently removed roctracer and sci-libs | (ok) | |
+|sys-devel/amd-rocm-meta| 3.3.0 | currently removed sci-libs | (ok) | |
 
 <br>
 ROCm Libraries:

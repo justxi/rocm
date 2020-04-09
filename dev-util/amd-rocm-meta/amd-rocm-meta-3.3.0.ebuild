@@ -28,6 +28,7 @@ RDEPEND="
 
 	debug-tools? ( =dev-libs/rocr-debug-agent-$(ver_cut 1-2)* )
 	debug-tools? ( =dev-util/rocprofiler-$(ver_cut 1-2)* )
+	debug-tools? ( =dev-util/roctracer-$(ver_cut 1-2)* )
 "
 
 
@@ -42,4 +43,3 @@ RDEPEND="
 #	science? ( =sci-libs/rocSOLVER-$(ver_cut 1-2)* )
 
 
-#	debug-tools? ( =dev-util/roctracer-$(ver_cut 1-2)* )

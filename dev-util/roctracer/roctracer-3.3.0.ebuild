@@ -24,13 +24,13 @@ src_unpack() {
 	unpack ${A}
 	mv roctracer-roc-${PV} roctracer-${PV}
 
-	git clone https://github.com/ROCmSoftwarePlatform/hsa-class.git ${S}/test/hsa
-	cd ${S}/test/hsa
-	git fetch origin && git checkout 7defb6d;
+#	git clone https://github.com/ROCmSoftwarePlatform/hsa-class.git ${S}/test/hsa
+#	cd ${S}/test/hsa
+#	git fetch origin && git checkout 7defb6d;
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/roctracer-${PV}-python.patch"
+#	eapply "${FILESDIR}/roctracer-${PV}-python.patch"
 
 	# do not add "roctracer" to CMAKE_INSTALL_PREFIX
 	sed -e "s:set ( CMAKE_INSTALL_PREFIX \${CMAKE_INSTALL_PREFIX}/\${ROCTRACER_NAME} ):#set ( CMAKE_INSTALL_PREFIX \${CMAKE_INSTALL_PREFIX}/\${ROCTRACER_NAME} ):" -i ${S}/CMakeLists.txt
@@ -55,6 +55,9 @@ src_prepare() {
 
 	# do not install links
 	sed -e "s:install ( FILES \${PROJECT_BINARY_DIR}/so-roctx-link DESTINATION ../lib RENAME \${ROCTX_LIBRARY}.so ):#install ( FILES \${PROJECT_BINARY_DIR}/so-roctx-link DESTINATION ../lib RENAME \${ROCTX_LIBRARY}.so ):" -i ${S}/CMakeLists.txt
+
+	# do not builds tests - downloading in src_unpack does not work
+	sed -e "s:add_subdirectory ( ${TEST_DIR} ${PROJECT_BINARY_DIR}/test ):#add_subdirectory ( ${TEST_DIR} ${PROJECT_BINARY_DIR}/test ):" -i ${S}/test/CMakeLists.txt
 
 	# do not download additional sources via git - moved to src_unpack
 	sed -e "s:execute_process ( COMMAND sh -xc \"if:#execute_process ( COMMAND sh -xc \"if:" -i ${S}/test/CMakeLists.txt
