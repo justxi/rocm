@@ -50,7 +50,7 @@ ROCm Libraries:
 |---|---|---|---|---|
 |sci-libs/rocPRIM| 3.3.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocRAND| 3.3.0 | Installs, not tested yet | (ok) |  |
-|sci-libs/rocFFT| 3.0.0 | Installs, not tested yet | (ok) | |
+|sci-libs/rocFFT| 3.3.0 | Installs, not tested yet | (ok) | |
 |sci-libs/rocSPARSE| 3.0.0 | Installs, not tested yet.  | (ok) | |
 |sci-libs/rocBLAS| 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocSOLVER| 3.0.0 | Installs, not tested yet | (ok) | |
