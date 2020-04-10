@@ -53,7 +53,7 @@ ROCm Libraries:
 |sci-libs/rocFFT| 3.3.0 | Installs, not tested yet | (ok) | |
 |sci-libs/rocSPARSE| 3.3.0 | Installs, not tested yet.  | (ok) | |
 |sci-libs/rocBLAS| 3.3.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocSOLVER| 3.0.0 | Installs, not tested yet | (ok) | |
+|sci-libs/rocSOLVER| 3.3.0 | Installs, not tested yet | (ok) | |
 |sci-libs/rocALUTION| 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocThrust| 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipCUB | 3.0.0 | Installs, not tested yet. | (ok)| |
