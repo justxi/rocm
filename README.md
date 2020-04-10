@@ -56,7 +56,7 @@ ROCm Libraries:
 |sci-libs/rocSOLVER| 3.3.0 | Installs, not tested yet | (ok) | |
 |sci-libs/rocALUTION| 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocThrust| 3.3.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/hipCUB | 3.0.0 | Installs, not tested yet. | (ok)| |
+|sci-libs/hipCUB | 3.3.0 | Installs, not tested yet. | (ok)| |
 |sci-libs/hipBLAS | 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipSPARSE | 3.0.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
