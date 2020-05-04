@@ -57,7 +57,12 @@ src_configure() {
 		-DSUPPORT_HIP=$(usex hip ON OFF)
 		-DSUPPORT_MPI=$(usex mpi ON OFF)
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocALUTION"
+		-DBUILD_CLIENTS_TESTS=OFF
+		-DBUILD_CLIENTS_BENCHMARKS=OFF
+		-DBUILD_CLIENTS_SAMPLES=OFF
 	)
+	# Ebuild fails if set "BUILD_CLIENTS_SAMPLES=ON"!
+
 	cmake-utils_src_configure
 }
 
