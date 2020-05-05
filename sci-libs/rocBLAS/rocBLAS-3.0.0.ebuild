@@ -78,9 +78,20 @@ src_configure() {
 		buildtype="Release"
 	fi
 
+	if use gfx803; then
+		AMDGPU_TARGET="gfx803"
+	fi
+	if use gfx900; then
+		AMDGPU_TARGET="gfx900"
+	fi
+	if use gfx906; then
+		AMDGPU_TARGET="gfx906"
+	fi
+
 	local mycmakeargs=(
 		-DDETECT_LOCAL_VIRTUALENV=1
 		-DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-$(ver_cut 1-2)"
+		-DAMDGPU_TARGETS="${AMDGPU_TARGET}"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"
 		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
