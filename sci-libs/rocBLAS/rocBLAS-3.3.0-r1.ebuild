@@ -63,6 +63,12 @@ src_prepare() {
 	# disable tests - there is already a patch on github... it should be checked, if this can be removed!
 	sed -e "s:COMMAND \${CMAKE_HOME_DIRECTORY}/header_compilation_tests.sh:COMMAND true:" -i ${S}/library/src/CMakeLists.txt || die
 
+
+	echo "message(STATUS \$ENV{ROCM_TARGET_LST} )" >> ${S}/CMakeLists.txt
+
+	# depend on use flags and add more architectures...
+	echo "gfx803" >> ${WORKDIR}/target.lst
+
 	cd ${S}
 	eapply_user
 	cmake-utils_src_prepare
@@ -108,6 +114,8 @@ src_configure() {
 			-DTensile_LOGIC="asm_ci"
 		)
 	fi
+
+	export ROCM_TARGET_LST="${WORKDIR}/target.lst"
 
 	cmake-utils_src_configure
 }
