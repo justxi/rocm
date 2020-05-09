@@ -14,8 +14,8 @@ LICENSE=""
 KEYWORDS="~amd64"
 SLOT="0"
 
-IUSE="+gfx803 gfx900 gfx906 debug tensile_asm_ci"
-#REQUIRED_USE="^^ ( gfx803 gfx900 gfx906 )"
+IUSE="debug +gfx803 gfx900 gfx906 gfx908 tensile_architecture_gfx803 tensile_asm_ci"
+REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
@@ -36,22 +36,6 @@ rocBLAS_V="0.1"
 src_prepare() {
 	cd "${WORKDIR}/Tensile-rocm-${PV}"
 
-	# if the ISA is not set previous to the autodetection,
-	# /opt/rocm/bin/rocm_agent_enumerator is executed,
-	# this leads to a sandbox violation
-#	if use gfx803; then
-#		eapply "${FILESDIR}/Tensile-CurrentISA-803.patch"
-#		CurrentISA="803"
-#	fi
-#	if use gfx900; then
-#		eapply "${FILESDIR}/Tensile-CurrentISA-900.patch"
-#		CurrentISA="900"
-#	fi
-#	if use gfx906; then
-#		eapply "${FILESDIR}/Tensile-CurrentISA-906.patch"
-#		CurrentISA="906"
-#	fi
-
 	eapply "${FILESDIR}/Tensile-2.8-add_HIP_include_path.patch"
 
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
@@ -60,14 +44,22 @@ src_prepare() {
 	sed -e "s:\\\\\${CPACK_PACKAGING_INSTALL_PREFIX}rocblas/lib:/usr/lib64/rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 	sed -e "s:rocm_install_symlink_subdir( rocblas ):#rocm_install_symlink_subdir( rocblas ):" -i ${S}/library/src/CMakeLists.txt || die
 
-	# disable tests - there is already a patch on github... it should be checked, if this can be removed!
-	sed -e "s:COMMAND \${CMAKE_HOME_DIRECTORY}/header_compilation_tests.sh:COMMAND true:" -i ${S}/library/src/CMakeLists.txt || die
+	# patch patch to hcc
+	sed -e "s:HCC=\${rocm_path}/hcc/bin/hcc:HCC=${HCC_HOME}/bin/hcc:" -i ${S}/header_compilation_tests.sh
 
-
-	echo "message(STATUS \$ENV{ROCM_TARGET_LST} )" >> ${S}/CMakeLists.txt
-
-	# depend on use flags and add more architectures...
-	echo "gfx803" >> ${WORKDIR}/target.lst
+	# add architectures to target.lst file to allow "autodetection" of the architecture
+	if use gfx803; then
+		echo "gfx803" >> ${WORKDIR}/target.lst
+	fi
+	if use gfx900; then
+		echo "gfx900" >> ${WORKDIR}/target.lst
+	fi
+	if use gfx906; then
+		echo "gfx906" >> ${WORKDIR}/target.lst
+	fi
+	if use gfx908; then
+		echo "gfx908" >> ${WORKDIR}/target.lst
+	fi
 
 	cd ${S}
 	eapply_user
@@ -80,21 +72,24 @@ src_configure() {
 
 	CXX=${HCC_HOME}/bin/hcc
 
-	AMDGPU_TARGET=""
-	if use gfx803; then
-		AMDGPU_TARGET+="gfx803;"
-	fi
-	if use gfx900; then
-		AMDGPU_TARGET+="gfx900;"
-	fi
-	if use gfx906; then
-		AMDGPU_TARGET+="gfx906;"
-	fi
-
 	if use debug; then
 		buildtype="Debug"
 	else
 		buildtype="Release"
+	fi
+
+	AMDGPU_TARGETS=""
+	if use gfx803; then
+		AMDGPU_TARGETS+="gfx803;"
+	fi
+	if use gfx900; then
+		AMDGPU_TARGETS+="gfx900;"
+	fi
+	if use gfx906; then
+		AMDGPU_TARGETS+="gfx906;"
+	fi
+	if use gfx908; then
+		AMDGPU_TARGETS+="gfx908;"
 	fi
 
 	local mycmakeargs=(
@@ -103,11 +98,14 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"
 		-DCMAKE_BUILD_TYPE=${buildtype}
-		-DAMDGPU_TARGETS="${AMDGPU_TARGET}"
+		-DAMDGPU_TARGETS="${AMDGPU_TARGETS}"
 	)
-#		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
-# Try the following instead of patching "library/src/CMakeLists.txt"
-#		-DROCBLAS_TENSILE_LIBRARY_DIR="/lib64/rocblas"
+
+	if use tensile_architecture_gfx803; then
+		mycmakeargs+=(
+			-DTensile_ARCHITECTURE="gfx803"
+		)
+	fi
 
 	if use tensile_asm_ci; then
 		mycmakeargs+=(
