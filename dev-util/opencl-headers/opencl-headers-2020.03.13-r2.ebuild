@@ -20,7 +20,7 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
 
-patches=(
+PATCHES=(
 	${FILESDIR}/amd.patch
 )
 
