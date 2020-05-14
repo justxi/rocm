@@ -14,7 +14,7 @@ LICENSE=""
 KEYWORDS="~amd64"
 SLOT="0"
 
-IUSE="debug +gfx803 gfx900 gfx906 gfx908 tensile_architecture_gfx803 tensile_asm_ci"
+IUSE="debug +gfx803 gfx900 gfx906 gfx908 tensile tensile_architecture_gfx803 tensile_asm_ci"
 REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
@@ -100,6 +100,12 @@ src_configure() {
 		-DCMAKE_BUILD_TYPE=${buildtype}
 		-DAMDGPU_TARGETS="${AMDGPU_TARGETS}"
 	)
+
+	if ! use tensile; then
+		mycmakeargs+=(
+			-DBUILD_WITH_TENSILE=OFF
+		)
+	fi
 
 	if use tensile_architecture_gfx803; then
 		mycmakeargs+=(
