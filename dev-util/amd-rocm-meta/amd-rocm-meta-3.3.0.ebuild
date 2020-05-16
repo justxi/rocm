@@ -29,17 +29,18 @@ RDEPEND="
 	debug-tools? ( =dev-libs/rocr-debug-agent-$(ver_cut 1-2)* )
 	debug-tools? ( =dev-util/rocprofiler-$(ver_cut 1-2)* )
 	debug-tools? ( =dev-util/roctracer-$(ver_cut 1-2)* )
+
+	science? ( =sci-libs/rocALUTION-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocBLAS-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocRAND-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocFFT-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocPRIM-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocRAND-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocSPARSE-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocThrust-$(ver_cut 1-2)* )
+	science? ( =sci-libs/rocSOLVER-$(ver_cut 1-2)* )
 "
 
 
-#	science? ( =sci-libs/rocALUTION-$(ver_cut 1-2)* )
-#	science? ( =sci-libs/rocBLAS-$(ver_cut 1-2)* )
-#	science? ( =sci-libs/rocRAND-$(ver_cut 1-2)* )
-#	science? ( =sci-libs/rocFFT-$(ver_cut 1-2)* )
-#	science? ( =sci-libs/rocPRIM-$(ver_cut 1-2)* )
-#	science? ( =sci-libs/rocRAND-$(ver_cut 1-2)* )
-#	science? ( =sci-libs/rocSPARSE-$(ver_cut 1-2)* )
-#	science? ( =sci-libs/rocThrust-$(ver_cut 1-2)* )
-#	science? ( =sci-libs/rocSOLVER-$(ver_cut 1-2)* )
 
 
