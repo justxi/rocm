@@ -66,3 +66,9 @@ src_configure() {
 
 	cmake-utils_src_configure
 }
+
+src_install() {
+        cmake-utils_src_install
+	chrpath --delete "${D}/usr/bin/MIOpenDriver"
+        chrpath --delete "${D}/usr/lib64/libMIOpen.so.1.0"
+}
