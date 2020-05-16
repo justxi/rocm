@@ -38,6 +38,11 @@ src_prepare() {
 
 	eapply "${FILESDIR}/Tensile-2.8-add_HIP_include_path.patch"
 
+	# Test to change LLVM used by Tensile, but with these changes it does not compile
+#	sed -e "s:find_package(LLVM 6.0 REQUIRED CONFIG):find_package(LLVM REQUIRED CONFIG HINTS \"/usr/lib/llvm/roc/\"):" -i ${WORKDIR}/Tensile-rocm-${PV}/HostLibraryTests/CMakeLists.txt
+#	sed -e "s:find_package(LLVM 6.0 QUIET CONFIG):find_package(LLVM QUIET CONFIG HINTS \"/usr/lib/llvm/roc/\"):" -i -i ${WORKDIR}/Tensile-rocm-${PV}/Tensile/Source/lib/CMakeLists.txt
+
+
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 	sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 
