@@ -18,7 +18,7 @@ IUSE="-static-boost -opencl"
 RDEPEND="
 	=sys-devel/hip-${PV}*
 	>=dev-libs/half-1.12.0
-	dev-libs/khronos-ocl-icd
+	dev-libs/ocl-icd
 	opencl? (
 		sys-devel/llvm-roc
 		sci-libs/miopengemm )
@@ -27,6 +27,7 @@ RDEPEND="
 		sci-libs/rocBLAS )
 	!static-boost? ( dev-libs/boost )
 	static-boost? ( dev-libs/boost[static-libs] )"
+
 DEPEND="${RDEPEND}
 	dev-util/cmake"
 
