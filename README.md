@@ -8,7 +8,7 @@ If you have a problem with an ebuild from Gentoo portage then submit a bugreport
 
 **The ebuilds for ROCm 3.0.0  are in a good state.**<br>
 
-**Currently support for ROCm 3.3.0 is work in progress (sci-libs for ROCm 3.1.0 will be skipped).**<br>
+**Support for ROCm 3.3.0 seems to be in good state now also.**<br>
 
 **Thanks to all contributors.**
 
