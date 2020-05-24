@@ -26,6 +26,9 @@ SLOT="0/$(ver_cut 1-2)"
 IUSE="debug +hipify +hcc-backend llvm-roc-backend"
 REQUIRED_USE="^^ ( hcc-backend llvm-roc-backend )"
 
+# Don't strip to prevent some tests failure
+RESRICT="strip"
+
 DEPEND=">=dev-libs/rocm-comgr-${PV}
 	>=sys-devel/hcc-${PV}
 	=dev-util/rocminfo-${PV}*
