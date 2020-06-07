@@ -64,10 +64,6 @@ S="${WORKDIR}"
 
 RDEPEND="!dev-libs/rocr-runtime"
 
-PATCHES=(
-        "${FILESDIR}/fix-python.patch"
-)
-
 src_prepare() {
 	default
 }
@@ -76,8 +72,9 @@ src_install() {
 	dodir /opt
 	cp -ar opt/* "${D}"/opt/ || die
 
+	echo "/opt/rocm-${PV}/opencl/lib/x86_64/libamdocl64.so" > amdocl64.icd
 	insinto /etc/OpenCL/vendors
-	doins "${FILESDIR}/amdocl64.icd"
+	doins "amdocl64.icd"
 
 	echo "HSA_PATH=/opt/rocm" > 99rocm || die
 	echo "ROCM_PATH=/opt/rocm" >> 99rocm || die
