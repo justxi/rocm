@@ -20,10 +20,10 @@ Kernel, driver, libraries, compiler and tools:
 |Ebuild|Current Version|State| FHS | in Gentoo portage| 
 |---|---|---|---|---|
 |sys-kernel/rocm-sources| 3.5.0 | based on linux kernel 5.4.0-rc7 | (ok) |  |
-|dev-util/rocm-cmake| 3.5.0 | | Yes | :heavy_check_mark:<br> 0.2, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.3.0 3.5.0 |
-|dev-libs/roct-thunk-interface| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
-|dev-libs/rocr-runtime| 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
-|dev-libs/rocm-device-libs | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
+|dev-util/rocm-cmake| 3.5.0 | | Yes | :heavy_check_mark:<br> 0.2, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.3.0, 3.5.0 |
+|dev-libs/roct-thunk-interface| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
+|dev-libs/rocr-runtime| 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
+|dev-libs/rocm-device-libs | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
 |dev-libs/rocm-comgr | 3.3.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 |
 |dev-libs/rocclr | | | | |
 |dev-libs/rocm-opencl-runtime| 3.3.0 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 |
@@ -33,11 +33,11 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocprofiler| 3.3.0 |  | (ok) | |
 |dev-libs/rocm-smi-lib| 3.3.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.3.0 | Reports suitable informations. | (ok) | |
-|dev-util/rocminfo| 3.3.0 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0 |
+|dev-util/rocminfo| 3.5.0 | Reports suitable informations. | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
 |dev-libs/rocm-comgr| 3.3.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 | 
 |dev-util/rocm-clang-ocl| 3.3.0 | | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
-|sys-devel/llvm-roc | 3.3.0 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0 | |
+|sys-devel/llvm-roc | 3.5.0 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0 | |
 |sys-devel/hcc| 3.3.0 | Marked deprecated.  | (ok) | |
 |sys-devel/hip| 3.3.0 | currently depends on HCC | (ok) | |
 |dev-libs/rocr-debug-agent | 3.3.0 |  | (ok) | |
