@@ -14,8 +14,7 @@ LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
 
-RDEPEND=">=dev-libs/rocm-comgr-${PV}
-	>=sys-devel/llvm-roc-${PV}"
+RDEPEND=">=dev-libs/rocm-comgr-${PV}"
 DEPEND="${RDEPEND}
 	>=dev-util/rocm-cmake-${PV}"
 
