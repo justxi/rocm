@@ -55,7 +55,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DUSE_COMGR_LIBRARY=yes
 		-DROCclr_DIR=/usr/include/rocclr
-		-DLIBROCclr_STATIC_DIR=/usr/lib64/
+		-DLIBROCclr_STATIC_DIR=/usr/lib64/cmake/rocclr
 	)
 	cmake_src_configure
 }
