@@ -36,9 +36,10 @@ src_configure() {
 
 src_install() {
 	# CMakeLists.txt should be fixed in the CMakeLists.txt to get this installed automaticaly... but how?
-	sed -e "s:/var/tmp/portage/dev-libs/rocclr-3.5.0/work/rocclr-3.5.0_build:/usr/lib64:" -i ${BUILD_DIR}/amdrocclr_staticTargets.cmake
-	mkdir -p ${D}/usr/lib64/cmake/rocclr
-	cp ${BUILD_DIR}/amdrocclr_staticTargets.cmake ${D}/usr/lib64/cmake/rocclr || die
+	sed -e "s:/var/tmp/portage/dev-libs/${PF}/work/rocclr-${PV}_build:/usr/lib64:" -i ${BUILD_DIR}/amdrocclr_staticTargets.cmake
+	dodir /usr/lib64/cmake/rocclr
+	insinto /usr/lib64/cmake/rocclr
+	doins ${BUILD_DIR}/amdrocclr_staticTargets.cmake
 
 	cmake_src_install
 }
