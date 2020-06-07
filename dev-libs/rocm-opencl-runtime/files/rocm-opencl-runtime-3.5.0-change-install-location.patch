@@ -1,5 +1,5 @@
 --- a/CMakeLists.txt	2020-06-07 13:41:57.205055768 +0200
-+++ b/CMakeLists.txt	2020-06-07 14:42:44.489041855 +0200
++++ b/CMakeLists.txt	2020-06-07 16:02:45.704023540 +0200
 @@ -10,12 +10,14 @@
  #example command:
  #cmake -DROCclr_DIR=/rocclr -DUSE_COMGR_LIBRARY=yes -DLIBROCclr_STATIC_DIR=/build ..
