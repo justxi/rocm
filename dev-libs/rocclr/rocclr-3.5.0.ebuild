@@ -41,11 +41,10 @@ src_configure() {
 }
 
 src_install() {
-
-	# CMakeLists.txt must be fixed to get this installed automaticaly...
-	mkdir -p ${D}/usr/lib64
-	cp ${BUILD_DIR}/amdrocclr_staticTargets.cmake ${D}/usr/lib64 || die
-	sed -e "s:/var/tmp/portage/dev-libs/rocclr-3.5.0/work/rocclr-3.5.0_build:/usr/lib64:" -i ${D}/usr/lib64/amdrocclr_staticTargets.cmake
+	# CMakeLists.txt should be fixed in the CMakeLists.txt to get this installed automaticaly...
+	sed -e "s:/var/tmp/portage/dev-libs/rocclr-3.5.0/work/rocclr-3.5.0_build:/usr/lib64:" -i ${BUILD_DIR}/amdrocclr_staticTargets.cmake
+	mkdir -p ${D}/usr/lib64/cmake/rocclr
+	cp ${BUILD_DIR}/amdrocclr_staticTargets.cmake ${D}/usr/lib64/cmake/rocclr || die
 
 	cmake_src_install
 }
