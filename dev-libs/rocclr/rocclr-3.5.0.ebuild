@@ -3,10 +3,13 @@
 
 EAPI=7
 
-inherit cmake git-r3
+inherit cmake
 
 DESCRIPTION="Radeon Open Compute Common Language Runtime"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCclr"
+SRC_URI="https://github.com/ROCm-Developer-Tools/ROCclr/archive/roc-${PV}.tar.gz -> ${P}.tar.gz
+         https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/archive/roc-${PV}.tar.gz -> rocm-opencl-runtime-${PV}.tar.gz"
+
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
@@ -20,31 +23,23 @@ PATCHES=(
 	${FILESDIR}/rocclr-3.5.0-cmake-install-destination.patch
 )
 
-src_unpack() {
-	EGIT_COMMIT="roc-3.5.0"
-	git-r3_fetch "https://github.com/ROCm-Developer-Tools/ROCclr"
-
-	EGIT_COMMIT="roc-3.5.0"
-	git-r3_fetch "https://github.com/radeonopencompute/ROCm-OpenCL-Runtime"
-
-	git-r3_checkout "https://github.com/ROCm-Developer-Tools/ROCclr"
-	git-r3_checkout "https://github.com/radeonopencompute/ROCm-OpenCL-Runtime" ${WORKDIR}/opencl-on-vdi
-}
+S="${WORKDIR}/ROCclr-roc-${PV}"
 
 src_configure() {
 	local mycmakeargs=(
 		-DUSE_COMGR_LIBRARY=YES
-		-DOPENCL_DIR=${WORKDIR}/opencl-on-vdi/
+		-DOPENCL_DIR=${WORKDIR}/ROCm-OpenCL-Runtime-roc-${PV}
 		-DCMAKE_INSTALL_PREFIX="/usr"
 	)
 	cmake_src_configure
 }
 
 src_install() {
-	# CMakeLists.txt should be fixed in the CMakeLists.txt to get this installed automaticaly...
-	sed -e "s:/var/tmp/portage/dev-libs/rocclr-3.5.0/work/rocclr-3.5.0_build:/usr/lib64:" -i ${BUILD_DIR}/amdrocclr_staticTargets.cmake
-	mkdir -p ${D}/usr/lib64/cmake/rocclr
-	cp ${BUILD_DIR}/amdrocclr_staticTargets.cmake ${D}/usr/lib64/cmake/rocclr || die
+	# This should be fixed in the CMakeLists.txt to get this installed automaticaly... but how?
+	sed -e "s:/var/tmp/portage/dev-libs/${PF}/work/rocclr-${PV}_build:/usr/lib64:" -i ${BUILD_DIR}/amdrocclr_staticTargets.cmake
+	dodir /usr/lib64/cmake/rocclr
+	insinto /usr/lib64/cmake/rocclr
+	doins ${BUILD_DIR}/amdrocclr_staticTargets.cmake
 
 	cmake_src_install
 }
