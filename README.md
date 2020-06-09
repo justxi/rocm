@@ -24,8 +24,8 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/roct-thunk-interface| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
 |dev-libs/rocr-runtime| 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
 |dev-libs/rocm-device-libs | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
-|dev-libs/rocm-comgr | 3.3.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 |
-|dev-libs/rocclr | | | | |
+|dev-libs/rocm-comgr | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 |
+|dev-libs/rocclr | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.5.0 |
 |dev-libs/rocm-opencl-runtime| 3.3.0 | "clinfo" reports suitable informations.<br> Simple "Hello World" program from "OpenCL Programming Guide" works. | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |media-libs/hsa-ext-rocr| 1.1.30100.0 | | Yes | :heavy_check_mark:<br> 1.1.9.139, 1.1.30100.0 |
