@@ -15,7 +15,7 @@ SLOT="0/$(ver_cut 1-2)"
 
 IUSE="debug"
 
-RDEPEND="=dev-libs/rocr-runtime-${PV}*
+RDEPEND=">=dev-libs/rocr-runtime-${PV}
 	 dev-util/rocminfo"
 DEPEND="${RDEPEND}
 	dev-util/cmake
