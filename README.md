@@ -29,9 +29,9 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-opencl-runtime| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
 |media-libs/hsa-ext-rocr| 1.1.30300.0 | | Yes | :heavy_check_mark:<br> 1.1.30300.0 |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
-|dev-util/rocm-bandwidth-test| 3.3.0 | Reports suitable informations. | (ok) |  |
+|dev-util/rocm-bandwidth-test| 3.5.0 | Reports suitable informations. | (ok) |  |
 |dev-util/rocprofiler| 3.3.0 |  | (ok) | |
-|dev-libs/rocm-smi-lib| 3.3.0 |  | (ok) | |
+|dev-libs/rocm-smi-lib| 3.5.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.3.0 | Reports suitable informations. | (ok) | |
 |dev-util/rocm-clang-ocl| 3.3.0 | | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
