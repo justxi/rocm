@@ -15,12 +15,20 @@ CONFIG_CHECK="~HSA_AMD"
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
 
-PATCHES=(
-        "${FILESDIR}/rocr-debug-agent-3.1.0-cmake.patch"
-)
+#PATCHES=(
+#        "${FILESDIR}/rocr-debug-agent-3.1.0-cmake.patch"
+#)
 
 RDEPEND="dev-libs/rocr-runtime
 	dev-libs/roct-thunk-interface
-	dev-util/systemtap
-	sys-devel/hcc"
+	dev-util/systemtap"
 DEPEND="${RDEPEND}"
+
+S="${WORKDIR}/rocr_debug_agent-roc-${PV}/src"
+
+src_prepare() {
+	sed -e "s:HINTS /opt/rocm/include:HINTS /usr/include:" -i "${S}/CMakeLists.txt"
+	sed -e "s:install(TARGETS \${TARGET_NAME} DESTINATION lib):install(TARGETS \${TARGET_NAME} DESTINATION lib64):" -i "${S}/CMakeLists.txt"
+
+	cmake-utils_src_prepare
+}
