@@ -13,24 +13,27 @@ LICENSE=""
 SLOT="0/$(ver_cut 1-2)"
 
 IUSE="debug hipify profile"
+# Currently enabling "hipify" is known to fail!
 
 # Don't strip to prevent some tests failure
 RESRICT="strip"
 
-DEPEND=">=dev-libs/rocclr-${PV}
-	>=dev-util/rocminfo-${PV}
+DEPEND=">=dev-libs/rocclr-$(ver_cut 1-2)
+	>=dev-util/rocminfo-$(ver_cut 1-2)
 	=sys-devel/llvm-roc-${PV}*
 	hipify? ( >=sys-devel/clang-10.0.0 )"
 RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.5.0-DisableTest.patch"
-	"${FILESDIR}/${PN}-3.5.0-hipcc.patch"
 )
 
 S="${WORKDIR}/HIP-rocm-${PV}"
 
 src_prepare() {
+	# "hcc" is deprecated and not installed, new platform is "rocclr"
+	sed -e "s:\$HIP_PLATFORM eq \"hcc\" and \$HIP_COMPILER eq \"clang\":\$HIP_PLATFORM eq \"rocclr\" and \$HIP_COMPILER eq \"clang\":" -i "${S}/bin/hipcc"
+
 	# Due to setting HAS_PATH to "/usr", this results in setting "-isystem /usr/include"
 	# which results in a "stdlib.h" not found while compiling "rocALUTION"
 	# currently comment out, remove in future?
@@ -61,7 +64,7 @@ src_configure() {
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_COMPILER=clang
 		-DHIP_PLATFORM=rocclr
-		-DROCM_PATH=/usr
+		-DROCM_PATH="/usr"
 		-DHSA_PATH="/usr"
 		-DUSE_PROF_API=$(usex profile 1 0)
 		-DROCclr_DIR=/usr/include/rocclr

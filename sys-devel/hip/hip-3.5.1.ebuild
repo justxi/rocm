@@ -13,6 +13,7 @@ LICENSE=""
 SLOT="0/$(ver_cut 1-2)"
 
 IUSE="debug hipify profile"
+# Currently enabling "hipify" is known to fail!
 
 # Don't strip to prevent some tests failure
 RESRICT="strip"
@@ -25,16 +26,21 @@ RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.5.0-DisableTest.patch"
-	"${FILESDIR}/${PN}-3.5.0-hipcc.patch"
+	"${FILESDIR}/${PN}-3.5.1-config-cmake-in.patch"
 )
 
 S="${WORKDIR}/HIP-rocm-${PV}"
 
 src_prepare() {
+	# "hcc" is deprecated and not installed, new platform is "rocclr"
+	sed -e "s:\$HIP_PLATFORM eq \"hcc\" and \$HIP_COMPILER eq \"clang\":\$HIP_PLATFORM eq \"rocclr\" and \$HIP_COMPILER eq \"clang\":" -i "${S}/bin/hipcc"
+
 	# Due to setting HAS_PATH to "/usr", this results in setting "-isystem /usr/include"
 	# which results in a "stdlib.h" not found while compiling "rocALUTION"
 	# currently comment out, remove in future?
 	sed -e "s:    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:#    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:" -i bin/hipcc || die
+
+	echo "message(STATUS \${HIP_RUNTIME})" >> ${S}/CMakeLists.txt
 
 	eapply_user
 	cmake-utils_src_prepare
@@ -55,12 +61,14 @@ src_configure() {
 	# which will be installed to find HIP;
 	# Other ROCm packages expect a "RELEASE" configuration,
 	# see "hipBLAS"
+
 	local mycmakeargs=(
 		-DCMAKE_BUILD_TYPE=${buildtype}
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)"
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_COMPILER=clang
 		-DHIP_PLATFORM=rocclr
+		-DHIP_RUNTIME=ROCclr
 		-DROCM_PATH="/usr"
 		-DHSA_PATH="/usr"
 		-DUSE_PROF_API=$(usex profile 1 0)
@@ -72,8 +80,9 @@ src_configure() {
 }
 
 src_install() {
-	echo "ROCM_PATH=/usr" > 99hip || die
-	echo "HIP_PLATFORM=rocclr" > 99hip || die
+	echo "HSA_PATH=/usr" > 99hip || die
+	echo "ROCM_PATH=/usr" >> 99hip || die
+	echo "HIP_PLATFORM=rocclr" >> 99hip || die
 	echo "HIP_RUNTIME=ROCclr" >> 99hip || die
 	echo "HIP_COMPILER=clang" >> 99hip || die
 	echo "HIP_CLANG_PATH=/usr/lib/llvm/roc/bin" >> 99hip || die
