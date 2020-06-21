@@ -40,8 +40,6 @@ src_prepare() {
 	# currently comment out, remove in future?
 	sed -e "s:    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:#    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:" -i bin/hipcc || die
 
-	echo "message(STATUS \${HIP_RUNTIME})" >> ${S}/CMakeLists.txt
-
 	eapply_user
 	cmake-utils_src_prepare
 }
