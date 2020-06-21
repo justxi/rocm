@@ -61,7 +61,7 @@ src_configure() {
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_COMPILER=clang
 		-DHIP_PLATFORM=rocclr
-		-DROCM_PATH=/usr
+		-DROCM_PATH="/usr"
 		-DHSA_PATH="/usr"
 		-DUSE_PROF_API=$(usex profile 1 0)
 		-DROCclr_DIR=/usr/include/rocclr
