@@ -8,7 +8,7 @@ If you have a problem with an ebuild from Gentoo portage then submit a bugreport
 
 **The ebuilds for ROCm 3.3.0  are in a good state.**<br>
 
-**Support for ROCm 3.5.0 is work in progress.**<br>
+**Support for ROCm 3.5.1 is work in progress.**<br>
 
 **Thanks to all contributors.**
 
@@ -23,11 +23,11 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocm-cmake| 3.5.0 | | Yes | :heavy_check_mark:<br> 0.2, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.3.0 3.5.0 |
 |dev-libs/roct-thunk-interface| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
 |dev-libs/rocr-runtime| 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
-|dev-libs/rocm-device-libs | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
+|dev-libs/rocm-device-libs | 3.5.1 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0 3.5.0 |
 |dev-libs/rocm-comgr | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
 |dev-libs/rocclr | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.5.0 |
 |dev-libs/rocm-opencl-runtime| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
-|media-libs/hsa-ext-rocr| 1.1.30300.0 | | Yes | :heavy_check_mark:<br> 1.1.30300.0 |
+|media-libs/hsa-ext-rocr| 1.1.30500.0 | | Yes | :heavy_check_mark:<br> 1.1.30500.0 |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |dev-util/rocm-bandwidth-test| 3.5.0 | Reports suitable informations. | (ok) |  |
 |dev-util/rocprofiler| 3.3.0 |  | (ok) | |
@@ -36,8 +36,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocm-clang-ocl| 3.5.0 | | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
 |dev-util/rocminfo | 3.5.0 |  | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
-|sys-devel/llvm-roc | 3.5.0 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0 | |
-|sys-devel/hcc| 3.3.0 | Marked deprecated.  | (ok) | |
+|sys-devel/llvm-roc | 3.5.1 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.5.1 | |
 |sys-devel/hip| 3.3.0 | currently depends on HCC | (ok) | |
 |dev-libs/rocr-debug-agent | 3.3.0 |  | (ok) | |
 |dev-util/roctracer| 3.3.0 |  | (ok) | |
