@@ -28,8 +28,10 @@ PATCHES=(
 )
 
 src_configure() {
-	CMAKE_MAKEFILE_GENERATOR=emake
-	CXX="/usr/lib/hip/$(ver_cut 1-2)/bin/hipcc"
+#	CMAKE_MAKEFILE_GENERATOR=emake
+
+	export DEVICE_LIB_PATH="/usr/lib64"
+	export CXX="/usr/lib/hip/$(ver_cut 1-2)/bin/hipcc"
 
 	if use gfx803; then
 		CurrentISA="803"
