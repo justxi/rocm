@@ -76,7 +76,7 @@ src_install() {
 	echo "HIP_PLATFORM=rocclr" > 99hip || die
 	echo "HIP_RUNTIME=ROCclr" >> 99hip || die
 	echo "HIP_COMPILER=clang" >> 99hip || die
-	echo "HIP_CLANG_PATH=/usr/lib/llvm/roc/$(ver_cut 1-2)/bin" >> 99hip || die
+	echo "HIP_CLANG_PATH=/usr/lib/llvm/roc/bin" >> 99hip || die
 
 	echo "PATH=/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
 	echo "HIP_PATH=/usr/lib/hip/$(ver_cut 1-2)" >> 99hip || die
