@@ -30,7 +30,6 @@ Kernel, driver, libraries, compiler and tools:
 |media-libs/hsa-ext-rocr| 1.1.30500.0 | | Yes | :heavy_check_mark:<br> 1.1.30500.0 |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |dev-util/rocm-bandwidth-test| 3.5.0 | Reports suitable informations. | (ok) |  |
-|dev-util/rocprofiler| 3.3.0 |  | (ok) | |
 |dev-libs/rocm-smi-lib| 3.5.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.5.0 | Reports suitable informations. | (ok) | |
 |dev-util/rocm-clang-ocl| 3.5.0 | | (ok) | |
@@ -40,6 +39,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/hip| 3.3.0 | currently depends on HCC | (ok) | |
 |dev-libs/rocr-debug-agent | 3.3.0 |  | (ok) | |
 |dev-util/roctracer| 3.3.0 |  | (ok) | |
+|dev-util/rocprofiler| 3.3.0 |  | (ok) | |
 |dev-libs/RCCL | 3.3.0 |  | (ok) | |
 |sys-devel/amd-rocm-meta| 3.3.0 |  | (ok) | |
 
