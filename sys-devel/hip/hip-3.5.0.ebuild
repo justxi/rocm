@@ -12,12 +12,12 @@ KEYWORDS="~amd64"
 LICENSE=""
 SLOT="0/$(ver_cut 1-2)"
 
-IUSE="debug +hipify profile"
+IUSE="debug hipify profile"
 
 # Don't strip to prevent some tests failure
 RESRICT="strip"
 
-DEPEND=">=dev-libs/rocmclr-${PV}
+DEPEND=">=dev-libs/rocclr-${PV}
 	>=dev-util/rocminfo-${PV}
 	=sys-devel/llvm-roc-${PV}*
 	hipify? ( >=sys-devel/clang-10.0.0 )"
