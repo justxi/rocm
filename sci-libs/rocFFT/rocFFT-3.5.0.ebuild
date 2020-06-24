@@ -36,8 +36,6 @@ pkg_pretend() {
 src_prepare() {
 	cd ${S}
 
-	eapply "${FILESDIR}/rocFFT-library_src_CMakeListstxt.patch"
-
 	sed -e "s: PREFIX rocfft:# PREFIX rocfft:" -i ${S}/library/src/CMakeLists.txt
 	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i ${S}/library/src/CMakeLists.txt
 	sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/rocFFT:" -i ${S}/library/src/CMakeLists.txt
@@ -53,6 +51,7 @@ src_configure() {
 	strip-flags
 	filter-flags '*march*'
 
+	# Tested in ROCm 3.3:
 	# if the ISA is not set previous to the autodetection,
 	# /opt/rocm/bin/rocm_agent_enumerator is executed,
 	# this leads to a sandbox violation
@@ -86,4 +85,3 @@ src_install() {
         cmake-utils_src_install
         chrpath --delete "${D}/usr/lib64/librocfft.so.0.1"
 }
-
