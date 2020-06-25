@@ -39,8 +39,10 @@ src_configure() {
 	export CXX=/usr/lib/hip/3.5/bin/hipcc
 
 	local mycmakeargs=(
+		-DCMAKE_PREFIX_PATH="/usr/lib/hip/3.5/"
+		-DHIP_PLATFORM="rocclr"
+		-DHIP_RUNTIME="ROCclr"
 		-DBUILD_CLIENTS_TESTS=OFF
-		-DBUILD_CLIENTS_BENCHMARKS=OFF
 		-DBUILD_CLIENTS_SAMPLES=OFF
 		-DCMAKE_INSTALL_PREFIX=/usr
 		-DCMAKE_INSTALL_INCLUDEDIR=include/hipsparse
