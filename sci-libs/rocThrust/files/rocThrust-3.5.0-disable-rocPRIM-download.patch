@@ -1,0 +1,43 @@
+--- a/cmake/Dependencies.cmake	2020-06-27 08:44:50.387319201 +0200
++++ b/cmake/Dependencies.cmake	2020-06-27 08:45:30.137319900 +0200
+@@ -22,23 +22,23 @@
+ if(NOT DOWNLOAD_ROCPRIM)
+   find_package(rocprim)
+ endif()
+-if(NOT rocprim_FOUND)
+-  message(STATUS "Downloading and building rocprim.")
+-  download_project(
+-    PROJ                rocprim
+-    GIT_REPOSITORY      https://github.com/ROCmSoftwarePlatform/rocPRIM.git
+-    GIT_TAG             a6ce0b9ce6e68eaf219bace8f6d532fb81ca5d9e
+-    INSTALL_DIR         ${CMAKE_CURRENT_BINARY_DIR}/deps/rocprim
+-    CMAKE_ARGS          -DBUILD_TEST=OFF -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR> -DCMAKE_PREFIX_PATH=/opt/rocm
+-    LOG_DOWNLOAD        TRUE
+-    LOG_CONFIGURE       TRUE
+-    LOG_BUILD           TRUE
+-    LOG_INSTALL         TRUE
+-    BUILD_PROJECT       TRUE
+-    UPDATE_DISCONNECTED TRUE # Never update automatically from the remote repository
+-  )
+-  find_package(rocprim REQUIRED CONFIG PATHS ${CMAKE_CURRENT_BINARY_DIR}/deps/rocprim)
+-endif()
++#if(NOT rocprim_FOUND)
++#  message(STATUS "Downloading and building rocprim.")
++#  download_project(
++#    PROJ                rocprim
++#    GIT_REPOSITORY      https://github.com/ROCmSoftwarePlatform/rocPRIM.git
++#    GIT_TAG             a6ce0b9ce6e68eaf219bace8f6d532fb81ca5d9e
++#    INSTALL_DIR         ${CMAKE_CURRENT_BINARY_DIR}/deps/rocprim
++#    CMAKE_ARGS          -DBUILD_TEST=OFF -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR> -DCMAKE_PREFIX_PATH=/opt/rocm
++#    LOG_DOWNLOAD        TRUE
++#    LOG_CONFIGURE       TRUE
++#    LOG_BUILD           TRUE
++#    LOG_INSTALL         TRUE
++#    BUILD_PROJECT       TRUE
++#    UPDATE_DISCONNECTED TRUE # Never update automatically from the remote repository
++#  )
++#  find_package(rocprim REQUIRED CONFIG PATHS ${CMAKE_CURRENT_BINARY_DIR}/deps/rocprim)
++#endif()
+ 
+ # Test dependencies
+ if(BUILD_TEST)

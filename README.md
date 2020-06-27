@@ -55,7 +55,7 @@ ROCm Libraries:
 |sci-libs/rocBLAS| 3.3.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/rocSOLVER| 3.3.0 | Installs, not tested yet | (ok) | |
 |sci-libs/rocALUTION| 3.3.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocThrust| 3.3.0 | Installs, not tested yet. | (ok) | |
+|sci-libs/rocThrust| 3.5.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipCUB | 3.5.0 | Installs, not tested yet. | (ok)| |
 |sci-libs/hipBLAS | 3.3.0 | Installs, not tested yet. | (ok) | |
 |sci-libs/hipSPARSE | 3.5.0 | Installs, not tested yet. | (ok) | |
