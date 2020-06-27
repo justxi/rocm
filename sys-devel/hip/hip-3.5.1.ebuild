@@ -27,6 +27,7 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PN}-3.5.0-DisableTest.patch"
 	"${FILESDIR}/${PN}-3.5.1-config-cmake-in.patch"
+	"${FILESDIR}/${PN}-3.5.1-hip_vector_types.patch"
 )
 
 S="${WORKDIR}/HIP-rocm-${PV}"
