@@ -48,19 +48,19 @@ ROCm Libraries:
 
 |Ebuild|Current Version|State|FHS|in Gentoo portage|
 |---|---|---|---|---|
-|sci-libs/rocPRIM| 3.5.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocRAND| 3.5.0 | Installs, not tested yet | (ok) |  |
-|sci-libs/rocFFT| 3.5.0 | Installs, not tested yet | (ok) | |
-|sci-libs/rocSPARSE| 3.5.0 | Installs, not tested yet.  | (ok) | |
-|sci-libs/rocBLAS| 3.3.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocSOLVER| 3.3.0 | Installs, not tested yet | (ok) | |
-|sci-libs/rocALUTION| 3.3.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/rocThrust| 3.5.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/hipCUB | 3.5.0 | Installs, not tested yet. | (ok)| |
-|sci-libs/hipBLAS | 3.3.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/hipSPARSE | 3.5.0 | Installs, not tested yet. | (ok) | |
-|sci-libs/MIOpenGEMM | 1.1.6 | Installs, not tested yet. | (ok) | |
-|sci-libs/MIOpen | 3.3.0 | Installs, not tested yet. | (ok) | |
+|sci-libs/rocPRIM| 3.5.0 |  | (ok) | |
+|sci-libs/rocRAND| 3.5.0 |  | (ok) |  |
+|sci-libs/rocFFT| 3.5.0 |  | (ok) | |
+|sci-libs/rocSPARSE| 3.5.0 |  | (ok) | |
+|sci-libs/rocBLAS| 3.5.0 | builds without tensile | (ok) | |
+|sci-libs/rocSOLVER| 3.3.0 |  | (ok) | |
+|sci-libs/rocALUTION| 3.3.0 | | (ok) | |
+|sci-libs/rocThrust| 3.5.0 |  | (ok) | |
+|sci-libs/hipCUB | 3.5.0 |  | (ok)| |
+|sci-libs/hipBLAS | 3.3.0 |  | (ok) | |
+|sci-libs/hipSPARSE | 3.5.0 |  | (ok) | |
+|sci-libs/MIOpenGEMM | 1.1.6 |  | (ok) | |
+|sci-libs/MIOpen | 3.3.0 |  | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
 |sci-libs/AMDMIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
 
