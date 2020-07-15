@@ -17,15 +17,20 @@
  
  # Install header and library
 -install ( TARGETS ${ROCPROFILER_TARGET} LIBRARY DESTINATION ${DEST_NAME}/lib )
-+install ( TARGETS ${ROCPROFILER_TARGET} LIBRARY DESTINATION ${DEST_NAME}/lib64 )
- install ( FILES ${CMAKE_CURRENT_SOURCE_DIR}/inc/rocprofiler.h DESTINATION ${DEST_NAME}/include )
++install ( TARGETS ${ROCPROFILER_TARGET} LIBRARY DESTINATION lib64 )
+-install ( FILES ${CMAKE_CURRENT_SOURCE_DIR}/inc/rocprofiler.h DESTINATION ${DEST_NAME}/include )
++install ( FILES ${CMAKE_CURRENT_SOURCE_DIR}/inc/rocprofiler.h DESTINATION include )
 -install ( FILES ${CMAKE_CURRENT_SOURCE_DIR}/inc/rocprofiler.h DESTINATION include/${DEST_NAME} )
 +#install ( FILES ${CMAKE_CURRENT_SOURCE_DIR}/inc/rocprofiler.h DESTINATION include/${DEST_NAME} )
  # rpl_run.sh tblextr.py txt2xml.sh
  install ( FILES
            ${CMAKE_CURRENT_SOURCE_DIR}/bin/rpl_run.sh
-@@ -148,20 +148,20 @@
-           DESTINATION ${DEST_NAME}/bin
+@@ -145,23 +145,23 @@
+           ${CMAKE_CURRENT_SOURCE_DIR}/bin/tblextr.py
+           ${CMAKE_CURRENT_SOURCE_DIR}/bin/dform.py
+           ${CMAKE_CURRENT_SOURCE_DIR}/bin/sqlitedb.py
+-          DESTINATION ${DEST_NAME}/bin
++          DESTINATION bin
            PERMISSIONS OWNER_READ OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE )
  # gfx_metrics.xml metrics.xml
 -install ( FILES

@@ -39,7 +39,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/hip| 3.5.1 |  | (ok) | |
 |dev-libs/rocr-debug-agent | 3.5.0 |  | (ok) | |
 |dev-util/roctracer| 3.5.0 |  | (ok) | |
-|dev-util/rocprofiler| 3.3.0 |  | (ok) | |
+|dev-util/rocprofiler| 3.5.0 |  | (ok) | |
 |dev-libs/RCCL | 3.5.0 |  | (ok) | |
 |sys-devel/amd-rocm-meta| 3.3.0 |  | (ok) | |
 
