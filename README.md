@@ -41,7 +41,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/roctracer| 3.5.0 |  | (ok) | |
 |dev-util/rocprofiler| 3.5.0 |  | (ok) | |
 |dev-libs/RCCL | 3.5.0 |  | (ok) | |
-|sys-devel/amd-rocm-meta| 3.3.0 |  | (ok) | |
+|sys-devel/amd-rocm-meta| 3.5.0 | Currently not all sci-libs could be build. | (ok) | |
 
 <br>
 ROCm Libraries:
