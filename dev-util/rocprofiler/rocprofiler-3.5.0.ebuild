@@ -27,6 +27,16 @@ PATCHES=(
 
 S="${WORKDIR}/rocprofiler-rocm-${PV}"
 
+src_prepare() {
+	# header "string" is no included...
+	sed -e "s:#include <vector>:#include <vector>\n#include <string>:" -i "${S}/test/simple_convolution/simple_convolution.h"
+
+	# change install destination
+#	sed -e "s:::" -i "${S}/CMakeLists.txt"
+
+	cmake-utils_src_prepare
+}
+
 src_configure() {
 	export CMAKE_PREFIX_PATH=/usr/include/hsa:/usr/lib/
 
@@ -34,8 +44,9 @@ src_configure() {
 #	export CMAKE_LD_AQLPROFILE=1
 
 	local mycmakeargs=(
-		-DUSE_PROF_API=0
+		-DUSE_PROF_API=OFF
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
+		-DPROF_API_HEADER_PATH="/usr/include/roctracer/ext/"
         )
 
 	if use debug; then
