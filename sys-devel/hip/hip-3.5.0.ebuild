@@ -20,12 +20,13 @@ RESRICT="strip"
 
 DEPEND=">=dev-libs/rocclr-$(ver_cut 1-2)
 	>=dev-util/rocminfo-$(ver_cut 1-2)
-	=sys-devel/llvm-roc-${PV}*
+	>=sys-devel/llvm-roc-${PV}
 	hipify? ( >=sys-devel/clang-10.0.0 )"
 RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.5.0-DisableTest.patch"
+	"${FILESDIR}/${PN}-3.5.1-detect_offload-arch_for_clang-roc.patch"
 )
 
 S="${WORKDIR}/HIP-rocm-${PV}"
@@ -38,6 +39,9 @@ src_prepare() {
 	# which results in a "stdlib.h" not found while compiling "rocALUTION"
 	# currently comment out, remove in future?
 	sed -e "s:    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:#    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:" -i bin/hipcc || die
+
+	#prefixing hipcc and its utils
+	grep -rl --exclude-dir=build/ "/usr" ${S} | xargs sed -e "s:/usr:${EPREFIX}/usr:g" -i || die
 
 	eapply_user
 	cmake-utils_src_prepare
@@ -64,27 +68,27 @@ src_configure() {
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_COMPILER=clang
 		-DHIP_PLATFORM=rocclr
-		-DROCM_PATH="/usr"
-		-DHSA_PATH="/usr"
+		-DROCM_PATH="${EPREFIX}/usr"
+		-DHSA_PATH="${EPREFIX}/usr"
 		-DUSE_PROF_API=$(usex profile 1 0)
-		-DROCclr_DIR=/usr/include/rocclr
-		-DLIBROCclr_STATIC_DIR=/usr/lib64/cmake/rocclr
+		-DROCclr_DIR=${EPREFIX}/usr/include/rocclr
+		-DLIBROCclr_STATIC_DIR=${EPREFIX}/usr/lib64/cmake/rocclr
 	)
 
 	cmake-utils_src_configure
 }
 
 src_install() {
-	echo "ROCM_PATH=/usr" > 99hip || die
-	echo "HIP_PLATFORM=rocclr" > 99hip || die
+	echo "ROCM_PATH=${EPREFIX}/usr" >> 99hip || die
+	echo "HIP_PLATFORM=rocclr" >> 99hip || die
 	echo "HIP_RUNTIME=ROCclr" >> 99hip || die
 	echo "HIP_COMPILER=clang" >> 99hip || die
-	echo "HIP_CLANG_PATH=/usr/lib/llvm/roc/bin" >> 99hip || die
+	echo "HIP_CLANG_PATH=${EPREFIX}/usr/lib/llvm/roc/bin" >> 99hip || die
 
-	echo "PATH=/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
-	echo "HIP_PATH=/usr/lib/hip/$(ver_cut 1-2)" >> 99hip || die
-	echo "LDPATH=/usr/lib/hip/$(ver_cut 1-2)/lib" >> 99hip || die
-	echo "ROOTPATH=/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
+	echo "PATH=${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
+	echo "HIP_PATH=${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)" >> 99hip || die
+	echo "LDPATH=${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)/lib" >> 99hip || die
+	echo "ROOTPATH=${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
 
 	doenvd 99hip
 
