@@ -30,8 +30,8 @@ PATCHES=(
 src_configure() {
 #	CMAKE_MAKEFILE_GENERATOR=emake
 
-	export DEVICE_LIB_PATH="/usr/lib64"
-	export CXX="/usr/lib/hip/$(ver_cut 1-2)/bin/hipcc"
+	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib64"
+	export CXX=hipcc
 
 	if use gfx803; then
 		CurrentISA="803"
@@ -44,6 +44,7 @@ src_configure() {
 	fi
 
 	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX=${EPREFIX}/usr
 		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
 		-Wno-dev
 	)
