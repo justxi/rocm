@@ -40,12 +40,12 @@ src_prepare() {
 }
 
 src_configure() {
-	export CXX=/usr/lib/hip/3.5/bin/hipcc
+	export CXX=hipcc
 
 	local mycmakeargs=(
 		-DHIP_PLATFORM=rocclr
 		-DBUILD_TEST=OFF
-		-DCMAKE_INSTALL_PREFIX=/usr
+		-DCMAKE_INSTALL_PREFIX=${EPREFIX}/usr
 	)
 
 	cmake-utils_src_configure

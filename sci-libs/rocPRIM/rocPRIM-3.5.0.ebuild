@@ -45,14 +45,14 @@ src_prepare() {
 
 src_configure() {
 	# Compiler to use...
-	export CXX="/usr/lib/hip/3.5/bin/hipcc"
+	export CXX=hipcc
 
 	# Let "hipcc" know where the bitcode files are located
-	export DEVICE_LIB_PATH="/usr/lib64"
+	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib64"
 
 	local mycmakeargs=(
 		-DHIP_PLATFORM=rocclr
-		-DCMAKE_INSTALL_PREFIX=/usr/
+		-DCMAKE_INSTALL_PREFIX=${EPREFIX}/usr/
 		-DBUILD_TEST=OFF
 		-DBUILD_BENCHMARK=OFF
 	)

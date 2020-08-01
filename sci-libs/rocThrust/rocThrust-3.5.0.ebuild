@@ -40,8 +40,7 @@ src_prepare() {
 }
 
 src_configure() {
-	export hip_DIR=/usr/lib/hip/3.5/lib/cmake/
-	export CXX=/usr/lib/hip/3.5/bin/hipcc
+	export CXX=hipcc
 
 	local mycmakeargs=(
 		-DHIP_PLATFORM=rocclr

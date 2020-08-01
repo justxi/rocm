@@ -69,11 +69,11 @@ src_configure() {
 		AMDGPU_TARGETS+="gfx908;"
 	fi
 
-	export CXX=/usr/lib/hip/3.5/bin/hipcc
+	export CXX=hipcc
 
 	local mycmakeargs=(
 		-Wno-dev
-		-DCMAKE_INSTALL_PREFIX="/usr"
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/"
 		-DAMDGPU_TARGETS="${AMDGPU_TARGETS}"
 	)
