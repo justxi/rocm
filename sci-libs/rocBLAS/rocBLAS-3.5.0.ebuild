@@ -7,14 +7,13 @@ inherit cmake-utils flag-o-matic
 
 DESCRIPTION="AMD's library for BLAS on ROCm."
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
-SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-${PV}.tar.gz -> rocm-rocBLAS-${PV}.tar.gz
-	https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-${PV}.tar.gz -> rocm-rocBLAS-${PV}.tar.gz"
 
 LICENSE=""
 KEYWORDS="~amd64"
 SLOT="0"
 
-IUSE="debug +gfx803 gfx900 gfx906 gfx908 tensile tensile_architecture_gfx803 tensile_asm_ci tensile_host"
+IUSE="debug +gfx803 gfx900 gfx906 gfx908 +tensile tensile_architecture_gfx803 tensile_asm_ci tensile_host"
 REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
@@ -37,6 +36,7 @@ src_prepare() {
 	cd "${WORKDIR}/Tensile-rocm-${PV}"
 
 #	eapply "${FILESDIR}/Tensile-2.8-add_HIP_include_path.patch"
+	if use tensile; then eapply "${FILESDIR}/Use_External_Tensile.patch"; fi
 
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 	sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/rocblas:" -i ${S}/library/src/CMakeLists.txt || die
@@ -70,7 +70,7 @@ src_configure() {
 	strip-flags
 	filter-flags '*march*'
 
-	CXX=/usr/lib/hip/3.5/bin/hipcc
+	CXX=hipcc
 
 	if use debug; then
 		buildtype="Debug"
@@ -93,7 +93,6 @@ src_configure() {
 	fi
 
 	local mycmakeargs=(
-		-DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"
 		-DCMAKE_BUILD_TYPE=${buildtype}
