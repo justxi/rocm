@@ -31,7 +31,7 @@ src_prepare() {
 	sed -e "s:find_package(HIP 1.5.18263 REQUIRED):find_package(HIP 3.5.20250 REQUIRED):" -i cmake/VerifyCompiler.cmake
 
 	# "hcc" is depcreated, new platform ist "rocclr"
-	sed -e "s:HIP_PLATFORM STREQUAL \"hcc\":HIP_PLATFORM STREQUAL \"rocclr\":" -i cmake/VerifyCompiler.cmake
+	# sed -e "s:HIP_PLATFORM STREQUAL \"hcc\":HIP_PLATFORM STREQUAL \"rocclr\":" -i cmake/VerifyCompiler.cmake
 
 	# Install according to FHS
 	sed -e "s: PREFIX rocprim:# PREFIX rocprim:" -i rocprim/CMakeLists.txt
@@ -51,7 +51,7 @@ src_configure() {
 	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib64"
 
 	local mycmakeargs=(
-		-DHIP_PLATFORM=rocclr
+		-DHIP_PLATFORM=hcc
 		-DCMAKE_INSTALL_PREFIX=${EPREFIX}/usr/
 		-DBUILD_TEST=OFF
 		-DBUILD_BENCHMARK=OFF

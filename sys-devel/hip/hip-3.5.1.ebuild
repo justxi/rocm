@@ -36,7 +36,7 @@ S="${WORKDIR}/HIP-rocm-${PV}"
 
 src_prepare() {
 	# "hcc" is deprecated and not installed, new platform is "rocclr"
-	sed -e "s:\$HIP_PLATFORM eq \"hcc\" and \$HIP_COMPILER eq \"clang\":\$HIP_PLATFORM eq \"rocclr\" and \$HIP_COMPILER eq \"clang\":" -i "${S}/bin/hipcc"
+	# sed -e "s:\$HIP_PLATFORM eq \"hcc\" and \$HIP_COMPILER eq \"clang\":\$HIP_PLATFORM eq \"rocclr\" and \$HIP_COMPILER eq \"clang\":" -i "${S}/bin/hipcc"
 
 	# Due to setting HAS_PATH to "/usr", this results in setting "-isystem /usr/include"
 	# which results in a "stdlib.h" not found while compiling "rocALUTION"
@@ -70,7 +70,6 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)"
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_COMPILER=clang
-		-DHIP_PLATFORM=rocclr
 		-DHIP_RUNTIME=ROCclr
 		-DROCM_PATH="${EPREFIX}/usr"
 		-DHSA_PATH="${EPREFIX}/usr"
@@ -85,7 +84,7 @@ src_configure() {
 src_install() {
 	echo "HSA_PATH=${EPREFIX}/usr" > 99hip || die
 	echo "ROCM_PATH=${EPREFIX}/usr" >> 99hip || die
-	echo "HIP_PLATFORM=rocclr" >> 99hip || die
+	echo "HIP_PLATFORM=hcc" >> 99hip || die
 	echo "HIP_RUNTIME=ROCclr" >> 99hip || die
 	echo "HIP_COMPILER=clang" >> 99hip || die
 	echo "HIP_CLANG_PATH=${EPREFIX}/usr/lib/llvm/roc/bin" >> 99hip || die

@@ -26,7 +26,7 @@ src_prepare() {
 	eapply "${FILESDIR}/master-disable2ndfindhcc.patch"
 	eapply "${FILESDIR}/rocThrust-3.5.0-disable-rocPRIM-download.patch"
 
-	sed -e "s:HIP_PLATFORM STREQUAL \"hcc\":HIP_PLATFORM STREQUAL \"rocclr\":" -i ${S}/cmake/VerifyCompiler.cmake
+	# sed -e "s:HIP_PLATFORM STREQUAL \"hcc\":HIP_PLATFORM STREQUAL \"rocclr\":" -i ${S}/cmake/VerifyCompiler.cmake
 
 	sed -e "s: PREFIX rocthrust:# PREFIX rocthrust:" -i ${S}/thrust/CMakeLists.txt
 	sed -e "s:  DESTINATION rocthrust/include/thrust:  DESTINATION include/rocthrust/thrust:" -i ${S}/thrust/CMakeLists.txt
@@ -43,7 +43,7 @@ src_configure() {
 	export CXX=hipcc
 
 	local mycmakeargs=(
-		-DHIP_PLATFORM=rocclr
+		-DHIP_PLATFORM=hcc
 		-DBUILD_TEST=OFF
 	)
 

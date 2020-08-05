@@ -14,7 +14,7 @@ LICENSE=""
 KEYWORDS="~amd64"
 SLOT="0"
 
-IUSE="debug +gfx803 gfx900 gfx906 gfx908 +tensile tensile_architecture_gfx803 tensile_asm_ci tensile_host"
+IUSE="debug +gfx803 gfx900 gfx906 gfx908 +tensile tensile_asm_ci tensile_host"
 REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
@@ -115,9 +115,27 @@ src_configure() {
 		)
 	fi
 
-	if use tensile_architecture_gfx803; then
+	if use gfx803; then
 		mycmakeargs+=(
 			-DTensile_ARCHITECTURE="gfx803"
+		)
+	fi
+
+	if use gfx900; then
+		mycmakeargs+=(
+			-DTensile_ARCHITECTURE="gfx900"
+		)
+	fi
+
+	if use gfx906; then
+		mycmakeargs+=(
+			-DTensile_ARCHITECTURE="gfx906"
+		)
+	fi
+
+	if use gfx908; then
+		mycmakeargs+=(
+			-DTensile_ARCHITECTURE="gfx908"
 		)
 	fi
 
