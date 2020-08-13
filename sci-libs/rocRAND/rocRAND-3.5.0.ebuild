@@ -48,10 +48,10 @@ src_configure() {
 	filter-flags '*march*'
 
 	# Compiler to use...
-	export CXX="/usr/lib/hip/3.5/bin/hipcc"
+	export CXX=hipcc
 
 	# Let "hipcc" know where the bitcode files are located
-	export DEVICE_LIB_PATH="/usr/lib64"
+	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib64"
 
 	local mycmakeargs=(
 		-DBUILD_TEST=OFF

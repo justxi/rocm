@@ -28,18 +28,23 @@ PATCHES=(
 	"${FILESDIR}/${PN}-3.5.0-DisableTest.patch"
 	"${FILESDIR}/${PN}-3.5.1-config-cmake-in.patch"
 	"${FILESDIR}/${PN}-3.5.1-hip_vector_types.patch"
+	"${FILESDIR}/${PN}-3.5.1-detect_offload-arch_for_clang-roc.patch"
 )
+
 
 S="${WORKDIR}/HIP-rocm-${PV}"
 
 src_prepare() {
 	# "hcc" is deprecated and not installed, new platform is "rocclr"
-	sed -e "s:\$HIP_PLATFORM eq \"hcc\" and \$HIP_COMPILER eq \"clang\":\$HIP_PLATFORM eq \"rocclr\" and \$HIP_COMPILER eq \"clang\":" -i "${S}/bin/hipcc"
+	# sed -e "s:\$HIP_PLATFORM eq \"hcc\" and \$HIP_COMPILER eq \"clang\":\$HIP_PLATFORM eq \"rocclr\" and \$HIP_COMPILER eq \"clang\":" -i "${S}/bin/hipcc"
 
 	# Due to setting HAS_PATH to "/usr", this results in setting "-isystem /usr/include"
 	# which results in a "stdlib.h" not found while compiling "rocALUTION"
 	# currently comment out, remove in future?
 	sed -e "s:    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:#    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:" -i bin/hipcc || die
+
+	#prefixing hipcc and its utils
+	grep -rl --exclude-dir=build/ "/usr" ${S} | xargs sed -e "s:/usr:${EPREFIX}/usr:g" -i || die
 
 	eapply_user
 	cmake-utils_src_prepare
@@ -60,36 +65,34 @@ src_configure() {
 	# which will be installed to find HIP;
 	# Other ROCm packages expect a "RELEASE" configuration,
 	# see "hipBLAS"
-
 	local mycmakeargs=(
 		-DCMAKE_BUILD_TYPE=${buildtype}
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)"
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_COMPILER=clang
-		-DHIP_PLATFORM=rocclr
 		-DHIP_RUNTIME=ROCclr
-		-DROCM_PATH="/usr"
-		-DHSA_PATH="/usr"
+		-DROCM_PATH="${EPREFIX}/usr"
+		-DHSA_PATH="${EPREFIX}/usr"
 		-DUSE_PROF_API=$(usex profile 1 0)
-		-DROCclr_DIR=/usr/include/rocclr
-		-DLIBROCclr_STATIC_DIR=/usr/lib64/cmake/rocclr
+		-DROCclr_DIR=${EPREFIX}/usr/include/rocclr
+		-DLIBROCclr_STATIC_DIR=${EPREFIX}/usr/lib64/cmake/rocclr
 	)
 
 	cmake-utils_src_configure
 }
 
 src_install() {
-	echo "HSA_PATH=/usr" > 99hip || die
-	echo "ROCM_PATH=/usr" >> 99hip || die
-	echo "HIP_PLATFORM=rocclr" >> 99hip || die
+	echo "HSA_PATH=${EPREFIX}/usr" > 99hip || die
+	echo "ROCM_PATH=${EPREFIX}/usr" >> 99hip || die
+	echo "HIP_PLATFORM=hcc" >> 99hip || die
 	echo "HIP_RUNTIME=ROCclr" >> 99hip || die
 	echo "HIP_COMPILER=clang" >> 99hip || die
-	echo "HIP_CLANG_PATH=/usr/lib/llvm/roc/bin" >> 99hip || die
+	echo "HIP_CLANG_PATH=${EPREFIX}/usr/lib/llvm/roc/bin" >> 99hip || die
 
-	echo "PATH=/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
-	echo "HIP_PATH=/usr/lib/hip/$(ver_cut 1-2)" >> 99hip || die
-	echo "LDPATH=/usr/lib/hip/$(ver_cut 1-2)/lib" >> 99hip || die
-	echo "ROOTPATH=/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
+	echo "PATH=${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
+	echo "HIP_PATH=${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)" >> 99hip || die
+	echo "LDPATH=${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)/lib" >> 99hip || die
+	echo "ROOTPATH=${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)/bin" >> 99hip || die
 
 	doenvd 99hip
 

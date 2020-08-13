@@ -25,7 +25,7 @@ S="${WORKDIR}/hipCUB-rocm-${PV}"
 src_prepare() {
 	eapply "${FILESDIR}/master-disable2ndfindhcc.patch"
 
-	sed -e "s:HIP_PLATFORM STREQUAL \"hcc\":HIP_PLATFORM STREQUAL \"rocclr\":" -i cmake/VerifyCompiler.cmake
+	# sed -e "s:HIP_PLATFORM STREQUAL \"hcc\":HIP_PLATFORM STREQUAL \"rocclr\":" -i cmake/VerifyCompiler.cmake
         sed -e "s:find_package(HIP 1.5.18263 REQUIRED):find_package(HIP 3.5.20250 REQUIRED):" -i cmake/VerifyCompiler.cmake
 
 	sed -e "s: PREFIX hipcub:# PREFIX hipcub:" -i ${S}/hipcub/CMakeLists.txt
@@ -40,12 +40,12 @@ src_prepare() {
 }
 
 src_configure() {
-	export CXX=/usr/lib/hip/3.5/bin/hipcc
+	export CXX=hipcc
 
 	local mycmakeargs=(
-		-DHIP_PLATFORM=rocclr
+		-DHIP_PLATFORM=hcc
 		-DBUILD_TEST=OFF
-		-DCMAKE_INSTALL_PREFIX=/usr
+		-DCMAKE_INSTALL_PREFIX=${EPREFIX}/usr
 	)
 
 	cmake-utils_src_configure

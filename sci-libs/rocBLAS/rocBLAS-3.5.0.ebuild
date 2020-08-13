@@ -14,7 +14,7 @@ LICENSE=""
 KEYWORDS="~amd64"
 SLOT="0"
 
-IUSE="debug +gfx803 gfx900 gfx906 gfx908 tensile tensile_architecture_gfx803 tensile_asm_ci tensile_host"
+IUSE="debug +gfx803 gfx900 gfx906 gfx908 +tensile tensile_asm_ci tensile_host"
 REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
@@ -43,6 +43,7 @@ src_prepare() {
 
 #	sed -e "s:\\\\\${CPACK_PACKAGING_INSTALL_PREFIX}rocblas/lib:/usr/lib64/rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 	sed -e "s:rocm_install_symlink_subdir( rocblas ):#rocm_install_symlink_subdir( rocblas ):" -i ${S}/library/src/CMakeLists.txt || die
+	sed -e "s:hipFlags = \[\"--genco\", :hipFlags = \[:" -i Tensile/TensileCreateLibrary.py
 
 	# patch patch to hcc - replace by "hipcc" ???
 #	sed -e "s:HCC=\${rocm_path}/hcc/bin/hcc:HCC=${HCC_HOME}/bin/hcc:" -i ${S}/header_compilation_tests.sh
@@ -70,7 +71,7 @@ src_configure() {
 	strip-flags
 	filter-flags '*march*'
 
-	CXX=/usr/lib/hip/3.5/bin/hipcc
+	CXX=hipcc
 
 	if use debug; then
 		buildtype="Debug"
@@ -93,6 +94,7 @@ src_configure() {
 	fi
 
 	local mycmakeargs=(
+		-DTensile_COMPILER="hipcc"
 		-DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"
@@ -113,9 +115,27 @@ src_configure() {
 		)
 	fi
 
-	if use tensile_architecture_gfx803; then
+	if use gfx803; then
 		mycmakeargs+=(
 			-DTensile_ARCHITECTURE="gfx803"
+		)
+	fi
+
+	if use gfx900; then
+		mycmakeargs+=(
+			-DTensile_ARCHITECTURE="gfx900"
+		)
+	fi
+
+	if use gfx906; then
+		mycmakeargs+=(
+			-DTensile_ARCHITECTURE="gfx906"
+		)
+	fi
+
+	if use gfx908; then
+		mycmakeargs+=(
+			-DTensile_ARCHITECTURE="gfx908"
 		)
 	fi
 

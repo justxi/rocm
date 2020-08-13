@@ -56,12 +56,12 @@ src_configure() {
                 CurrentISA+="gfx908;"
         fi
 
-	export CXX=/usr/lib/hip/3.5/bin/hipcc
+	export CXX=hipcc
 
 	local mycmakeargs=(
 		-DBUILD_CLIENTS_SAMPLES=OFF
 		-DAMDGPU_TARGETS="${CurrentISA}"
-		-DCMAKE_INSTALL_PREFIX="/usr"
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocsparse"
 	)
 
