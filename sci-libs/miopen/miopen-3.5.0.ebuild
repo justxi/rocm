@@ -24,7 +24,7 @@ RDEPEND="
 		sci-libs/miopengemm )
 	!opencl? (
 		=dev-util/rocm-clang-ocl-${PV}*
-		sci-libs/rocBLAS )
+		sci-libs/rocBLAS[tensile] )
 	!static-boost? ( dev-libs/boost )
 	static-boost? ( dev-libs/boost[static-libs] )"
 
