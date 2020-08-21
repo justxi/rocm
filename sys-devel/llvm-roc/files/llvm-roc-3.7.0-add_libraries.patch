@@ -1,0 +1,18 @@
+--- a/clang/lib/Basic/CMakeLists.txt
++++ b/clang/lib/Basic/CMakeLists.txt
+@@ -2,6 +2,7 @@
+   Core
+   MC
+   Support
++  Option
+   )
+ 
+ find_first_existing_vc_file("${LLVM_MAIN_SRC_DIR}" llvm_vc)
+--- a/clang/lib/Driver/CMakeLists.txt
++++ b/clang/lib/Driver/CMakeLists.txt
+@@ -79,4 +79,5 @@
+   LINK_LIBS
+   clangBasic
+   ${system_libs}
++  pthread
+   )

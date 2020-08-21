@@ -1,0 +1,34 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -178,19 +178,19 @@
+ endif ()
+ 
+ ## Add symlinks from top level ROCm lib dir to rocm-smi lib so files
+-add_custom_target ( so-link ALL WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+-                    COMMAND ${CMAKE_COMMAND} -E create_symlink
+-                          ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so so-link )
+-add_custom_target ( so-major-link ALL WORKING_DIRECTORY
+-                  ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${CMAKE_COMMAND}
+-                  -E create_symlink
+-                  ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR}
+-                                                               so-major-link )
++#add_custom_target ( so-link ALL WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
++#                    COMMAND ${CMAKE_COMMAND} -E create_symlink
++#                          ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so so-link )
++#add_custom_target ( so-major-link ALL WORKING_DIRECTORY
++#                  ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${CMAKE_COMMAND}
++#                  -E create_symlink
++#                  ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR}
++#                                                               so-major-link )
+ 
+-install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-link DESTINATION lib RENAME
+-                                                     ${ROCM_SMI_LIB_NAME}.so )
+-install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-major-link DESTINATION lib
+-                             RENAME ${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR} )
++#install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-link DESTINATION lib RENAME
++#                                                     ${ROCM_SMI_LIB_NAME}.so )
++#install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-major-link DESTINATION lib
++#                             RENAME ${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR} )
+ 
+ ## Add the install directives for the runtime library.
+ install(TARGETS ${ROCM_SMI_TARGET}

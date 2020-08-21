@@ -1,0 +1,11 @@
+--- a/library/src/CMakeLists.txt
++++ b/library/src/CMakeLists.txt
+@@ -336,7 +336,7 @@
+ endif( )
+ 
+ target_link_libraries( rocblas INTERFACE hip::host )
+-target_link_libraries( rocblas PRIVATE hip::device )
++#target_link_libraries( rocblas PRIVATE hip::device )
+ 
+ set_target_properties( rocblas PROPERTIES CXX_STANDARD 14 CXX_STANDARD_REQUIRED ON )
+ 

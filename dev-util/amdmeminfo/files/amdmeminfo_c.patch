@@ -1,0 +1,12 @@
+--- a/amdmeminfo.c
++++ b/amdmeminfo.c
+@@ -97,8 +97,8 @@
+   "DDR3",
+   "DDR4",
+   "GDDR5",
+-  "GDDR6",
+   "HBM",
++  "GDDR6",
+ };
+ 
+ static const char *amd_asic_name[] = {

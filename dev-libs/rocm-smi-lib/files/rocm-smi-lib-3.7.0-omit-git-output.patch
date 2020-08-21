@@ -1,0 +1,36 @@
+--- a/cmake_modules/utils.cmake
++++ b/cmake_modules/utils.cmake
+@@ -89,7 +89,9 @@ function(get_version_from_tag DEFAULT_VERSION_STRING VERSION_PREFIX GIT)
+                           WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                           OUTPUT_VARIABLE GIT_TAG_STRING
+                           OUTPUT_STRIP_TRAILING_WHITESPACE
+-                          RESULT_VARIABLE RESULT )
++                          RESULT_VARIABLE RESULT
++                          OUTPUT_QUIET
++                          ERROR_QUIET )
+         if ( ${RESULT} EQUAL 0 )
+             parse_version ( ${GIT_TAG_STRING} )
+         endif ()
+@@ -109,7 +111,9 @@ function(num_change_since_prev_pkg VERSION_PREFIX)
+                           WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                           OUTPUT_VARIABLE NUM_COMMITS
+                           OUTPUT_STRIP_TRAILING_WHITESPACE
+-                          RESULT_VARIABLE RESULT )
++                          RESULT_VARIABLE RESULT
++                          OUTPUT_QUIET
++                          ERROR_QUIET )
+ 
+         set(NUM_COMMITS "${NUM_COMMITS}" PARENT_SCOPE )
+ 
+@@ -142,7 +146,10 @@ function(get_package_version_number DEFAULT_VERSION_STRING VERSION_PREFIX GIT)
+                         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                         OUTPUT_VARIABLE VERSION_HASH
+                         OUTPUT_STRIP_TRAILING_WHITESPACE
+-                        RESULT_VARIABLE RESULT )
++                        RESULT_VARIABLE RESULT
++                        OUTPUT_QUIET
++                        ERROR_QUIET )
++
+         if( ${RESULT} EQUAL 0 )
+             # Check for dirty workspace.
+             execute_process(COMMAND git diff --quiet

@@ -1,0 +1,11 @@
+--- a/cmake/VerifyCompiler.cmake
++++ b/cmake/VerifyCompiler.cmake
+@@ -35,7 +35,7 @@
+ 
+     if(HIP_COMPILER STREQUAL "hcc")
+       list(APPEND CMAKE_PREFIX_PATH /opt/rocm/hcc)
+-      find_package(hcc REQUIRED CONFIG PATHS /opt/rocm)
++#      find_package(hcc REQUIRED CONFIG PATHS /opt/rocm)
+     endif()
+ else()
+     message(FATAL_ERROR "HIP_COMPILER must be 'hcc' or 'clang' (AMD ROCm platform)")

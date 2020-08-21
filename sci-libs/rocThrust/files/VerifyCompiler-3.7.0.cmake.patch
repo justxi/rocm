@@ -1,0 +1,11 @@
+--- a/cmake/VerifyCompiler.cmake
++++ b/cmake/VerifyCompiler.cmake
+@@ -25,7 +25,7 @@
+ 
+ if(HIP_COMPILER STREQUAL "nvcc")
+     message(FATAL_ERROR "rocThrust does not support the CUDA backend.")
+-elseif(HIP_COMPILER STREQUAL "hcc" OR HIP_COMPILER STREQUAL "clang")
++elseif(HIP_PLATFORM STREQUAL "rocclr" OR HIP_COMPILER STREQUAL "hcc" OR HIP_COMPILER STREQUAL "clang")
+     if(NOT (CMAKE_CXX_COMPILER MATCHES ".*/hcc$" OR CMAKE_CXX_COMPILER MATCHES ".*/hipcc$"))
+         message(FATAL_ERROR "On ROCm platform 'hcc' or 'clang' must be used as C++ compiler.")
+     elseif(NOT CXX_VERSION_STRING MATCHES "clang")

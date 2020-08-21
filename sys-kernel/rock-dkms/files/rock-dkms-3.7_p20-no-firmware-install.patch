@@ -1,0 +1,23 @@
+--- a/amd/dkms/post-remove.sh
++++ b/amd/dkms/post-remove.sh
+@@ -1,5 +1,5 @@
+ #!/bin/bash
+ 
+-FW_DIR="/lib/firmware"
+-rm -rf $FW_DIR/*/amdgpu
+-[[ ! $(ls -A $FW_DIR) ]] && rm -rf $FW_DIR
++#FW_DIR="/lib/firmware"
++#rm -rf $FW_DIR/*/amdgpu
++#[[ ! $(ls -A $FW_DIR) ]] && rm -rf $FW_DIR
+--- a/amd/dkms/pre-build.sh
++++ b/amd/dkms/pre-build.sh
+@@ -84,6 +84,6 @@
+ 	-include $SRCTREE/include/linux/kconfig.h" \
+ 	./configure)
+ 
+-FW_DIR="/lib/firmware/$KERNELVER"
+-mkdir -p $FW_DIR
+-cp -ar /usr/src/amdgpu-3.7-20/firmware/amdgpu $FW_DIR
++#FW_DIR="/lib/firmware/$KERNELVER"
++#mkdir -p $FW_DIR
++#cp -ar /usr/src/amdgpu-3.7-20/firmware/amdgpu $FW_DIR

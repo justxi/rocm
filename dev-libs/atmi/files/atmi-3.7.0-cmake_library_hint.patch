@@ -1,0 +1,72 @@
+--- a/cmake_modules/FindROCm.cmake
++++ b/cmake_modules/FindROCm.cmake
+@@ -41,15 +41,15 @@
+   ROCR_LIBRARY
+     hsa-runtime64
+   HINTS
+-    ${ROC_DIR}/lib
++    ${ROC_DIR}/lib64
+     ${ROC_DIR}
+-    ${ROCR_DIR}/lib
++    ${ROCR_DIR}/lib64
+     ${ROCR_DIR}
+-    /opt/rocm/lib
+-    /opt/rocm/hsa/lib
+-    /usr/local/lib
++    /opt/rocm/lib64
++    /opt/rocm/hsa/lib64
++    /usr/local/lib64
+     /usr/lib/x86_64-linux-gnu
+-    /usr/lib
++    /usr/lib64
+     ENV LIBRARY_PATH
+     ENV LD_LIBRARY_PATH
+ )
+@@ -57,15 +57,15 @@
+   ROCT_LIBRARY
+     hsakmt
+   HINTS
+-    ${ROC_DIR}/lib
++    ${ROC_DIR}/lib64
+     ${ROC_DIR}
+-    ${ROCT_DIR}/lib
++    ${ROCT_DIR}/lib64
+     ${ROCT_DIR}
+-    /opt/rocm/lib
+-    /opt/rocm/hsa/lib
+-    /usr/local/lib
++    /opt/rocm/lib64
++    /opt/rocm/hsa/lib64
++    /usr/local/lib64
+     /usr/lib/x86_64-linux-gnu
+-    /usr/lib
++    /usr/lib64
+     ENV LIBRARY_PATH
+     ENV LD_LIBRARY_PATH
+ )
+--- a/device_runtime/CMakeLists.txt
++++ b/device_runtime/CMakeLists.txt
+@@ -80,8 +80,8 @@
+     ATMI_DE_DEP_LIBHSA_LIBRARIES
+     ockl.amdgcn.bc
+     PATHS
+-    ${DEVICE_LIB_DIR}/lib
+-    ${CMAKE_INSTALL_PATH}/lib/libdevice/${MYGPU}
++    ${DEVICE_LIB_DIR}/lib64
++    ${CMAKE_INSTALL_PATH}/lib64/libdevice/${MYGPU}
+     NO_DEFAULT_PATH
+     )
+ else()
+@@ -98,9 +98,9 @@
+     ATMI_DE_DEP_LIBHSA_LIBRARIES
+     ockl.amdgcn.bc
+     PATHS
+-    ${DEVICE_LIB_DIR}/lib
+-    /opt/rocm/lib
+-    /usr/local/lib
++    ${DEVICE_LIB_DIR}/lib64
++    /opt/rocm/lib64
++    /usr/local/lib64
+     NO_DEFAULT_PATH
+     )
+ endif()

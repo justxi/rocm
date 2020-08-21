@@ -1,0 +1,75 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -11,7 +11,7 @@
+ set(ROCCLR_CONFIG_NAME ROCclrConfig.cmake)
+ set(ROCCLR_TARGETS_NAME rocclr-targets.cmake)
+ set(ROCCLR_VERSION_NAME rocclr-config-version.cmake)
+-set(ROCCLR_PACKAGE_PREFIX lib/cmake/rocclr)
++set(ROCCLR_PACKAGE_PREFIX lib64/cmake/rocclr)
+ set(ROCCLR_PREFIX_CODE)
+ set(ROCCLR_TARGETS_PATH
+   "${CMAKE_CURRENT_BINARY_DIR}/${ROCCLR_PACKAGE_PREFIX}/${ROCCLR_TARGETS_NAME}")
+@@ -159,10 +159,9 @@
+     $<INSTALL_INTERFACE:include>
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
++    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/compiler/lib>
++    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/compiler/lib/backends/common>
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/device/rocm>
+-    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/compiler/lib/include>
+-    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/compiler/lib>
+-    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/compiler/lib/backends/common>
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/elf/utils/common>
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/elf/utils/libelf>
+     $<BUILD_INTERFACE:${OPENCL_DIR}>
+@@ -228,40 +227,40 @@
+ 
+ install( TARGETS amdrocclr_static
+   EXPORT rocclr
+-  ARCHIVE DESTINATION lib
+-  LIBRARY DESTINATION lib
++  ARCHIVE DESTINATION lib64
++  LIBRARY DESTINATION lib64
+   COMPONENT applications)
+ 
+ install (
+    DIRECTORY include/
+-   DESTINATION include)
++   DESTINATION include/rocclr)
+ install (
+    DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/elf"
+-   DESTINATION include
++   DESTINATION include/rocclr
+    FILES_MATCHING PATTERN "*.h*")
+ install (
+    DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/compiler"
+-   DESTINATION include
++   DESTINATION include/rocclr
+    FILES_MATCHING PATTERN "*.h*")
+ install (
+    DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/utils"
+-   DESTINATION include
++   DESTINATION include/rocclr
+    FILES_MATCHING PATTERN "*.h*")
+ install (
+    DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/platform"
+-   DESTINATION include
++   DESTINATION include/rocclr
+    FILES_MATCHING PATTERN "*.h*")
+ install (
+    DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/thread"
+-   DESTINATION include
++   DESTINATION include/rocclr
+    FILES_MATCHING PATTERN "*.h*")
+ install (
+    DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/os"
+-   DESTINATION include
++   DESTINATION include/rocclr
+    FILES_MATCHING PATTERN "*.h*")
+ install (
+    DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/device"
+-   DESTINATION include
++   DESTINATION include/rocclr
+    FILES_MATCHING PATTERN "*.h*")
+ 
+ # Generate the install-tree package.

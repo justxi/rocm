@@ -1,0 +1,19 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -52,16 +53,6 @@
+ )
+ message(STATUS "Code Object Manager found at ${amd_comgr_DIR}.")
+ 
+-find_package(hsa-runtime64 REQUIRED CONFIG
+-   PATHS
+-     /opt/rocm/
+-   PATH_SUFFIXES
+-     cmake/hsa-runtime64
+-     lib/cmake/hsa-runtime64
+-     lib64/cmake/hsa-runtime64
+-)
+-message(STATUS "HSA Runtime found at ${hsa-runtime64_DIR}.")
+-
+ if( NOT OPENCL_DIR )
+    find_path(OPENCL_INCLUDE_DIR
+       NAMES OpenCL/cl.h CL/cl.h

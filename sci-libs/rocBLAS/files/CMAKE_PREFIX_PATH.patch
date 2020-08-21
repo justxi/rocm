@@ -1,0 +1,23 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -144,9 +144,6 @@
+ # Users may override HIP path by specifying their own in CMAKE_MODULE_PATH
+ list( APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake )
+ 
+-# NOTE:  workaround until hcc & hip cmake modules fixes symlink logic in their config files; remove when fixed
+-list( APPEND CMAKE_PREFIX_PATH ${ROCM_PATH}/hcc ${ROCM_PATH}/hip /opt/rocm/hcc /opt/rocm/hip )
+-
+ option( BUILD_VERBOSE "Output additional build information" OFF )
+ 
+ # BUILD_SHARED_LIBS is a cmake built-in; we make it an explicit option such that it shows in cmake-gui
+--- a/library/CMakeLists.txt
++++ b/library/CMakeLists.txt
+@@ -66,7 +66,7 @@
+ 
+ # Print out compiler flags for viewing/debug
+ if( BUILD_VERBOSE )
+-  message( STATUS "rocfft_VERSION: ${rocfft_VERSION}" )
++  message( STATUS "rocblas_VERSION: ${rocblas_VERSION}" )
+   message( STATUS "\t==>CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}" )
+   message( STATUS "\t==>BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}" )
+   message( STATUS "\t==>ROCM_PATH link: " ${ROCM_PATH} )

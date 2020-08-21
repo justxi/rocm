@@ -1,0 +1,25 @@
+--- a/core/runtime/runtime.cpp
++++ b/core/runtime/runtime.cpp
+@@ -1346,21 +1346,7 @@
+ }
+ 
+ void Runtime::LoadExtensions() {
+-// Load finalizer and extension library
+-#ifdef HSA_LARGE_MODEL
+-  static const std::string kFinalizerLib[] = {"hsa-ext-finalize64.dll",
+-                                              "libhsa-ext-finalize64.so.1"};
+-#else
+-  static const std::string kFinalizerLib[] = {"hsa-ext-finalize.dll",
+-                                              "libhsa-ext-finalize.so.1"};
+-#endif
+-
+-  // Update Hsa Api Table with handle of Finalizer extension Apis
+-  // Skipping finalizer loading since finalizer is no longer distributed.
+-  // LinkExts will expose the finalizer-not-present implementation.
+-  // extensions_.LoadFinalizer(kFinalizerLib[os_index(os::current_os)]);
+-  hsa_api_table_.LinkExts(&extensions_.finalizer_api,
+-                          core::HsaApiTable::HSA_EXT_FINALIZER_API_TABLE_ID);
++// Load extension library
+ 
+   // Update Hsa Api Table with handle of Image extension Apis
+   extensions_.LoadImage();

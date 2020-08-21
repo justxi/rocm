@@ -1,0 +1,10 @@
+--- a/amd/amdkcl/kcl_fence.c.orig	2020-02-03 09:11:12.000000000 -0800
++++ b/amd/amdkcl/kcl_fence.c	2020-03-02 21:54:31.993568613 -0800
+@@ -18,6 +18,7 @@
+  * more details.
+  */
+ 
++#include <linux/sched/signal.h>
+ #include <linux/slab.h>
+ #include <kcl/kcl_fence.h>
+ #include "kcl_common.h"

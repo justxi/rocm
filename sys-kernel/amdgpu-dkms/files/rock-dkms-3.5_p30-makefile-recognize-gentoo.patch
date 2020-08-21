@@ -1,0 +1,21 @@
+--- a/amd/dkms/Makefile.orig	2020-05-19 11:34:20.000000000 -0700
++++ b/amd/dkms/Makefile	2020-06-03 00:28:45.442112552 -0700
+@@ -7,6 +7,9 @@ RHEL_MINOR := $(shell $(call get_rhel_ve
+ ifneq (,$(RHEL_MAJOR))
+ OS_NAME = "rhel"
+ OS_VERSION = "$(RHEL_MAJOR).$(RHEL_MINOR)"
++else ifeq (gentoo,$(shell sed -n 's/^ID=\(.*\)/\1/p' /etc/os-release | tr -d '\"'))
++OS_NAME = "gentoo"
++OS_VERSION = $(shell cat /etc/gentoo-release | cut -f5 -d' ')
+ else ifneq (,$(wildcard /etc/os-release))
+ OS_NAME = "$(shell sed -n 's/^ID=\(.*\)/\1/p' /etc/os-release | tr -d '\"')"
+ # On CentOS/RHEL, users could have installed a kernel not distributed from RHEL
+@@ -25,7 +28,7 @@ OS_NAME = "unknown"
+ OS_VERSION = "0.0"
+ endif
+ 
+-ifneq ($(findstring $(OS_NAME), "ubuntu" "sled" "sles" "opensuse" "opensuse-leap" "amzn" "custom-rhel" "fedora"),)
++ifneq ($(findstring $(OS_NAME), "ubuntu" "sled" "sles" "opensuse" "opensuse-leap" "amzn" "custom-rhel" "fedora" "gentoo"),)
+ DRM_VER=$(shell sed -n 's/^VERSION = \(.*\)/\1/p' $(kdir)/Makefile)
+ DRM_PATCH=$(shell sed -n 's/^PATCHLEVEL = \(.*\)/\1/p' $(kdir)/Makefile)
+ else ifeq ("debian", $(OS_NAME))

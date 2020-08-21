@@ -1,0 +1,22 @@
+--- a/clang/include/clang/Basic/Cuda.h
++++ b/clang/include/clang/Basic/Cuda.h
+@@ -30,7 +30,7 @@
+   CUDA_102,
+   CUDA_110,
+   LATEST = CUDA_110,
+-  LATEST_SUPPORTED = CUDA_101,
++  LATEST_SUPPORTED = CUDA_110,
+ };
+ const char *CudaVersionToString(CudaVersion V);
+ // Input is "Major.Minor"
+--- a/clang/lib/Basic/Cuda.cpp
++++ b/clang/lib/Basic/Cuda.cpp
+@@ -190,6 +190,8 @@
+     return CudaVersion::CUDA_100;
+   case 101:
+     return CudaVersion::CUDA_101;
++  case 110:
++    return CudaVersion::CUDA_110;
+   default:
+     return CudaVersion::UNKNOWN;
+   }
