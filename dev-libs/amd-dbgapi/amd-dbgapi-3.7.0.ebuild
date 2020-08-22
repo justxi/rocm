@@ -16,5 +16,13 @@ SLOT="0/$(ver_cut 1-2)"
 RDEPEND=">=dev-libs/rocm-comgr-${PV}"
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/ROCdbgapi-roc-${PV}/"
+S="${WORKDIR}/ROCdbgapi-rocm-${PV}/"
+
+src_prepare() {
+	sed -e "s:DESTINATION lib:DESTINATION lib64:" -i CMakeLists.txt || die
+	sed -e "s:DESTINATION share/doc/amd-dbgapi:DESTINATION share/doc/amd-dbgapi-${PV}:" -i CMakeLists.txt || die
+
+	cmake-utils_src_prepare
+}
+
 
