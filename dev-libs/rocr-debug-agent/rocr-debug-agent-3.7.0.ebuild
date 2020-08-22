@@ -17,7 +17,8 @@ CONFIG_CHECK="~HSA_AMD"
 
 RDEPEND="dev-libs/rocr-runtime
 	dev-libs/roct-thunk-interface
-	dev-libs/rocdbgapi
+	dev-libs/amd-dbgapi
+	sys-devel/hip
 	dev-util/systemtap"
 DEPEND="${RDEPEND}"
 
