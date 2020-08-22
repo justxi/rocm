@@ -30,7 +30,7 @@ Kernel, driver, libraries, compiler and tools:
 |media-libs/hsa-ext-rocr| 1.1.30500.0 | | Yes | :heavy_check_mark:<br> 1.1.30500.0 |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
 |dev-util/rocm-bandwidth-test| 3.7.0 | Reports suitable informations. | (ok) |  |
-|dev-libs/rocm-smi-lib| 3.5.0 |  | (ok) | |
+|dev-libs/rocm-smi-lib| 3.7.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.7.0 | Reports suitable informations. | (ok) | |
 |dev-util/rocm-clang-ocl| 3.5.0 | | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
