@@ -22,24 +22,24 @@ Kernel, driver, libraries, compiler and tools:
 |sys-kernel/rocm-sources| 3.7.0 | based on linux kernel 5.6.0 | (ok) |  |
 |dev-util/rocm-cmake| 3.7.0 | | Yes | :heavy_check_mark:<br> 0.2, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.3.0, 3.5.0, 3.7.0 |
 |dev-libs/roct-thunk-interface| 3.7.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.6.0, 3.7.0  |
+|sys-devel/llvm-roc | 3.7.0 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.5.1, 3.7.0 | |
 |dev-libs/rocm-device-libs | 3.7.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.5.1, 3.7.0 |
-|dev-libs/rocr-runtime| 3.7.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.7.0 |
-|dev-libs/rocm-comgr | 3.7.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.7.0 |
-|dev-libs/rocclr | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.5.0 |
-|dev-libs/rocm-opencl-runtime| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
 |media-libs/hsa-ext-rocr| 1.1.30500.0 | | Yes | :heavy_check_mark:<br> 1.1.30500.0 |
 |media-libs/hsa-amd-aqlprofile| 1.0.0 | | (ok) | |
+|dev-libs/rocr-runtime| 3.7.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.7.0 |
+|dev-util/rocminfo | 3.7.0 |  | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.7.0 |
 |dev-util/rocm-bandwidth-test| 3.7.0 | Reports suitable informations. | (ok) |  |
 |dev-libs/rocm-smi-lib| 3.7.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.7.0 | Reports suitable informations. | (ok) | |
+|dev-libs/rocm-comgr | 3.7.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.7.0 |
+|dev-libs/rocclr | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.5.0 |
+|dev-libs/rocm-opencl-runtime| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
 |dev-util/rocm-clang-ocl| 3.5.0 | | (ok) | |
-|dev-util/rcp| 5.6 |   | (ok) | |
-|dev-util/rocminfo | 3.7.0 |  | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.7.0 |
-|sys-devel/llvm-roc | 3.7.0 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.5.1, 3.7.0 | |
 |sys-devel/hip| 3.5.1 |  | (ok) | |
 |dev-libs/rocr-debug-agent | 3.5.0 |  | (ok) | |
 |dev-util/roctracer| 3.5.0 |  | (ok) | |
 |dev-util/rocprofiler| 3.5.0 |  | (ok) | |
+|dev-util/rcp| 5.6 |   | (ok) | |
 |dev-libs/RCCL | 3.5.0 |  | (ok) | |
 |sys-devel/amd-rocm-meta| 3.5.0 | Currently not all sci-libs could be build. | (ok) | |
 
