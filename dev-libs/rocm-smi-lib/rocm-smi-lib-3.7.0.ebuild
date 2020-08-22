@@ -19,13 +19,8 @@ RDEPEND=""
 PATCHES=(
 	"${FILESDIR}/rocm-smi-lib-2.9.0-omit-git-output.patch"
 	"${FILESDIR}/rocm-smi-lib-2.9.0-utils-no-repository.patch"
+	"${FILESDIR}/rocm-smi-lib-3.7.0-change-smi-install-location.patch"
+	"${FILESDIR}/rocm-smi-lib-3.7.0-change-oam-install-location.patch"
 )
 
 S="${WORKDIR}/rocm_smi_lib-rocm-${PV}"
-
-src_prepare() {
-	sed -e "s:LIBRARY DESTINATION \${ROCM_SMI}/lib COMPONENT \${ROCM_SMI_COMPONENT}):LIBRARY DESTINATION lib64 COMPONENT \${ROCM_SMI_COMPONENT}):" -i ${S}/CMakeLists.txt
-	sed -e "s:DESTINATION rocm_smi/include/rocm_smi):DESTINATION include):" -i ${S}/CMakeLists.txt
-	eapply_user
-	cmake-utils_src_prepare
-}

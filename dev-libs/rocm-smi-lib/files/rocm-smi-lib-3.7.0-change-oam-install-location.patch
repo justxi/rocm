@@ -1,0 +1,18 @@
+--- a/oam/CMakeLists.txt	2020-08-22 22:53:43.648885281 +0200
++++ b/oam/CMakeLists.txt	2020-08-22 22:54:36.066883960 +0200
+@@ -93,12 +93,12 @@
+ 
+ ## Add the install directives for the runtime library.
+ install(TARGETS ${OAM_TARGET}
+-          LIBRARY DESTINATION ${OAM_NAME}/lib
+-          ARCHIVE DESTINATION ${OAM_NAME}/lib
++          LIBRARY DESTINATION lib64
++          ARCHIVE DESTINATION lib64
+           COMPONENT ${OAM_COMPONENT})
+ install(FILES ${COMMON_SRC_ROOT}/oam/include/oam/oam_mapi.h
+               ${COMMON_SRC_ROOT}/oam/include/oam/amd_oam.h
+-                                        DESTINATION oam/include/oam)
++                                        DESTINATION include/oam)
+ 
+ # Generate Doxygen documentation
+ if (DOXYGEN_FOUND)

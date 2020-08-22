@@ -1,0 +1,45 @@
+--- a/rocm_smi/CMakeLists.txt	2020-08-22 22:46:19.320896478 +0200
++++ b/rocm_smi/CMakeLists.txt	2020-08-22 22:52:14.506887527 +0200
+@@ -96,31 +96,21 @@
+ endif ()
+ 
+ ## Add symlinks from top level ROCm lib dir to rocm-smi lib so files
+-if(${BUILD_SHARED_LIBS})
+-  add_custom_target ( so-link ALL WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+-                    COMMAND ${CMAKE_COMMAND} -E create_symlink
+-                          ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so so-link )
+-  add_custom_target ( so-major-link ALL WORKING_DIRECTORY
+-                  ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${CMAKE_COMMAND}
+-                  -E create_symlink
+-                  ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR}
+-                                                               so-major-link )
+-
+-  install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-link DESTINATION lib RENAME
+-                                                     ${ROCM_SMI_LIB_NAME}.so )
+-  install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-major-link DESTINATION lib
+-                             RENAME ${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR} )
+-endif()
++#if(${BUILD_SHARED_LIBS})
++#  add_custom_target ( so-link ALL WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${CMAKE_COMMAND} -E create_symlink ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so so-link )
++#  add_custom_target ( so-major-link ALL WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${CMAKE_COMMAND} -E create_symlink ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR} so-major-link )
++#
++#  install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-link DESTINATION lib64 RENAME ${ROCM_SMI_LIB_NAME}.so )
++#  install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-major-link DESTINATION lib64 RENAME ${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR} )
++#endif()
+ ## Add the install directives for the runtime library.
+ install(TARGETS ${ROCM_SMI_TARGET}
+-          LIBRARY DESTINATION ${ROCM_SMI}/lib
+-          ARCHIVE DESTINATION ${ROCM_SMI}/lib
++          LIBRARY DESTINATION lib64
++          ARCHIVE DESTINATION lib64
+           COMPONENT ${ROCM_SMI_COMPONENT})
+ 
+-install(FILES ${COMMON_SRC_ROOT}/include/rocm_smi/rocm_smi.h
+-                                        DESTINATION rocm_smi/include/rocm_smi)
+-install(FILES ${COMMON_SRC_ROOT}/include/rocm_smi/kfd_ioctl.h
+-                                        DESTINATION rocm_smi/include/rocm_smi)
++install(FILES ${COMMON_SRC_ROOT}/include/rocm_smi/rocm_smi.h DESTINATION include/rocm_smi)
++install(FILES ${COMMON_SRC_ROOT}/include/rocm_smi/kfd_ioctl.h DESTINATION include/rocm_smi)
+ # Generate Doxygen documentation
+ find_package(Doxygen)
+ find_package(LATEX COMPONENTS PDFLATEX)
