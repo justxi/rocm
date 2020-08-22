@@ -32,7 +32,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-smi-lib| 3.7.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.7.0 | Reports suitable informations. | (ok) | |
 |dev-libs/rocm-comgr | 3.7.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.7.0 |
-|dev-libs/rocdbgapi |  | WIP | | |
+|dev-libs/amd-dbgapi | 3.7.0 |  | (ok) | |
 |dev-libs/rocclr | 3.5.0 | | Yes | :heavy_check_mark:<br> 3.5.0 |
 |dev-libs/rocm-opencl-runtime| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
 |dev-util/rocm-clang-ocl| 3.5.0 | | (ok) | |
@@ -42,6 +42,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocprofiler| 3.5.0 |  | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
 |dev-libs/RCCL | 3.5.0 |  | (ok) | |
+|dev-util/Tensile | 3.5.0 | | no | |
 |sys-devel/amd-rocm-meta| 3.5.0 | Currently not all sci-libs could be build. | (ok) | |
 
 <br>
