@@ -37,12 +37,12 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-opencl-runtime| 3.5.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0 |
 |dev-util/rocm-clang-ocl| 3.7.0 | | (ok) | |
 |sys-devel/hip| 3.7.0 |  | (ok) | |
-|dev-libs/rocr-debug-agent | 3.5.0 |  | (ok) | |
+|dev-libs/rocm-debug-agent | 3.7.0 | formerly dev-libs/rocr-debug-agent  | (ok) | |
 |dev-util/roctracer| 3.5.0 |  | (ok) | |
 |dev-util/rocprofiler| 3.5.0 |  | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
 |dev-libs/RCCL | 3.5.0 |  | (ok) | |
-|dev-util/Tensile | 3.5.0 | | no | |
+|dev-util/Tensile | 3.7.0 | | no | |
 |sys-devel/amd-rocm-meta| 3.5.0 | Currently not all sci-libs could be build. | (ok) | |
 
 <br>

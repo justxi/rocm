@@ -24,9 +24,14 @@ DEPEND="${RDEPEND}"
 
 S="${WORKDIR}/rocr_debug_agent-roc-${PV}/"
 
-#src_prepare() {
-#	sed -e "s:HINTS /opt/rocm/include:HINTS /usr/include:" -i "${S}/CMakeLists.txt"
-#	sed -e "s:install(TARGETS \${TARGET_NAME} DESTINATION lib):install(TARGETS \${TARGET_NAME} DESTINATION lib64):" -i "${S}/CMakeLists.txt"
-#
-#	cmake-utils_src_prepare
-#}
+src_prepare() {
+	sed -e "s:/opt/rocm/hip/cmake:/usr/lib/hip/3.7/cmake/:" -i ${S}/test/CMakeLists.txt
+
+	sed -e "s:enable_testing:#enable_testing:" -i ${S}/CMakeLists.txt
+	sed -e "s:add_subdirectory(test):#add_subdirectory(test):" -i ${S}/CMakeLists.txt
+
+	sed -e "s:DESTINATION lib:DESTINATION lib64:" -i "${S}/CMakeLists.txt"
+	sed -e "s:DESTINATION share/doc/rocm-debug-agent:DESTINATION share/doc/rocm-debug-agent-${PV}:" -i ${S}/CMakeLists.txt
+
+	cmake-utils_src_prepare
+}
