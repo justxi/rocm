@@ -43,7 +43,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rcp| 5.6 |   | (ok) | |
 |dev-libs/RCCL | 3.5.0 |  | (ok) | |
 |dev-util/Tensile | 3.7.0 | | no | |
-|sys-devel/amd-rocm-meta| 3.5.0 | Currently not all sci-libs could be build. | (ok) | |
+|sys-devel/amd-rocm-meta| 3.7.0 | Currently only updated packages (3.7.0) could be installed. | (ok) | |
 
 <br>
 ROCm Libraries:
