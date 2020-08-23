@@ -1,22 +1,25 @@
 # Copyright
-# 
+# Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 PYTHON_COMPAT=( python3_{6,7,8} )
 
-inherit git-r3 distutils-r1
+inherit distutils-r1
 
 DESCRIPTION="Stretching GPU performance for GEMMs and tensor contractions"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/Tensile"
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/Tensile.git"
-EGIT_BRANCH="develop"
+EGIT_COMMIT="af71ea890a893e647bf2cf4571a90297d65689ca"
+# taken from rocBLAS tensile_tag.txt
 
 LICENSE=""
-SLOT="0"
 KEYWORDS="~amd64"
+SLOT="0"
 IUSE=""
 
 RDEPEND="dev-python/pyyaml"
-DEPEND="dev-util/cmake"
-	${RDEPEND}
+DEPEND="dev-util/cmake
+	${RDEPEND}"
+
+#S=${WORKDIR}/${PN}-rocm-${PV}
