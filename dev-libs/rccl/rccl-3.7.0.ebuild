@@ -35,12 +35,15 @@ src_configure() {
 
 	if use gfx803; then
 		CurrentISA="803"
+		echo "gfx803" >> ${WORKDIR}/target.lst
 	fi
 	if use gfx900; then
 		CurrentISA="900"
+		echo "gfx900" >> ${WORKDIR}/target.lst
 	fi
 	if use gfx906; then
 		CurrentISA="906"
+		echo "gfx906" >> ${WORKDIR}/target.lst
 	fi
 
 	local mycmakeargs=(
@@ -49,6 +52,8 @@ src_configure() {
 		-Wno-dev
 	)
 
+        export ROCM_TARGET_LST="${WORKDIR}/target.lst"
+
 	cmake-utils_src_configure
 }
 
@@ -56,3 +61,5 @@ src_install() {
 	cmake-utils_src_install
 	chrpath --delete "${D}/usr/lib64/librccl.so"
 }
+
+
