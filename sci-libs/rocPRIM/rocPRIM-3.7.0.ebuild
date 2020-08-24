@@ -57,5 +57,9 @@ src_configure() {
 		-DBUILD_BENCHMARK=OFF
 	)
 
+	# ... testing ...
+        echo "gfx803" >> ${WORKDIR}/target.lst
+        export ROCM_TARGET_LST="${WORKDIR}/target.lst"
+
 	cmake-utils_src_configure
 }
