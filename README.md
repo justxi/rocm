@@ -41,7 +41,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/roctracer| 3.7.0 |  | (ok) | |
 |dev-util/rocprofiler| 3.7.0 |  | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
-|dev-libs/RCCL | 3.5.0 |  | (ok) | |
+|dev-libs/RCCL | 3.7.0 |  | (ok) | |
 |dev-util/Tensile | 3.7.0 | | (ok) | |
 |sys-devel/amd-rocm-meta| 3.7.0 | Currently only updated packages (3.7.0) could be installed. | (ok) | |
 
@@ -50,7 +50,7 @@ ROCm Libraries:
 
 |Ebuild|Current Version|State|FHS|in Gentoo portage|
 |---|---|---|---|---|
-|sci-libs/rocPRIM| 3.5.0 |  | (ok) | |
+|sci-libs/rocPRIM| 3.7.0 |  | (ok) | |
 |sci-libs/rocRAND| 3.5.0 |  | (ok) |  |
 |sci-libs/rocFFT| 3.5.0 |  | (ok) | |
 |sci-libs/rocSPARSE| 3.5.0 |  | (ok) | |
