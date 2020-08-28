@@ -6,7 +6,7 @@ inherit unpacker
 
 DESCRIPTION="hsa-amd-aqlprofile"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm"
-SRC_URI="http://repo.radeon.com/rocm/apt/debian/pool/main/h/hsa-amd-aqlprofile3.5.0/hsa-amd-aqlprofile3.5.0_1.0.0_amd64.deb"
+SRC_URI="http://repo.radeon.com/rocm/apt/3.5/pool/main/h/hsa-amd-aqlprofile3.5.0/hsa-amd-aqlprofile3.5.0_1.0.0_amd64.deb"
 
 LICENSE=""
 SLOT="0"
