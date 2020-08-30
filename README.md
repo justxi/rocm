@@ -24,7 +24,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/roct-thunk-interface| 3.7.0 |  | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.6.0, 3.7.0  |
 |sys-devel/llvm-roc | 3.7.0 | | Yes |:heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.5.1, 3.7.0 | |
 |dev-libs/rocm-device-libs | 3.7.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.5.1, 3.7.0 |
-|media-libs/hsa-ext-rocr| 1.1.30500.0 | | Yes | :heavy_check_mark:<br> 1.1.30500.0 |
+|media-libs/hsa-ext-rocr| 1.1.30500.0 | | Yes | :heavy_check_mark:<br> [M] 1.1.30500.0 |
 |media-libs/hsa-amd-aqlprofile| 3.7.0 | | (ok) | |
 |dev-libs/rocr-runtime| 3.7.0 | | Yes | :heavy_check_mark:<br> 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.7.0 |
 |dev-util/rocminfo | 3.7.0 |  | Yes | :heavy_check_mark:<br> 2.6.0, 2.7.0, 2.8.0, 2.9.0, 2.10.0, 3.0.0, 3.1.0, 3.3.0, 3.5.0, 3.7.0 |
