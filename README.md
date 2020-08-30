@@ -52,7 +52,7 @@ ROCm Libraries:
 |---|---|---|---|---|
 |sci-libs/rocPRIM| 3.7.0 |  | (ok) | |
 |sci-libs/rocRAND| 3.7.0 |  | (ok) |  |
-|sci-libs/rocFFT| 3.5.0 |  | (ok) | |
+|sci-libs/rocFFT| 3.7.0 |  | (ok) | |
 |sci-libs/rocSPARSE| 3.5.0 |  | (ok) | |
 |sci-libs/rocBLAS| 3.5.0 | builds without tensile | (ok) | |
 |sci-libs/rocSOLVER| 3.3.0 |  | (ok) | |
