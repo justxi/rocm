@@ -57,7 +57,7 @@ ROCm Libraries:
 |sci-libs/rocBLAS| 3.7.0 | builds without tensile | (ok) | |
 |sci-libs/rocSOLVER| 3.7.0 |  | (ok) | |
 |sci-libs/rocALUTION| 3.7.0 | | (ok) | |
-|sci-libs/rocThrust| 3.5.0 |  | (ok) | |
+|sci-libs/rocThrust| 3.7.0 |  | (ok) | |
 |sci-libs/hipCUB | 3.5.0 |  | (ok)| |
 |sci-libs/hipBLAS | 3.3.0 |  | (ok) | |
 |sci-libs/hipSPARSE | 3.5.0 |  | (ok) | |
