@@ -58,7 +58,7 @@ src_configure() {
 	)
 
 	# this is necessary to omit a sandbox vialation,
-	# but it does not seems to affect the targets list...
+	# but it does not seem to affect the targets list...
         echo "gfx803" >> ${WORKDIR}/target.lst
         export ROCM_TARGET_LST="${WORKDIR}/target.lst"
 
