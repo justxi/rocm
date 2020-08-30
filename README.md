@@ -52,7 +52,7 @@ ROCm Libraries:
 |sci-libs/rocRAND| 3.7.0 |  | (ok) |  |
 |sci-libs/rocFFT| 3.7.0 |  | (ok) | |
 |sci-libs/rocSPARSE| 3.7.0 |  | (ok) | |
-|sci-libs/rocBLAS| 3.7.0 | builds without tensile | (ok) | |
+|sci-libs/rocBLAS| 3.7.0 |  | (ok) | |
 |sci-libs/rocSOLVER| 3.7.0 |  | (ok) | |
 |sci-libs/rocALUTION| 3.7.0 | | (ok) | |
 |sci-libs/rocThrust| 3.7.0 |  | (ok) | |
@@ -60,7 +60,7 @@ ROCm Libraries:
 |sci-libs/hipBLAS | 3.7.0 |  | (ok) | |
 |sci-libs/hipSPARSE | 3.7.0 |  | (ok) | |
 |sci-libs/MIOpenGEMM | 3.7.0 |  | (ok) | |
-|sci-libs/MIOpen | 3.3.0 |  | (ok) | |
+|sci-libs/MIOpen | 3.7.0 |  | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
 |sci-libs/AMDMIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
 
