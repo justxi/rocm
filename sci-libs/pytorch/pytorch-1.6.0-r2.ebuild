@@ -135,6 +135,11 @@ src_unpack() {
 }
 
 src_prepare() {
+	if use rocm; then
+		#Allow escaping sandbox
+		addread /dev/kfd
+		addwrite /dev/kfd
+	fi
 	cmake-utils_src_prepare
 
 	mv -v third_party/miniz-* ../ || die
