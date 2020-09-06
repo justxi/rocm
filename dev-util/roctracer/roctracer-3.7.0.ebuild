@@ -18,7 +18,6 @@ RDEPEND="dev-libs/rocr-runtime
 	 sys-devel/llvm-roc
 	 sys-devel/hip"
 DEPEND="dev-util/cmake
-	dev-lang/python:3.6
 	dev-python/CppHeaderParser
 	dev-python/ply
 	${RDEPEND}"
