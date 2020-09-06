@@ -48,7 +48,7 @@ src_configure() {
 	export CXX=hipcc
 
 	# Let "hipcc" know where the bitcode files are located
-	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib64"
+	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib"
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
