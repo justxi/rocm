@@ -34,7 +34,6 @@ src_configure() {
 
 	if usex compiler-rt; then
 		PROJECTS+=";compiler-rt"
-		einfo ${PROJECTS}
 	fi
 
 	local mycmakeargs=(
