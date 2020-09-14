@@ -79,6 +79,7 @@ RDEPEND="
 	cuda? ( dev-libs/cudnn
 		dev-cpp/eigen[cuda] )
 	rocm? ( >=sys-devel/hip-3.5
+			>=dev-libs/rccl-3.5
 			>=sci-libs/rocThrust-3.5
 			>=sci-libs/hipCUB-3.5
 			>=sci-libs/rocPRIM-3.5

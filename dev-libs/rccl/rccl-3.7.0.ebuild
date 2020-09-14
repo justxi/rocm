@@ -30,7 +30,7 @@ PATCHES=(
 src_configure() {
 #	CMAKE_MAKEFILE_GENERATOR=emake
 
-	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib64"
+	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib"
 	export CXX=hipcc
 
 	if use gfx803; then
