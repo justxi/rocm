@@ -45,7 +45,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/llvm/roc"
-		-DLLVM_ENABLE_PROJECTS="clang;lld"
+		-DLLVM_ENABLE_PROJECTS="${PROJECTS}"
 		-DLLVM_TARGETS_TO_BUILD="AMDGPU;X86"
 		-DLLVM_BUILD_DOCS=NO
 		-DLLVM_ENABLE_OCAMLDOC=OFF
