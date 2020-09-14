@@ -37,6 +37,7 @@ src_configure() {
 	export CXX=/usr/lib/hip/3.7/bin/hipcc
 
 	local mycmakeargs=(
+		-DTRY_CUDA=OFF
 		-DCMAKE_INSTALL_PREFIX=/usr
 		-DCMAKE_PREFIX_PATH="${HIP_PATH}"
 	)
