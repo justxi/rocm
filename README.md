@@ -42,8 +42,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocprofiler| 3.8.0 |  | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
 |dev-libs/RCCL | 3.8.0 |  | (ok) | |
-|dev-util/Tensile | 3.7.0 | | (ok) | |
-|sys-devel/amd-rocm-meta| 3.7.0 |  | (ok) | |
+|dev-util/Tensile | 3.8.0 | | (ok) | |
 
 <br>
 ROCm Libraries:
@@ -65,6 +64,13 @@ ROCm Libraries:
 |sci-libs/MIOpen | 3.7.0 |  | (ok) | |
 |sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
 |sci-libs/AMDMIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
+
+<br>
+Meta ebuilds:
+
+|Ebuild|Current Version|State| FHS | in Gentoo portage| 
+|---|---|---|---|---|
+|sys-devel/amd-rocm-meta| 3.7.0 |  | (ok) | |
 
 <br>
 Systems known to work:
