@@ -41,7 +41,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/roctracer| 3.8.0 |  | (ok) | |
 |dev-util/rocprofiler| 3.8.0 |  | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
-|dev-libs/RCCL | 3.7.0 |  | (ok) | |
+|dev-libs/RCCL | 3.8.0 |  | (ok) | |
 |dev-util/Tensile | 3.7.0 | | (ok) | |
 |sys-devel/amd-rocm-meta| 3.7.0 |  | (ok) | |
 
