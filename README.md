@@ -62,8 +62,6 @@ ROCm Libraries:
 |sci-libs/hipSPARSE | 3.7.0 |  | (ok) | |
 |sci-libs/MIOpenGEMM | 3.7.0 |  | (ok) | |
 |sci-libs/MIOpen | 3.7.0 |  | (ok) | |
-|sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
-|sci-libs/AMDMIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
 
 <br>
 Meta ebuilds:
