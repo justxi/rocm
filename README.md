@@ -30,7 +30,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocminfo | 3.8.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |dev-util/rocm-bandwidth-test| 3.8.0 | Reports suitable informations. | (ok) |  |
 |dev-libs/rocm-smi-lib| 3.8.0 |  | (ok) | |
-|dev-util/rocm-smi| 3.7.0 | Reports suitable informations. | (ok) | |
+|dev-util/rocm-smi| 3.8.0 | Reports suitable informations. | (ok) | |
 |dev-libs/rocm-comgr | 3.8.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |dev-libs/amd-dbgapi | 3.7.0 |  | (ok) | |
 |dev-libs/rocclr | 3.8.0 | | Yes | :heavy_check_mark:<br> 3.8.0 |
