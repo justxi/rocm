@@ -20,20 +20,20 @@ Kernel, driver, libraries, compiler and tools:
 |Ebuild|Current Version|State| FHS | in Gentoo portage| 
 |---|---|---|---|---|
 |sys-kernel/rocm-sources| 3.8.0 | based on linux kernel 5.6.0 | (ok) |  |
-|dev-util/rocm-cmake| 3.7.0 | | Yes | :heavy_check_mark:<br> 3.7.0 |
+|dev-util/rocm-cmake| 3.8.0 | | Yes | :heavy_check_mark:<br> 3.8.0 |
 |dev-libs/roct-thunk-interface| 3.8.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0  |
 |sys-devel/llvm-roc | 3.8.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0 | |
 |dev-libs/rocm-device-libs | 3.8.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |media-libs/hsa-ext-rocr| 1.1.30500.0 | | Yes | :heavy_check_mark:<br> [M] 1.1.30500.0 |
 |media-libs/hsa-amd-aqlprofile| 3.7.0 | | (ok) | |
-|dev-libs/rocr-runtime| 3.7.0 | | Yes | :heavy_check_mark:<br> 3.7.0 |
-|dev-util/rocminfo | 3.7.0 |  | Yes | :heavy_check_mark:<br> 3.7.0 |
+|dev-libs/rocr-runtime| 3.8.0 | | Yes | :heavy_check_mark:<br> 3.8.0 |
+|dev-util/rocminfo | 3.8.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |dev-util/rocm-bandwidth-test| 3.7.0 | Reports suitable informations. | (ok) |  |
 |dev-libs/rocm-smi-lib| 3.7.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.7.0 | Reports suitable informations. | (ok) | |
-|dev-libs/rocm-comgr | 3.7.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
+|dev-libs/rocm-comgr | 3.8.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |dev-libs/amd-dbgapi | 3.7.0 |  | (ok) | |
-|dev-libs/rocclr | 3.7.0 | | Yes | :heavy_check_mark:<br> 3.7.0 |
+|dev-libs/rocclr | 3.8.0 | | Yes | :heavy_check_mark:<br> 3.8.0 |
 |dev-libs/rocm-opencl-runtime| 3.7.0 |  | Yes | :heavy_check_mark:<br> 3.7.0 |
 |dev-util/rocm-clang-ocl| 3.7.0 | | (ok) | |
 |sys-devel/hip| 3.7.0 |  | (ok) | |
