@@ -34,7 +34,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-comgr | 3.8.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |dev-libs/amd-dbgapi | 3.8.0 |  | (ok) | |
 |dev-libs/rocclr | 3.8.0 | | Yes | :heavy_check_mark:<br> 3.8.0 |
-|dev-libs/rocm-opencl-runtime| 3.8.0 |  | Yes | :heavy_check_mark:<br> 3.8.0 |
+|dev-libs/rocm-opencl-runtime| 3.8.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |dev-util/rocm-clang-ocl| 3.8.0 | | (ok) | |
 |sys-devel/hip| 3.8.0 |  | (ok) | |
 |dev-libs/rocm-debug-agent | 3.8.0 | formerly dev-libs/rocr-debug-agent  | (ok) | |
@@ -62,8 +62,6 @@ ROCm Libraries:
 |sci-libs/hipSPARSE | 3.7.0 |  | (ok) | |
 |sci-libs/MIOpenGEMM | 3.7.0 |  | (ok) | |
 |sci-libs/MIOpen | 3.7.0 |  | (ok) | |
-|sci-libs/MIVisionX | | No ebuild exist, any contribution is appreciated. | | |
-|sci-libs/AMDMIGraphX | | No ebuild exist, any contribution is appreciated. | | | 
 
 <br>
 Meta ebuilds:
