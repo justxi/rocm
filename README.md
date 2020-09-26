@@ -25,7 +25,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/llvm-roc | 3.8.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0 | |
 |dev-libs/rocm-device-libs | 3.8.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |media-libs/hsa-ext-rocr| 1.1.30500.0 | | Yes | :heavy_check_mark:<br> [M] 1.1.30500.0 |
-|media-libs/hsa-amd-aqlprofile| 3.7.0 | | (ok) | |
+|media-libs/hsa-amd-aqlprofile| 3.8.0 | | (ok) | |
 |dev-libs/rocr-runtime| 3.8.0 | | Yes | :heavy_check_mark:<br> 3.8.0 |
 |dev-util/rocminfo | 3.8.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |dev-util/rocm-bandwidth-test| 3.7.0 | Reports suitable informations. | (ok) |  |
