@@ -58,7 +58,7 @@ ROCm Libraries:
 |sci-libs/rocALUTION| 3.8.0 | | (ok) | |
 |sci-libs/rocThrust| 3.8.0 |  | (ok) | |
 |sci-libs/hipCUB | 3.8.0 |  | (ok)| |
-|sci-libs/hipBLAS | 3.7.0 |  | (ok) | |
+|sci-libs/hipBLAS | 3.8.0 |  | (ok) | |
 |sci-libs/hipSPARSE | 3.7.0 |  | (ok) | |
 |sci-libs/MIOpenGEMM | 3.7.0 |  | (ok) | |
 |sci-libs/MIOpen | 3.7.0 |  | (ok) | |
