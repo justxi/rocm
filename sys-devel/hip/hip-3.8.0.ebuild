@@ -20,7 +20,7 @@ RESRICT="strip"
 
 DEPEND=">=dev-libs/rocclr-$(ver_cut 1-2)
 	>=dev-util/rocminfo-$(ver_cut 1-2)
-	=sys-devel/llvm-roc-${PV}*
+	=sys-devel/llvm-roc-${PV}*[runtime]
 	hipify? ( >=sys-devel/clang-10.0.0 )"
 RDEPEND="${DEPEND}"
 
