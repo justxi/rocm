@@ -22,12 +22,13 @@ DEPEND="dev-util/cmake
 	dev-python/ply
 	${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/roctracer-3.8.0-gen_ostream_ops-toPython3.patch"
+)
+
 S="${WORKDIR}/roctracer-rocm-${PV}"
 
 src_prepare() {
-	# Needs to updated to python 3.x
-	sed -e "s:/usr/bin/python:/usr/bin/python2.7:" -i ${S}/scripts/gen_ostream_ops.py || die
-
 	# change lib to lib64
 	sed -e "s:install ( TARGETS \${ROCTRACER_TARGET} LIBRARY DESTINATION \${DEST_NAME}/lib ):install ( TARGETS \${ROCTRACER_TARGET} LIBRARY DESTINATION lib64 ):" -i ${S}/CMakeLists.txt
 
@@ -74,6 +75,10 @@ src_configure() {
 #		export CMAKE_DEBUG_TRACE=1
 #		export CMAKE_LD_AQLPROFILE=1
 	fi
+
+	mycmakeargs=(
+		-DHIP_VDI=1
+	)
 
 	cmake-utils_src_configure
 }
