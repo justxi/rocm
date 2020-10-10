@@ -22,6 +22,10 @@ RDEPEND="dev-libs/rocr-runtime
 	dev-util/systemtap"
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/rocm-debug-agent-3.8.0-fix-return-compile-error.patch"
+)
+
 S="${WORKDIR}/rocr_debug_agent-rocm-${PV}/"
 
 src_prepare() {

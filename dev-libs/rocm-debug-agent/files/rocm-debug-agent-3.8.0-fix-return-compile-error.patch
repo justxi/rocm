@@ -1,0 +1,23 @@
+From 97e8d87ed021d2c82103bce29e482204cc8b8eb9 Mon Sep 17 00:00:00 2001
+From: Qingchuan Shi <qingchuan.shi@amd.com>
+Date: Wed, 19 Aug 2020 05:29:25 -0400
+Subject: [PATCH] Fix "return {}" compile error for gcc (8.3.1).
+
+Change-Id: I9fd6c86ed3d44ed840a49022961f40a567d66ee3
+---
+ src/code_object.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/code_object.cpp b/src/code_object.cpp
+index e58c131..6a1815a 100644
+--- a/src/code_object.cpp
++++ b/src/code_object.cpp
+@@ -312,7 +312,7 @@ get_source_file_index (const std::string &file_name)
+ 
+   std::ifstream file (file_name);
+   if (!file)
+-    return {};
++    return std::nullopt;
+ 
+   auto [it, success]
+       = file_map.emplace (file_name, std::vector<std::string>{});
