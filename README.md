@@ -22,7 +22,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-kernel/rocm-sources| 3.9.0 | based on linux kernel 5.6.0 | (ok) |  |
 |dev-util/rocm-cmake| 3.8.0 | | Yes | :heavy_check_mark:<br> 3.8.0 |
 |dev-libs/roct-thunk-interface| 3.9.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0  |
-|sys-devel/llvm-roc | 3.8.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0 | |
+|sys-devel/llvm-roc | 3.9.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0 |
 |dev-libs/rocm-device-libs | 3.8.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
 |media-libs/hsa-amd-aqlprofile| 3.8.0 | | (ok) | |
 |dev-libs/rocr-runtime| 3.8.0 | | Yes | :heavy_check_mark:<br> 3.8.0 |
