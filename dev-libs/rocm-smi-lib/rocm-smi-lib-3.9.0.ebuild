@@ -19,7 +19,7 @@ RDEPEND=""
 PATCHES=(
 	"${FILESDIR}/rocm-smi-lib-2.9.0-omit-git-output.patch"
 	"${FILESDIR}/rocm-smi-lib-2.9.0-utils-no-repository.patch"
-	"${FILESDIR}/rocm-smi-lib-3.7.0-change-smi-install-location.patch"
+	"${FILESDIR}/rocm-smi-lib-3.9.0-change-smi-install-location.patch"
 	"${FILESDIR}/rocm-smi-lib-3.7.0-change-oam-install-location.patch"
 )
 
