@@ -28,7 +28,7 @@ PATCHES=(
 )
 
 src_configure() {
-	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib"
+	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib/amdgcn/bitcode"
 	export CXX=hipcc
 
 	if use gfx803; then
