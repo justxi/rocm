@@ -73,14 +73,16 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)"
 		-DBUILD_HIPIFY_CLANG=$(usex hipify)
 		-DHIP_PLATFORM=rocclr
-		-DHIP_COMPILER=clang
 		-DHIP_RUNTIME=ROCclr
+		-DHIP_COMPILER=clang
 		-DROCM_PATH="${EPREFIX}/usr"
 		-DHSA_PATH="${EPREFIX}/usr"
 		-DUSE_PROF_API=$(usex profile 1 0)
 		-DROCclr_DIR=${EPREFIX}/usr/include/rocclr
 		-DLIBROCclr_STATIC_DIR=${EPREFIX}/usr/lib64/cmake/rocclr
 	)
+#		-DHIP_PLATFORM=vdi
+#		-DHIP_RUNTIME=VDI
 
 	cmake-utils_src_configure
 }
