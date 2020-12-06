@@ -22,11 +22,11 @@ Kernel, driver, libraries, compiler and tools:
 |sys-kernel/rocm-sources| 3.10.0 | based on linux kernel 5.6.0 | (ok) |  |
 |dev-util/rocm-cmake| 3.10.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0 |
 |dev-libs/roct-thunk-interface| 3.10.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0  |
-|sys-devel/llvm-roc | 3.9.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0 |
-|dev-libs/rocm-device-libs | 3.9.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0 |
+|sys-devel/llvm-roc | 3.10.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0 |
+|dev-libs/rocm-device-libs | 3.10.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0 |
 |media-libs/hsa-amd-aqlprofile| 3.9.0 | | (ok) | |
-|dev-libs/rocr-runtime| 3.9.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0 |
-|dev-util/rocminfo | 3.9.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0 |
+|dev-libs/rocr-runtime| 3.10.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0 |
+|dev-util/rocminfo | 3.10.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0 |
 |dev-util/rocm-bandwidth-test| 3.9.0 | Reports suitable informations. | (ok) |  |
 |dev-libs/rocm-smi-lib| 3.9.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.9.0 | Reports suitable informations. | (ok) | |
