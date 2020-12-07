@@ -12,7 +12,7 @@ If you have a problem with an ebuild from Gentoo portage then submit a bugreport
 
 **Thanks to all contributors.**
 
-The following tables show all ebuilds tested (2020-11-15) in this repository. <br>
+The following tables show all ebuilds tested (2020-12-07) in this repository. <br>
 All other ebuilds can be out of date!
 
 Kernel, driver, libraries, compiler and tools:
