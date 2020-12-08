@@ -38,7 +38,7 @@ Kernel, driver, libraries, compiler and tools:
 |sys-devel/hip| 3.10.0 |  | (ok) | |
 |dev-libs/rocm-debug-agent | 3.10.0 | formerly dev-libs/rocr-debug-agent  | (ok) | |
 |dev-util/roctracer| 3.10.0 |  | (ok) | |
-|dev-util/rocprofiler| 3.9.0 |  | (ok) | |
+|dev-util/rocprofiler| 3.10.0 |  | currently not | |
 |dev-util/rcp| 5.6 |   | (ok) | |
 |dev-libs/RCCL | 3.8.0 |  | (ok) | |
 |dev-util/Tensile | 3.9.0 | | (ok) | |
