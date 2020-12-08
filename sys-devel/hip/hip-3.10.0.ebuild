@@ -37,6 +37,9 @@ PATCHES=(
 S="${WORKDIR}/HIP-rocm-${PV}"
 
 src_prepare() {
+	# disable PCH
+	sed -e "s:option(__HIP_ENABLE_PCH:#option(__HIP_ENABLE_PCH:" -i "${S}/CMakeLists.txt" || die
+
 	# "hcc" is deprecated and not installed, new platform is "rocclr"
 	sed -e "s:\$HIP_PLATFORM eq \"hcc\" and \$HIP_COMPILER eq \"clang\":\$HIP_PLATFORM eq \"rocclr\" and \$HIP_COMPILER eq \"clang\":" -i "${S}/bin/hipcc" || die
 
