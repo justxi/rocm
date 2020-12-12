@@ -28,8 +28,9 @@ PATCHES=(
 )
 
 src_configure() {
-	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib/amdgcn/bitcode"
+	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib/amdgcn/bitcode/"
 	export CXX=hipcc
+	export HIPCC_VERBOSE=7
 
 	if use gfx803; then
 		CurrentISA="803"
@@ -46,7 +47,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX=${EPREFIX}/usr
-		-DCMAKE_CXX_FLAGS="--rocm-path=/usr --amdgpu-target=gfx${CurrentISA} --rocm-device-lib-path=/usr/lib/amdgcn/bitcode"
+		-DCMAKE_CXX_FLAGS="--rocm-path=/usr --amdgpu-target=gfx${CurrentISA} --rocm-device-lib-path=/usr/lib/amdgcn/bitcode/"
 		-DBUILD_TESTS=OFF
 		-Wno-dev
 	)
