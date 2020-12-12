@@ -46,7 +46,8 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX=${EPREFIX}/usr
-		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
+		-DCMAKE_CXX_FLAGS="--rocm-path=/usr --amdgpu-target=gfx${CurrentISA} --rocm-device-lib-path=/usr/lib/amdgcn/bitcode"
+		-DBUILD_TESTS=OFF
 		-Wno-dev
 	)
 
