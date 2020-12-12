@@ -52,6 +52,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
+		-DCMAKE_CXX_FLAGS="--rocm-path=/usr"
 		-DAMDGPU_TARGETS="gfx803;gfx900;gfx906;gfx908"
 		-DBUILD_TEST=OFF
 		-DBUILD_BENCHMARK=OFF
