@@ -93,7 +93,6 @@ src_configure() {
 src_install() {
 	echo "HSA_PATH=${EPREFIX}/usr" > 99hip || die
 	echo "ROCM_PATH=${EPREFIX}/usr" >> 99hip || die
-#	echo "HIP_PLATFORM=hcc" >> 99hip || die
 	echo "HIP_PLATFORM=rocclr" >> 99hip || die
 	echo "HIP_RUNTIME=ROCclr" >> 99hip || die
 	echo "HIP_COMPILER=clang" >> 99hip || die
