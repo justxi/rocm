@@ -35,7 +35,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocclr | 4.0.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0, 4.0.0 |
 |dev-libs/rocm-opencl-runtime| 4.0.0 |  | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0 |
 |dev-util/rocm-clang-ocl| 4.0.0 | | (ok) | |
-|sys-devel/hip| 3.10.0 |  | (ok) | |
+|sys-devel/hip| 4.0.0 |  | (ok) | |
 |dev-libs/rocm-debug-agent | 3.10.0 | formerly dev-libs/rocr-debug-agent  | (ok) | |
 |dev-util/roctracer| 3.10.0 |  | (ok) | |
 |dev-util/rocprofiler| 3.10.0 |  | currently not | |
