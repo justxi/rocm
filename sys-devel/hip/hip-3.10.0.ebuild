@@ -65,6 +65,8 @@ src_configure() {
 		buildtype="Debug"
 	fi
 
+	export DEVICE_LIB_PATH="${EPREFIX}/usr/lib/amdgcn/bitcode/"
+
 	# TODO: Currently a GENTOO configuration is build,
 	# this is also used in the cmake configuration files
 	# which will be installed to find HIP;
