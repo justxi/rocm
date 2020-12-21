@@ -37,7 +37,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocm-clang-ocl| 4.0.0 | | (ok) | |
 |sys-devel/hip| 4.0.0 |  | (ok) | |
 |dev-libs/rocm-debug-agent | 4.0.0 | formerly dev-libs/rocr-debug-agent  | (ok) | |
-|dev-util/roctracer| 3.10.0 |  | (ok) | |
+|dev-util/roctracer| 4.0.0 |  | (ok) | |
 |dev-util/rocprofiler| 3.10.0 |  | currently not | |
 |dev-util/rcp| 5.6 |   | (ok) | |
 |dev-libs/rccl | 3.8.0 |  | (ok) | |
