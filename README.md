@@ -20,20 +20,20 @@ Kernel, driver, libraries, compiler and tools:
 |Ebuild|Current Version|State| FHS | in Gentoo portage| 
 |---|---|---|---|---|
 |sys-kernel/rocm-sources| 4.0.0 | based on linux kernel 5.6.0 | (ok) |  |
-|dev-util/rocm-cmake| 3.10.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0 |
-|dev-libs/roct-thunk-interface| 3.10.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0  |
-|sys-devel/llvm-roc | 3.10.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0 |
-|dev-libs/rocm-device-libs | 3.10.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0 |
+|dev-util/rocm-cmake| 4.0.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0 |
+|dev-libs/roct-thunk-interface| 4.0.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0  |
+|sys-devel/llvm-roc | 4.0.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0 |
+|dev-libs/rocm-device-libs | 4.0.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0 |
 |media-libs/hsa-amd-aqlprofile| 3.10.0 | | (ok) | |
-|dev-libs/rocr-runtime| 3.10.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0 |
+|dev-libs/rocr-runtime| 4.0.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0 |
 |dev-util/rocminfo | 3.10.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0 |
 |dev-util/rocm-bandwidth-test| 3.10.0 | Reports suitable informations. | (ok) |  |
 |dev-libs/rocm-smi-lib| 3.10.0 |  | (ok) | |
 |dev-util/rocm-smi| 3.10.0 | Reports suitable informations. | (ok) | |
-|dev-libs/rocm-comgr | 3.10.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0 |
+|dev-libs/rocm-comgr | 4.0.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0, 4.0.0 |
 |dev-libs/amd-dbgapi | 3.10.0 |  | (ok) | |
-|dev-libs/rocclr | 3.10.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0 |
-|dev-libs/rocm-opencl-runtime| 3.10.0 |  | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0 |
+|dev-libs/rocclr | 4.0.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0, 4.0.0 |
+|dev-libs/rocm-opencl-runtime| 4.0.0 |  | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0 |
 |dev-util/rocm-clang-ocl| 3.10.0 | | (ok) | |
 |sys-devel/hip| 3.10.0 |  | (ok) | |
 |dev-libs/rocm-debug-agent | 3.10.0 | formerly dev-libs/rocr-debug-agent  | (ok) | |
