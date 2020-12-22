@@ -1,0 +1,11 @@
+--- a/Tensile/TensileCreateLibrary.py	2020-12-22 18:25:16.081731542 +0100
++++ b/Tensile/TensileCreateLibrary.py	2020-12-22 18:26:37.064731233 +0100
+@@ -169,6 +169,8 @@
+ 
+       hipFlags = ["-D__HIP_HCC_COMPAT_MODE__=1"] #needs to be fixed when Maneesh's change is made available
+ 
++      hipFlags = ["--rocm-path=/usr"]
++
+       hipFlags += ['-I', outputPath]
+ 
+       archFlags += ['-mno-xnack', '-Xarch_gfx906', '-msram-ecc', '-Xarch_gfx908', '-msram-ecc']
