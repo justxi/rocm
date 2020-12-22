@@ -8,11 +8,11 @@ If you have a problem with an ebuild from Gentoo portage then submit a bugreport
 
 **The ebuilds for ROCm 3.8.0 are in a good state.**<br>
 
-**Ebuilds for ROCm 3.9.0, 3.10.0 and 4.0.0 are WIP...**<br>
+**Ebuilds for ROCm 4.0.0 are WIP...**<br>
 
 **Thanks to all contributors.**
 
-The following tables show all ebuilds tested (2020-12-21) in this repository. <br>
+The following tables show all ebuilds tested (2020-12-22) in this repository. <br>
 All other ebuilds can be out of date!
 
 Kernel, driver, libraries, compiler and tools:
