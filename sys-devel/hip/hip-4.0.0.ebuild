@@ -48,6 +48,9 @@ src_prepare() {
 	# currently comment out, remove in future?
 	sed -e "s:    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:#    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:" -i bin/hipcc || die
 
+	# Add path to device libs, should be fixed in the install scripts, but this works for the moment...
+	sed -e "s:\$CMD .= \" \$toolArgs\";:\$CMD .= \" \$toolArgs --rocm-device-lib-path=/usr/lib/amdgcn/bitcode\";:" -i bin/hipcc || die
+
 	#prefixing hipcc and its utils
 	grep -rl --exclude-dir=build/ "/usr" ${S} | xargs sed -e "s:/usr:${EPREFIX}/usr:g" -i || die
 
