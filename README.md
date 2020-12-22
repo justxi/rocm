@@ -51,7 +51,7 @@ ROCm Libraries:
 |sci-libs/rocPRIM| 4.0.0 |  | (ok) | |
 |sci-libs/rocRAND| 4.0.0 |  | (ok) |  |
 |sci-libs/rocFFT| 3.8.0 |  | (ok) | |
-|sci-libs/rocSPARSE| 3.8.0 |  | (ok) | |
+|sci-libs/rocSPARSE| 4.0.0 |  | (ok) | |
 |sci-libs/rocBLAS| 3.8.0 |  | (ok) | |
 |sci-libs/rocSOLVER| 3.8.0 |  | (ok) | |
 |sci-libs/rocALUTION| 3.8.0 | | (ok) | |
