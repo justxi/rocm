@@ -60,7 +60,7 @@ ROCm Libraries:
 |sci-libs/hipBLAS | 4.0.0 |  | (ok) | |
 |sci-libs/hipSPARSE | 4.0.0 |  | (ok) | |
 |sci-libs/MIOpenGEMM | 4.0.0 |  | (ok) | |
-|sci-libs/MIOpen | 3.8.0 |  | (ok) | |
+|sci-libs/MIOpen | 4.0.0 |  | (ok) | |
 
 <br>
 Meta ebuilds:
