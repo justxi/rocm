@@ -53,7 +53,7 @@ ROCm Libraries:
 |sci-libs/rocFFT| 4.0.0 |  | (ok) | |
 |sci-libs/rocSPARSE| 4.0.0 |  | (ok) | |
 |sci-libs/rocBLAS| 4.0.0 |  | (ok) | |
-|sci-libs/rocSOLVER| 3.8.0 |  | (ok) | |
+|sci-libs/rocSOLVER| 4.0.0 |  | (ok) | |
 |sci-libs/rocALUTION| 3.8.0 | | (ok) | |
 |sci-libs/rocThrust| 4.0.0 |  | (ok) | |
 |sci-libs/hipCUB | 4.0.0 |  | (ok)| |
