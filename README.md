@@ -67,7 +67,7 @@ Meta ebuilds:
 
 |Ebuild|Current Version|State| FHS | in Gentoo portage| 
 |---|---|---|---|---|
-|dev-util/amd-rocm-meta| 3.8.0 |  | (ok) | |
+|dev-util/amd-rocm-meta| 4.0.0 |  | (ok) | |
 
 <br>
 Systems known to work:
