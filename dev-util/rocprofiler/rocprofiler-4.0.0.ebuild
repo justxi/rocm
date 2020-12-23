@@ -21,18 +21,15 @@ RDEPEND="media-libs/hsa-amd-aqlprofile
 DEPEND="dev-util/cmake
 	${RDEPEND}"
 
-#PATCHES=(
-#        "${FILESDIR}/rocprofiler-3.5.0-install.patch"
-#)
+PATCHES=(
+        "${FILESDIR}/rocprofiler-4.0.0-install.patch"
+)
 
 S="${WORKDIR}/rocprofiler-rocm-${PV}"
 
 src_prepare() {
-	# header "string" is no included...
+	# header "string" is not included...
 	sed -e "s:#include <vector>:#include <vector>\n#include <string>:" -i "${S}/test/simple_convolution/simple_convolution.h"
-
-	# change install destination
-#	sed -e "s:::" -i "${S}/CMakeLists.txt"
 
 	cmake-utils_src_prepare
 }
