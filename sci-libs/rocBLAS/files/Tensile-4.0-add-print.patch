@@ -1,0 +1,11 @@
+--- a/Tensile/TensileCreateLibrary.py	2020-12-23 12:47:04.008570042 +0100
++++ b/Tensile/TensileCreateLibrary.py	2020-12-23 12:48:38.798567653 +0100
+@@ -1334,6 +1334,7 @@
+   print1("# CxxCompiler       from TensileCreateLibrary: %s" % CxxCompiler)
+   print1("# Architecture      from TensileCreateLibrary: %s" % arguments["Architecture"])
+   print1("# LibraryFormat     from TensileCreateLibrary: %s" % libraryFormat)
++  print1("# RuntimeLanguage   from TensileCreateLibrary: %s" % arguments["RuntimeLanguage"])
+ 
+   if not os.path.exists(logicPath):
+     printExit("LogicPath %s doesn't exist" % logicPath)
+

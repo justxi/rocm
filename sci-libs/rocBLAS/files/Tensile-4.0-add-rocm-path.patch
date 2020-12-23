@@ -4,7 +4,7 @@
  
        hipFlags = ["-D__HIP_HCC_COMPAT_MODE__=1"] #needs to be fixed when Maneesh's change is made available
  
-+      hipFlags = ["--rocm-path=/usr"]
++      hipFlags += ["--rocm-path=/usr"]
 +
        hipFlags += ['-I', outputPath]
  

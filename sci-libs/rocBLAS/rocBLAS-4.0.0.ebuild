@@ -4,7 +4,6 @@
 EAPI=7
 
 inherit cmake-utils flag-o-matic
-#git-r3
 
 DESCRIPTION="AMD's library for BLAS on ROCm."
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
@@ -15,10 +14,9 @@ LICENSE=""
 KEYWORDS="~amd64"
 SLOT="0"
 
-IUSE="debug +gfx803 gfx900 gfx906 gfx908 +tensile tensile_asm_ci"
-# tensile_host
-
-REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
+IUSE="debug +tensile +tensile_host"
+#+gfx803 gfx900 gfx906 gfx908 tensile_asm_ci
+#REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
 RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
@@ -46,6 +44,10 @@ src_prepare() {
 
 	# Changes in Tensile ...
 	sed -e "s:hipFlags = \[\"--genco\", :hipFlags = \[:" -i "${WORKDIR}/Tensile-rocm-${PV}/Tensile/TensileCreateLibrary.py" || die
+
+	sed -e "s/Impl::inputOne(io, key, \*value)/Impl::inputOne(io, key.str(), \*value)/g" \
+		-i "${WORKDIR}/Tensile-rocm-${PV}/Tensile/Source/lib/include/Tensile/llvm/YAML.hpp" || die
+
 	sed -e "s:locateExe(\"/opt/rocm/llvm/bin\", \"clang-offload-bundler\"):\"/usr/lib/llvm/roc/bin/clang-offload-bundler\":" -i "${WORKDIR}/Tensile-rocm-${PV}/Tensile/Common.py" || die
 
 	# Changes in rocBLAS ...
@@ -54,20 +56,6 @@ src_prepare() {
 	sed -e "s:rocblas/include:include/rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 	sed -e "s:\\\\\${CPACK_PACKAGING_INSTALL_PREFIX}rocblas/lib:/usr/lib64/rocblas:" -i ${S}/library/src/CMakeLists.txt || die
 	sed -e "s:rocm_install_symlink_subdir( rocblas ):#rocm_install_symlink_subdir( rocblas ):" -i ${S}/library/src/CMakeLists.txt || die
-
-	# add architectures to target.lst file to allow "autodetection" of the architecture
-#	if use gfx803; then
-#		echo "gfx803" >> ${WORKDIR}/target.lst
-#	fi
-#	if use gfx900; then
-#		echo "gfx900" >> ${WORKDIR}/target.lst
-#	fi
-#	if use gfx906; then
-#		echo "gfx906" >> ${WORKDIR}/target.lst
-#	fi
-#	if use gfx908; then
-#		echo "gfx908" >> ${WORKDIR}/target.lst
-#	fi
 
 	cd ${S}
 	eapply_user
@@ -84,7 +72,7 @@ src_configure() {
 	strip-flags
 	filter-flags '*march*'
 
-	CXX=hipcc
+	export CXX="/usr/lib/hip/4.0/bin/hipcc"
 
 	if use debug; then
 		buildtype="Debug"
@@ -92,74 +80,71 @@ src_configure() {
 		buildtype="Release"
 	fi
 
-	AMDGPU_TARGETS=""
-	if use gfx803; then
-		AMDGPU_TARGETS+="gfx803;"
-	fi
-	if use gfx900; then
-		AMDGPU_TARGETS+="gfx900;"
-	fi
-	if use gfx906; then
-		AMDGPU_TARGETS+="gfx906;"
-	fi
-	if use gfx908; then
-		AMDGPU_TARGETS+="gfx908;"
-	fi
+#	AMDGPU_TARGETS=""
+#	if use gfx803; then
+#		AMDGPU_TARGETS+="gfx803;"
+#	fi
+#	if use gfx900; then
+#		AMDGPU_TARGETS+="gfx900;"
+#	fi
+#	if use gfx906; then
+#		AMDGPU_TARGETS+="gfx906;"
+#	fi
+#	if use gfx908; then
+#		AMDGPU_TARGETS+="gfx908;"
+#	fi
 
-#		-DBUILD_WITH_TENSILE_HOST=$(usex tensile_host ON OFF)
 	local mycmakeargs=(
+		-DTensile_LOGIC="asm_full"
 		-DTensile_COMPILER="hipcc"
+		-DTensile_ARCHITECTURE="all"
 		-DTensile_LIBRARY_FORMAT="msgpack"
+		-DTensile_CODE_OBJECT_VERSION="V3"
 		-DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}"
-		-DCMAKE_BUILD_TYPE=${buildtype}
+		-DBUILD_WITH_TENSILE=$(usex tensile ON OFF)
+		-DBUILD_WITH_TENSILE_HOST=$(usex tensile_host ON OFF)
+		-DCMAKE_BUILD_TYPE="${buildtype}"
 		-DCMAKE_CXX_FLAGS="--rocm-path=/usr"
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr/"
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocblas"
-		-DAMDGPU_TARGETS="${AMDGPU_TARGETS}"
 		-DBUILD_TESTING=OFF
 		-DBUILD_CLIENTS_SAMPLES=OFF
 		-DBUILD_CLIENTS_TESTS=OFF
 		-DBUILD_CLIENTS_BENCHMARKS=OFF
 	)
-	# if BUILD_TESTING is set to "ON", building fails
+#		-DAMDGPU_TARGETS="${AMDGPU_TARGETS}"
+#		-DTensile_LIBRARY_FORMAT="yaml"
+#		-Damd_comgr_DIR="/usr/lib/cmake/amd_comgr"
 
-	if ! use tensile; then
-		mycmakeargs+=(
-			-DBUILD_WITH_TENSILE=OFF
-		)
-	fi
+#	if use gfx803; then
+#		mycmakeargs+=(
+#			-DTensile_ARCHITECTURE="gfx803"
+#		)
+#	fi
 
-	if use gfx803; then
-		mycmakeargs+=(
-			-DTensile_ARCHITECTURE="gfx803"
-		)
-	fi
+#	if use gfx900; then
+#		mycmakeargs+=(
+#			-DTensile_ARCHITECTURE="gfx900"
+#		)
+#	fi
 
-	if use gfx900; then
-		mycmakeargs+=(
-			-DTensile_ARCHITECTURE="gfx900"
-		)
-	fi
+#	if use gfx906; then
+#		mycmakeargs+=(
+#			-DTensile_ARCHITECTURE="gfx906"
+#		)
+#	fi
 
-	if use gfx906; then
-		mycmakeargs+=(
-			-DTensile_ARCHITECTURE="gfx906"
-		)
-	fi
+#	if use gfx908; then
+#		mycmakeargs+=(
+#			-DTensile_ARCHITECTURE="gfx908"
+#		)
+#	fi
 
-	if use gfx908; then
-		mycmakeargs+=(
-			-DTensile_ARCHITECTURE="gfx908"
-		)
-	fi
-
-	if use tensile_asm_ci; then
-		mycmakeargs+=(
-			-DTensile_LOGIC="asm_ci"
-		)
-	fi
-
-#	export ROCM_TARGET_LST="${WORKDIR}/target.lst"
+#	if use tensile_asm_ci; then
+#		mycmakeargs+=(
+#			-DTensile_LOGIC="asm_ci"
+#		)
+#	fi
 
 	cmake-utils_src_configure
 }
