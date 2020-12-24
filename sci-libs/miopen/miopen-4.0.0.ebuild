@@ -52,7 +52,7 @@ src_configure() {
 	strip-flags
 	filter-flags '*march*'
 
-#	CMAKE_MAKEFILE_GENERATOR=emake
+	CXX="${EPREFIX}/usr/lib/llvm/roc/bin/clang++"
 
 	local mycmakeargs=(
 		-DMIOPEN_AMDGCN_ASSEMBLER_PATH="/usr/lib/llvm/roc/bin"
@@ -64,7 +64,6 @@ src_configure() {
 	if use opencl; then
 		mycmakeargs+=( "-DMIOPEN_BACKEND=OpenCL" )
 	else
-		CXX="${EPREFIX}/usr/lib/llvm/roc/bin/clang++"
 		mycmakeargs+=( "-DMIOPEN_BACKEND=HIP" )
 	fi
 
