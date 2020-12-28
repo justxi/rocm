@@ -20,7 +20,7 @@ RDEPEND="
 	opencl? ( >=dev-libs/rocm-opencl-runtime-$(ver_cut 1-2) )
 	opencl? ( =dev-util/rocm-clang-ocl-$(ver_cut 1-2)* )
 
-	hip? ( =sys-devel/hip-$(ver_cut 1-2)* )
+	hip? ( =dev-util/hip-$(ver_cut 1-2)* )
 
 	profiling? ( =dev-util/rocm-bandwidth-test-$(ver_cut 1-2)* )
 
