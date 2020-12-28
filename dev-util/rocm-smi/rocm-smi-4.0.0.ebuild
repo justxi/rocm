@@ -22,7 +22,8 @@ SLOT="0"
 IUSE=""
 
 DEPEND=""
-RDEPEND="dev-libs/rocr-runtime"
+RDEPEND="dev-libs/rocr-runtime
+	 dev-python-3*"
 
 src_compile() {
 	einfo "Nothing todo"
