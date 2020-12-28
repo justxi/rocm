@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 DESCRIPTION="Generate pseudo-random and quasi-random numbers"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocRAND"
@@ -39,7 +39,7 @@ src_prepare() {
 	sed -e "s:INSTALL_RPATH \"\${CMAKE_INSTALL_PREFIX}:#&:" -i library/CMakeLists.txt
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -47,7 +47,11 @@ src_configure() {
 	strip-flags
 	filter-flags '*march*'
 
-	# Compiler to use...
+        # Grant access to the device
+        addwrite /dev/kfd
+        addpredict /dev/dri/
+
+	# Compiler to use
 	export CXX=hipcc
 
 	# Let "hipcc" know where the bitcode files are located
@@ -59,16 +63,11 @@ src_configure() {
 		-DAMDGPU_TARGETS="gfx803;gfx900;gfx906;gfx908"
 	)
 
-	# this is necessary to omit a sandbox vialation,
-	# but it does not seem to affect the targets list...
-	echo "gfx803" >> ${WORKDIR}/target.lst
-	export ROCM_TARGET_LST="${WORKDIR}/target.lst"
-
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	chrpath --delete "${D}/usr/lib64/libhiprand.so.1.1"
 }
