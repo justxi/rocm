@@ -46,7 +46,8 @@ src_prepare() {
         fi
 
 	sed -e "s: PREFIX rocalution):):" -i src/CMakeLists.txt
-	sed -e "s:/opt/rocm/hip/cmake:${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)/cmake:" -i "${S}/CMakeLists.txt"
+#	sed -e "s:/opt/rocm/hip/cmake:${EPREFIX}/usr/lib/hip/$(ver_cut 1-2)/cmake:" -i "${S}/CMakeLists.txt"
+	sed -e "s:/opt/rocm/hip/cmake:${EPREFIX}/usr/lib/hip/cmake:" -i "${S}/CMakeLists.txt"
 	sed -e "s:PREFIX rocalution:#PREFIX rocalution:" -i "${S}/src/CMakeLists.txt"
 	sed -e "s:rocm_install_symlink_subdir(rocalution):#rocm_install_symlink_subdir(rocalution):" -i "${S}/src/CMakeLists.txt"
 
