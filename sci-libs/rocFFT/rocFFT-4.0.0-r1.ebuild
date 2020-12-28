@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic check-reqs
+inherit cmake flag-o-matic check-reqs
 
 DESCRIPTION="Next generation FFT implementation for ROCm"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocFFT"
@@ -34,27 +34,32 @@ pkg_pretend() {
 }
 
 src_prepare() {
-	cd ${S}
+#	cd ${S}
 
-	sed -e "s: PREFIX rocfft:# PREFIX rocfft:" -i ${S}/library/src/CMakeLists.txt
-	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i ${S}/library/src/CMakeLists.txt
-	sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/rocFFT:" -i ${S}/library/src/CMakeLists.txt
+	sed -e "s: PREFIX rocfft:# PREFIX rocfft:" -i "${S}/library/src/CMakeLists.txt" || die
+	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i "${S}/library/src/CMakeLists.txt" || die
+	sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/rocFFT:" -i "${S}/library/src/CMakeLists.txt" || die
 
-	sed "$!N;s:PREFIX\n  rocfft:# PREFIX rocfft\n:;P;D" -i ${S}/library/src/device/CMakeLists.txt
-	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i ${S}/library/src/device/CMakeLists.txt
+	sed "$!N;s:PREFIX\n  rocfft:# PREFIX rocfft\n:;P;D" -i "${S}/library/src/device/CMakeLists.txt" || die
+	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i "${S}/library/src/device/CMakeLists.txt" || die
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
+	# Process flags
 	strip-flags
 	filter-flags '*march*'
 
-	# Tested in ROCm 3.3:
-	# if the ISA is not set previous to the autodetection,
-	# /opt/rocm/bin/rocm_agent_enumerator is executed,
-	# this leads to a sandbox violation
+	# Grant access to the device
+        addwrite /dev/kfd
+        addpredict /dev/dri/
+
+	# Compiler to use
+	export CXX=hipcc
+
+	# Select target
 	AMDGPU_TARGETS=""
 	if use gfx803; then
 		AMDGPU_TARGETS+="gfx803;"
@@ -69,8 +74,6 @@ src_configure() {
 		AMDGPU_TARGETS+="gfx908;"
 	fi
 
-	export CXX=hipcc
-
 	local mycmakeargs=(
 		-Wno-dev
 		-DCMAKE_CXX_FLAGS="--rocm-path=/usr"
@@ -79,15 +82,10 @@ src_configure() {
 		-DAMDGPU_TARGETS="${AMDGPU_TARGETS}"
 	)
 
-        # this is necessary to omit a sandbox vialation,
-        # but it does not seem to affect the targets list...
-        echo "gfx803" >> ${WORKDIR}/target.lst
-        export ROCM_TARGET_LST="${WORKDIR}/target.lst"
-
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-        cmake-utils_src_install
+        cmake_src_install
         chrpath --delete "${D}/usr/lib64/librocfft.so.0.1"
 }
