@@ -7,7 +7,8 @@ All ebuilds which are already exist in Gentoo portage will be removed from this 
 If you have a problem with an ebuild from Gentoo portage then submit a bugreport at https://bugs.gentoo.org/.
 
 **The ebuilds for ROCm 4.0.0 are in a good state.**<br>
-Currently all ebuilds which depend on HIP will be updated to depend on "dev-util/hip" in Gentoo portage.
+All ebuilds which depend on HIP are updated to depend on "dev-util/hip" in Gentoo portage.
+The ebuild "sys-devel/hip" will be removed soon.
 
 **Thanks to all contributors.**
 
