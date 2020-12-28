@@ -9,7 +9,7 @@ DESCRIPTION="ROC profiler library."
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/rocprofiler.git"
 SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/rocm-${PV}.tar.gz -> rocprofiler-${PV}.tar.gz"
 
-LICENSE=""
+LICENSE="MIT"
 KEYWORDS="~amd64"
 SLOT="0"
 
