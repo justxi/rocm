@@ -10,10 +10,9 @@ inherit git-r3 distutils-r1
 DESCRIPTION="Stretching GPU performance for GEMMs and tensor contractions"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/Tensile"
 EGIT_REPO_URI="https://github.com/ROCmSoftwarePlatform/Tensile.git"
-EGIT_COMMIT="af71ea890a893e647bf2cf4571a90297d65689ca"
-# taken from rocBLAS tensile_tag.txt
+EGIT_TAG="rocm-4.0.0"
 
-LICENSE=""
+LICENSE="MIT"
 KEYWORDS="~amd64"
 SLOT="0"
 IUSE=""
