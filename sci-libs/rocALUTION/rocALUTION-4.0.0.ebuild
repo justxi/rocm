@@ -9,7 +9,7 @@ DESCRIPTION="Next generation library for iterative sparse solvers for ROCm platf
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocALUTION"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocALUTION/archive/rocm-${PV}.tar.gz -> rocALUTION-${PV}.tar.gz"
 
-LICENSE=""
+LICENSE="MIT"
 KEYWORDS="~amd64"
 SLOT="0"
 
@@ -66,7 +66,6 @@ src_configure() {
 		-DBUILD_CLIENTS_BENCHMARKS=OFF
 		-DBUILD_CLIENTS_SAMPLES=ON
 	)
-	# ROCm 3.3: Ebuild fails if set "BUILD_CLIENTS_SAMPLES=ON" when rocBLAS is build -DBUILD_WITH_TENSILE_HOST=ON!
 
 	cmake-utils_src_configure
 }

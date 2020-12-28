@@ -9,7 +9,7 @@ DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocThrust"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocThrust/archive/rocm-${PV}.tar.gz -> rocThrust-${PV}.tar.gz"
 
-LICENSE=""
+LICENSE="Apache License 2.0"
 KEYWORDS="~amd64"
 SLOT="0"
 

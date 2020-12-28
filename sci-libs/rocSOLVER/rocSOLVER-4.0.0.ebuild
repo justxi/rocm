@@ -9,7 +9,7 @@ DESCRIPTION="Implementation of a subset of LAPACK functionality on the ROCm plat
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSOLVER"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocSOLVER/archive/rocm-${PV}.tar.gz -> rocSOLVER-${PV}.tar.gz"
 
-LICENSE=""
+LICENSE="BSD 2-Clause"
 KEYWORDS="~amd64"
 SLOT="0"
 
@@ -25,7 +25,6 @@ DEPEND="${RDEPEND}
 S=${WORKDIR}/${PN}-rocm-${PV}
 
 src_prepare() {
-
 	sed -e "s: PREFIX rocsolver:# PREFIX rocsolver:" -i rocsolver/library/src/CMakeLists.txt
 	sed -e "s:\$<INSTALL_INTERFACE\:include>:\$<INSTALL_INTERFACE\:include/rocsolver>:" -i rocsolver/library/src/CMakeLists.txt
 	sed -e "s:rocm_install_symlink_subdir( rocsolver ):#rocm_install_symlink_subdir( rocsolver ):" -i rocsolver/library/src/CMakeLists.txt

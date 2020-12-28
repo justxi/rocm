@@ -5,13 +5,15 @@ EAPI=7
 
 inherit cmake-utils flag-o-matic
 
-DESCRIPTION="MIOpenGEMM"
+DESCRIPTION="An OpenCL general matrix multiplication (GEMM) API and kernel generator"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM/archive/rocm-${PV}.tar.gz -> miopengemm-${PV}.tar.gz"
 
-KEYWORDS="~amd64"
 LICENSE="MIT"
+KEYWORDS="~amd64"
 SLOT="0"
+
+IUSE="-benchmark"
 
 RDEPEND="virtual/opencl"
 DEPEND="dev-util/rocm-cmake
@@ -19,11 +21,9 @@ DEPEND="dev-util/rocm-cmake
 
 S="${WORKDIR}/MIOpenGEMM-rocm-${PV}"
 
-IUSE="-benchmark"
-
 src_prepare() {
-	sed -e "s:set( miopengemm_INSTALL_DIR miopengemm):set( miopengemm_INSTALL_DIR \"\"):" -i miopengemm/CMakeLists.txt
-	sed -e "s:rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):#rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):" -i miopengemm/CMakeLists.txt
+	sed -e "s:set( miopengemm_INSTALL_DIR miopengemm):set( miopengemm_INSTALL_DIR \"\"):" -i "${S}/miopengemm/CMakeLists.txt" || die
+	sed -e "s:rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):#rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):" -i "${S}/miopengemm/CMakeLists.txt" || die
 
 	cmake-utils_src_prepare
 }

@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocBLAS/archive/rocm-${PV}.tar.gz -> rocm-rocBLAS-${PV}.tar.gz
 	https://github.com/ROCmSoftwarePlatform/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz"
 
-LICENSE=""
+LICENSE="MIT"
 KEYWORDS="~amd64"
 SLOT="0"
 

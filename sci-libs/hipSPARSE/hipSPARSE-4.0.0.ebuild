@@ -5,14 +5,13 @@ EAPI=7
 
 inherit cmake-utils
 
-DESCRIPTION=""
+DESCRIPTION="ROCm SPARSE marshalling library"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipSPARSE"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/hipSPARSE/archive/rocm-${PV}.tar.gz -> hipSPARSE-$(ver_cut 1-2).tar.gz"
 
-LICENSE=""
+LICENSE="MIT"
 KEYWORDS="~amd64"
 SLOT="0"
-
 IUSE=""
 
 RDEPEND=">dev-util/rocminfo-$(ver_cut 1-2)
@@ -22,8 +21,6 @@ DEPEND="${RDPEND}
 	dev-util/cmake"
 
 S="${WORKDIR}/hipSPARSE-rocm-${PV}"
-
-#CMAKE_MAKEFILE_GENERATOR="emake"
 
 src_prepare() {
 	sed -e "s: PREFIX hipsparse):):" -i ${S}/library/CMakeLists.txt || die

@@ -9,10 +9,9 @@ DESCRIPTION="ROCm BLAS marshalling library"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipBLAS"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/hipBLAS/archive/rocm-${PV}.tar.gz -> hipBLAS-$(ver_cut 1-2).tar.gz"
 
-LICENSE=""
+LICENSE="MIT"
 KEYWORDS="~amd64"
 SLOT="0"
-
 IUSE=""
 
 RDEPEND="=dev-util/hip-$(ver_cut 1-2)*

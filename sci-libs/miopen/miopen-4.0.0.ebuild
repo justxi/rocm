@@ -5,7 +5,7 @@ EAPI=7
 
 inherit cmake-utils flag-o-matic
 
-DESCRIPTION="MIOpen"
+DESCRIPTION="AMD's Machine Intelligence Library"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpen"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/MIOpen/archive/rocm-${PV}.tar.gz -> MIOpen-${PV}.tar.gz"
 
@@ -35,13 +35,13 @@ S="${WORKDIR}/MIOpen-rocm-${PV}"
 
 src_prepare() {
 	sed -e "s:PATHS /opt/rocm/llvm:PATHS /usr/lib/llvm/roc/ NO_DEFAULT_PATH:" -i "${S}/CMakeLists.txt" || die
-	sed -e "s:set( MIOPEN_INSTALL_DIR miopen):set( MIOPEN_INSTALL_DIR \"\"):" -i CMakeLists.txt
-	sed -e "s:set( DATA_INSTALL_DIR \${MIOPEN_INSTALL_DIR}/\${CMAKE_INSTALL_DATAROOTDIR}/miopen ):set( DATA_INSTALL_DIR \${CMAKE_INSTALL_PREFIX}/\${CMAKE_INSTALL_DATAROOTDIR}/miopen ):" -i CMakeLists.txt
-	sed -e "s:set(MIOPEN_SYSTEM_DB_PATH \"\${CMAKE_INSTALL_PREFIX}/\${DATA_INSTALL_DIR}/db\":set(MIOPEN_SYSTEM_DB_PATH \"\${DATA_INSTALL_DIR}/db\":" -i CMakeLists.txt
+	sed -e "s:set( MIOPEN_INSTALL_DIR miopen):set( MIOPEN_INSTALL_DIR \"\"):" -i "${S}/CMakeLists.txt" || die
+	sed -e "s:set( DATA_INSTALL_DIR \${MIOPEN_INSTALL_DIR}/\${CMAKE_INSTALL_DATAROOTDIR}/miopen ):set( DATA_INSTALL_DIR \${CMAKE_INSTALL_PREFIX}/\${CMAKE_INSTALL_DATAROOTDIR}/miopen ):" -i "${S}/CMakeLists.txt" || die
+	sed -e "s:set(MIOPEN_SYSTEM_DB_PATH \"\${CMAKE_INSTALL_PREFIX}/\${DATA_INSTALL_DIR}/db\":set(MIOPEN_SYSTEM_DB_PATH \"\${DATA_INSTALL_DIR}/db\":" -i "${S}/CMakeLists.txt" || die
 
-	sed -e "s:DESTINATION \${MIOPEN_INSTALL_DIR}/bin:DESTINATION \${CMAKE_INSTALL_PREFIX}/bin:" -i driver/CMakeLists.txt
+	sed -e "s:DESTINATION \${MIOPEN_INSTALL_DIR}/bin:DESTINATION \${CMAKE_INSTALL_PREFIX}/bin:" -i "${S}/driver/CMakeLists.txt" || die
 
-	sed -e "s:rocm_install_symlink_subdir(\${MIOPEN_INSTALL_DIR}):#rocm_install_symlink_subdir(\${MIOPEN_INSTALL_DIR}):" -i src/CMakeLists.txt
+	sed -e "s:rocm_install_symlink_subdir(\${MIOPEN_INSTALL_DIR}):#rocm_install_symlink_subdir(\${MIOPEN_INSTALL_DIR}):" -i "${S}/src/CMakeLists.txt" || die
 
 	sed -e "s:\${AMD_DEVICE_LIBS_PREFIX}/lib:/usr/lib/amdgcn/bitcode:" -i "${S}/cmake/hip-config.cmake" || die
 

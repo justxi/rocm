@@ -5,14 +5,13 @@ EAPI=7
 
 inherit cmake-utils
 
-DESCRIPTION=""
+DESCRIPTION="A thin wrapper library on top of rocPRIM or CUB"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipCUB"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/hipCUB/archive/rocm-${PV}.tar.gz -> hipCUB-${PV}.tar.gz"
 
 LICENSE=""
 KEYWORDS="~amd64"
 SLOT="0"
-
 IUSE=""
 
 RDEPEND="=dev-util/hip-$(ver_cut 1-2)*
