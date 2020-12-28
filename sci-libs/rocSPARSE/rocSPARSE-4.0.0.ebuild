@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="debug +gfx803 gfx900 gfx906 gfx908"
 REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
-RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
+RDEPEND="=dev-util/hip-$(ver_cut 1-2)*
 	 =sci-libs/rocPRIM-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
 	dev-util/cmake"

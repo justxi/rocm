@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="-static-boost -opencl"
 
 RDEPEND="
-	>=sys-devel/hip-${PV}
+	>=dev-util/hip-${PV}
 	>=dev-libs/half-1.12.0
 	dev-libs/ocl-icd
 	opencl? (

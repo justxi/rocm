@@ -16,7 +16,7 @@ SLOT="0"
 IUSE="+gfx803 gfx900 gfx906 gfx908"
 REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
-RDEPEND=">=sys-devel/hip-${PV}
+RDEPEND=">=dev-util/hip-${PV}
 	 >=sci-libs/rocBLAS-${PV}"
 DEPEND="${RDEPEND}
 	dev-util/cmake

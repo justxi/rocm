@@ -16,7 +16,7 @@ SLOT="0"
 IUSE=""
 
 RDEPEND=">dev-util/rocminfo-$(ver_cut 1-2)
-         =sys-devel/hip-$(ver_cut 1-2)*
+         =dev-util/hip-$(ver_cut 1-2)*
          =sci-libs/rocSPARSE-${PV}*"
 DEPEND="${RDPEND}
 	dev-util/cmake"

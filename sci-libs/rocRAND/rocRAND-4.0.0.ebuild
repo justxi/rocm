@@ -13,7 +13,7 @@ LICENSE=""
 KEYWORDS="~amd64"
 SLOT="0"
 
-RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
+RDEPEND="=dev-util/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	=dev-util/rocm-cmake-$(ver_cut 1-2)*"

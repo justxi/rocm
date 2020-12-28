@@ -17,7 +17,7 @@ IUSE="hip +openmp mpi +gfx803 gfx900 gfx906 gfx908"
 REQUIRED_USE="|| ( hip openmp mpi )"
 REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
-RDEPEND="hip? ( =sys-devel/hip-$(ver_cut 1-2)* )
+RDEPEND="hip? ( =dev-util/hip-$(ver_cut 1-2)* )
 	 hip? ( =sci-libs/rocSPARSE-$(ver_cut 1-2)* )
 	 hip? ( =sci-libs/rocBLAS-$(ver_cut 1-2)* )
 	 mpi? ( virtual/mpi )

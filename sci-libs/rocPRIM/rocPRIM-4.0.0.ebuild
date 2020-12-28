@@ -15,7 +15,7 @@ SLOT="0"
 
 IUSE=""
 
-RDEPEND=">=sys-devel/hip-${PV}
+RDEPEND=">=dev-util/hip-${PV}
 	>=dev-util/rocm-cmake-${PV}"
 DEPEND="${RDEPEND}
 	dev-util/cmake"

@@ -15,7 +15,7 @@ SLOT="0"
 
 IUSE=""
 
-RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
+RDEPEND="=dev-util/hip-$(ver_cut 1-2)*
          =sci-libs/rocPRIM-${PV}*"
 DEPEND="${RDEPEND}
 	dev-util/cmake"

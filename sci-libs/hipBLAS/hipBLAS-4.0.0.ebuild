@@ -15,7 +15,7 @@ SLOT="0"
 
 IUSE=""
 
-RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*
+RDEPEND="=dev-util/hip-$(ver_cut 1-2)*
          =sci-libs/rocBLAS-${PV}*
          =sci-libs/rocSOLVER-${PV}*"
 DEPEND="${RDPEND}

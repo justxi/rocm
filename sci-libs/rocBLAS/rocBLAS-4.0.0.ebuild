@@ -18,7 +18,7 @@ IUSE="debug +tensile +tensile_host"
 #+gfx803 gfx900 gfx906 gfx908 tensile_asm_ci
 #REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
-RDEPEND="=sys-devel/hip-$(ver_cut 1-2)*"
+RDEPEND="=dev-util/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
 	dev-util/cmake
 	dev-util/rocm-cmake
