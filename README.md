@@ -12,7 +12,7 @@ The ebuild "sys-devel/hip" will be removed soon.
 
 **Thanks to all contributors.**
 
-The following tables show all ebuilds tested (2020-12-23) in this repository. <br>
+The following tables show all ebuilds tested (2020-12-28) in this repository. <br>
 All other ebuilds can be out of date!
 
 Kernel, driver, libraries, compiler and tools:
