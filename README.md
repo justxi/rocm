@@ -27,9 +27,9 @@ Kernel, driver, libraries, compiler and tools:
 |media-libs/hsa-amd-aqlprofile| 4.0.0 | | (ok) | |
 |dev-libs/rocr-runtime| 4.0.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0 |
 |dev-util/rocminfo | 4.0.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0 |
-|dev-util/rocm-bandwidth-test| 4.0.0 | Reports suitable informations. | (ok) |  |
+|dev-util/rocm-bandwidth-test| 4.0.0 |  | (ok) |  |
 |dev-libs/rocm-smi-lib| 4.0.0 |  | (ok) | |
-|dev-util/rocm-smi| 4.0.0 | Reports suitable informations. | (ok) | :heavy_check_mark:<br> 4.0.0 |
+|dev-util/rocm-smi| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |
 |dev-libs/rocm-comgr | 4.0.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0, 4.0.0 |
 |dev-libs/amd-dbgapi | 4.0.0 |  | (ok) | |
 |dev-libs/rocclr | 4.0.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0 |
