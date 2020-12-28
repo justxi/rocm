@@ -35,7 +35,7 @@ src_prepare() {
 }
 
 src_configure() {
-	export CXX="/usr/lib/hip/4.0/bin/hipcc"
+	export CXX="/usr/lib/hip/bin/hipcc"
 
 	local mycmakeargs=(
 		-DTRY_CUDA=OFF

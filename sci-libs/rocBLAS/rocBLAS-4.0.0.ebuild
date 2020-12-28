@@ -72,7 +72,7 @@ src_configure() {
 	strip-flags
 	filter-flags '*march*'
 
-	export CXX="/usr/lib/hip/4.0/bin/hipcc"
+	export CXX="/usr/lib/hip/bin/hipcc"
 
 	if use debug; then
 		buildtype="Debug"

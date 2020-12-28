@@ -34,7 +34,7 @@ src_prepare() {
 }
 
 src_configure() {
-	CXX="/usr/lib/hip/4.0/bin/hipcc"
+	CXX="/usr/lib/hip/bin/hipcc"
 
         # if the ISA is not set previous to the autodetection,
         # /opt/rocm/bin/rocm_agent_enumerator is executed,
