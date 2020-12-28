@@ -4,7 +4,7 @@
 EAPI=6
 inherit unpacker
 
-DESCRIPTION="hsa-amd-aqlprofile"
+DESCRIPTION="AMD HSA Aqlprofile"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCm"
 SRC_URI="http://repo.radeon.com/rocm/apt/4.0/pool/main/h/hsa-amd-aqlprofile4.0.0/hsa-amd-aqlprofile4.0.0_1.0.0_amd64.deb"
 
