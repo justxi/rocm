@@ -70,15 +70,15 @@ src_prepare() {
 src_configure() {
 	export CMAKE_PREFIX_PATH=/usr/include/hsa:/usr/lib/
 
-	if use debug; then
-		export CMAKE_BUILD_TYPE=debug
-#		export CMAKE_DEBUG_TRACE=1
-#		export CMAKE_LD_AQLPROFILE=1
-	fi
-
 	mycmakeargs=(
 		-DHIP_VDI=1
 	)
+
+	if use debug; then
+		mycmakeargs+=(
+			CMAKE_BUILD_TYPE=debug
+		)
+	fi
 
 	cmake_src_configure
 }
