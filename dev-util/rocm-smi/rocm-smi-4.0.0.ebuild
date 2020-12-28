@@ -17,20 +17,20 @@ else
 	S="${WORKDIR}/ROC-smi-rocm-${PV}"
 fi
 
-LICENSE=""
+LICENSE="MIT"
 SLOT="0"
 IUSE=""
 
 DEPEND=""
 RDEPEND="dev-libs/rocr-runtime
-	 dev-python-3*"
+	 =dev-lang/python-3*"
 
 src_compile() {
 	einfo "Nothing todo"
 }
 
 src_install() {
-	exeinto /usr/bin
-	doexe ${S}/rocm_smi.py
-	dosym ./rocm_smi.py /usr/bin/rocm-smi
+	exeinto "/usr/bin"
+	doexe "${S}/rocm_smi.py"
+	dosym "./rocm_smi.py /usr/bin/rocm-smi"
 }
