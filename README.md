@@ -8,7 +8,7 @@ If you have a problem with an ebuild from Gentoo portage then submit a bugreport
 
 **The ebuilds for ROCm 4.0.0 are in a good state.**<br>
 All ebuilds which depend on HIP are updated to depend on "dev-util/hip" in Gentoo portage.<br>
-The ebuild "sys-devel/hip" will be removed soon.
+Their are some more ebuilds which are in portage know and will be removed soon.
 
 **Thanks to all contributors.**
 
@@ -37,10 +37,10 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocm-clang-ocl| 4.0.0 | | (ok) | |
 |dev-util/hip| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |
 |dev-libs/rocm-debug-agent | 4.0.0 |  | (ok) | |
-|dev-util/roctracer| 4.0.0 |  | (ok) | |
+|dev-util/roctracer| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0  |
 |dev-util/rocprofiler| 4.0.0 |  | (ok) | |
 |dev-util/rcp| 5.6 |   | (ok) | |
-|dev-libs/rccl | 4.0.0 |  | (ok) | |
+|dev-libs/rccl | 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0  |
 |dev-util/Tensile | 4.0.0 | | (ok) | |
 
 <br>
@@ -48,17 +48,17 @@ ROCm Libraries:
 
 |Ebuild|Current Version|State|FHS|in Gentoo portage|
 |---|---|---|---|---|
-|sci-libs/rocPRIM| 4.0.0 |  | (ok) | |
-|sci-libs/rocRAND| 4.0.0 |  | (ok) |  |
-|sci-libs/rocFFT| 4.0.0 |  | (ok) | |
-|sci-libs/rocSPARSE| 4.0.0 |  | (ok) | |
-|sci-libs/rocBLAS| 4.0.0 |  | (ok) | |
-|sci-libs/rocSOLVER| 4.0.0 |  | (ok) | |
-|sci-libs/rocALUTION| 4.0.0 | | (ok) | |
-|sci-libs/rocThrust| 4.0.0 |  | (ok) | |
-|sci-libs/hipCUB | 4.0.0 |  | (ok)| |
-|sci-libs/hipBLAS | 4.0.0 |  | (ok) | |
-|sci-libs/hipSPARSE | 4.0.0 |  | (ok) | |
+|sci-libs/rocPRIM| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |
+|sci-libs/rocRAND| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |
+|sci-libs/rocFFT| 4.0.0 |  | (ok) |  |
+|sci-libs/rocSPARSE| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |
+|sci-libs/rocBLAS| 4.0.0 |  | (ok) |  |
+|sci-libs/rocSOLVER| 4.0.0 |  | (ok) |  |
+|sci-libs/rocALUTION| 4.0.0 | | (ok) |  |
+|sci-libs/rocThrust| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |
+|sci-libs/hipCUB | 4.0.0 |  | (ok)| :heavy_check_mark:<br> 4.0.0  |
+|sci-libs/hipBLAS | 4.0.0 |  | (ok) |  |
+|sci-libs/hipSPARSE | 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |
 |sci-libs/MIOpenGEMM | 4.0.0 |  | (ok) | |
 |sci-libs/MIOpen | 4.0.0 |  | (ok) | |
 
