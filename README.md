@@ -10,6 +10,8 @@ If you have a problem with an ebuild from Gentoo portage then submit a bugreport
 All ebuilds which depend on HIP are updated to depend on "dev-util/hip" in Gentoo portage.<br>
 Their are some more ebuilds which are in portage know and will be removed soon.
 
+**Ebuilds for ROCm 4.1.0 are work in progress...**<br>
+
 **Thanks to all contributors.**
 
 The following tables show all ebuilds tested (2020-12-28) in this repository. <br>
@@ -19,7 +21,7 @@ Kernel, driver, libraries, compiler and tools:
 
 |Ebuild|Current Version|State| FHS | in Gentoo portage| other overlay | 
 |---|---|---|---|---|---|
-|sys-kernel/rocm-sources| 4.0.0 | based on linux kernel 5.6.0 | (ok) |  |   |
+|sys-kernel/rocm-sources| 4.1.0 | based on linux kernel 5.9.0-rc2 | (ok) |  |   |
 |dev-util/rocm-cmake| 4.0.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0 |  |
 |dev-libs/roct-thunk-interface| 4.0.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0  |  |
 |sys-devel/llvm-roc | 4.0.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0 |  |
