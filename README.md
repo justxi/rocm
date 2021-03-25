@@ -14,7 +14,7 @@ Their are some more ebuilds which are in portage know and will be removed soon.
 
 **Thanks to all contributors.**
 
-The following tables show all ebuilds tested (2020-12-28) in this repository. <br>
+The following tables show all ebuilds tested (2020-03-24) in this repository. <br>
 All other ebuilds can be out of date!
 
 Kernel, driver, libraries, compiler and tools:
@@ -23,7 +23,7 @@ Kernel, driver, libraries, compiler and tools:
 |---|---|---|---|---|---|
 |sys-kernel/rocm-sources| 4.1.0 | based on linux kernel 5.9.0-rc2 | (ok) |  |   |
 |dev-util/rocm-cmake| 4.1.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
-|dev-libs/roct-thunk-interface| 4.0.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0  |  |
+|dev-libs/roct-thunk-interface| 4.1.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.1.0  |  |
 |sys-devel/llvm-roc | 4.1.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
 |dev-libs/rocm-device-libs | 4.0.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0 |  |
 |media-libs/hsa-amd-aqlprofile| 4.0.0 | | (ok) | |  |
