@@ -22,9 +22,9 @@ Kernel, driver, libraries, compiler and tools:
 |Ebuild|Current Version|State| FHS | in Gentoo portage| other overlay | 
 |---|---|---|---|---|---|
 |sys-kernel/rocm-sources| 4.1.0 | based on linux kernel 5.9.0-rc2 | (ok) |  |   |
-|dev-util/rocm-cmake| 4.0.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0 |  |
+|dev-util/rocm-cmake| 4.1.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
 |dev-libs/roct-thunk-interface| 4.0.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0  |  |
-|sys-devel/llvm-roc | 4.0.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0 |  |
+|sys-devel/llvm-roc | 4.1.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
 |dev-libs/rocm-device-libs | 4.0.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0 |  |
 |media-libs/hsa-amd-aqlprofile| 4.0.0 | | (ok) | |  |
 |dev-libs/rocr-runtime| 4.0.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0 |  |
