@@ -40,7 +40,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/hip| 4.1.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
 |dev-libs/rocm-debug-agent | 4.1.0 |  | (ok) | |  |
 |dev-util/roctracer| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0  |  |
-|dev-util/rocprofiler| 4.0.0 |  | (ok) | |  |
+|dev-util/rocprofiler| 4.1.0 |  | (ok) | |  |
 |dev-util/rcp| 5.6 |   | (ok) | |  |
 |dev-libs/rccl | 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0  |  |
 |dev-util/Tensile | 4.0.0 | | (ok) | | science<br> :heavy_check_mark:<br> 4.0.0 |
