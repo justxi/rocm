@@ -8,7 +8,7 @@ DESCRIPTION="C++ Heterogeneous-Compute Interface for Portability"
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/HIP"
 SRC_URI="https://github.com/ROCm-Developer-Tools/HIP/archive/rocm-${PV}.tar.gz -> rocm-hip-${PV}.tar.gz"
 
-KEYWORDS=""
+KEYWORDS="~amd64"
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
 
