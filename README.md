@@ -10,7 +10,7 @@ If you have a problem with an ebuild from Gentoo portage then submit a bugreport
 All ebuilds which depend on HIP are updated to depend on "dev-util/hip" in Gentoo portage.<br>
 Their are some more ebuilds which are in portage know and will be removed soon.
 
-**Ebuilds for ROCm 4.1.0 are work in progress... <br>That means creating PRs to Gentoo portage and Science overlay.**<br>
+**Ebuilds for ROCm 4.1.0 & 4.2.0 are work in progress... <br>That means creating PRs to Gentoo portage and Science overlay.**<br>
 
 **Thanks to all contributors.**
 
@@ -23,7 +23,7 @@ Kernel, driver, libraries, compiler and tools:
 |---|---|---|---|---|---|
 |sys-kernel/rocm-sources| 4.2.0 | based on linux kernel 5.9.0-rc2 | (ok) |  |   |
 |dev-util/rocm-cmake| 4.1.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
-|dev-libs/roct-thunk-interface| 4.1.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.1.0  |  |
+|dev-libs/roct-thunk-interface| 4.2.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.1.0, 4.2.0  |  |
 |sys-devel/llvm-roc | 4.1.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
 |dev-libs/rocm-device-libs | 4.1.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
 |media-libs/hsa-amd-aqlprofile| 4.1.0 | | (ok) | |  |
