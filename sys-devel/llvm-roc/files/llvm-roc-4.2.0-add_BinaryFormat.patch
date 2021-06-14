@@ -1,11 +1,12 @@
-diff -Naur a/lib/Target/AMDGPU/Disassembler/CMakeLists.txt b/lib/Target/AMDGPU/Disassembler/CMakeLists.txt
---- a/lib/Target/AMDGPU/Disassembler/CMakeLists.txt	2021-06-06 13:24:50.441880446 +0200
-+++ b/lib/Target/AMDGPU/Disassembler/CMakeLists.txt	2021-06-06 13:24:24.752880544 +0200
-@@ -11,6 +11,7 @@
+diff --color -uprN orig/lib/Target/AMDGPU/Disassembler/CMakeLists.txt llvm/lib/Target/AMDGPU/Disassembler/CMakeLists.txt
+--- orig/lib/Target/AMDGPU/Disassembler/CMakeLists.txt	2021-06-14 11:57:54.222796911 +0800
++++ llvm/lib/Target/AMDGPU/Disassembler/CMakeLists.txt	2021-06-14 11:58:35.206796875 +0800
+@@ -11,6 +11,8 @@ add_llvm_component_library(LLVMAMDGPUDis
    MC
    MCDisassembler
    Support
 +  BinaryFormat
++  Object
  
    ADD_TO_COMPONENT
    AMDGPU
