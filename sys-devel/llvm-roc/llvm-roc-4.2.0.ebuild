@@ -45,7 +45,7 @@ src_prepare() {
 		eend $?
 
 		ebegin "Remove --sysroot call on ld for native toolchain"
-		sed -i -e "$(grep -n -B1 sysroot= Gnu.cpp | sed -ne '{1s/-.*//;1p}'),+1 d" Gnu.cpp
+		sed '$!N;/sysroot=/!P;D' Gnu.cpp
 		eend $?
 		popd >/dev/null || die
 	fi
