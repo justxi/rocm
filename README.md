@@ -14,7 +14,7 @@ Their are some more ebuilds which are in portage know and will be removed soon.
 
 **Thanks to all contributors.**
 
-The following tables show all ebuilds tested (2020-03-31) in this repository. <br>
+The following tables show all ebuilds tested (2021-06-29) in this repository. <br>
 All other ebuilds can be out of date!
 
 Kernel, driver, libraries, compiler and tools:
