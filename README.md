@@ -24,18 +24,18 @@ Kernel, driver, libraries, compiler and tools:
 |sys-kernel/rocm-sources| 4.2.0 | based on linux kernel 5.9.0-rc2 | (ok) |  |   |
 |dev-util/rocm-cmake| 4.2.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0 |  |
 |dev-libs/roct-thunk-interface| 4.2.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.1.0, 4.2.0  |  |
-|sys-devel/llvm-roc | 4.2.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
-|dev-libs/rocm-device-libs | 4.1.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
-|media-libs/hsa-amd-aqlprofile| 4.1.0 | | (ok) | |  |
-|dev-libs/rocr-runtime| 4.1.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
-|dev-util/rocminfo | 4.1.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
+|sys-devel/llvm-roc | 4.2.0 | | Yes |:heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0 |  |
+|dev-libs/rocm-device-libs | 4.2.0 | | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0 |  |
+|media-libs/hsa-amd-aqlprofile| 4.2.0 | | (ok) | |  |
+|dev-libs/rocr-runtime| 4.2.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0 |  |
+|dev-util/rocminfo | 4.2.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0 |  |
 |dev-util/rocm-bandwidth-test| 4.1.0 |  | (ok) |  |  |
 |dev-libs/rocm-smi-lib| 4.1.0 |  | (ok) | |  |
 |dev-util/rocm-smi| 4.0.0 | deprecated | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
-|dev-libs/rocm-comgr | 4.1.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
+|dev-libs/rocm-comgr | 4.2.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0 |  |
 |dev-libs/amd-dbgapi | 4.1.0 |  | (ok) | |  |
-|dev-libs/rocclr | 4.1.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
-|dev-libs/rocm-opencl-runtime| 4.1.0 |  | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0 |  |
+|dev-libs/rocclr | 4.2.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0 |  |
+|dev-libs/rocm-opencl-runtime| 4.2.0 |  | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0 |  |
 |dev-util/rocm-clang-ocl| 4.1.0 | | (ok) | | science<br> :heavy_check_mark:<br> 4.0.0, 4.1.0 |
 |dev-util/hip| 4.1.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.1.0 |  |
 |dev-libs/rocm-debug-agent | 4.1.0 |  | (ok) | |  |
