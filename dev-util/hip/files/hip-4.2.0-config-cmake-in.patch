@@ -1,0 +1,28 @@
+--- a/hip-config.cmake.in	2021-06-21 19:39:41.459799509 +0200
++++ b/hip-config.cmake.in	2021-06-21 19:42:47.865798797 +0200
+@@ -185,8 +185,10 @@
+ 
+   if(NOT WIN32)
+     set_target_properties(hip::device PROPERTIES
+-      INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/../include"
+-      INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/../include"
++      INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
++      INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
++#      INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/../include"
++#      INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/../include"
+     )
+   endif()
+ endif()
+@@ -227,9 +229,9 @@
+      INTERFACE_LINK_LIBRARIES --hip-link
+   )
+ 
+-  set_property(TARGET hip::device APPEND PROPERTY
+-    INTERFACE_INCLUDE_DIRECTORIES "${HIP_CLANG_INCLUDE_PATH}/.."
+-  )
++#  set_property(TARGET hip::device APPEND PROPERTY
++#    INTERFACE_INCLUDE_DIRECTORIES "${HIP_CLANG_INCLUDE_PATH}/.."
++#  )
+ 
+   set_property(TARGET hip::device APPEND PROPERTY
+     INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${HIP_CLANG_INCLUDE_PATH}/.."
