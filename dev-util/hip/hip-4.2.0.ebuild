@@ -59,6 +59,8 @@ src_prepare() {
 	sed -e "s:\${AMD_DEVICE_LIBS_PREFIX}/lib:/usr/lib/amdgcn/bitcode:" \
 		-i "${S}/hip-config.cmake.in" || die
 
+	sed -e "s:install(CODE:#install(CODE:" -i CMakeLists.txt || die
+
 	einfo "prefixing hipcc and its utils..."
 	hprefixify $(grep -rl --exclude-dir=build/ "/usr" "${S}")
 }
@@ -110,4 +112,6 @@ src_install() {
 	doenvd 99hip
 
 	cmake_src_install
+
+	rm -r "${D}/usr/lib/hip/include/hip/hcc_detail" || die
 }
