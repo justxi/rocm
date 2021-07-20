@@ -25,8 +25,8 @@ RDEPEND="
 	!opencl? (
 		=dev-util/rocm-clang-ocl-${PV}*
 		sci-libs/rocBLAS[tensile] )
-	!static-boost? ( =dev-libs/boost-1.72* )
-	static-boost? ( =dev-libs/boost-1.72*[static-libs] )"
+	!static-boost? ( >=dev-libs/boost-1.72 )
+	static-boost? ( >=dev-libs/boost-1.72[static-libs] )"
 
 DEPEND="${RDEPEND}
 	dev-util/cmake"
