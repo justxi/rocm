@@ -15,7 +15,6 @@ IUSE="debug-tools hip opencl profiling science"
 RDEPEND="
 	=dev-util/rocminfo-$(ver_cut 1-2)*
 	=dev-libs/rocm-smi-lib-$(ver_cut 1-2)*
-	=dev-util/rocm-smi-$(ver_cut 1-2)*
 
 	opencl? ( >=dev-libs/rocm-opencl-runtime-$(ver_cut 1-2) )
 	opencl? ( =dev-util/rocm-clang-ocl-$(ver_cut 1-2)* )
