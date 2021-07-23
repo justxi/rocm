@@ -1,0 +1,13 @@
+diff -Nur a/Tensile/Common.py b/Tensile/Common.py
+--- a/Tensile/Common.py	2021-03-19 10:15:14.000000000 -0700
++++ b/Tensile/Common.py	2021-07-22 20:45:50.676775911 -0700
+@@ -1654,7 +1654,8 @@
+ 
+   globalParameters["ROCmSMIPath"] = locateExe(globalParameters["ROCmBinPath"], "rocm-smi")
+   globalParameters["ExtractKernelPath"] = locateExe(os.path.join(globalParameters["ROCmPath"], "hip/bin"), "extractkernel")
+-  globalParameters["ClangOffloadBundlerPath"] = locateExe(os.path.join(globalParameters["ROCmPath"], "llvm/bin"), "clang-offload-bundler")
++  #globalParameters["ClangOffloadBundlerPath"] = locateExe(os.path.join(globalParameters["ROCmPath"], "llvm/bin"), "clang-offload-bundler")
++  globalParameters["ClangOffloadBundlerPath"] = "/usr/lib/llvm/roc/bin/clang-offload-bundler"
+ 
+   if "ROCmAgentEnumeratorPath" in config:
+     globalParameters["ROCmAgentEnumeratorPath"] = config["ROCmAgentEnumeratorPath"]

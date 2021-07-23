@@ -1,0 +1,22 @@
+diff -Nur a/library/src/CMakeLists.txt b/library/src/CMakeLists.txt
+--- a/library/src/CMakeLists.txt	2021-07-22 00:03:00.483428584 -0700
++++ b/library/src/CMakeLists.txt	2021-07-22 00:11:49.640381627 -0700
+@@ -446,11 +446,16 @@
+ set_target_properties( rocblas PROPERTIES CXX_VISIBILITY_PRESET "hidden" C_VISIBILITY_PRESET "hidden" VISIBILITY_INLINES_HIDDEN ON )
+ generate_export_header( rocblas EXPORT_FILE_NAME ${PROJECT_BINARY_DIR}/include/internal/rocblas-export.h )
+ 
++file(GLOB BLAS3_TENSILE_HEADERS blas3/Tensile/*.hpp)
++file(GLOB BLAS3_HEADERS blas3/*.hpp)
++file(GLOB BLAS2_HEADERS blas2/*.hpp)
++file(GLOB BLAS1_HEADERS blas1/*.hpp)
++
+ # generate header with prototypes for export reuse
+ set( ROCBLAS_PROTO_TEMPLATES "${PROJECT_BINARY_DIR}/include/internal/rocblas-exported-proto.hpp" )
+ add_custom_command(OUTPUT ${ROCBLAS_PROTO_TEMPLATES}
+-  COMMAND python3 template-proto.py ${CMAKE_CURRENT_SOURCE_DIR}/blas3/Tensile/*.hpp ${CMAKE_CURRENT_SOURCE_DIR}/blas3/*.hpp ${CMAKE_CURRENT_SOURCE_DIR}/blas2/*.hpp ${CMAKE_CURRENT_SOURCE_DIR}/blas1/*.hpp > ${ROCBLAS_PROTO_TEMPLATES}
+-  DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/blas3/Tensile/*.hpp ${CMAKE_CURRENT_SOURCE_DIR}/blas3/*.hpp ${CMAKE_CURRENT_SOURCE_DIR}/blas2/*.hpp ${CMAKE_CURRENT_SOURCE_DIR}/blas1/*.hpp
++  COMMAND python3 template-proto.py ${BLAS3_TENSILE_HEADERS} ${BLAS3_HEADERS} ${BLAS2_HEADERS} ${BLAS1_HEADERS} > ${ROCBLAS_PROTO_TEMPLATES}
++  DEPENDS ${BLAS3_TENSILE_HEADERS} ${BLAS3_HEADERS} ${BLAS2_HEADERS} ${BLAS1_HEADERS}
+   COMMENT "Generating prototypes from ${CMAKE_CURRENT_SOURCE_DIR}."
+   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+   )
