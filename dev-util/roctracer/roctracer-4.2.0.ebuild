@@ -22,10 +22,6 @@ DEPEND="dev-util/cmake
 	dev-python/ply
 	${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/roctracer-3.8.0-gen_ostream_ops-toPython3.patch"
-)
-
 S="${WORKDIR}/roctracer-rocm-${PV}"
 
 src_prepare() {
@@ -61,7 +57,7 @@ src_prepare() {
 	sed -e "s:execute_process ( COMMAND sh -xc \"if:#execute_process ( COMMAND sh -xc \"if:" -i "${S}/test/CMakeLists.txt" || die
 
 	# do not builds tests - no files downloaded via git
-	sed -e "s:add_subdirectory ( \${TEST_DIR} \${PROJECT_BINARY_DIR}/test/hsa ):#add_subdirectory ( \${TEST_DIR} \${PROJECT_BINARY_DIR}/test/hsa ):" -i "${S}/test/CMakeLists.txt" || die
+	sed -e "s:add_subdirectory ( \${HSA_TEST_DIR} \${PROJECT_BINARY_DIR}/test/hsa ):#add_subdirectory ( \${HSA_TEST_DIR} \${PROJECT_BINARY_DIR}/test/hsa ):" -i "${S}/test/CMakeLists.txt" || die
 
 	eapply_user
 	cmake_src_prepare

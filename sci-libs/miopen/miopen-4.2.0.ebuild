@@ -33,6 +33,10 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/MIOpen-rocm-${PV}"
 
+PATCHES=(
+	"${FILESDIR}/miopen-4.2.0-disable-no-inline-boost.patch"
+)
+
 src_prepare() {
 	sed -e "s:PATHS /opt/rocm/llvm:PATHS /usr/lib/llvm/roc/ NO_DEFAULT_PATH:" -i "${S}/CMakeLists.txt" || die
 	sed -e "s:set( MIOPEN_INSTALL_DIR miopen):set( MIOPEN_INSTALL_DIR \"\"):" -i "${S}/CMakeLists.txt" || die

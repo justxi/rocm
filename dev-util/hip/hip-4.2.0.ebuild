@@ -26,6 +26,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.1.0-DisableTest.patch"
 	"${FILESDIR}/${PN}-3.9.0-add-include-directories.patch"
 	"${FILESDIR}/${PN}-4.2.0-config-cmake-in.patch"
+	"${FILESDIR}/${PN}-4.2.0-move-gl-ext-into-gl.patch"
 	"${FILESDIR}/${PN}-3.5.1-hip_vector_types.patch"
 )
 

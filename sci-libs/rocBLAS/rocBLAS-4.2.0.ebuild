@@ -23,7 +23,7 @@ DEPEND="${RDEPEND}
 	dev-libs/msgpack
 	=dev-lang/python-3*
 	>=dev-python/virtualenv-15.1.0
-	dev-python/msgpack[python_targets_python3_6]
+	dev-python/msgpack
 	dev-python/pyyaml
 	dev-perl/File-Which"
 
@@ -40,18 +40,11 @@ src_prepare() {
 
 	# add "--rocm-path=/usr" to hipFlags
 	eapply "${FILESDIR}/Tensile-4.0-add-rocm-path.patch"
-
-	# Removed unsupported flag
-	sed -e "s:hipFlags = \[\"--genco\", :hipFlags = \[:" -i "${WORKDIR}/Tensile-rocm-${PV}/Tensile/TensileCreateLibrary.py" || die
-
-	sed -e "s/Impl::inputOne(io, key, \*value)/Impl::inputOne(io, key.str(), \*value)/g" \
-		-i "${WORKDIR}/Tensile-rocm-${PV}/Tensile/Source/lib/include/Tensile/llvm/YAML.hpp" || die
-
-	# use bundler frocm llvm-roc
-	sed -e "s:locateExe(\"/opt/rocm/llvm/bin\", \"clang-offload-bundler\"):\"/usr/lib/llvm/roc/bin/clang-offload-bundler\":" -i "${WORKDIR}/Tensile-rocm-${PV}/Tensile/Common.py" || die
+	eapply "${FILESDIR}/Tensile-rocm-4.2.0-help-locate-llvm-roc-bundler.patch"
 
 	# Changes in rocBLAS ...
 	cd ${S}
+	eapply "${FILESDIR}/rocBLAS-4.2.0-fix-glob-pattern-cmake.patch"
 
 	sed -e "s: PREFIX rocblas:# PREFIX rocblas:" -i "${S}/library/src/CMakeLists.txt" || die
 	sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/rocblas:" -i "${S}/library/src/CMakeLists.txt" || die
@@ -76,6 +69,7 @@ src_configure() {
 
 	# Compiler to use
 	export CXX="/usr/lib/hip/bin/hipcc"
+	export HCC_AMDGPU_TARGET="gfx900"
 
 	if use debug; then
 		buildtype="Debug"
@@ -86,7 +80,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DTensile_LOGIC="asm_full"
 		-DTensile_COMPILER="hipcc"
-		-DTensile_ARCHITECTURE="all"
+		-DTensile_ARCHITECTURE="gfx900"
 		-DTensile_LIBRARY_FORMAT="msgpack"
 		-DTensile_CODE_OBJECT_VERSION="V3"
 		-DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}"

@@ -22,12 +22,16 @@ DEPEND="${RDEPEND}
 	dev-util/cmake
 	>=dev-util/ninja-1.9.0"
 
+PATCHES=(
+	${FILESDIR}/rocSOLVER-4.2.0-add-stdint-header.patch
+)
+
 S=${WORKDIR}/${PN}-rocm-${PV}
 
 src_prepare() {
-	sed -e "s: PREFIX rocsolver:# PREFIX rocsolver:" -i rocsolver/library/src/CMakeLists.txt
-	sed -e "s:\$<INSTALL_INTERFACE\:include>:\$<INSTALL_INTERFACE\:include/rocsolver>:" -i rocsolver/library/src/CMakeLists.txt
-	sed -e "s:rocm_install_symlink_subdir( rocsolver ):#rocm_install_symlink_subdir( rocsolver ):" -i rocsolver/library/src/CMakeLists.txt
+	sed -e "s: PREFIX rocsolver:# PREFIX rocsolver:" -i library/src/CMakeLists.txt
+	sed -e "s:\$<INSTALL_INTERFACE\:include>:\$<INSTALL_INTERFACE\:include/rocsolver>:" -i library/src/CMakeLists.txt
+	sed -e "s:rocm_install_symlink_subdir( rocsolver ):#rocm_install_symlink_subdir( rocsolver ):" -i library/src/CMakeLists.txt
 
 	cmake_src_prepare
 }

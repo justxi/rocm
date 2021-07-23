@@ -24,6 +24,10 @@ CHECKREQS_MEMORY="28G"
 
 S="${WORKDIR}/rocFFT-rocm-${PV}"
 
+PATCHES=(
+		"${FILESDIR}/${PN}-4.2.0-add-functional-header.patch"
+)
+
 pkg_pretend() {
 	if [ "${MAKEOPTS}" != "" ] && [ "${MAKEOPTS}" != "-j1" ]; then
 		einfo "-------------------------------------------------------------------"

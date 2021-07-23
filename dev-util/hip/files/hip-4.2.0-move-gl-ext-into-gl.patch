@@ -1,0 +1,41 @@
+diff -Nur a/amdocl/CL/cl_gl_ext.h b/amdocl/CL/cl_gl_ext.h
+--- a/amdocl/CL/cl_gl_ext.h	2021-04-16 12:25:15.000000000 -0700
++++ b/amdocl/CL/cl_gl_ext.h	2021-07-21 19:59:43.366132153 -0700
+@@ -35,16 +35,6 @@
+ 
+ #include <CL/cl_gl.h>
+ 
+-/* 
+- *  cl_khr_gl_event extension
+- */
+-#define CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR     0x200D
+-
+-extern CL_API_ENTRY cl_event CL_API_CALL
+-clCreateEventFromGLsyncKHR(cl_context context,
+-                           cl_GLsync  cl_GLsync,
+-                           cl_int *   errcode_ret) CL_EXT_SUFFIX__VERSION_1_1;
+-
+ #ifdef __cplusplus
+ }
+ #endif
+diff -Nur a/amdocl/CL/cl_gl.h b/amdocl/CL/cl_gl.h
+--- a/amdocl/CL/cl_gl.h	2021-04-16 12:25:15.000000000 -0700
++++ b/amdocl/CL/cl_gl.h	2021-07-21 19:59:41.342099142 -0700
+@@ -164,6 +164,17 @@
+     void *                        param_value,
+     size_t *                      param_value_size_ret);
+ 
++/* 
++ *  cl_khr_gl_event extension
++ */
++#define CL_COMMAND_GL_FENCE_SYNC_OBJECT_KHR     0x200D
++
++extern CL_API_ENTRY cl_event CL_API_CALL
++clCreateEventFromGLsyncKHR(cl_context context,
++                           cl_GLsync  cl_GLsync,
++                           cl_int *   errcode_ret) CL_EXT_SUFFIX__VERSION_1_1;
++
++
+ #ifdef __cplusplus
+ }
+ #endif
