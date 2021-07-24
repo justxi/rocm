@@ -1,0 +1,42 @@
+diff -Nur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2021-07-24 16:00:53.764688442 -0700
++++ b/CMakeLists.txt	2021-07-24 16:01:13.365056110 -0700
+@@ -147,7 +147,7 @@
+ add_subdirectory( library )
+ 
+ # force library install path to lib (CentOS 7 defaults to lib64)
+-set(CMAKE_INSTALL_LIBDIR "lib" CACHE INTERNAL "Installation directory for libraries" FORCE)
++set(CMAKE_INSTALL_LIBDIR "lib64" CACHE INTERNAL "Installation directory for libraries" FORCE)
+ 
+ # Build clients of the library
+ if( BUILD_CLIENTS_SAMPLES OR BUILD_CLIENTS_TESTS )
+diff -Nur a/library/CMakeLists.txt b/library/CMakeLists.txt
+--- a/library/CMakeLists.txt	2021-07-24 16:00:53.766688480 -0700
++++ b/library/CMakeLists.txt	2021-07-24 16:08:23.981129825 -0700
+@@ -76,7 +76,7 @@
+                            PUBLIC  $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/library/include>
+                                    $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+                                    $<BUILD_INTERFACE:${HIP_INCLUDE_DIRS}>
+-                                   $<INSTALL_INTERFACE:include>
++                                   $<INSTALL_INTERFACE:include/hipfft>
+ )
+ 
+ if(BUILD_WITH_LIB STREQUAL "CUDA")
+@@ -111,13 +111,13 @@
+   rocm_install_targets( TARGETS hipfft
+                         INCLUDE
+                           ${CMAKE_SOURCE_DIR}/library/include
+-                          ${CMAKE_BINARY_DIR}/include
+-                        PREFIX hipfft )
++                          ${CMAKE_BINARY_DIR}/include )
++	  #PREFIX hipfft )
+   rocm_export_targets( TARGETS hip::hipfft
+-                       PREFIX hipfft
++	  #PREFIX hipfft
+                        DEPENDS PACKAGE hip
+                        NAMESPACE hip:: )
+-  rocm_install_symlink_subdir( hipfft )
++	       #rocm_install_symlink_subdir( hipfft )
+ 
+ 
+   # During transition to standalone hipFFT repository, don't install

@@ -30,6 +30,7 @@ RDEPEND="
 	hip? ( science? ( =sci-libs/hipBLAS-$(ver_cut 1-2)* ) )
 	hip? ( science? ( =sci-libs/hipCUB-$(ver_cut 1-2)* ) )
 	hip? ( science? ( =sci-libs/hipSPARSE-$(ver_cut 1-2)* ) )
+	hip? ( science? ( =sci-libs/hipFFT-$(ver_cut 1-2)* ) )
 
 	science? ( =sci-libs/rocPRIM-$(ver_cut 1-2)* )
 	science? ( =sci-libs/rocRAND-$(ver_cut 1-2)* )
