@@ -14,7 +14,8 @@ LICENSE="MIT"
 KEYWORDS="~amd64"
 SLOT="0"
 
-IUSE="debug +tensile +tensile_host"
+IUSE="debug +tensile +tensile_host +gfx803 gfx900 gfx906 gfx908"
+REQUIRED_USE="|| ( gfx803 gfx900 gfx906 gfx908 )"
 
 RDEPEND="=dev-util/hip-$(ver_cut 1-2)*"
 DEPEND="${RDEPEND}
@@ -69,7 +70,23 @@ src_configure() {
 
 	# Compiler to use
 	export CXX="/usr/lib/hip/bin/hipcc"
-	export HCC_AMDGPU_TARGET="gfx900"
+
+	# Target to use
+	AMDGPU_TARGETS=""
+        if use gfx803; then
+		AMDGPU_TARGETS+="gfx803;"
+        fi
+        if use gfx900; then
+		AMDGPU_TARGETS+="gfx900;"
+        fi
+        if use gfx906; then
+		AMDGPU_TARGETS+="gfx906;"
+        fi
+        if use gfx908; then
+		AMDGPU_TARGETS+="gfx908;"
+        fi
+
+	export HCC_AMDGPU_TARGET="${AMDGPU_TARGETS}"
 
 	if use debug; then
 		buildtype="Debug"
@@ -80,7 +97,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DTensile_LOGIC="asm_full"
 		-DTensile_COMPILER="hipcc"
-		-DTensile_ARCHITECTURE="gfx900"
+		-DTensile_ARCHITECTURE="${AMDGPU_TARGETS}"
 		-DTensile_LIBRARY_FORMAT="msgpack"
 		-DTensile_CODE_OBJECT_VERSION="V3"
 		-DTensile_TEST_LOCAL_PATH="${WORKDIR}/Tensile-rocm-${PV}"

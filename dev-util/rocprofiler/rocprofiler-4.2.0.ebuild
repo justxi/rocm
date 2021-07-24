@@ -7,7 +7,8 @@ inherit cmake
 
 DESCRIPTION="ROC profiler library."
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/rocprofiler.git"
-SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/rocm-${PV}.tar.gz -> rocprofiler-${PV}.tar.gz"
+SRC_URI="https://github.com/ROCm-Developer-Tools/rocprofiler/archive/rocm-${PV}.tar.gz -> rocprofiler-${PV}.tar.gz
+		https://github.com/ROCm-Developer-Tools/roctracer/archive/rocm-${PV}.tar.gz -> rocm-tracer-${PV}.tar.gz"
 
 LICENSE="MIT"
 KEYWORDS="~amd64"
@@ -16,13 +17,12 @@ SLOT="0"
 IUSE="debug"
 
 RDEPEND="media-libs/hsa-amd-aqlprofile
-         dev-libs/rocr-runtime
-	 dev-util/roctracer"
+         dev-libs/rocr-runtime"
 DEPEND="dev-util/cmake
 	${RDEPEND}"
 
 PATCHES=(
-        "${FILESDIR}/rocprofiler-4.0.0-install.patch"
+        "${FILESDIR}/rocprofiler-4.2.0-fix-install-locations.patch"
 )
 
 S="${WORKDIR}/rocprofiler-rocm-${PV}"
@@ -40,7 +40,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DUSE_PROF_API=OFF
 		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
-		-DPROF_API_HEADER_PATH="/usr/include/roctracer/ext/"
+		-DPROF_API_HEADER_PATH="${WORKDIR}/roctracer-rocm-${PV}/inc/ext"
         )
 
 	if use debug; then

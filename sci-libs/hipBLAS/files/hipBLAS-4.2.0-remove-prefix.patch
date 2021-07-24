@@ -1,0 +1,20 @@
+diff -Nur a/library/src/CMakeLists.txt b/library/src/CMakeLists.txt
+--- a/library/src/CMakeLists.txt	2021-07-23 23:18:55.318829629 -0700
++++ b/library/src/CMakeLists.txt	2021-07-23 23:19:16.253177278 -0700
+@@ -120,14 +120,14 @@
+ if ( NOT USE_CUDA )
+     rocm_export_targets(
+         TARGETS roc::hipblas
+-	PREFIX hipblas
++	#PREFIX hipblas
+ 	DEPENDS PACKAGE hip
+ 	NAMESPACE roc::
+     )
+ else( )
+     rocm_export_targets(
+         TARGETS roc::hipblas
+-	PREFIX hipblas
++	#PREFIX hipblas
+ 	DEPENDS PACKAGE HIP
+ 	NAMESPACE roc::
+     )

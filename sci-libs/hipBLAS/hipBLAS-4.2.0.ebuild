@@ -22,6 +22,10 @@ DEPEND="${RDPEND}
 
 S="${WORKDIR}/hipBLAS-rocm-${PV}"
 
+PATCHES=(
+	"${FILESDIR}/hipBLAS-4.2.0-remove-prefix.patch"
+)
+
 src_prepare() {
         sed -e "s:<INSTALL_INTERFACE\:include:<INSTALL_INTERFACE\:include/hipblas/:" -i "${S}/library/src/CMakeLists.txt" || die
         sed -e "s: PREFIX hipblas:# PREFIX hipblas:" -i "${S}/library/src/CMakeLists.txt" || die
@@ -46,7 +50,7 @@ src_configure() {
 	export CXX="/usr/lib/hip/bin/hipcc"
 
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_PREFIX=/usr
+		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DCMAKE_CXX_FLAGS="--rocm-path=/usr"
 		-DCMAKE_PREFIX_PATH="${HIP_PATH}"
 	)

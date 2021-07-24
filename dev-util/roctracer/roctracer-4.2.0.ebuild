@@ -16,6 +16,7 @@ IUSE="debug"
 
 RDEPEND="dev-libs/rocr-runtime
 	 sys-devel/llvm-roc
+	 dev-util/rocprofiler
 	 dev-util/hip"
 DEPEND="dev-util/cmake
 	dev-python/CppHeaderParser
