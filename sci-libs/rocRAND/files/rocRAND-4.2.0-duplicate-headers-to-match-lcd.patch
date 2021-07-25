@@ -1,0 +1,28 @@
+diff -Nur a/library/CMakeLists.txt b/library/CMakeLists.txt
+--- a/library/CMakeLists.txt	2021-07-24 23:27:22.352665648 -0700
++++ b/library/CMakeLists.txt	2021-07-24 23:28:05.999470737 -0700
+@@ -111,6 +111,8 @@
+     FILES_MATCHING
+     PATTERN "rocrand*h"
+     PATTERN "rocrand*hpp"
++    PATTERN "hiprand*h"
++    PATTERN "hiprand*hpp"
+     PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ
+ )
+ # .cmake files
+@@ -217,6 +219,8 @@
+     FILES_MATCHING
+     PATTERN "hiprand*h"
+     PATTERN "hiprand*hpp"
++    PATTERN "rocrand*h"
++    PATTERN "rocrand*hpp"
+     PERMISSIONS OWNER_WRITE OWNER_READ GROUP_READ WORLD_READ
+ )
+ # .cmake files
+@@ -330,4 +334,4 @@
+ )
+ 
+ # Include CPack to introduce the appropriate targets
+-include(CPack)
+\ No newline at end of file
++include(CPack)

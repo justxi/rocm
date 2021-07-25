@@ -18,6 +18,10 @@ DEPEND="${RDEPEND}
 	dev-util/cmake
 	=dev-util/rocm-cmake-$(ver_cut 1-2)*"
 
+PATCHES=(
+	"${FILESDIR}/rocRAND-4.2.0-duplicate-headers-to-match-lcd.patch"
+)
+
 S="${WORKDIR}/rocRAND-rocm-${PV}"
 
 src_prepare() {
