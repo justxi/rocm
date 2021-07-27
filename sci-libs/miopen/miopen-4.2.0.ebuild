@@ -13,7 +13,7 @@ LICENSE="MIT"
 KEYWORDS="~amd64"
 SLOT="0"
 
-IUSE="-static-boost -opencl"
+IUSE="debug -static-boost -opencl"
 
 RDEPEND="
 	>=dev-util/hip-${PV}
@@ -55,14 +55,23 @@ src_prepare() {
 src_configure() {
 	strip-flags
 	filter-flags '*march*'
+	if ! use debug; then
+		append-cflags "-DNDEBUG"
+		append-cxxflags "-DNDEBUG"
+		buildtype="Release"
+	else
+		buildtype="Debug"
+	fi
+
+	append-cxxflags "--rocm-path=/usr"
+	append-cxxflags "-I${EPREFIX}/usr/lib/llvm/roc/lib/clang/12.0.0"
 
 	CXX="${EPREFIX}/usr/lib/llvm/roc/bin/clang++"
 
 	local mycmakeargs=(
 		-DMIOPEN_AMDGCN_ASSEMBLER_PATH="/usr/lib/llvm/roc/bin"
-		-DCMAKE_CXX_FLAGS="--rocm-path=/usr -I/${EPREFIX}/usr/lib/llvm/roc/lib/clang/12.0.0"
 		-DCMAKE_INSTALL_PREFIX=${EPREFIX}/usr/
-		-DCMAKE_BUILD_TYPE=Release
+		-DCMAKE_BUILD_TYPE=${buildtype}
 	)
 
 	if use opencl; then
@@ -74,6 +83,7 @@ src_configure() {
 	if ! use static-boost; then
 		mycmakeargs+=( "-DBoost_USE_STATIC_LIBS=Off" )
 	fi
+
 
 	cmake_src_configure
 }
