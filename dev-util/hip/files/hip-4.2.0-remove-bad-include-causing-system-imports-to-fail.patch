@@ -1,0 +1,12 @@
+diff -Nur a/bin/hipcc b/bin/hipcc
+--- a/bin/hipcc	2021-07-25 17:21:42.905496861 -0700
++++ b/bin/hipcc	2021-07-25 17:22:03.408913557 -0700
+@@ -197,8 +197,6 @@
+ 
+     if (not $isWindows) {
+         $HSA_PATH=$ENV{'HSA_PATH'} // "$ROCM_PATH/hsa";
+-        $HIPCXXFLAGS .= " -isystem $HSA_PATH/include";
+-        $HIPCFLAGS .= " -isystem $HSA_PATH/include";
+     }
+ 
+ } elsif ($HIP_PLATFORM eq "nvidia") {

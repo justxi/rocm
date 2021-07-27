@@ -1,0 +1,16 @@
+diff -Nur a/include/hip/amd_detail/hip_runtime.h b/include/hip/amd_detail/hip_runtime.h
+--- a/include/hip/amd_detail/hip_runtime.h	2021-07-26 12:25:12.443784320 -0700
++++ b/include/hip/amd_detail/hip_runtime.h	2021-07-26 12:26:40.680474963 -0700
+@@ -382,9 +382,9 @@
+ // However libc++ include path requires to be before clang include path.
+ // To workaround this, we pass -isystem with the parent directory of clang include
+ // path instead of the clang include path itself.
+-#include <include/cuda_wrappers/algorithm>
+-#include <include/cuda_wrappers/complex>
+-#include <include/cuda_wrappers/new>
++#include <cuda_wrappers/algorithm>
++#include <cuda_wrappers/complex>
++#include <cuda_wrappers/new>
+ #undef __CUDA__
+ #pragma pop_macro("__CUDA__")
+ #endif // !_OPENMP || __HIP_ENABLE_CUDA_WRAPPER_FOR_OPENMP__

@@ -1,0 +1,72 @@
+diff -Nur a/oam/CMakeLists.txt b/oam/CMakeLists.txt
+--- a/oam/CMakeLists.txt	2021-07-25 11:58:59.264422588 -0700
++++ b/oam/CMakeLists.txt	2021-07-25 12:00:51.545548856 -0700
+@@ -93,12 +93,12 @@
+ 
+ ## Add the install directives for the runtime library.
+ install(TARGETS ${OAM_TARGET}
+-          LIBRARY DESTINATION ${OAM_NAME}/lib
+-          ARCHIVE DESTINATION ${OAM_NAME}/lib
++          LIBRARY DESTINATION lib64
++          ARCHIVE DESTINATION lib64
+           COMPONENT ${OAM_COMPONENT})
+ install(FILES ${COMMON_SRC_ROOT}/oam/include/oam/oam_mapi.h
+               ${COMMON_SRC_ROOT}/oam/include/oam/amd_oam.h
+-                                        DESTINATION oam/include/oam)
++                                        DESTINATION include/oam)
+ 
+ # Generate Doxygen documentation
+ if (DOXYGEN_FOUND)
+diff -Nur a/rocm_smi/CMakeLists.txt b/rocm_smi/CMakeLists.txt
+--- a/rocm_smi/CMakeLists.txt	2021-07-25 11:58:59.265422607 -0700
++++ b/rocm_smi/CMakeLists.txt	2021-07-25 12:04:29.773671784 -0700
+@@ -96,31 +96,31 @@
+ endif ()
+ 
+ ## Add symlinks from top level ROCm lib dir to rocm-smi lib so files
+-if(${BUILD_SHARED_LIBS})
+-  add_custom_target ( so-link ALL WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+-                    COMMAND ${CMAKE_COMMAND} -E create_symlink
+-                          ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so so-link )
+-  add_custom_target ( so-major-link ALL WORKING_DIRECTORY
+-                  ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${CMAKE_COMMAND}
+-                  -E create_symlink
+-                  ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR}
+-                                                               so-major-link )
++#if(${BUILD_SHARED_LIBS})
++#  add_custom_target ( so-link ALL WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
++#                    COMMAND ${CMAKE_COMMAND} -E create_symlink
++#                          ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so so-link )
++#  add_custom_target ( so-major-link ALL WORKING_DIRECTORY
++#                  ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${CMAKE_COMMAND}
++#                  -E create_symlink
++#                  ../${ROCM_SMI}/lib/${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR}
++#                                                               so-major-link )
+ 
+-  install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-link DESTINATION lib RENAME
+-                                                     ${ROCM_SMI_LIB_NAME}.so )
+-  install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-major-link DESTINATION lib
+-                             RENAME ${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR} )
+-endif()
++#  install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-link DESTINATION lib RENAME
++#                                                     ${ROCM_SMI_LIB_NAME}.so )
++#  install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/so-major-link DESTINATION lib
++#                             RENAME ${ROCM_SMI_LIB_NAME}.so.${VERSION_MAJOR} )
++#endif()
+ ## Add the install directives for the runtime library.
+ install(TARGETS ${ROCM_SMI_TARGET}
+-          LIBRARY DESTINATION ${ROCM_SMI}/lib
+-          ARCHIVE DESTINATION ${ROCM_SMI}/lib
++          LIBRARY DESTINATION lib64
++          ARCHIVE DESTINATION lib64
+           COMPONENT ${ROCM_SMI_COMPONENT})
+ 
+ install(FILES ${COMMON_SRC_ROOT}/include/rocm_smi/rocm_smi.h
+-                                        DESTINATION rocm_smi/include/rocm_smi)
++                                        DESTINATION include/rocm_smi)
+ install(FILES ${COMMON_SRC_ROOT}/include/rocm_smi/kfd_ioctl.h
+-                                        DESTINATION rocm_smi/include/rocm_smi)
++                                        DESTINATION include/rocm_smi)
+ install(FILES ${COMMON_SRC_ROOT}/python_smi_tools/rsmiBindings.py
+                                         DESTINATION rocm_smi/bindings)
+ install(FILES ${COMMON_SRC_ROOT}/python_smi_tools/rocm_smi.py

@@ -1,0 +1,14 @@
+diff -Nur a/hip-config.cmake.in b/hip-config.cmake.in
+--- a/hip-config.cmake.in	2021-07-26 13:35:30.295109530 -0700
++++ b/hip-config.cmake.in	2021-07-26 13:36:15.581037978 -0700
+@@ -168,8 +168,8 @@
+ 
+ if(HIP_RUNTIME MATCHES "rocclr")
+   set_target_properties(hip::amdhip64 PROPERTIES
+-    INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${HSA_HEADER}"
+-    INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;${HSA_HEADER}"
++    INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
++    INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+   )
+ 
+   get_target_property(amdhip64_type hip::amdhip64 TYPE)

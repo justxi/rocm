@@ -1,0 +1,12 @@
+diff -Nur a/python_smi_tools/rsmiBindings.py b/python_smi_tools/rsmiBindings.py
+--- a/python_smi_tools/rsmiBindings.py	2021-07-25 13:34:42.546931816 -0700
++++ b/python_smi_tools/rsmiBindings.py	2021-07-25 13:35:15.991613588 -0700
+@@ -10,7 +10,7 @@
+ import os
+ 
+ # Use ROCm installation path if running from standard installation
+-path_librocm = os.path.dirname(os.path.realpath(__file__)) + '/../lib/librocm_smi64.so'
++path_librocm = '/usr/lib64/librocm_smi64.so'
+ if not os.path.isfile(path_librocm):
+     print('Unable to find %s . Trying /opt/rocm*' % path_librocm)
+     for root, dirs, files in os.walk('/opt', followlinks=True):

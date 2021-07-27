@@ -25,9 +25,12 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	"${FILESDIR}/${PN}-4.1.0-DisableTest.patch"
 	"${FILESDIR}/${PN}-3.9.0-add-include-directories.patch"
+	"${FILESDIR}/${PN}-4.2.0-remove-bad-include-causing-system-imports-to-fail.patch"
 	"${FILESDIR}/${PN}-4.2.0-config-cmake-in.patch"
 	"${FILESDIR}/${PN}-4.2.0-move-gl-ext-into-gl.patch"
 	"${FILESDIR}/${PN}-3.5.1-hip_vector_types.patch"
+	#"${FILESDIR}/${PN}-4.2.0-remove-extra-prefix-include-on-cuda-wrappers.patch"
+	"${FILESDIR}/${PN}-4.2.0-prevent-isystem-usr-include-from-hsa-in-normal-place.patch"
 )
 
 S="${WORKDIR}/HIP-rocm-${PV}"
@@ -88,6 +91,7 @@ src_configure() {
 		-DBUILD_HIPIFY_CLANG=OFF
 		-DHIP_PLATFORM=rocclr
 		-DHIP_COMPILER=clang
+		-DHIP_PATH="/usr/lib/hip"
 		-DROCM_PATH="${EPREFIX}/usr"
 		-DHSA_PATH="${EPREFIX}/usr"
 		-DUSE_PROF_API=$(usex profile 1 0)

@@ -2,20 +2,6 @@ diff --git a/clang/lib/Driver/ToolChains/AMDGPU.cpp b/clang/lib/Driver/ToolChain
 index 7fb217a1b652..4c03af5bbcf1 100644
 --- a/clang/lib/Driver/ToolChains/AMDGPU.cpp
 +++ b/clang/lib/Driver/ToolChains/AMDGPU.cpp
-@@ -326,11 +326,11 @@ void RocmInstallationDetector::AddHIPIncludeArgs(const ArgList &DriverArgs,
-     //
-     // ROCm 3.5 does not fully support the wrapper headers. Therefore it needs
-     // a workaround.
--    SmallString<128> P(D.ResourceDir);
-+/*    SmallString<128> P(D.ResourceDir);
-     if (UsesRuntimeWrapper)
-       llvm::sys::path::append(P, "include", "cuda_wrappers");
-     CC1Args.push_back("-internal-isystem");
--    CC1Args.push_back(DriverArgs.MakeArgString(P));
-+    CC1Args.push_back(DriverArgs.MakeArgString(P)); */
-   }
- 
-   if (DriverArgs.hasArg(options::OPT_nogpuinc))
 @@ -341,8 +341,8 @@ void RocmInstallationDetector::AddHIPIncludeArgs(const ArgList &DriverArgs,
      return;
    }

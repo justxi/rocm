@@ -59,7 +59,7 @@ src_prepare() {
 }
 
 src_configure() {
-	PROJECTS="clang;lld"
+	PROJECTS="clang;lld;openmp"
 
 	if usex runtime; then
 		PROJECTS+=";compiler-rt"
