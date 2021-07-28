@@ -74,16 +74,16 @@ src_configure() {
 	# Target to use
 	AMDGPU_TARGETS=""
         if use gfx803; then
-		AMDGPU_TARGETS+="gfx803;"
+		AMDGPU_TARGETS+="gfx803"
         fi
         if use gfx900; then
-		AMDGPU_TARGETS+="gfx900;"
+		AMDGPU_TARGETS+="gfx900"
         fi
         if use gfx906; then
-		AMDGPU_TARGETS+="gfx906;"
+		AMDGPU_TARGETS+="gfx906"
         fi
         if use gfx908; then
-		AMDGPU_TARGETS+="gfx908;"
+		AMDGPU_TARGETS+="gfx908"
         fi
 
 	export HCC_AMDGPU_TARGET="${AMDGPU_TARGETS}"
