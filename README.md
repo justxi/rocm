@@ -54,7 +54,7 @@ ROCm Libraries:
 |sci-libs/rocRAND| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
 |sci-libs/rocFFT| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
 |sci-libs/rocSPARSE| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
-|sci-libs/rocBLAS| 4.3.0 |  | (ok) |   science<br> :heavy_check_mark:<br> 4.3.0 | |
+|sci-libs/rocBLAS| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.3.0 | |
 |sci-libs/rocSOLVER| 4.0.0 |  | (ok) |  |  |
 |sci-libs/rocALUTION| 4.0.0 | | (ok) |  |  |
 |sci-libs/rocThrust| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
