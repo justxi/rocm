@@ -16,4 +16,10 @@ IUSE=""
 DEPEND=""
 RDEPEND="dev-libs/rocr-runtime"
 
+PATCHES=(
+	"${FILESDIR}/rocm-bandwidth-test-4.3-using_delete_operator.patch"
+)
+
 S="${WORKDIR}/rocm_bandwidth_test-rocm-${PV}"
+
+
