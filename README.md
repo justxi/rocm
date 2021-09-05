@@ -35,7 +35,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/rocm-comgr | 4.3.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0, 4.3.0 |  |
 |dev-libs/amd-dbgapi | 4.3.0 |  | (ok) | |  |
 |dev-libs/rocclr | 4.3.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0, 4.3.0 |  |
-|dev-libs/rocm-opencl-runtime| 4.3.0 |  | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0, 4.3.0 |  |
+|dev-libs/rocm-opencl-runtime| 4.2.0 |  | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0 |  |
 |dev-util/rocm-clang-ocl| 4.3.0 | | (ok) | | science<br> :heavy_check_mark:<br> 4.0.0, 4.1.0 |
 |dev-util/hip| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.1.0, 4.2.0, 4.3.0  |  |
 |dev-libs/rocm-debug-agent | 4.3.0 |  | (ok) | |  |
@@ -53,7 +53,7 @@ ROCm Libraries:
 |sci-libs/rocPRIM| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/rocRAND| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
 |sci-libs/rocFFT| 4.0.0 |  | (ok) |  |  |
-|sci-libs/rocSPARSE| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
+|sci-libs/rocSPARSE| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/rocBLAS| 4.0.0 |  | (ok) |  | science<br> :heavy_check_mark:<br> 4.1.0 |
 |sci-libs/rocSOLVER| 4.0.0 |  | (ok) |  |  |
 |sci-libs/rocALUTION| 4.0.0 | | (ok) |  |  |
