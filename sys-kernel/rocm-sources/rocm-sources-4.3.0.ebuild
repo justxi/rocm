@@ -8,14 +8,14 @@ HOMEPAGE="https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver"
 SRC_URI="https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver/archive/rocm-${PV}.tar.gz -> rocm-sources-${PV}.tar.gz"
 
 LICENSE=""
-SLOT="4.2.0"
+SLOT="4.3.0"
 KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=""
 RDEPEND=""
 
-KERNEL_VERSION="5.9.0-rc2"
+KERNEL_VERSION="5.11.0"
 
 S="${WORKDIR}"
 
