@@ -16,6 +16,10 @@ SLOT="0/$(ver_cut 1-2)"
 RDEPEND=">=dev-libs/rocm-comgr-${PV}"
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/amd-dbgapi-4.3.0-gcc11-include_limits.patch"
+)
+
 S="${WORKDIR}/ROCdbgapi-rocm-${PV}/"
 
 src_prepare() {

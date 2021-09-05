@@ -1,0 +1,21 @@
+From 67e344e09694a70e265df59ab5c3df643b262df2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Torsten=20Ke=C3=9Fler?= <t.kessler@posteo.de>
+Date: Wed, 4 Aug 2021 18:08:21 +0200
+Subject: [PATCH] Add <limits> to fix compilation with GCC 11
+
+---
+ src/os_driver.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/os_driver.cpp b/src/os_driver.cpp
+index d41b131..d6db38e 100644
+--- a/src/os_driver.cpp
++++ b/src/os_driver.cpp
+@@ -25,6 +25,7 @@
+ 
+ #include <algorithm>
+ #include <fstream>
++#include <limits>
+ #include <optional>
+ #include <type_traits>
+ #include <unordered_set>
