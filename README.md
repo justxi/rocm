@@ -31,38 +31,38 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/rocminfo | 4.3.0 |  | Yes | :heavy_check_mark:<br> 3.7.0, 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0, 4.3.0 |  |
 |dev-util/rocm-bandwidth-test| 4.3.0 |  | (ok) |  |  |
 |dev-libs/rocm-smi-lib| 4.3.0 |  | (ok) | |  |
-|dev-util/rocm-smi| 4.0.0 | deprecated | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
+|dev-util/rocm-smi| 4.0.0 | deprecated | Yes | :heavy_check_mark:<br> 4.0.0 |  |
 |dev-libs/rocm-comgr | 4.3.0 | | Yes | :heavy_check_mark:<br> 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0, 4.3.0 |  |
 |dev-libs/amd-dbgapi | 4.3.0 |  | (ok) | |  |
 |dev-libs/rocclr | 4.3.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0, 4.3.0 |  |
 |dev-libs/rocm-opencl-runtime| 4.3.0 |  | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0, 4.3.0 |  |
-|dev-util/rocm-clang-ocl| 4.3.0 | | (ok) | | science<br> :heavy_check_mark:<br> 4.0.0, 4.1.0, 4.3.0 |
-|dev-util/hip| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.1.0, 4.2.0, 4.3.0  |  |
+|dev-util/rocm-clang-ocl| 4.3.0 | | Yes | | science<br> :heavy_check_mark:<br> 4.0.0, 4.1.0, 4.3.0 |
+|dev-util/hip| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.1.0, 4.2.0, 4.3.0  |  |
 |dev-libs/rocm-debug-agent | 4.3.0 |  | (ok) | |  |
-|dev-util/roctracer| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.2.0, 4.3.0  |  |
+|dev-util/roctracer| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.2.0, 4.3.0  |  |
 |dev-util/rocprofiler| 4.3.0 |  | (ok) | |  |
 |dev-util/rcp| 5.6 |   | (ok) | |  |
-|dev-libs/rccl | 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0  |  |
-|dev-util/Tensile | 4.0.0 | | (ok) | | science<br> :heavy_check_mark:<br> 4.0.0 |
+|dev-libs/rccl | 4.0.0 |  | Yes | :heavy_check_mark:<br> 4.0.0  |  |
+|dev-util/Tensile | 4.0.0 | | Yes | | science<br> :heavy_check_mark:<br> 4.0.0 |
 
 <br>
 ROCm Libraries:
 
 |Ebuild|Current Version|State|FHS|in Gentoo portage| other overlay |
 |---|---|---|---|---|---|
-|sci-libs/rocPRIM| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
-|sci-libs/rocRAND| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
-|sci-libs/rocFFT| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
-|sci-libs/rocSPARSE| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
-|sci-libs/rocBLAS| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.3.0 | |
+|sci-libs/rocPRIM| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
+|sci-libs/rocRAND| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
+|sci-libs/rocFFT| 4.0.0 |  | Yes | :heavy_check_mark:<br> 4.0.0 |  |
+|sci-libs/rocSPARSE| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
+|sci-libs/rocBLAS| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.3.0 | |
 |sci-libs/rocSOLVER| 4.0.0 |  | (ok) |  |  |
 |sci-libs/rocALUTION| 4.0.0 | | (ok) |  |  |
-|sci-libs/rocThrust| 4.0.0, 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
-|sci-libs/hipCUB | 4.0.0 |  | (ok)| :heavy_check_mark:<br> 4.0.0  |  |
+|sci-libs/rocThrust| 4.0.0, 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
+|sci-libs/hipCUB | 4.0.0 |  | Yes | :heavy_check_mark:<br> 4.0.0  |  |
 |sci-libs/hipBLAS | 4.0.0 |  | (ok) |  |  |
-|sci-libs/hipSPARSE | 4.0.0, 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
+|sci-libs/hipSPARSE | 4.0.0, 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/MIOpenGEMM | 4.0.0 |  | (ok) | |  |
-|sci-libs/MIOpen | 4.0.0 |  | (ok) | | science<br> :heavy_check_mark:<br> 4.0.0 |
+|sci-libs/MIOpen | 4.0.0 |  | Yes | | science<br> :heavy_check_mark:<br> 4.0.0 |
 
 <br>
 Meta ebuilds:
