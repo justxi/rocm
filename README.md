@@ -57,10 +57,10 @@ ROCm Libraries:
 |sci-libs/rocBLAS| 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.3.0 | |
 |sci-libs/rocSOLVER| 4.0.0 |  | (ok) |  |  |
 |sci-libs/rocALUTION| 4.0.0 | | (ok) |  |  |
-|sci-libs/rocThrust| 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
+|sci-libs/rocThrust| 4.0.0, 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/hipCUB | 4.0.0 |  | (ok)| :heavy_check_mark:<br> 4.0.0  |  |
 |sci-libs/hipBLAS | 4.0.0 |  | (ok) |  |  |
-|sci-libs/hipSPARSE | 4.0.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0 |  |
+|sci-libs/hipSPARSE | 4.0.0, 4.3.0 |  | (ok) | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/MIOpenGEMM | 4.0.0 |  | (ok) | |  |
 |sci-libs/MIOpen | 4.0.0 |  | (ok) | | science<br> :heavy_check_mark:<br> 4.0.0 |
 
