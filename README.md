@@ -36,7 +36,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-libs/amd-dbgapi | 4.3.0 |  | (ok) | |  |
 |dev-libs/rocclr | 4.3.0 | | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0, 4.3.0 |  |
 |dev-libs/rocm-opencl-runtime| 4.3.0 |  | Yes | :heavy_check_mark:<br> 3.8.0, 3.9.0, 3.10.0, 4.0.0, 4.1.0, 4.2.0, 4.3.0 |  |
-|dev-util/rocm-clang-ocl| 4.3.0 | | Yes | science<br> :heavy_check_mark:<br> 4.3.0 |  |
+|dev-util/rocm-clang-ocl| 4.3.0 | | Yes | :heavy_check_mark:<br> 4.3.0 |  |
 |dev-util/hip| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.1.0, 4.2.0, 4.3.0  |  |
 |dev-libs/rocm-debug-agent | 4.3.0 |  | (ok) | |  |
 |dev-util/roctracer| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.2.0, 4.3.0  |  |
@@ -61,9 +61,9 @@ ROCm Libraries:
 |sci-libs/hipCUB | 4.0.0 |  | Yes | :heavy_check_mark:<br> 4.0.0  |  |
 |sci-libs/hipBLAS | 4.0.0 |  | (ok) |  |  |
 |sci-libs/hipFFT |  |  |  |  |  |
-|sci-libs/hipSPARSE | 4.0.0, 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
+|sci-libs/hipSPARSE | 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/MIOpenGEMM | 4.0.0 |  | (ok) | |  |
-|sci-libs/MIOpen | 4.0.0 |  | Yes | | science<br> :heavy_check_mark:<br> 4.0.0 |
+|sci-libs/MIOpen | 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.3.0 |  |
 
 <br>
 Meta ebuilds:
