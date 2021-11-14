@@ -60,6 +60,7 @@ ROCm Libraries:
 |sci-libs/rocThrust| 4.0.0, 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/hipCUB | 4.0.0 |  | Yes | :heavy_check_mark:<br> 4.0.0  |  |
 |sci-libs/hipBLAS | 4.0.0 |  | (ok) |  |  |
+|sci-libs/hipFFT |  |  |  |  |  |
 |sci-libs/hipSPARSE | 4.0.0, 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/MIOpenGEMM | 4.0.0 |  | (ok) | |  |
 |sci-libs/MIOpen | 4.0.0 |  | Yes | | science<br> :heavy_check_mark:<br> 4.0.0 |
