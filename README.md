@@ -42,7 +42,7 @@ Kernel, driver, libraries, compiler and tools:
 |dev-util/roctracer| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.2.0, 4.3.0  |  |
 |dev-util/rocprofiler| 4.3.0 |  | (ok) | |  |
 |dev-util/rcp| 5.6 |   | (ok) | |  |
-|dev-libs/rccl | 4.0.0 |  | Yes | :heavy_check_mark:<br> 4.0.0  |  |
+|dev-libs/rccl | 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0  |  |
 |dev-util/Tensile | 4.0.0 | | Yes | | science<br> :heavy_check_mark:<br> 4.0.0 |
 
 <br>
