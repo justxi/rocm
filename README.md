@@ -52,7 +52,7 @@ ROCm Libraries:
 |---|---|---|---|---|---|
 |sci-libs/rocPRIM| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/rocRAND| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
-|sci-libs/rocFFT| 4.0.0 |  | Yes | :heavy_check_mark:<br> 4.0.0 |  |
+|sci-libs/rocFFT| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/rocSPARSE| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/rocBLAS| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.3.0 | |
 |sci-libs/rocSOLVER| 4.0.0 |  | (ok) |  |  |
