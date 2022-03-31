@@ -1,0 +1,28 @@
+diff -Naur MIOpenGEMM/cmake/FindOpenCL.cmake MIOpenGEMM.modified/cmake/FindOpenCL.cmake
+--- MIOpenGEMM/cmake/FindOpenCL.cmake   2022-03-30 20:16:17.511078264 -0400
++++ MIOpenGEMM.modified/cmake/FindOpenCL.cmake  2022-03-30 20:47:17.727582920 -0400
+@@ -52,11 +52,12 @@
+ mark_as_advanced( OPENCL_LIBRARIES )
+ 
+ include( FindPackageHandleStandardArgs )
+-find_package_handle_standard_args( OPENCL DEFAULT_MSG OPENCL_LIBRARIES OPENCL_INCLUDE_DIRS )
++find_package_handle_standard_args( OpenCL DEFAULT_MSG OPENCL_LIBRARIES OPENCL_INCLUDE_DIRS )
+ 
+ set(OpenCL_FOUND ${OPENCL_FOUND} CACHE INTERNAL "")
+ set(OpenCL_LIBRARIES ${OPENCL_LIBRARIES} CACHE INTERNAL "")
+ set(OpenCL_INCLUDE_DIRS ${OPENCL_INCLUDE_DIRS} CACHE INTERNAL "")
++add_compile_definitions(CL_TARGET_OPENCL_VERSION=200)
+ 
+ if( NOT OPENCL_FOUND )
+        message( STATUS "FindOpenCL looked for libraries named: OpenCL" )
+diff -Naur MIOpenGEMM/miopengemm/src/enums.cpp MIOpenGEMM.modified/miopengemm/src/enums.cpp
+--- MIOpenGEMM/miopengemm/src/enums.cpp 2022-03-30 20:16:17.517744906 -0400
++++ MIOpenGEMM.modified/miopengemm/src/enums.cpp        2022-03-30 20:42:35.858672446 -0400
+@@ -5,6 +5,7 @@
+ #include <algorithm>
+ #include <array>
+ #include <iostream>
++#include <limits>
+ #include <numeric>
+ #include <miopengemm/enums.hpp>
+ #include <miopengemm/outputwriter.hpp>
