@@ -55,7 +55,7 @@ ROCm Libraries:
 |sci-libs/rocFFT| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/rocSPARSE| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/rocBLAS| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.3.0 | |
-|sci-libs/rocSOLVER| 4.0.0 |  | (ok) |  |  |
+|sci-libs/rocSOLVER| 4.0.0 |  | Yes | :heavy_check_mark:<br> 4.3.0, 5.0.2 |  |
 |sci-libs/rocALUTION| 4.0.0 | | (ok) |  |  |
 |sci-libs/rocThrust| 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0 |  |
 |sci-libs/hipCUB | 4.3.0 |  | Yes | :heavy_check_mark:<br> 4.0.0, 4.3.0  |  |
