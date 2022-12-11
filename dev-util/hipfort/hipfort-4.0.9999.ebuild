@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils git-r3
+inherit cmake git-r3
 
 DESCRIPTION="Fortran Interface For GPU Kernel Libraries"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipfort"
@@ -27,7 +27,7 @@ src_prepare() {
 
 	sed -e "s:ADD_SUBDIRECTORY(\${CMAKE_SOURCE_DIR}/test):#ADD_SUBDIRECTORY(\${CMAKE_SOURCE_DIR}/test):" -i ${S}/CMakeLists.txt
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -35,7 +35,7 @@ src_configure() {
                 -DCMAKE_BUILD_TYPE=$(usex debug "DEBUG" "RELEASE")
         )
 
-        cmake-utils_src_configure
+        cmake_src_configure
 }
 
 
