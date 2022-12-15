@@ -1,9 +1,9 @@
 # Copyright
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/roctracer.git"
@@ -64,7 +64,7 @@ src_prepare() {
 	sed -e "s:add_subdirectory ( \${TEST_DIR} \${PROJECT_BINARY_DIR}/test/hsa ):#add_subdirectory ( \${TEST_DIR} \${PROJECT_BINARY_DIR}/test/hsa ):" -i ${S}/test/CMakeLists.txt
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -80,5 +80,5 @@ src_configure() {
 		-DHIP_VDI=1
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

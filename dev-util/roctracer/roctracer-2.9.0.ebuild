@@ -1,7 +1,7 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/roctracer.git"
