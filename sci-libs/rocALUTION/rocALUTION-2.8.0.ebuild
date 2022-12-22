@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Next generation library for iterative sparse solvers for ROCm platform"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocALUTION"
@@ -46,7 +46,7 @@ src_prepare() {
 	sed -e "s:PREFIX rocalution:#PREFIX rocalution:" -i ${S}/src/CMakeLists.txt
 	sed -e "s:rocm_install_symlink_subdir(rocalution):#rocm_install_symlink_subdir(rocalution):" -i ${S}/src/CMakeLists.txt
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -58,10 +58,10 @@ src_configure() {
 		-DSUPPORT_MPI=$(usex mpi ON OFF)
 		-DCMAKE_INSTALL_INCLUDEDIR="include/rocALUTION"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-        cmake-utils_src_install
+        cmake_src_install
         chrpath --delete "${D}/usr/lib64/librocalution.so.0.1"
 }

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils 
+inherit cmake 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocThrust"
 SRC_URI="https://github.com/ROCmSoftwarePlatform/rocThrust/archive/rocm-$(ver_cut 1-2).tar.gz -> rocThrust-$(ver_cut 1-2).tar.gz"
@@ -31,7 +31,7 @@ src_prepare() {
 	sed -e "s:\${ROCM_INSTALL_LIBDIR}:\${CMAKE_INSTALL_LIBDIR}:" -i ${S}/cmake/ROCMExportTargetsHeaderOnly.cmake
 
 	eapply_user
-	cmake-utils_src_prepare 
+	cmake_src_prepare 
 }
 
 src_configure() {
@@ -44,5 +44,5 @@ src_configure() {
 		-DBUILD_TEST=OFF
 	)
 	
-	cmake-utils_src_configure 
+	cmake_src_configure 
 }

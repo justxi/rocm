@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 DESCRIPTION="MIOpen"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpen"
@@ -40,7 +40,7 @@ src_prepare() {
 	sed -e "s:DESTINATION \${MIOPEN_INSTALL_DIR}/bin:DESTINATION \${CMAKE_INSTALL_PREFIX}/bin:" -i driver/CMakeLists.txt
 	sed -e "s:rocm_install_symlink_subdir(\${MIOPEN_INSTALL_DIR}):#rocm_install_symlink_subdir(\${MIOPEN_INSTALL_DIR}):" -i src/CMakeLists.txt
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -65,11 +65,11 @@ src_configure() {
 		mycmakeargs+=( "-DBoost_USE_STATIC_LIBS=Off" )
 	fi
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-        cmake-utils_src_install
+        cmake_src_install
 	chrpath --delete "${D}/usr/bin/MIOpenDriver"
         chrpath --delete "${D}/usr/lib64/libMIOpen.so.1.0"
 }

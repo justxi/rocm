@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic check-reqs
+inherit cmake flag-o-matic check-reqs
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocFFT"
@@ -44,7 +44,7 @@ src_prepare() {
 	sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i ${S}/library/src/device/CMakeLists.txt
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -83,10 +83,10 @@ src_configure() {
         echo "gfx803" >> ${WORKDIR}/target.lst
         export ROCM_TARGET_LST="${WORKDIR}/target.lst"
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-        cmake-utils_src_install
+        cmake_src_install
         chrpath --delete "${D}/usr/lib64/librocfft.so.0.1"
 }

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 DESCRIPTION="AMD's Machine Intelligence Library"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpen"
@@ -45,7 +45,7 @@ src_prepare() {
 
 	sed -e "s:\${AMD_DEVICE_LIBS_PREFIX}/lib:/usr/lib/amdgcn/bitcode:" -i "${S}/cmake/hip-config.cmake" || die
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -71,11 +71,11 @@ src_configure() {
 		mycmakeargs+=( "-DBoost_USE_STATIC_LIBS=Off" )
 	fi
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-        cmake-utils_src_install
+        cmake_src_install
 	chrpath --delete "${D}/usr/bin/MIOpenDriver"
         chrpath --delete "${D}/usr/lib64/libMIOpen.so.1.0"
 }

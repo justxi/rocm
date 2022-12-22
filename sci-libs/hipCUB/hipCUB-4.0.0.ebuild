@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="A thin wrapper library on top of rocPRIM or CUB"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipCUB"
@@ -33,7 +33,7 @@ src_prepare() {
 	sed -e "s:set(ROCM_INSTALL_LIBDIR lib:set(ROCM_INSTALL_LIBDIR \${CMAKE_INSTALL_LIBDIR}:" -i ${S}/cmake/ROCMExportTargetsHeaderOnly.cmake
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -50,5 +50,5 @@ src_configure() {
         echo "gfx803" >> ${WORKDIR}/target.lst
         export ROCM_TARGET_LST="${WORKDIR}/target.lst"
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

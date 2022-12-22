@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 DESCRIPTION="MIOpen"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpen"
@@ -31,5 +31,5 @@ src_configure() {
 	strip-flags
 	CMAKE_MAKEFILE_GENERATOR=emake
 	CXX="/usr/lib/hcc/$(ver_cut 1-2)/bin/hcc"
-	cmake-utils_src_configure
+	cmake_src_configure
 }

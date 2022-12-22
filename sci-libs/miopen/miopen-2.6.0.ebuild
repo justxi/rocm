@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 DESCRIPTION="MIOpen"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpen"
@@ -25,7 +25,7 @@ S="${WORKDIR}/MIOpen-roc-${PV}"
 
 src_prepare() {
 	eapply "${FILESDIR}"/${P}-remove-static-boost.patch
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -37,5 +37,5 @@ src_configure() {
 		#-DCMAKE_PREFIX_PATH="/usr/lib/hip/$(ver_cut 1-2)/;/usr/lib/hcc/$(ver_cut 1-2)/;/usr/bin/clang-ocl"
 		-DEXTRACTKERNEL_BIN="/usr/lib/hcc/$(ver_cut 1-2)/bin/extractkernel"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }

@@ -3,7 +3,7 @@
 
 EAPI=7
 
-#inherit cmake-utils
+#inherit cmake
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocRAND"
@@ -57,7 +57,7 @@ src_configure() {
 #	)
 
 	cmake -DHIP_PLATFORM=hcc -DHIP_ROOT_DIR=/usr/lib/hip/$(ver_cut 1-2)/ -DBUILD_TEST=OFF ${S}
-#	cmake-utils_src_configure
+#	cmake_src_configure
 }
 
 src_compile() {

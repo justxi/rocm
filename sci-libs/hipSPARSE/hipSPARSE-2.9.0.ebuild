@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipSPARSE"
@@ -27,7 +27,7 @@ src_prepare() {
 	sed -e "s:rocm_install_symlink_subdir(hipsparse):#rocm_install_symlink_subdir(hipsparse):" -i ${S}/library/CMakeLists.txt || die
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -40,5 +40,5 @@ src_configure() {
 		-DCMAKE_INSTALL_INCLUDEDIR=include/hipsparse
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

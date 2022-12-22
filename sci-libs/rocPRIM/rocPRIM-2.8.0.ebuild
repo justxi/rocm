@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="HIP parallel primitives for developing performant GPU-accelerated code on AMD ROCm platform"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocPRIM"
@@ -32,7 +32,7 @@ src_prepare() {
 	sed -e "s:rocm_install_symlink_subdir(rocprim):#rocm_install_symlink_subdir(rocprim):" -i rocprim/CMakeLists.txt
 
         eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -50,5 +50,5 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX=/usr/
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

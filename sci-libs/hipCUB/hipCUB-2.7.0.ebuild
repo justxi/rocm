@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipCUB"
@@ -28,7 +28,7 @@ src_prepare() {
 	sed -e "s:rocm_install_symlink_subdir(hipcub):#rocm_install_symlink_subdir(hipcub):" -i ${S}/hipcub/CMakeLists.txt
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -43,5 +43,5 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX=/usr
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

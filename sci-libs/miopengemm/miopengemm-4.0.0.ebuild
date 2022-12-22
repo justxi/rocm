@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 DESCRIPTION="An OpenCL general matrix multiplication (GEMM) API and kernel generator"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/MIOpenGEMM"
@@ -25,7 +25,7 @@ src_prepare() {
 	sed -e "s:set( miopengemm_INSTALL_DIR miopengemm):set( miopengemm_INSTALL_DIR \"\"):" -i "${S}/miopengemm/CMakeLists.txt" || die
 	sed -e "s:rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):#rocm_install_symlink_subdir(\${miopengemm_INSTALL_DIR}):" -i "${S}/miopengemm/CMakeLists.txt" || die
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -39,5 +39,5 @@ src_configure() {
 	if use benchmark; then
 		mycmakeargs+=( "-DAPI_BENCH_MIOGEMM=On" )
 	fi
-	cmake-utils_src_configure
+	cmake_src_configure
 }

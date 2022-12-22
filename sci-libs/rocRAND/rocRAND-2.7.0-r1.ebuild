@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocRAND"
@@ -41,7 +41,7 @@ src_prepare() {
         sed -e "s:set(LIB_INSTALL_DIR \"\${CMAKE_INSTALL_PREFIX}/rocrand/lib\"):set(LIB_INSTALL_DIR \"\${CMAKE_INSTALL_FULL_LIBDIR}\"):" -i library/CMakeLists.txt
 
         eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -60,5 +60,5 @@ src_configure() {
 		-DCMAKE_CXX_FLAGS:STRING="-I${HCC_ROOT}/include"
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

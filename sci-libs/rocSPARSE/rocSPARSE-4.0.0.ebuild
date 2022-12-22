@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="Common interface that provides Basic Linear Algebra Subroutines for sparse computation"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocSPARSE"
@@ -40,7 +40,7 @@ src_prepare() {
 	sed -e "s:rocsparse/include:include/rocsparse:" -i library/CMakeLists.txt
 
         eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -76,10 +76,10 @@ src_configure() {
         echo "gfx803" >> ${WORKDIR}/target.lst
         export ROCM_TARGET_LST="${WORKDIR}/target.lst"
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	chrpath --delete "${D}/usr/lib64/librocsparse.so.${rocSPARSE_V}"
 }

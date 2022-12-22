@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="ROCm SPARSE marshalling library"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipSPARSE"
@@ -29,7 +29,7 @@ src_prepare() {
 	sed -e "s:rocm_install_symlink_subdir(hipsparse):#rocm_install_symlink_subdir(hipsparse):" -i ${S}/library/CMakeLists.txt || die
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -50,5 +50,5 @@ src_configure() {
         echo "gfx803" >> ${WORKDIR}/target.lst
         export ROCM_TARGET_LST="${WORKDIR}/target.lst"
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

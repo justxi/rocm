@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipCUB"
@@ -31,7 +31,7 @@ src_prepare() {
 	sed -e "s:set(ROCM_INSTALL_LIBDIR lib:set(ROCM_INSTALL_LIBDIR \${CMAKE_INSTALL_LIBDIR}:" -i ${S}/cmake/ROCMExportTargetsHeaderOnly.cmake
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -46,5 +46,5 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX=/usr
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

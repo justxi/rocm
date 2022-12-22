@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 #git-r3
 
 DESCRIPTION="AMD's library for BLAS on ROCm."
@@ -75,7 +75,7 @@ src_prepare() {
 
 	cd ${S}
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -158,10 +158,10 @@ src_configure() {
 
 	export ROCM_TARGET_LST="${WORKDIR}/target.lst"
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
-	cmake-utils_src_install
+	cmake_src_install
 	chrpath --delete "${D}/usr/lib64/librocblas.so.${rocBLAS_V}"
 }

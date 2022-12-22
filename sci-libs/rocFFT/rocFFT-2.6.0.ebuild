@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 LIB_VER="0.9.4"
 
@@ -34,7 +34,7 @@ src_prepare() {
 	#sed -e "s: PREFIX rocfft:# PREFIX rocfft:" -i ${S}/library/src/device/CMakeLists.txt
 	#sed -e "s:rocm_install_symlink_subdir( rocfft ):#rocm_install_symlink_subdir( rocfft ):" -i ${S}/library/src/device/CMakeLists.txt
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -69,7 +69,7 @@ src_configure() {
 #		-DCMAKE_INSTALL_PREFIX="/usr/"
 #		-DCMAKE_INSTALL_INCLUDEDIR="include/rocFFT/"
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 #src_compile() {
