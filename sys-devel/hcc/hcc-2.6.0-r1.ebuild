@@ -2,7 +2,7 @@
 #
 
 EAPI=7
-inherit git-r3 cmake-utils flag-o-matic
+inherit git-r3 cmake flag-o-matic
 
 DESCRIPTION="HCC - An open source C++ compiler for heterogeneous devices"
 HOMEPAGE="https://github.com/RadeonOpenCompute/hcc"
@@ -38,7 +38,7 @@ src_configure() {
 		-DCMAKE_INSTALL_MANDIR="${EPREFIX}/usr/lib/hcc/$(ver_cut 1-2)/share/man"
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
@@ -48,7 +48,7 @@ src_install() {
 	echo "CMAKE_PREFIX_PATH=/usr/lib/hcc/$(ver_cut 1-2)/lib/cmake/hcc" >> 99hcc || die
 	doenvd 99hcc
 
-	cmake-utils_src_install
+	cmake_src_install
 }
 
 pkg_postinst() {

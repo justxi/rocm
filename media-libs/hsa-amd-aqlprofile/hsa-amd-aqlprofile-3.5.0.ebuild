@@ -1,7 +1,7 @@
 # Copyright
 # 
 
-EAPI=6
+EAPI=7
 inherit unpacker
 
 DESCRIPTION="hsa-amd-aqlprofile"

@@ -1,7 +1,7 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="ROCm System Management Interface"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROC-smi"

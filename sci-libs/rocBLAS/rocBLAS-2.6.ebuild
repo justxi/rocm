@@ -1,7 +1,7 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rocBLAS"

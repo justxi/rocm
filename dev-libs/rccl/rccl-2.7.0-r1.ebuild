@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="ROCm Communication Collectives Library (RCCL)"
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/rccl"
@@ -45,5 +45,5 @@ src_configure() {
 		-DCMAKE_CXX_FLAGS="--amdgpu-target=gfx${CurrentISA}"
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }

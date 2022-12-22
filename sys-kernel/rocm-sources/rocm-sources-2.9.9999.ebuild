@@ -1,7 +1,7 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
 inherit git-r3
 
 DESCRIPTION="ROCm kernel sources"

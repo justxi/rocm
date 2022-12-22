@@ -1,7 +1,7 @@
 # Copyright
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="A performance analysis tool that gathers data from the API run-time and GPU for OpenCL™ and ROCm/HSA applications"
 HOMEPAGE="https://github.com/GPUOpen-Tools/RCP"

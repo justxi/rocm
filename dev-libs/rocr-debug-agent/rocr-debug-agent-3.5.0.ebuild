@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils linux-info
+inherit cmake linux-info
 
 SRC_URI="https://github.com/ROCm-Developer-Tools/rocr_debug_agent/archive/roc-${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/rocr_debug_agent-roc-${PV}/src"
@@ -30,5 +30,5 @@ src_prepare() {
 	sed -e "s:HINTS /opt/rocm/include:HINTS /usr/include:" -i "${S}/CMakeLists.txt"
 	sed -e "s:install(TARGETS \${TARGET_NAME} DESTINATION lib):install(TARGETS \${TARGET_NAME} DESTINATION lib64):" -i "${S}/CMakeLists.txt"
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }

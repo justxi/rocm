@@ -1,7 +1,7 @@
 # Copyright
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit unpacker
 

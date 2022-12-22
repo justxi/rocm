@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="ROC profiler library."
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/rocprofiler.git"
@@ -31,7 +31,7 @@ src_prepare() {
 	# header "string" is not included...
 	sed -e "s:#include <vector>:#include <vector>\n#include <string>:" -i "${S}/test/simple_convolution/simple_convolution.h"
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -52,7 +52,7 @@ src_configure() {
 		)
 	fi
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 pkg_postinst() {

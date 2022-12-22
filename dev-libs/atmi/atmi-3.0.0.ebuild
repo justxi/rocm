@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="https://github.com/RadeonOpenCompute/atmi"
 HOMEPAGE="https://github.com/RadeonOpenCompute/atmi"
@@ -28,7 +28,7 @@ CMAKE_MAKEFILE_GENERATOR="emake"
 src_prepare() {
 	sed -e "s:DESTINATION lib COMPONENT device_runtime:DESTINATION lib64 COMPONENT device_runtime:" -i ${S}/device_runtime/CMakeLists.txt
 	sed -e "s:TARGETS atmi_runtime LIBRARY DESTINATION \"lib\" COMPONENT runtime:TARGETS atmi_runtime LIBRARY DESTINATION \"lib64\" COMPONENT runtime:" -i ${S}/runtime/core/CMakeLists.txt
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -54,5 +54,5 @@ src_configure() {
 		-DATMI_HSA_INTEROP=ON
 		-DATMI_C_EXTENSION=OFF
 	)
-	cmake-utils_src_configure
+	cmake_src_configure
 }

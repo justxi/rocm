@@ -2,7 +2,7 @@
 #
 
 EAPI=7
-inherit cmake-utils flag-o-matic
+inherit cmake flag-o-matic
 
 DESCRIPTION="C++ Heterogeneous-Compute Interface for Portability"
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/HIP"
@@ -49,7 +49,7 @@ src_prepare() {
 	sed -e "s:    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:#    \$HIPCXXFLAGS .= \" -isystem \$HSA_PATH/include\";:" -i bin/hipcc || die
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -86,7 +86,7 @@ src_configure() {
 
 	local HIP_PATH=""
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
@@ -104,5 +104,5 @@ src_install() {
 
 	doenvd 99hip
 
-	cmake-utils_src_install
+	cmake_src_install
 }

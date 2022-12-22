@@ -2,7 +2,7 @@
 #
 
 EAPI=7
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="C++ Heterogeneous-Compute Interface for Portability"
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/HIP"
@@ -28,7 +28,7 @@ src_prepare() {
 	eapply "${FILESDIR}/${PV}-DisableTest.patch"
 	sed -e "s:#!/usr/bin/python:#!/usr/bin/python2:" -i hip_prof_gen.py || die
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -48,7 +48,7 @@ src_configure() {
 		-DHSA_PATH=/opt/rocm
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 src_install() {
@@ -59,5 +59,5 @@ src_install() {
 	echo "CMAKE_PREFIX_PATH=/usr/lib/hip/$(ver_cut 1-2)/lib/cmake/hip" >> 99hip || die
 	doenvd 99hip
 
-	cmake-utils_src_install
+	cmake_src_install
 }

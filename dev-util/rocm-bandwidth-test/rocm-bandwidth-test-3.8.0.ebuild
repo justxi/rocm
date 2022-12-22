@@ -1,8 +1,8 @@
 # Copyright
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit cmake-utils
+EAPI=7
+inherit cmake
 
 DESCRIPTION="Capture the performance characteristics of buffer copying and kernel read/write operations"
 HOMEPAGE="https://github.com/RadeonOpenCompute/rocm_bandwidth_test"

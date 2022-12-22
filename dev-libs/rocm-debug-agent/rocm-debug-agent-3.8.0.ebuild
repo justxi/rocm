@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils linux-info
+inherit cmake linux-info
 
 DESCRIPTION="Radeon Open Compute Debug Agent"
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/rocr_debug_agent/"
@@ -37,5 +37,5 @@ src_prepare() {
 	sed -e "s:DESTINATION lib:DESTINATION lib64:" -i "${S}/CMakeLists.txt"
 	sed -e "s:DESTINATION share/doc/rocm-debug-agent:DESTINATION share/doc/rocm-debug-agent-${PV}:" -i ${S}/CMakeLists.txt
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }

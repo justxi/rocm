@@ -1,8 +1,8 @@
 # Copyright
 #
 
-EAPI=6
-inherit cmake-utils
+EAPI=7
+inherit cmake
 
 DESCRIPTION="User space interface for applications to monitor and control GPU applications."
 HOMEPAGE="https://github.com/RadeonOpenCompute/rocm_smi_lib"
@@ -27,5 +27,5 @@ src_prepare() {
 	sed -e "s:LIBRARY DESTINATION \${ROCM_SMI}/lib COMPONENT \${ROCM_SMI_COMPONENT}):LIBRARY DESTINATION lib64 COMPONENT \${ROCM_SMI_COMPONENT}):" -i ${S}/CMakeLists.txt
 	sed -e "s:DESTINATION rocm_smi/include/rocm_smi):DESTINATION include):" -i ${S}/CMakeLists.txt
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }

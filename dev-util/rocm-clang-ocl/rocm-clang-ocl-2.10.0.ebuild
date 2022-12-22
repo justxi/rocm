@@ -1,9 +1,9 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="OpenCL compilation with clang compiler"
 HOMEPAGE="https://github.com/RadeonOpenCompute/clang-ocl.git"

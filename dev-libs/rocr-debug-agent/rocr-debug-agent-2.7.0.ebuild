@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils linux-info
+inherit cmake linux-info
 
 SRC_URI="https://github.com/ROCm-Developer-Tools/rocr_debug_agent/archive/roc-${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/rocr_debug_agent-roc-${PV}/src"

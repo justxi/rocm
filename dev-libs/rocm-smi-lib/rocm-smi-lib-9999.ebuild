@@ -1,8 +1,8 @@
 # Copyright
 #
 
-EAPI=6
-inherit cmake-utils git-r3
+EAPI=7
+inherit cmake git-r3
 
 DESCRIPTION="User space interface for applications to monitor and control GPU applications."
 HOMEPAGE="https://github.com/RadeonOpenCompute/rocm_smi_lib"

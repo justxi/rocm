@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="ROC profiler library."
 HOMEPAGE="https://github.com/ROCm-Developer-Tools/rocprofiler.git"
@@ -42,7 +42,7 @@ src_configure() {
 		)
 	fi
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
 
 pkg_postinst() {

@@ -1,7 +1,7 @@
 # Copyright
 #
 
-EAPI=6
+EAPI=7
 
 DESCRIPTION="ROCm kernel sources"
 HOMEPAGE="https://github.com/RadeonOpenCompute/ROCK-Kernel-Driver"

@@ -1,9 +1,9 @@
 # Copyright
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION="OpenCL compilation with clang compiler"
 HOMEPAGE="https://github.com/RadeonOpenCompute/clang-ocl.git"
@@ -26,5 +26,5 @@ src_prepare() {
 	sed -e "s:AMDDeviceLibs PATHS /opt/rocm:AMDDeviceLibs PATHS /usr/lib/cmake/AMDDeviceLibs/:" -i "${S}/CMakeLists.txt"
 	sed -e "s:\${AMD_DEVICE_LIBS_PREFIX}/amdgcn/bitcode:\${AMD_DEVICE_LIBS_PREFIX}/lib/amdgcn/bitcode:" -i "${S}/CMakeLists.txt"
 
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
