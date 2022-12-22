@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit cmake-utils
+inherit cmake
 
 DESCRIPTION=""
 HOMEPAGE="https://github.com/ROCmSoftwarePlatform/hipBLAS"
@@ -34,7 +34,7 @@ src_prepare() {
 #	sed -e "s:<INSTALL_INTERFACE\:hipcub/include/:<INSTALL_INTERFACE\:include/hipcub/:" -i ${S}/hipcub/CMakeLists.txt
 
 	eapply_user
-	cmake-utils_src_prepare
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -47,5 +47,5 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX=/usr
 	)
 
-	cmake-utils_src_configure
+	cmake_src_configure
 }
